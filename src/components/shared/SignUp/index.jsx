@@ -1,4 +1,5 @@
-import 'signup.css'
+import TextInput from '../TextInput'
+import './signup.css'
 
 export default function SignUp() {
   return (
@@ -8,7 +9,7 @@ export default function SignUp() {
           <h5>Sign up</h5>
         </div>
         <div>
-          <
+          <TextInput />
         </div>
       </div>
     </>

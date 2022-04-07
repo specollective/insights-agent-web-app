@@ -1,7 +1,13 @@
-import './home.css'
+import { Header, SignUp } from '../../index.js'
+import './landing.css'
 
-export default function SignUp() {
+export default function Landing() {
   return (
-    
+    <>
+      <Header />
+      <div>
+        <SignUp />
+      </div>
+    </>
   )
 }

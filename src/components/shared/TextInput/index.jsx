@@ -1,7 +1,23 @@
-import 'textinput.css'
+import React from 'react'
+import './textinput.css'
 
-export default function TextInput() {
+interface TextInputProps {
+  value: string;
+  onChange: (val:string) => void;
+  placeholder?: string;
+  autoFocus?: boolean;
+}
+
+const TextInput = ({ value, onChange, placeholder }: TextInputProps) => {
   return (
-    <div className='field' />
+    <>
+      <input className='field'
+        value={value}
+        onChange={({ target: { value } }) => onChange(value)}
+        placeholder={placeholder}
+      />
+    </>
   )
 }
+
+export default TextInput
