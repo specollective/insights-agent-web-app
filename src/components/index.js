@@ -1,9 +1,11 @@
-import { SignUp, TextInput, Layout } from './shared'
-import { Landing } from './pages'
+import { SignUp, TextInput, Layout, Instructions } from './shared'
+import { Landing, Download } from './pages'
 
 export {
   SignUp,
   TextInput,
   Landing,
   Layout,
+  Instructions,
+  Download,
 }

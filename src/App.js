@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { Layout, Landing } from './components'
+import { Layout, Landing, Download } from './components'
 import './App.css';
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
       <Layout>
         <Routes>
           <Route path='/' element={<Landing />} />
+          <Route path='/download' element={<Download />} />
         </Routes>
       </Layout>
     </div>

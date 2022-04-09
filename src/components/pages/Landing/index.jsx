@@ -1,5 +1,6 @@
 import { SignUp } from '../../index.js'
 import { LoremIpsum, loremIpsum } from 'react-lorem-ipsum'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './landing.css'
 
 export default function Landing() {
@@ -19,9 +20,10 @@ export default function Landing() {
       <div className='yesAndNo'>
         <div className='study-is'>
           <h5>Study is:</h5>
-          <ul>
+          <ul className='fa-ul'>
             {loremIpsum({ p: 3, avgSentencesPerParagraph: 2, }).map(text => (
               <li className='text' key ={text}>
+                <FontAwesomeIcon icon='fa-solid fa-face-smile-beam' listItem />
                 {text}
               </li>
             ))}

@@ -54,9 +54,10 @@ export default function SignUp() {
         <div>
           <p>Sign up to participate in our study!</p>
         </div>
-        <div>
-          <form className='resgister-form' onSubmit={handleSubmit}>
-            <input
+        <div id='register'>
+          <form className='register-form' onSubmit={handleSubmit}>
+            <div id='name'>
+              <input
               id='first-name'
               className='form-field'
               type='text'
@@ -65,38 +66,43 @@ export default function SignUp() {
               value={values.firstName}
               onChange={handleFirstNameInputChange}
               />
-            {submitted && !values.firstName && <span id='first-name-error'>Please enter a first name</span>}
-            <input
-              id='last-name'
-              className='form-field'
-              type='text'
-              placeholder='Last Name'
-              name='lastName'
-              value={values.lastName}
-              onChange={handleLastNameInputChange}
-              />
-            {submitted && !values.lastName && <span id='last-name-error'>Please enter a last name</span>}
-            <input
-              id='phone-number'
-              className='form-field'
-              type='text'
-              placeholder='Phone Number'
-              name='phoneNumber'
-              value={values.phoneNumber}
-              onChange={handlePhoneNumberInputChange}
-              />
-            {submitted && !values.phoneNumber && <span id='phone-number-error'>Please enter a phone number</span>}
-            <input
-              id='email'
-              className='form-field'
-              type='text'
-              placeholder='Email'
-              name='email'
-              value={values.email}
-              onChange={handleEmailInputChange}
-              />
-            {submitted && !values.email && <span id='email-error'>Please enter an email.</span>}
-            <button className="form-field" type="submit">
+              {submitted && !values.firstName && <span id='first-name-error'>Please enter a first name</span>}
+              <input
+                id='last-name'
+                className='form-field'
+                type='text'
+                placeholder='Last Name'
+                name='lastName'
+                value={values.lastName}
+                onChange={handleLastNameInputChange}
+                />
+              {submitted && !values.lastName && <span id='last-name-error'>Please enter a last name</span>}
+            </div>
+            <div id='phone'>
+              <input
+                id='phone-number'
+                className='form-field'
+                type='text'
+                placeholder='Phone Number as XXX-XXX-XXXX'
+                name='phoneNumber'
+                value={values.phoneNumber}
+                onChange={handlePhoneNumberInputChange}
+                />
+              {submitted && !values.phoneNumber && <span id='phone-number-error'>Please enter a phone number</span>}
+            </div>
+            <div id='email'>
+              <input
+                id='email'
+                className='form-field'
+                type='text'
+                placeholder='Email'
+                name='email'
+                value={values.email}
+                onChange={handleEmailInputChange}
+                />
+              {submitted && !values.email && <span id='email-error'>Please enter an email.</span>}
+            </div>
+            <button className="form-field" type="submit" id='submit'>
               Submit
             </button>
           </form>
