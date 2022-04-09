@@ -1,10 +1,16 @@
 import { Instructions } from '../../../components'
-import './download.css'
+import './instructionPage.css'
 
-export default function Download() {
+export default function InstructionPage() {
   return (
     <>
       <div className='instructions'>
+        <div id='setup'>
+          <h3>
+            Setup Instructions
+          </h3>
+          <Instructions />
+        </div>
         <div id='installation'>
           <h3>
             Installation Instructions

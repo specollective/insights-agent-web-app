@@ -1,5 +1,5 @@
 import { SignUp, TextInput, Layout, Instructions } from './shared'
-import { Landing, Download } from './pages'
+import { Landing, Download, InstructionPage } from './pages'
 
 export {
   SignUp,
@@ -8,4 +8,6 @@ export {
   Layout,
   Instructions,
   Download,
+  InstructionPage,
+  
 }

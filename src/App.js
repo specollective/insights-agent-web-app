@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { Layout, Landing, Download } from './components'
+import { Layout, Landing, Download, InstructionPage } from './components'
 import './App.css';
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Landing />} />
           <Route path='/download' element={<Download />} />
+          <Route path='/instructions' element={<InstructionPage />} />
         </Routes>
       </Layout>
     </div>
