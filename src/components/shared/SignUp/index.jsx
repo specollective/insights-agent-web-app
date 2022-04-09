@@ -10,6 +10,7 @@ export default function SignUp() {
   })
   
   const [submitted, setSubmitted] = useState(false)
+  const [valid, setValid] = useState(false)
   
   const handleFirstNameInputChange = (e) => {
     e.persist()
@@ -25,25 +26,25 @@ export default function SignUp() {
       lastName: e.target.value,
     }))
   }
-  
   const handlePhoneNumberInputChange = (e) => {
     e.persist()
     setValues((values) => ({
       ...values,
       phoneNumber: e.target.value,
     }))
-  }
-  
+  }  
   const handleEmailInputChange = (e) => {
     e.persist()
     setValues((values) => ({
       ...values,
       email: e.target.value,
     }))
-  }
-  
+  }  
   const handleSubmit = (e) => {
     e.preventDefault()
+    if(values.firstName && values.lastName && values.phoneNumber && values.email) {
+      setValid(true)
+    }
     setSubmitted(true)
   }
   
@@ -63,7 +64,8 @@ export default function SignUp() {
               name='firstName'
               value={values.firstName}
               onChange={handleFirstNameInputChange}
-            />
+              />
+            {submitted && !values.firstName && <span id='first-name-error'>Please enter a first name</span>}
             <input
               id='last-name'
               class='form-field'
@@ -72,7 +74,8 @@ export default function SignUp() {
               name='lastName'
               value={values.lastName}
               onChange={handleLastNameInputChange}
-            />
+              />
+            {submitted && !values.lastName && <span id='last-name-error'>Please enter a last name</span>}
             <input
               id='phone-number'
               class='form-field'
@@ -81,7 +84,8 @@ export default function SignUp() {
               name='phoneNumber'
               value={values.phoneNumber}
               onChange={handlePhoneNumberInputChange}
-            />
+              />
+            {submitted && !values.phoneNumber && <span id='phone-number-error'>Please enter a phone number</span>}
             <input
               id='email'
               class='form-field'
@@ -90,9 +94,12 @@ export default function SignUp() {
               name='email'
               value={values.email}
               onChange={handleEmailInputChange}
-            />
+              />
+            {submitted && !values.email && <span id='email-error'>Please enter an email.</span>}
+          <button class="form-field" type="submit">
+            Submit
+          </button>
           </form>
-          {showSuccess && <div class='success-message'>Success! You've been registerd.</div>}
         </div>
       </div>
     </>

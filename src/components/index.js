@@ -1,4 +1,4 @@
-import { Header, SignUp, TextInput } from './shared'
+import { Header, SignUp, TextInput, Layout } from './shared'
 import { Landing } from './pages'
 
 export {
