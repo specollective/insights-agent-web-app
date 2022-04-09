@@ -1,4 +1,4 @@
-import { Header } from './index.jsx'
+import Header from '../Header'
 
 export default function Layout(props) {
   return(
