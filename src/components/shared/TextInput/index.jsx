@@ -5,19 +5,20 @@ interface TextInputProps {
   value: string;
   onChange: (val:string) => void;
   placeholder?: string;
+  label?: string;
   autoFocus?: boolean;
 }
 
-const TextInput = ({ value, onChange, placeholder }: TextInputProps) => {
+export default function TextInput({ value, onChange, placeholder, label }: TextInputProps) {
   return (
     <>
-      <input className='field'
-        value={value}
-        onChange={({ target: { value } }) => onChange(value)}
-        placeholder={placeholder}
-      />
+      <div>
+        <input
+          value={value}
+          onChange={({ target: { value } }) => onChange(value)}
+          placeholder={placeholder}
+        />
+      </div>
     </>
   )
 }
-
-export default TextInput
