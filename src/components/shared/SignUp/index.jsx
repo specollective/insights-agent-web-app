@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './signup.css'
 
 export default function SignUp() {
@@ -11,6 +12,8 @@ export default function SignUp() {
   
   const [submitted, setSubmitted] = useState(false)
   const [valid, setValid] = useState(false)
+  
+  const navigate = useNavigate()
   
   const handleFirstNameInputChange = (e) => {
     e.persist()
@@ -44,6 +47,7 @@ export default function SignUp() {
     e.preventDefault()
     if(values.firstName && values.lastName && values.phoneNumber && values.email) {
       setValid(true)
+      navigate('/download')
     }
     setSubmitted(true)
   }
