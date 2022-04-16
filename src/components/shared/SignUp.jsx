@@ -7,8 +7,7 @@ export default function SignUp() {
   const auth = useAuth();
 
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    name: '',
     phoneNumber: '',
     email: '',
   })
@@ -22,7 +21,7 @@ export default function SignUp() {
     e.persist()
     setFormData((formData) => ({
       ...formData,
-      firstName: e.target.value,
+      name: e.target.value,
     }))
   }
 
@@ -68,68 +67,53 @@ export default function SignUp() {
   return (
     <>
       <div>
-        <div>
-          <p>Sign up to participate in our study!</p>
-        </div>
+        <div id="register">
+          <form className="register-form" onSubmit={handleSubmit}>
 
-        <div id='register'>
-          <form className='register-form' onSubmit={handleSubmit}>
-            <div id='name'>
+            <div>
               <input
-                id='first-name'
-                className='form-field'
-                type='text'
-                placeholder='First Name'
-                name='firstName'
-                value={formData.firstName}
+                id="first-name"
+                className="form-field"
+                type="text"
+                placeholder="First Name"
+                name="name"
+                value={formData.name}
                 onChange={handleFirstNameInputChange}
               />
 
-              {submitted && !formData.firstName && <span id='first-name-error'>Please enter a first name</span>}
-
-              <input
-                id='last-name'
-                className='form-field'
-                type='text'
-                placeholder='Last Name'
-                name='lastName'
-                value={formData.lastName}
-                onChange={handleLastNameInputChange}
-              />
-
-              {submitted && !formData.lastName && <span id='last-name-error'>Please enter a last name</span>}
+              {submitted && !formData.name && <span id="first-name-error">Please enter a first name</span>}
             </div>
 
-            <div id='phone'>
+            <div>
               <input
-                id='phone-number'
-                className='form-field'
-                type='text'
-                placeholder='Phone Number as XXX-XXX-XXXX'
-                name='phoneNumber'
+                id="phone-number"
+                className="form-field"
+                type="text"
+                placeholder="Phone Number as XXX-XXX-XXXX"
+                name="phoneNumber"
                 value={formData.phoneNumber}
                 onChange={handlePhoneNumberInputChange}
                 />
 
-              {submitted && !formData.phoneNumber && <span id='phone-number-error'>Please enter a phone number</span>}
+              {submitted && !formData.phoneNumber && <span id="phone-number-error">Please enter a phone number</span>}
             </div>
 
             {/* TODO: Discuss if we want an optional email
-              <div id='email'>
+              <div id="email">
                 <input
-                  id='email'
-                  className='form-field'
-                  type='text'
-                  placeholder='Email'
-                  name='email'
+                  id="email"
+                  className="form-field"
+                  type="text"
+                  placeholder="Email"
+                  name="email"
                   value={formData.email}
                   onChange={handleEmailInputChange}
                   />
-                {submitted && !formData.email && <span id='email-error'>Please enter an email.</span>}
+                {submitted && !formData.email && <span id="email-error">Please enter an email.</span>}
               </div>
             */}
 
-            <button className="form-field" type="submit" id='submit'>
+            <button className="form-field" type="submit" id="sign-up-button">
               Submit
             </button>
           </form>

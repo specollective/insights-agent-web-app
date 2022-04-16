@@ -1,0 +1,16 @@
+#landing-page {
+  padding: 2em;
+  text-align: left;
+}
+
+#landing-page h1 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.info-section {
+}
+
+.info-bullets {
+  padding-left: 1em;
+}
