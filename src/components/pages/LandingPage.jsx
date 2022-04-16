@@ -1,8 +1,7 @@
-import { SignUp } from '../../shared'
 import { LoremIpsum, loremIpsum } from 'react-lorem-ipsum'
-import './landing.css'
+import SignUp from '../shared/SignUp'
 
-export default function Landing() {
+function LandingPage() {
   return (
     <>
       <SignUp />
@@ -41,3 +40,5 @@ export default function Landing() {
     </>
   )
 }
+
+export default LandingPage;

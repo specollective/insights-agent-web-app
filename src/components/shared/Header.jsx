@@ -1,5 +1,5 @@
 import { LoremIpsum } from 'react-lorem-ipsum'
-import './header.css'
+import './Header.css'
 
 export default function Header() {
   return (

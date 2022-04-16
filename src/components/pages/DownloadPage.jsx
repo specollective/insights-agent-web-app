@@ -1,10 +1,13 @@
-import { Instructions } from '../../../components'
-import './download.css'
+import Instructions from '../shared/Instructions'
 
-export default function Download() {
+function DownloadPage() {
   return (
     <>
-      <div className='instructions'>
+      <div>
+        <div className="download">
+          <h1>Getting the App</h1>
+          <button>Download for Windows</button>
+        </div>
         <div id='installation'>
           <h3>
             Installation Instructions
@@ -21,3 +24,5 @@ export default function Download() {
     </>
   )
 }
+
+export default DownloadPage;

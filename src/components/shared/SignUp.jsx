@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import './signup.css'
+import './SignUp.css'
 
 export default function SignUp() {
   const [values, setValues] = useState({
@@ -9,12 +9,12 @@ export default function SignUp() {
     phoneNumber: '',
     email: '',
   })
-  
+
   const [submitted, setSubmitted] = useState(false)
   const [valid, setValid] = useState(false)
-  
+
   const navigate = useNavigate()
-  
+
   const handleFirstNameInputChange = (e) => {
     e.persist()
     setValues((values) => ({
@@ -22,6 +22,7 @@ export default function SignUp() {
       firstName: e.target.value,
     }))
   }
+
   const handleLastNameInputChange = (e) => {
     e.persist()
     setValues((values) => ({
@@ -29,35 +30,36 @@ export default function SignUp() {
       lastName: e.target.value,
     }))
   }
+
   const handlePhoneNumberInputChange = (e) => {
     e.persist()
     setValues((values) => ({
       ...values,
       phoneNumber: e.target.value,
     }))
-  }  
+  }
+
   const handleEmailInputChange = (e) => {
     e.persist()
     setValues((values) => ({
       ...values,
       email: e.target.value,
     }))
-  }  
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    if(values.firstName && values.lastName && values.phoneNumber && values.email) {
-      setValid(true)
-      navigate('/download')
-    }
-    setSubmitted(true)
+
+    navigate('/survey')
   }
-  
+
   return (
     <>
       <div>
         <div>
           <p>Sign up to participate in our study!</p>
         </div>
+
         <div id='register'>
           <form className='register-form' onSubmit={handleSubmit}>
             <div id='name'>
