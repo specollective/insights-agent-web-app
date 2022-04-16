@@ -1,4 +1,5 @@
 import { LoremIpsum, loremIpsum } from 'react-lorem-ipsum'
+import { v4 as uuidv4 } from 'uuid'
 import SignUp from '../shared/SignUp'
 import './LandingPage.css'
 
@@ -16,7 +17,7 @@ function LandingPage() {
 
         <ul className="info-bullets">
           {loremIpsum({ p: 4, avgSentencesPerParagraph: 2, }).map(text => (
-            <li className='text' key ={text}>
+            <li className="text" key={`${uuidv4()}${text}`}>
               {text}
             </li>
           ))}
