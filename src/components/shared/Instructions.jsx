@@ -1,5 +1,4 @@
 import { loremIpsum } from 'react-lorem-ipsum'
-import './instructions.css'
 
 export default function Instructions() {
   return (

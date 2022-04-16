@@ -1,0 +1,25 @@
+.question {
+  background: #E4E4E4;
+  display: block;
+  margin: 1em;
+  border-radius: 1em;
+  padding: 1em;
+  text-align: left;
+}
+
+.question > input {
+  width: 100%;
+}
+
+.survey {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.download {
+  background: #E4E4E4;
+}
+
+h5 {
+  text-align: left;
+}
