@@ -1,3 +1,11 @@
-import Header from './Header'
+import Layout from './Layout'
+import SignUp from './SignUp'
+import TextInput from './TextInput'
+import Instructions from './Instructions'
 
-export { Header }
+export {
+  SignUp, 
+  TextInput,
+  Layout,
+  Instructions,
+}

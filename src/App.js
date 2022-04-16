@@ -1,11 +1,18 @@
-import logo from './logo.svg';
-import { Header } from './components/shared'
+import React, { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import { Layout, Landing, Download, InstructionPage } from './components'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Layout>
+        <Routes>
+          <Route path='/' element={<Landing />} />
+          <Route path='/download' element={<Download />} />
+          <Route path='/instructions' element={<InstructionPage />} />
+        </Routes>
+      </Layout>
     </div>
   );
 }

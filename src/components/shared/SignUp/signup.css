@@ -1,0 +1,20 @@
+#register {
+  display: flex;
+  justify-content: center;
+}
+
+.form-field {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#name, #phone, #email, #submit {
+  display: flex;
+}
+
+#submit {
+  width: 75%;
+  justify-content: center;
+  text-align: center;
+}
