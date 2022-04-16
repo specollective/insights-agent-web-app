@@ -1,43 +1,35 @@
 import { LoremIpsum, loremIpsum } from 'react-lorem-ipsum'
+import { v4 as uuidv4 } from 'uuid'
 import SignUp from '../shared/SignUp'
+import './LandingPage.css'
 
 function LandingPage() {
   return (
-    <>
+    <div id="landing-page">
+      <h1>Sign up to participate in our study!</h1>
+
       <SignUp />
-      <div className='study-description'>
-        <LoremIpsum />
-        <ul>
+
+      <div>
+        <div className="info-section">
+          <LoremIpsum />
+        </div>
+
+        <ul className="info-bullets">
           {loremIpsum({ p: 4, avgSentencesPerParagraph: 2, }).map(text => (
-            <li className='text' key ={text}>
+            <li className="text" key={`${uuidv4()}${text}`}>
               {text}
             </li>
           ))}
         </ul>
       </div>
-      <div className='yesAndNo'>
-        <div className='study-is'>
-          <h5>Study is:</h5>
-          <ul className='fa-ul'>
-            {loremIpsum({ p: 3, avgSentencesPerParagraph: 2, }).map(text => (
-              <li className='text' key ={text}>
-                {text}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className='study-isNot'>
-          <h5>Study Is Not:</h5>
-          <ul>
-            {loremIpsum({ p: 3, avgSentencesPerParagraph: 2, }).map(text => (
-              <li className='text' key ={text}>
-                {text}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </>
+
+      <h2>
+        $XXX for participating in our research study which can go towards your computer purchase.
+      </h2>
+
+      <SignUp />
+    </div>
   )
 }
 
