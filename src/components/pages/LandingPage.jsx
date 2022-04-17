@@ -1,35 +1,44 @@
 import { LoremIpsum, loremIpsum } from 'react-lorem-ipsum'
 import { v4 as uuidv4 } from 'uuid'
-import SignUp from '../shared/SignUp'
-import './LandingPage.css'
+import SignUpForm from 'components/shared/SignUp'
+import { useTranslation } from 'react-i18next'
+import 'components/pages/LandingPage.css'
 
 function LandingPage() {
+  const { t } = useTranslation();
+
   return (
-    <div id="landing-page">
-      <h1>Sign up to participate in our study!</h1>
+    <>
+      <header id="organization">
+        <h1>ORGANIZATION</h1>
+      </header>
 
-      <SignUp />
-
-      <div>
-        <div className="info-section">
-          <LoremIpsum />
+      <main id="landing-page">
+        <div>
+          <h2>{ t('landingPageHeading') }</h2>
+          <SignUpForm />
         </div>
 
-        <ul className="info-bullets">
-          {loremIpsum({ p: 4, avgSentencesPerParagraph: 2, }).map(text => (
-            <li className="text" key={`${uuidv4()}${text}`}>
-              {text}
-            </li>
-          ))}
-        </ul>
-      </div>
+        <div>
+          <div className="info-section">
+            <LoremIpsum />
+          </div>
 
-      <h2>
-        $XXX for participating in our research study which can go towards your computer purchase.
-      </h2>
+          <ul className="info-bullets">
+            {loremIpsum({ p: 4, avgSentencesPerParagraph: 2, }).map(text => (
+              <li className="text" key={`${uuidv4()}${text}`}>
+                {text}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <SignUp />
-    </div>
+        <div>
+          <h2>{ t('landingPageFooterHeading') }</h2>
+          <SignUpForm />
+        </div>
+      </main>
+    </>
   )
 }
 

@@ -1,3 +1,8 @@
+.survey {
+  padding-top: 1em;
+  padding-bottom: 10em;
+}
+
 .question {
   background: #E4E4E4;
   display: block;
@@ -11,11 +16,6 @@
   width: 100%;
 }
 
-.survey {
-  padding-top: 1em;
-  padding-bottom: 1em;
-}
-
 .download {
   background: #E4E4E4;
 }
@@ -23,3 +23,42 @@
 h5 {
   text-align: left;
 }
+
+.actions {
+  display: block;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.actions button {
+  width: 30%;
+}
+
+.left {
+  float: left;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  text-align: left;
+}
+
+.right {
+  float: right;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .question, .actions {
+    margin-left: 20em;
+    margin-right: 20em;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

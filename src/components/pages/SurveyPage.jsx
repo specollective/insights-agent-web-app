@@ -78,8 +78,9 @@ function SurveyPage() {
           <input name="maritalStatus" type="text" onChange={handleInputChange} />
         </div>
 
-        <div>
-          <button onClick={handleSubmit}>Submit</button>
+        <div className="actions">
+          <button className="left">Clear Form</button>
+          <button className="right" onClick={handleSubmit}>Submit</button>
         </div>
       </div>
     </>

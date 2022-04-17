@@ -1,4 +1,4 @@
-import Instructions from '../shared/Instructions'
+import Instructions from 'components/shared/Instructions'
 
 function DownloadPage() {
   return (

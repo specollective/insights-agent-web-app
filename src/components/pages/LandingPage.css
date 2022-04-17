@@ -4,8 +4,16 @@
 }
 
 #landing-page h1 {
-  font-size: 20px;
+  /* font-size: 20px; */
   text-align: center;
+}
+
+header#organization {
+  text-align: center;
+  margin: 0;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  background: #E4E4E4;
 }
 
 .info-section {
@@ -13,4 +21,29 @@
 
 .info-bullets {
   padding-left: 1em;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #landing-page {
+    padding-left: 20em;
+    padding-right: 20em;
+    text-align: left;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
 }

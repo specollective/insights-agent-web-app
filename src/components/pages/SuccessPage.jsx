@@ -1,17 +1,18 @@
-import React from 'react';
+import { LoremIpsum } from 'react-lorem-ipsum'
+import './SuccessPage.css';
 
 function SuccessPage() {
   return (
     <>
-      <div>
-        <div id='setup'>
-          <h3>
-            Thank you for participating in the survey
-          </h3>
+      <header className="success">
+        <h1>Your application has successfully been submitted.</h1>
+        <LoremIpsum />
+      </header>
 
-          <p>Next steps</p>
-        </div>
-      </div>
+      <main>
+
+
+      </main>
     </>
   )
 }
