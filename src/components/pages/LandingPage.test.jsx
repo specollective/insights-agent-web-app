@@ -1,6 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import LandingPage from './LandingPage';
+import i18nTest from 'utils/i18nTest'
+import { I18nextProvider } from 'react-i18next'
 
 const mockedUsedNavigate = jest.fn();
 
@@ -10,13 +12,18 @@ jest.mock('react-router-dom', () => ({
 }));
 
 it('renders page heading', () => {
-  render(<LandingPage />);
+  render(
+    <I18nextProvider i18n={i18nTest}>
+      <LandingPage />
+    </I18nextProvider>
+  );
+
   expect(screen.getByText('Sign up to participate in our study!'))
     .toBeInTheDocument();
 });
 
 it('renders footer heading', () => {
   render(<LandingPage />);
-  expect(screen.getByText(/\$XXX for participating in our research/))
+  expect(screen.getByText(/\$100 for participating in our research/))
     .toBeInTheDocument();
 });

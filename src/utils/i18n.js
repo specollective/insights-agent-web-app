@@ -3,9 +3,6 @@ import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import I18nextBrowserLanguageDetector from 'i18next-browser-languagedetector';
 
-// import translationEn from "../src/lang/translation.en.json";
-// import translationEs from "../src/lang/translation.ko.json";
-
 i18n
   .use(Backend)
   .use(I18nextBrowserLanguageDetector)
