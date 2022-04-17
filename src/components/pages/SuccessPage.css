@@ -1,0 +1,20 @@
+header.success {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  padding-right: 1em;
+  padding-left: 1em;
+  text-align: left;
+  background: #E4E4E4;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  header.success {
+    padding-top: 8em;
+    padding-bottom: 8em;
+    padding-right: 20em;
+    padding-left: 20em;
+    text-align: left;
+    background: #E4E4E4;
+  }
+}

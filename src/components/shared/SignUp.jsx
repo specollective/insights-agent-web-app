@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/authentication'
+import { useTranslation } from 'react-i18next'
 import './SignUp.css'
 
 export default function SignUp() {
   const auth = useAuth();
+  const { t } = useTranslation();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -53,13 +55,6 @@ export default function SignUp() {
     e.preventDefault()
 
     auth.signin(formData, () => {
-      // Send them back to the page they tried to visit when they were
-      // redirected to the login page. Use { replace: true } so we don't create
-      // another entry in the history stack for the login page.  This means that
-      // when they get to the protected page and click the back button, they
-      // won't end up back on the login page, which is also really nice for the
-      // user experience.
-      // navigate(from, { replace: true });
       navigate('/survey', { replace: true });
     });
   }
@@ -71,29 +66,31 @@ export default function SignUp() {
           <form className="register-form" onSubmit={handleSubmit}>
 
             <div>
+              <label htmlFor="full-name">{ t('fullNameLabel') }</label>
               <input
-                id="first-name"
+                id="full-name"
                 className="form-field"
                 type="text"
-                placeholder="First Name"
+                placeholder=""
                 name="name"
                 value={formData.name}
                 onChange={handleFirstNameInputChange}
               />
 
-              {submitted && !formData.name && <span id="first-name-error">Please enter a first name</span>}
+              {submitted && !formData.name && <span id="name-error">Please enter a first name</span>}
             </div>
 
             <div>
+              <label htmlFor="phone-number">{ t('phoneNumberLabel') }</label>
               <input
                 id="phone-number"
                 className="form-field"
                 type="text"
-                placeholder="Phone Number as XXX-XXX-XXXX"
+                placeholder=""
                 name="phoneNumber"
                 value={formData.phoneNumber}
                 onChange={handlePhoneNumberInputChange}
-                />
+              />
 
               {submitted && !formData.phoneNumber && <span id="phone-number-error">Please enter a phone number</span>}
             </div>
@@ -114,7 +111,7 @@ export default function SignUp() {
             */}
 
             <button className="form-field" type="submit" id="sign-up-button">
-              Submit
+              { t('submitText') }
             </button>
           </form>
         </div>
