@@ -8,23 +8,50 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  let [user, setUser] = React.useState();
+  const [user, setUser] = React.useState();
 
-  let signin = (formData, callback) => {
-    return authenticationService.signin(() => {
-      setUser(formData);
-      callback();
+  const register = async formData => {
+    try {
+      const response = await authenticationService.register(formData);
+      return { ...response.data, valid: true }
+    } catch (e) {
+      return { value: false, errors: 'errors' }
+    }
+  }
+
+  const authenticate = (otp, token) => {
+    return authenticationService.authenticate(otp, token, userData => {
+      setUser({ ...user, ...userData });
     });
-  };
+  }
 
-  let signout = (callback) => {
-    return authenticationService.signout(() => {
+  const resendAccessCode = formData => {
+    return authenticationService.resendAccessCode(formData, userData => {
+      setUser({ ...user, ...userData });
+    });
+  }
+
+  const fetchCurrentUser = () => {
+    return authenticationService.currentUser(userData => {
+      setUser({ ...user, ...userData });
+      return { ...user, ...userData };
+    });
+  }
+
+  const logout = () => {
+    return authenticationService.logout(() => {
       setUser(null);
-      callback();
     });
-  };
+  }
 
-  let value = { user, signin, signout };
+  const value = {
+    user,
+    register,
+    authenticate,
+    resendAccessCode,
+    fetchCurrentUser,
+    logout,
+  };
 
   return (
     <AuthContext.Provider value={value}>

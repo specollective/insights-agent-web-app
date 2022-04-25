@@ -1,8 +1,39 @@
-#languages {
+.row {
+  display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 10px;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
   text-align: right;
 }
 
-#languages button {
+.languages button {
+  display: inline-block;
   border: none;
   background: none;
+}
+
+.organization {
+  padding-left: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  background: linear-gradient(180deg, #3665AB -5.84%, rgba(54, 101, 171, 0) 100%);
+}
+
+.study-name {
+  padding-left: 4em;
+}
+
+.paragraph {
+  padding-top: 1em;
+  padding-bottom: 1em;
 }

@@ -16,3 +16,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+main {
+  /* display: block;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 2em; */
+}
+
+textarea {
+  width: 100%;
+  min-height: 20em;
+}
+
+.message {
+  height: 1em;
+  padding-bottom: 1em;
+}
