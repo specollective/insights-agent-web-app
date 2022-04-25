@@ -1,22 +1,4 @@
-const BASE_URL = 'http://localhost:8000'
-
-async function postData(url = '', data = {}) {
-  // Default options are marked with *
-  const response = await fetch(url, {
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, *same-origin, omit
-    headers: {
-      'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    redirect: 'follow', // manual, *follow, error
-    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    body: JSON.stringify(data) // body data type must match "Content-Type" header
-  });
-  return response.json(); // parses JSON response into native JavaScript objects
-}
+import { API_URL } from 'constants/urls'
 
 const DEFAULT_OPTIONS = {
   mode: 'cors',
@@ -29,7 +11,7 @@ const authenticationService = {
   isAuthenticated: false,
   token: null,
   async currentUser(callback) {
-    const response = await fetch(`${BASE_URL}/api/current_user`, {
+    const response = await fetch(`${API_URL}/current_user`, {
       ...DEFAULT_OPTIONS,
       credentials: 'include',
       method: 'GET',
@@ -44,7 +26,7 @@ const authenticationService = {
     }
   },
   async register({ name, phoneNumber }) {
-    const response = await fetch(`${BASE_URL}/api/send_access_code`, {
+    const response = await fetch(`${API_URL}/send_access_code`, {
       ...DEFAULT_OPTIONS,
       method: 'POST',
       body: JSON.stringify({ name, phone_number: phoneNumber }),
@@ -58,7 +40,7 @@ const authenticationService = {
     }
   },
   async authenticate(otp, token, callback) {
-    const response = await fetch(`${BASE_URL}/api/check_access_code`, {
+    const response = await fetch(`${API_URL}/check_access_code`, {
       ...DEFAULT_OPTIONS,
       method: 'POST',
       mode: 'cors',
@@ -69,7 +51,7 @@ const authenticationService = {
     callback({ ...json, isAuthenticated: response.ok })
   },
   async resendAccessCode(formData, callback) {
-    const response = await fetch(`${BASE_URL}/api/resend_access_code`, {
+    const response = await fetch(`${API_URL}/resend_access_code`, {
       ...DEFAULT_OPTIONS,
       method: 'POST',
       body: JSON.stringify({ phone_number: formData.phoneNumber }),
@@ -78,7 +60,7 @@ const authenticationService = {
     callback({ ...json })
   },
   async logout(callback) {
-    const response = await fetch(`${BASE_URL}/api/logout`, {
+    const response = await fetch(`${API_URL}/logout`, {
       ...DEFAULT_OPTIONS,
       method: 'DELETE',
       mode: 'cors',
