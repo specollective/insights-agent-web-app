@@ -4,9 +4,11 @@ function DownloadPage() {
   return (
     <>
       <div>
-        <div className="download">
+        <div className="jumbotron">
           <h1>Getting the App</h1>
-          <button>Download for Windows</button>
+          <a href="https://github.com/specollective/electron-skeleton/releases/download/untagged-d100a80ecad466b5e90b/electron-skeleton-darwin-x64-1.0.0.zip">
+            Download for Mac
+          </a>
         </div>
         <div id='installation'>
           <h3>

@@ -1,23 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
+import ConfirmationPage from './components/pages/ConfirmationPage'
 import SurveyPage from './components/pages/SurveyPage'
 import SuccessPage from './components/pages/SuccessPage'
 import DownloadPage from './components/pages/DownloadPage'
 import LandingPage from './components/pages/LandingPage'
 
+
 import Layout from './components/shared/Layout'
 import RequireAuth from './components/shared/RequireAuth'
 import { AuthProvider } from './hooks/authentication'
 import LocaleContext from './utils/LocaleContext'
+import { useAuth } from 'hooks/authentication';
 
 import i18n from 'utils/i18n'
 import './App.css'
 
+
+
 function App() {
   const [locale, setLocale] = useState(i18n.language);
 
-  i18n.on('languageChanged', (lng) => setLocale(i18n.language));
+  // i18n.on('languageChanged', (lng) => setLocale(i18n.language));
+
+  useEffect(() => {
+    i18n.on('languageChanged', (lng) => setLocale(i18n.language));
+  }, [])
 
   return (
     <>
@@ -26,6 +35,19 @@ function App() {
           <Layout>
             <Routes>
               <Route path="/" element={<LandingPage />} />
+
+              <Route
+                exact
+                path="/confirmation/:otp/:token"
+                element={<ConfirmationPage />}
+              />
+
+              <Route
+                exact
+                path="/confirmation"
+                element={<ConfirmationPage />}
+              />
+
 
               <Route
                 path="/survey"

@@ -9,17 +9,21 @@ function LandingPage() {
 
   return (
     <>
-      <header id="organization">
-        <h1>ORGANIZATION</h1>
-      </header>
-
       <main id="landing-page">
         <div>
-          <h2>{ t('landingPageHeading') }</h2>
-          <SignUpForm />
-        </div>
+          <div className="video-responsive">
+            <iframe
+              className="video-iframe"
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/ScMzIvxBSi4`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Embedded youtube"
+            />
+          </div>
 
-        <div>
           <div className="info-section">
             <LoremIpsum />
           </div>
@@ -34,7 +38,7 @@ function LandingPage() {
         </div>
 
         <div>
-          <h2>{ t('landingPageFooterHeading') }</h2>
+          <h2>{ t('landingPageHeading') }</h2>
           <SignUpForm />
         </div>
       </main>

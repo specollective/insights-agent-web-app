@@ -1,3 +1,5 @@
+@import url('http://fonts.cdnfonts.com/css/segoe-ui-variable');
+
 #register {
   padding-left: 2em;
   padding-right: 2em;
@@ -9,6 +11,7 @@
 #register input {
   width: 100%;
   margin-bottom: 1em;
+  height: 2em;
 }
 
 .form-field {
@@ -29,7 +32,16 @@
 }
 
 #sign-up-button {
-  width: 60%;
-  margin: auto;
+  width: 50%;
   display: block;
+  margin: auto;
+  font-family: 'Segoe UI Variable', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 17px;
+  color: #FFFFFF;
+  background: #4B78BC;
+  border: none;
+  padding: 2em;
 }

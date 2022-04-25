@@ -1,6 +1,8 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, Navigate } from 'react-router-dom';
 import { LoremIpsum, loremIpsum } from 'react-lorem-ipsum'
+import { useAuth } from 'hooks/authentication'
+import { createSurvey } from 'services/survey'
 import './SurveyPage.css'
 
 function numberRange (start, end) {
@@ -8,6 +10,7 @@ function numberRange (start, end) {
 }
 
 function SurveyPage() {
+  const auth = useAuth();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -19,8 +22,22 @@ function SurveyPage() {
     isHispanicOrLatino: false,
   })
 
-  const handleSubmit = () => {
-    navigate('/success')
+  useEffect(() => {
+    auth.fetchCurrentUser()
+  }, [])
+
+
+  if (!auth.user) return <div>Loading</div>
+  if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
+
+
+  const handleSubmit = async () => {
+    try {
+      await createSurvey(auth.user, formData);
+      navigate('/success', { replace: true });
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   const handleInputChange = (e) => {
@@ -37,12 +54,12 @@ function SurveyPage() {
 
         <div className="question">
           <h4>What is your age?</h4>
-          <input name="name" type="text" onChange={handleInputChange} />
+          <input name="age" type="text" onChange={handleInputChange} />
         </div>
 
         <div className="question">
           <h4>What is your gender?</h4>
-          <input name="name" type="text" onChange={handleInputChange} />
+          <input name="gender" type="text" onChange={handleInputChange} />
         </div>
 
         <div className="question">

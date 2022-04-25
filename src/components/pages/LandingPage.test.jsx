@@ -21,9 +21,3 @@ it('renders page heading', () => {
   expect(screen.getByText('Sign up to participate in our study!'))
     .toBeInTheDocument();
 });
-
-it('renders footer heading', () => {
-  render(<LandingPage />);
-  expect(screen.getByText(/\$100 for participating in our research/))
-    .toBeInTheDocument();
-});

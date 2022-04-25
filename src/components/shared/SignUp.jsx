@@ -7,6 +7,7 @@ import './SignUp.css'
 export default function SignUp() {
   const auth = useAuth();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -14,24 +15,17 @@ export default function SignUp() {
     email: '',
   })
 
-  const [submitted, setSubmitted] = useState(false)
+  const [errors, setErrors] = useState()
+
   const [valid, setValid] = useState(false)
 
-  const navigate = useNavigate()
+
 
   const handleFirstNameInputChange = (e) => {
     e.persist()
     setFormData((formData) => ({
       ...formData,
       name: e.target.value,
-    }))
-  }
-
-  const handleLastNameInputChange = (e) => {
-    e.persist()
-    setFormData((formData) => ({
-      ...formData,
-      lastName: e.target.value,
     }))
   }
 
@@ -51,12 +45,15 @@ export default function SignUp() {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
-    auth.signin(formData, () => {
-      navigate('/survey', { replace: true });
-    });
+    const user = await auth.register(formData)
+    if (user.valid) {
+      navigate('/confirmation', { replace: true });
+    } else {
+      // setErrors(user.errors)
+    }
   }
 
   return (
@@ -64,8 +61,7 @@ export default function SignUp() {
       <div>
         <div id="register">
           <form className="register-form" onSubmit={handleSubmit}>
-
-            <div>
+            <div className="input-section">
               <label htmlFor="full-name">{ t('fullNameLabel') }</label>
               <input
                 id="full-name"
@@ -73,11 +69,10 @@ export default function SignUp() {
                 type="text"
                 placeholder=""
                 name="name"
+                required
                 value={formData.name}
                 onChange={handleFirstNameInputChange}
               />
-
-              {submitted && !formData.name && <span id="name-error">Please enter a first name</span>}
             </div>
 
             <div>
@@ -87,28 +82,12 @@ export default function SignUp() {
                 className="form-field"
                 type="text"
                 placeholder=""
+                required
                 name="phoneNumber"
                 value={formData.phoneNumber}
                 onChange={handlePhoneNumberInputChange}
               />
-
-              {submitted && !formData.phoneNumber && <span id="phone-number-error">Please enter a phone number</span>}
             </div>
-
-            {/* TODO: Discuss if we want an optional email
-              <div id="email">
-                <input
-                  id="email"
-                  className="form-field"
-                  type="text"
-                  placeholder="Email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleEmailInputChange}
-                  />
-                {submitted && !formData.email && <span id="email-error">Please enter an email.</span>}
-              </div>
-            */}
 
             <button className="form-field" type="submit" id="sign-up-button">
               { t('submitText') }
