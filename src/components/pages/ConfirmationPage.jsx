@@ -21,7 +21,6 @@ function ConfirmationPage() {
   }, [])
 
   useEffect(() => {
-    console.log(otp, token)
     if (otp && token) {
       auth.authenticate(otp, token)
     }
