@@ -29,7 +29,7 @@ const authenticationService = {
     const response = await fetch(`${API_URL}/send_access_code`, {
       ...DEFAULT_OPTIONS,
       method: 'POST',
-      body: JSON.stringify({ name, phone_number: phoneNumber }),
+      body: JSON.stringify({ full_name: name, phone_number: phoneNumber }),
     });
 
     if (response.ok) {

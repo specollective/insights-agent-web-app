@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Navigate } from 'react-router-dom';
-import { LoremIpsum, loremIpsum } from 'react-lorem-ipsum'
-import { useAuth } from 'hooks/authentication'
-import { createSurvey } from 'services/survey'
-import './SurveyPage.css'
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from 'hooks/authentication';
+import { createSurvey } from 'services/survey';
+import 'components/pages/SurveyPage.css';
 
 function numberRange (start, end) {
   return new Array(end - start).fill().map((d, i) => i + start);
@@ -49,7 +48,7 @@ function SurveyPage() {
       <div className="survey">
         <div className="question">
           <h4>Insights Agent General Info Survey</h4>
-          <LoremIpsum p={1} />
+          <p>Instructions</p>
         </div>
 
         <div className="question">
@@ -58,8 +57,27 @@ function SurveyPage() {
         </div>
 
         <div className="question">
-          <h4>What is your gender?</h4>
-          <input name="gender" type="text" onChange={handleInputChange} />
+          <h4>What gender do you identify with?</h4>
+            <div className="radio-button-group">
+              <input
+                type="radio"
+                id="man"
+                name="gender"
+                onChange={handleInputChange}
+              />
+              <label htmlFor="man">Man</label><br/>
+              <input
+                type="radio"
+                id="non-binary"
+                name="gender"
+                onChange={handleInputChange}
+              />
+            <label htmlFor="man">Non-binary</label><br/>
+          </div>
+          <div>
+            <label className="preference-input-label">Prefer to self describe</label>
+            <input name="gender" type="text" onChange={handleInputChange} />
+          </div>
         </div>
 
         <div className="question">
@@ -72,7 +90,7 @@ function SurveyPage() {
               value="true"
               onChange={handleInputChange}
             />
-           <label htmlFor="latino-yes">Si</label><br/>
+            <label htmlFor="latino-yes">Yes</label><br/>
 
             <input
               type="radio"
@@ -87,7 +105,34 @@ function SurveyPage() {
 
         <div className="question">
           <h4>What is your level of education?</h4>
-          <input name="educationLevel" type="text" onChange={handleInputChange} />
+            <div className="radio-button-group">
+              <input
+                type="radio"
+                id="highschool"
+                name="educationLevel"
+                onChange={handleInputChange}
+              />
+              <label htmlFor="man">Highschool</label><br/>
+              <input
+                type="radio"
+                id="college"
+                name="educationLevel"
+                onChange={handleInputChange}
+              />
+              <label htmlFor="college">College</label><br/>
+              <input
+                type="radio"
+                id="graduate-school"
+                name="educationLevel"
+                onChange={handleInputChange}
+              />
+              <label htmlFor="graduate-school">Graduate School</label><br/>
+          </div>
+
+          <div>
+            <label className="preference-input-label">Prefer to self describe</label>
+            <input name="educationLevel" type="text" onChange={handleInputChange} />
+          </div>
         </div>
 
         <div className="question">
