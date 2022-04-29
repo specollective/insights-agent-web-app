@@ -48,7 +48,7 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const user = await auth.register(formData)
+    const user = await auth.register(formData);
     if (user.valid) {
       navigate('/confirmation', { replace: true });
     } else {
