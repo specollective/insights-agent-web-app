@@ -66,13 +66,32 @@ function SurveyPage() {
                 onChange={handleInputChange}
               />
               <label htmlFor="man">Man</label><br/>
+
               <input
                 type="radio"
                 id="non-binary"
                 name="gender"
                 onChange={handleInputChange}
               />
-            <label htmlFor="man">Non-binary</label><br/>
+              <label htmlFor="non-binary">Non-binary/non-conforming</label><br/>
+
+              <input
+                type="radio"
+                id="transgender"
+                name="gender"
+                onChange={handleInputChange}
+              />
+              <label htmlFor="transgender">Transgender</label><br/>
+
+              <input
+                type="radio"
+                id="woman"
+                name="gender"
+                onChange={handleInputChange}
+              />
+              <label htmlFor="woman">Woman</label><br/>
+
+
           </div>
           <div>
             <label className="preference-input-label">Prefer to self describe</label>
@@ -112,14 +131,14 @@ function SurveyPage() {
                 name="educationLevel"
                 onChange={handleInputChange}
               />
-              <label htmlFor="man">Highschool</label><br/>
+              <label htmlFor="highschool">Highschool</label><br/>
               <input
                 type="radio"
                 id="college"
                 name="educationLevel"
                 onChange={handleInputChange}
               />
-              <label htmlFor="college">College</label><br/>
+            <label htmlFor="college">College</label><br/>
               <input
                 type="radio"
                 id="graduate-school"
