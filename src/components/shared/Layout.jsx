@@ -1,6 +1,5 @@
 import { useContext } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { useAuth } from 'hooks/authentication'
 import LocaleContext from 'utils/LocaleContext'
 import i18n from 'utils/i18n'
 import { ReactComponent as SmallLogo } from 'images/logo-small.svg'
@@ -10,7 +9,7 @@ function Layout(props) {
   const { locale } = useContext(LocaleContext)
   const navigate = useNavigate()
   const location = useLocation()
-  // const auth = useAuth()
+  const renderHeaderLogo = location.pathname !== '/'
 
   function changeLocale (e) {
     if (locale !== e.target.name) {
@@ -18,16 +17,9 @@ function Layout(props) {
     }
   }
 
-  // async function logout() {
-  //   const result = await auth.logout()
-  //   navigate('/')
-  // }
-
-  async function goToHomePage() {
+  function goToHomePage() {
     navigate('/')
   }
-
-  const renderHeaderLogo = location.pathname !== '/'
 
   return(
     <>
@@ -51,4 +43,4 @@ function Layout(props) {
   )
 }
 
-export default Layout;
+export default Layout

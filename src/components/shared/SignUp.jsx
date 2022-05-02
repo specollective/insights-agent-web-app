@@ -17,80 +17,73 @@ export default function SignUp() {
   // const [errors, setErrors] = useState()
   // const [valid, setValid] = useState(false)
 
-  const handleFirstNameInputChange = (e) => {
-    e.persist()
+  const handleFullNameInputChange = evt => {
+    evt.persist()
     setFormData((formData) => ({
       ...formData,
-      name: e.target.value,
+      name: evt.target.value,
     }))
   }
 
-  const handlePhoneNumberInputChange = (e) => {
-    e.persist()
+  const handlePhoneNumberInputChange = evt => {
+    evt.persist()
     setFormData((formData) => ({
       ...formData,
-      phoneNumber: e.target.value,
+      phoneNumber: evt.target.value,
     }))
   }
 
-  const handleEmailInputChange = (e) => {
-    e.persist()
-    setFormData((formData) => ({
-      ...formData,
-      email: e.target.value,
-    }))
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const handleSubmit = async evt => {
+    evt.preventDefault()
 
     const user = await auth.register(formData);
     if (user.valid) {
       navigate('/confirmation', { replace: true });
     } else {
+      // TODO: Add helpful validation errors.
       // setErrors(user.errors)
     }
   }
 
   return (
-    <div>
-      <div id="register">
-        <form className="register-form" onSubmit={handleSubmit}>
-          <div className="input-section">
-            <label htmlFor="full-name">{ t('fullNameLabel') }</label>
-            <input
-              id="full-name"
-              className="form-field"
-              type="text"
-              placeholder=""
-              name="name"
-              required
-              autoComplete="off"
-              value={formData.name}
-              onChange={handleFirstNameInputChange}
-            />
-          </div>
+    <div id="register">
+      <form className="register-form" onSubmit={handleSubmit}>
+        <div className="input-section">
+          <label htmlFor="full-name">
+            { t('fullNameLabel') }
+          </label>
+          <input
+            autoComplete="off"
+            className="form-field"
+            id="full-name"
+            name="name"
+            onChange={handleFullNameInputChange}
+            placeholder=""
+            required
+            type="text"
+            value={formData.name}
+          />
+        </div>
 
-          <div>
-            <label htmlFor="phone-number">{ t('phoneNumberLabel') }</label>
-            <input
-              id="phone-number"
-              className="form-field"
-              type="text"
-              placeholder=""
-              required
-              name="phoneNumber"
-              autoComplete="off"
-              value={formData.phoneNumber}
-              onChange={handlePhoneNumberInputChange}
-            />
-          </div>
+        <div>
+          <label htmlFor="phone-number">{ t('phoneNumberLabel') }</label>
+          <input
+            id="phone-number"
+            className="form-field"
+            type="text"
+            placeholder=""
+            required
+            name="phoneNumber"
+            autoComplete="off"
+            value={formData.phoneNumber}
+            onChange={handlePhoneNumberInputChange}
+          />
+        </div>
 
-          <button className="form-field" type="submit" id="sign-up-button">
-            { t('submitText') }
-          </button>
-        </form>
-      </div>
+        <button className="form-field" type="submit" id="sign-up-button">
+          { t('submitText') }
+        </button>
+      </form>
     </div>
   )
 }
