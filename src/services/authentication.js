@@ -9,7 +9,7 @@ const authenticationService = {
       ...DEFAULT_FETCH_OPTIONS,
       headers: {
         ...DEFAULT_FETCH_OPTIONS.headers,
-        // 'Authorization': `Bearer ${userData.access_token}`,
+        'Authorization': `Bearer ${userData.access_token}`,
       },
       credentials: 'include',
       method: 'GET',
