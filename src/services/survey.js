@@ -1,12 +1,5 @@
 import { API_URL } from 'constants/urls'
 
-const DEFAULT_OPTIONS = {
-  mode: 'cors',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-}
-
 export async function createSurvey(userData, surveyData) {
   const response = await fetch(`${API_URL}/create_survey`, {
     mode: 'cors',
@@ -29,8 +22,6 @@ export async function createSurvey(userData, surveyData) {
     const json = await response.json()
     return json
   } else {
-    throw 'something went wrong'
+    throw Error('something went wrong')
   }
 }
-
-// export default surveyService;

@@ -11,7 +11,6 @@ import LandingPage from 'components/pages/LandingPage';
 import Layout from 'components/shared/Layout';
 import RequireAuth from 'components/shared/RequireAuth';
 import { AuthProvider } from 'hooks/authentication';
-import { useAuth } from 'hooks/authentication';
 // Utilities
 import LocaleContext from 'utils/LocaleContext';
 import i18n from 'utils/i18n';
