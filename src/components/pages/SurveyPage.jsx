@@ -2,16 +2,14 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from 'hooks/authentication'
 import { createSurvey } from 'services/survey'
+import {
+  DEFAULT_FORM_VALUES,
+  MARITAL_STATUSES,
+  EDUCATION_LEVELS,
+  GENDER_IDENTITIES,
+} from 'constants/surveys'
+import RadioButtonGroup from 'components/shared/RadioButtonGroup'
 import 'components/pages/SurveyPage.css'
-
-const DEFAULT_FORM_VALUES = {
-  age: '',
-  gender: '',
-  zipCode: '',
-  educationLevel: '',
-  maritalStatus: '',
-  isHispanicOrLatino: null,
-}
 
 function SurveyPage() {
   const auth = useAuth()
@@ -52,52 +50,20 @@ function SurveyPage() {
           type="text"
           onChange={handleInputChange}
           data-testid="age-input"
+          autoComplete="off"
           value={formData.age}
         />
       </div>
 
       <div className="question">
         <h4>What gender do you identify with?</h4>
-        <div className="radio-button-group">
-          <input
-            checked={formData.gender === 'man'}
-            id="man"
-            name="gender"
-            onChange={handleInputChange}
-            type="radio"
-            value="man"
-          />
-          <label htmlFor="man">Man</label><br/>
 
-          <input
-            checked={formData.gender === 'non-binary'}
-            id="non-binary"
-            name="gender"
-            onChange={handleInputChange}
-            type="radio"
-            value="non-binary"
-          />
-          <label htmlFor="non-binary">Non-binary/non-conforming</label><br/>
-
-          <input
-            checked={formData.gender === 'transgender'}
-            id="transgender"
-            name="gender"
-            onChange={handleInputChange}
-            type="radio"
-            value="transgender"
-          />
-          <label htmlFor="transgender">Transgender</label><br/>
-
-          <input
-            checked={formData.gender === 'woman'}
-            id="woman"
-            name="gender"
-            onChange={handleInputChange}
-            type="radio"
-          />
-          <label htmlFor="woman">Woman</label><br/>
-        </div>
+        <RadioButtonGroup
+          value={formData.gender}
+          name="gender"
+          options={GENDER_IDENTITIES}
+          onChange={handleInputChange}
+        />
 
         <div>
           <label className="preference-input-label">Prefer to self describe</label>
@@ -105,6 +71,7 @@ function SurveyPage() {
             name="gender"
             type="text"
             onChange={handleInputChange}
+            autoComplete="off"
           />
         </div>
       </div>
@@ -136,81 +103,22 @@ function SurveyPage() {
 
       <div className="question">
         <h4>What is your level of education?</h4>
-        <div className="radio-button-group">
-          <input
-            checked={formData.educationLevel === 'highschool'}
-            id="highschool"
-            name="educationLevel"
-            onChange={handleInputChange}
-            type="radio"
-            value="highschool"
-          />
-          <label htmlFor="highschool">Highschool</label><br/>
-          <input
-            checked={formData.educationLevel === 'college'}
-            type="radio"
-            onChange={handleInputChange}
-            name="educationLevel"
-            id="college"
-            value="college"
-          />
-          <label htmlFor="college">College</label><br/>
-          <input
-            checked={formData.educationLevel === 'graduate-school'}
-            id="graduate-school"
-            name="educationLevel"
-            onChange={handleInputChange}
-            type="radio"
-            valiue="graduate-school"
-          />
-          <label htmlFor="graduate-school">Graduate School</label><br/>
-        </div>
-
-        <div>
-          <label className="preference-input-label">Prefer to self describe</label>
-          <input name="educationLevel" type="text" onChange={handleInputChange} />
-        </div>
+        <RadioButtonGroup
+          value={formData.educationLevel}
+          name="educationLevel"
+          options={EDUCATION_LEVELS}
+          onChange={handleInputChange}
+        />
       </div>
 
       <div className="question">
         <h4>What is your your marital status?</h4>
-        <div className="radio-button-group">
-          <input
-            type="radio"
-            id="single-never-married"
-            name="maritalStatus"
-            onChange={handleInputChange}
-          />
-          <label htmlFor="single-never-married">Single Never Married</label><br/>
-          <input
-            type="radio"
-            id="married-or-domestic-partnership"
-            name="maritalStatus"
-            onChange={handleInputChange}
-          />
-          <label htmlFor="married-or-domestic-partnership">Married or domestic partnership</label><br/>
-          <input
-            type="radio"
-            id="widowed"
-            name="maritalStatus"
-            onChange={handleInputChange}
-          />
-          <label htmlFor="widowed">Widowed</label><br/>
-          <input
-            type="radio"
-            id="divorced"
-            name="maritalStatus"
-            onChange={handleInputChange}
-          />
-          <label htmlFor="divorced">Divorced</label><br/>
-          <input
-            type="radio"
-            id="separated"
-            name="maritalStatus"
-            onChange={handleInputChange}
-          />
-          <label htmlFor="separated">Separated</label><br/>
-        </div>
+        <RadioButtonGroup
+          value={formData.maritalStatus}
+          name="maritalStatus"
+          options={MARITAL_STATUSES}
+          onChange={handleInputChange}
+        />
       </div>
 
       <div className="actions">
