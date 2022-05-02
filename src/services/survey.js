@@ -7,6 +7,7 @@ export async function createSurvey(userData, surveyData) {
     cache: 'no-cache',
     headers: {
       'Content-Type': 'application/json',
+      'Authorization': `Bearer ${userData.access_token}`,
     },
     method: 'POST',
     body: JSON.stringify({
