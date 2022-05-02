@@ -1,7 +1,5 @@
 @import-normalize;
 
-h1 { margin: 0 }
-
 body {
   margin: 0;
   padding: 0;
@@ -18,19 +16,5 @@ code {
 }
 
 main {
-  /* display: block;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 2em; */
-}
-
-textarea {
-  width: 100%;
-  min-height: 20em;
-}
-
-.message {
-  height: 1em;
-  padding-bottom: 1em;
+  padding-bottom: 2em;
 }

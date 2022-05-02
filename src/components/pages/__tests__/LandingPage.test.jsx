@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import LandingPage from './LandingPage';
+import LandingPage from 'components/pages/LandingPage';
 import i18nTest from 'utils/i18nTest'
 import { I18nextProvider } from 'react-i18next'
 

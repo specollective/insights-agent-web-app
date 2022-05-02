@@ -1,16 +1,10 @@
 import { API_URL } from 'constants/urls'
 
-const DEFAULT_OPTIONS = {
-  mode: 'cors',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-}
-
 export async function createSurvey(userData, surveyData) {
-  const response = await fetch(`${API_URL}/surveys/`, {
+  const response = await fetch(`${API_URL}/surveys`, {
     mode: 'cors',
     credentials: 'include',
+    cache: 'no-cache',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -21,7 +15,6 @@ export async function createSurvey(userData, surveyData) {
       age: surveyData.age,
       marital_status: surveyData.maritalStatus,
       education_level: surveyData.educationLevel,
-      token: userData.survey_token,
     }),
   });
 
@@ -29,8 +22,6 @@ export async function createSurvey(userData, surveyData) {
     const json = await response.json()
     return json
   } else {
-    throw 'something went wrong'
+    throw Error('something went wrong')
   }
 }
-
-// export default surveyService;

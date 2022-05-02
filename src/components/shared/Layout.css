@@ -2,7 +2,6 @@
   display: flex;
 }
 
-/* Create two equal columns that sits next to each other */
 .column {
   flex: 50%;
   padding: 10px;
@@ -22,18 +21,18 @@
   background: none;
 }
 
-.organization {
-  padding-left: 2em;
-  padding-top: 2em;
-  padding-bottom: 2em;
-  background: linear-gradient(180deg, #3665AB -5.84%, rgba(54, 101, 171, 0) 100%);
-}
-
 .study-name {
   padding-left: 4em;
 }
 
 .paragraph {
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+main {}
+
+textarea {
+  width: 100%;
+  min-height: 20em;
 }

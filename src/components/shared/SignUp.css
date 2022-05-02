@@ -1,34 +1,11 @@
-@import url('http://fonts.cdnfonts.com/css/segoe-ui-variable');
-
-#register {
-  padding-left: 2em;
-  padding-right: 2em;
-
-  /* display: flex;
-  justify-content: center; */
-}
+@import url('https://fonts.cdnfonts.com/css/segoe-ui-variable');
 
 #register input {
   width: 100%;
   margin-bottom: 1em;
   height: 2em;
-}
-
-.form-field {
-  /* display: block; */
-  /* display: flex;
-  justify-content: center;
-  width: 100%; */
-}
-
-/* #name, #phone, #email, #submit {
-  display: flex;
-} */
-
-#submit {
-  /* width: 75%;
-  justify-content: center;
-  text-align: center; */
+  border: 1px solid #000000;
+  box-sizing: border-box;
 }
 
 #sign-up-button {
@@ -38,10 +15,10 @@
   font-family: 'Segoe UI Variable', sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 20px;
   line-height: 17px;
   color: #FFFFFF;
-  background: #4B78BC;
+  background: #37770D;
   border: none;
-  padding: 2em;
+  padding: 1em;
 }
