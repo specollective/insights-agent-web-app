@@ -7,7 +7,6 @@ function RequireAuth({ children }) {
   let location = useLocation();
   const [loading, setLoading] = useState(true)
 
-
   useEffect(() => {
     async function fetchData () {
       if (!auth.user) {

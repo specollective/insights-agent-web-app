@@ -38,3 +38,7 @@ Run tests
 ```
 npm test
 ```
+
+Local SSL setup
+
+https://www.mariokandut.com/how-to-setup-https-ssl-in-localhost-react/

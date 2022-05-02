@@ -32,7 +32,7 @@ export function AuthProvider({ children }) {
   }
 
   const fetchCurrentUser = () => {
-    return authenticationService.currentUser(userData => {
+    return authenticationService.currentUser(user, userData => {
       setUser({ ...user, ...userData });
       return { ...user, ...userData };
     });

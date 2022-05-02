@@ -4,12 +4,15 @@ import LocaleContext from 'utils/LocaleContext'
 import { Link } from 'react-router-dom'
 import i18n from 'utils/i18n'
 import authenticationService from 'services/authentication'
-import { useNavigate, Navigate } from 'react-router-dom';
+import { useNavigate, useLocation, Navigate } from 'react-router-dom'
 import { useAuth } from 'hooks/authentication'
+import { ReactComponent as SmallLogo } from 'images/logo-small.svg'
 
-export default function Layout(props) {
+
+function Layout(props) {
   const { locale } = useContext(LocaleContext);
   const navigate = useNavigate();
+  const location = useLocation();
   const auth = useAuth();
 
   function changeLocale (e) {
@@ -23,23 +26,24 @@ export default function Layout(props) {
     navigate('/')
   }
 
+  async function goToHomePage() {
+    navigate('/')
+  }
+
+  const renderHeaderLogo = location.pathname !== '/';
+
   return(
     <>
       <header className="header">
         <div className="row">
           <div className="column align-left">
-            <Link to="/">Home</Link>
-            {auth?.user?.isAuthenticated && <button onClick={logout}>Logout</button> }
+            { renderHeaderLogo && <SmallLogo onClick={goToHomePage} /> }
           </div>
+
           <div className="languages column align-right">
             <button name="es" onClick={changeLocale}>Español</button> |
             <button name="en" onClick={changeLocale}>English</button>
           </div>
-        </div>
-
-        <div className="organization">
-          <h1>build JUSTLY</h1>
-          <h3 className="study-name">Insights Agent Study</h3>
         </div>
       </header>
 
@@ -49,3 +53,5 @@ export default function Layout(props) {
     </>
   )
 }
+
+export default Layout;

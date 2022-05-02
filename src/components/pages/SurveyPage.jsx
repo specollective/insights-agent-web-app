@@ -29,7 +29,6 @@ function SurveyPage() {
   if (!auth.user) return <div>Loading</div>
   if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
 
-
   const handleSubmit = async () => {
     try {
       await createSurvey(auth.user, formData);
@@ -53,7 +52,7 @@ function SurveyPage() {
 
         <div className="question">
           <h4>What is your age?</h4>
-          <input name="age" type="text" onChange={handleInputChange} />
+          <input name="age" role="input" type="text" onChange={handleInputChange} data-testid="age-input"/>
         </div>
 
         <div className="question">
@@ -93,6 +92,7 @@ function SurveyPage() {
 
 
           </div>
+
           <div>
             <label className="preference-input-label">Prefer to self describe</label>
             <input name="gender" type="text" onChange={handleInputChange} />
@@ -156,7 +156,43 @@ function SurveyPage() {
 
         <div className="question">
           <h4>What is your your marital status?</h4>
-          <input name="maritalStatus" type="text" onChange={handleInputChange} />
+          <div className="radio-button-group">
+            <input
+              type="radio"
+              id="single-never-married"
+              name="maritalStatus"
+              onChange={handleInputChange}
+            />
+            <label htmlFor="single-never-married">Single Never Married</label><br/>
+            <input
+              type="radio"
+              id="married-or-domestic-partnership"
+              name="maritalStatus"
+              onChange={handleInputChange}
+            />
+            <label htmlFor="married-or-domestic-partnership">Married or domestic partnership</label><br/>
+            <input
+              type="radio"
+              id="widowed"
+              name="maritalStatus"
+              onChange={handleInputChange}
+            />
+            <label htmlFor="widowed">Widowed</label><br/>
+            <input
+              type="radio"
+              id="divorced"
+              name="maritalStatus"
+              onChange={handleInputChange}
+            />
+            <label htmlFor="divorced">Divorced</label><br/>
+            <input
+              type="radio"
+              id="separated"
+              name="maritalStatus"
+              onChange={handleInputChange}
+            />
+            <label htmlFor="separated">Separated</label><br/>
+          </div>
         </div>
 
         <div className="actions">

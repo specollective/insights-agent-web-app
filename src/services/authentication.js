@@ -2,6 +2,7 @@ import { API_URL } from 'constants/urls'
 
 const DEFAULT_OPTIONS = {
   mode: 'cors',
+  cache: 'no-cache',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -10,9 +11,13 @@ const DEFAULT_OPTIONS = {
 const authenticationService = {
   isAuthenticated: false,
   token: null,
-  async currentUser(callback) {
+  async currentUser(userData, callback) {
     const response = await fetch(`${API_URL}/current_user`, {
       ...DEFAULT_OPTIONS,
+      headers: {
+        ...DEFAULT_OPTIONS.headers,
+        // 'Authorization': `Bearer ${userData.access_token}`,
+      },
       credentials: 'include',
       method: 'GET',
     });

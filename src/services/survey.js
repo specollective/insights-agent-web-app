@@ -8,9 +8,10 @@ const DEFAULT_OPTIONS = {
 }
 
 export async function createSurvey(userData, surveyData) {
-  const response = await fetch(`${API_URL}/surveys/`, {
+  const response = await fetch(`${API_URL}/create_survey`, {
     mode: 'cors',
     credentials: 'include',
+    cache: 'no-cache',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -21,7 +22,6 @@ export async function createSurvey(userData, surveyData) {
       age: surveyData.age,
       marital_status: surveyData.maritalStatus,
       education_level: surveyData.educationLevel,
-      token: userData.survey_token,
     }),
   });
 

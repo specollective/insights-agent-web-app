@@ -57,44 +57,44 @@ export default function SignUp() {
   }
 
   return (
-    <>
-      <div>
-        <div id="register">
-          <form className="register-form" onSubmit={handleSubmit}>
-            <div className="input-section">
-              <label htmlFor="full-name">{ t('fullNameLabel') }</label>
-              <input
-                id="full-name"
-                className="form-field"
-                type="text"
-                placeholder=""
-                name="name"
-                required
-                value={formData.name}
-                onChange={handleFirstNameInputChange}
-              />
-            </div>
+    <div>
+      <div id="register">
+        <form className="register-form" onSubmit={handleSubmit}>
+          <div className="input-section">
+            <label htmlFor="full-name">{ t('fullNameLabel') }</label>
+            <input
+              id="full-name"
+              className="form-field"
+              type="text"
+              placeholder=""
+              name="name"
+              required
+              autoComplete="off"
+              value={formData.name}
+              onChange={handleFirstNameInputChange}
+            />
+          </div>
 
-            <div>
-              <label htmlFor="phone-number">{ t('phoneNumberLabel') }</label>
-              <input
-                id="phone-number"
-                className="form-field"
-                type="text"
-                placeholder=""
-                required
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handlePhoneNumberInputChange}
-              />
-            </div>
+          <div>
+            <label htmlFor="phone-number">{ t('phoneNumberLabel') }</label>
+            <input
+              id="phone-number"
+              className="form-field"
+              type="text"
+              placeholder=""
+              required
+              name="phoneNumber"
+              autoComplete="off"
+              value={formData.phoneNumber}
+              onChange={handlePhoneNumberInputChange}
+            />
+          </div>
 
-            <button className="form-field" type="submit" id="sign-up-button">
-              { t('submitText') }
-            </button>
-          </form>
-        </div>
+          <button className="form-field" type="submit" id="sign-up-button">
+            { t('submitText') }
+          </button>
+        </form>
       </div>
-    </>
+    </div>
   )
 }
