@@ -17,7 +17,7 @@ function LandingPage() {
           <div className="video-responsive">
             <iframe
               className="video-iframe"
-              src="https://www.youtube.com/embed/gN7XTqIMQ_Y"
+              src="https://www.youtube.com/embed/ScMzIvxBSi4"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
