@@ -15,7 +15,7 @@ function RequireAuth({ children }) {
       setLoading(false)
     }
     fetchData()
-  },[auth])
+  },[])
 
   if (loading) return <div>Loading</div>
 

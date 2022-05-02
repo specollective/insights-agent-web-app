@@ -1,14 +1,19 @@
 import { API_URL } from 'constants/urls'
+import { DEFAULT_FETCH_OPTIONS } from 'constants/fetch'
+import { getAccessToken } from 'utils/sessions'
 
 export async function createSurvey(userData, surveyData) {
+  const headers = {  ...DEFAULT_FETCH_OPTIONS.headers }
+  const accessToken = getAccessToken(userData)
+
+  if (accessToken) {
+    headers['Authorization'] = `Bearer ${accessToken}`
+  }
+
   const response = await fetch(`${API_URL}/surveys`, {
-    mode: 'cors',
+    ...DEFAULT_FETCH_OPTIONS,
+    headers,
     credentials: 'include',
-    cache: 'no-cache',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${userData.access_token}`,
-    },
     method: 'POST',
     body: JSON.stringify({
       hispanic_origin: surveyData.isHispanicOrLatino,

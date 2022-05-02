@@ -43,29 +43,28 @@ function ConfirmationPage() {
   }
 
   return (
-    <main className="page">
-      <div id="register">
-        <div>
-          <h1 id="ConfirmationPage-title">Thank you</h1>
-          <h2 id="ConfirmationPage-subtitle">for helping us empower the building of a better future for all, through equitable technology.</h2>
-          <p className="paragraph">
-            We have received your information for participation. You should be receiving a text message to the phone number provided with next steps.
-          </p>
-        </div>
+    <main id="ConfirmationPage">
+      <div>
+        <h1>Thank you</h1>
+        <h2>for helping us empower the building of a better future for all, through equitable technology.</h2>
+        <p>
+          We have received your information for participation. You should be receiving a text message to the phone number provided with next steps.
+        </p>
+      </div>
 
-        <hr id="ConfirmationPage-break" />
+      <hr id="ConfirmationPage-break" />
 
-        <div className="container">
-          <p>
-            If you have not received a text message please proceed to the following steps:
-          </p>
+      <div className="container">
+        <p>
+          If you have not received a text message please proceed to the following steps:
+        </p>
 
-          <ol className="help-list">
-            <li>If you have not received a text message, please resubmit your Name and Phone number below.</li>
-            <li>If you have already resubmitted your phone number and are still not receiving a text message, please </li>
-            <li>If you have tried previous steps and are still not receiving a text message, please contact us at 800-555-1234</li>
-          </ol>
-        </div>
+        <ol>
+          <li>If you have not received a text message, please resubmit your Name and Phone number below.</li>
+          <li>If you have already resubmitted your phone number and are still not receiving a text message, please </li>
+          <li>If you have tried previous steps and are still not receiving a text message, please contact us at 800-555-1234</li>
+        </ol>
+      </div>
 
         {/*<div>
           <h2>Resend Confirmation Link</h2>
@@ -159,7 +158,6 @@ function ConfirmationPage() {
             { t('submitText') }
           </button>
         </div>*/}
-      </div>
     </main>
   )
 }

@@ -1,24 +1,31 @@
 import { API_URL } from 'constants/urls'
 import { DEFAULT_FETCH_OPTIONS } from 'constants/fetch'
+import { getAccessToken } from 'utils/sessions'
 
 const authenticationService = {
   isAuthenticated: false,
   token: null,
   async currentUser(userData, callback) {
+    const headers = {  ...DEFAULT_FETCH_OPTIONS.headers }
+    const accessToken = getAccessToken(userData)
+
+    if (accessToken) {
+      headers['Authorization'] = `Bearer ${accessToken}`
+      sessionStorage.setItem('access_token', accessToken)
+    }
+
     const response = await fetch(`${API_URL}/current_user`, {
       ...DEFAULT_FETCH_OPTIONS,
-      headers: {
-        ...DEFAULT_FETCH_OPTIONS.headers,
-        'Authorization': `Bearer ${userData.access_token}`,
-      },
+      headers,
       credentials: 'include',
       method: 'GET',
     });
 
     if (response.ok) {
       const json = await response.json()
-      callback({ ...json, isAuthenticated: response.ok })
-      return { ...json, isAuthenticated: response.ok }
+      const updatedData = { ...json, isAuthenticated: true }
+      callback(updatedData)
+      return updatedData
     } else {
       throw Error('something went wrong')
     }
@@ -45,8 +52,14 @@ const authenticationService = {
       credentials: 'include',
       body: JSON.stringify({ otp, token }),
     });
-    const json = await response.json();
-    callback({ ...json, isAuthenticated: response.ok })
+    if (response.ok) {
+      const json = await response.json()
+      sessionStorage.setItem('access_token', json.access_token)
+      callback({ ...json, isAuthenticated: true })
+      return json
+    } else {
+      throw Error('something went wrong')
+    }
   },
   async resendAccessCode(formData, callback) {
     const response = await fetch(`${API_URL}/resend_access_code`, {
