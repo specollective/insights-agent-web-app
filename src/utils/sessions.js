@@ -1,5 +1,5 @@
 export function getAccessToken (userData) {
-  if (userData) {
+  if (userData?.access_token) {
     return userData.access_token
   }
 
