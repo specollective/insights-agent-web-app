@@ -1,3 +1,2 @@
-/*
-  /index.html 200
-  /api/*  https://insights-agent-api.specollective.org/api/:splat  200
+/* /index.html 200
+/api/*  https://insights-agent-api.specollective.org/api/:splat  200
