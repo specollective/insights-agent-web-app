@@ -12,11 +12,10 @@ function RequireAuth({ children }) {
       if (!auth.user) {
         await auth.fetchCurrentUser()
       }
-
       setLoading(false)
     }
     fetchData()
-  },[])
+  },[auth])
 
   if (loading) return <div>Loading</div>
 

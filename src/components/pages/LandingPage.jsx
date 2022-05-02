@@ -1,7 +1,5 @@
-import { LoremIpsum, loremIpsum } from 'react-lorem-ipsum'
-import { v4 as uuidv4 } from 'uuid'
-import SignUpForm from 'components/shared/SignUp'
 import { useTranslation } from 'react-i18next'
+import SignUpForm from 'components/shared/SignUp'
 import { ReactComponent as Logo } from 'images/logo.svg'
 import 'components/pages/LandingPage.css'
 

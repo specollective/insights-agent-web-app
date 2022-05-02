@@ -5,21 +5,17 @@ import { useTranslation } from 'react-i18next'
 import './SignUp.css'
 
 export default function SignUp() {
-  const auth = useAuth();
-  const { t } = useTranslation();
-  const navigate = useNavigate();
-
+  const auth = useAuth()
+  const { t } = useTranslation()
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     name: '',
     phoneNumber: '',
     email: '',
   })
 
-  const [errors, setErrors] = useState()
-
-  const [valid, setValid] = useState(false)
-
-
+  // const [errors, setErrors] = useState()
+  // const [valid, setValid] = useState(false)
 
   const handleFirstNameInputChange = (e) => {
     e.persist()

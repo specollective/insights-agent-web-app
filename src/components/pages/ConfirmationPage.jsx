@@ -1,21 +1,18 @@
-import { useEffect, useState } from 'react'
-import { Navigate } from 'react-router';
-import { useParams } from "react-router-dom";
-import { useAuth } from 'hooks/authentication';
-import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react'
+import { Navigate } from 'react-router'
+import { useParams } from "react-router-dom"
+import { useAuth } from 'hooks/authentication'
 import './ConfirmationPage.css'
 
 function ConfirmationPage() {
-  const [formData, setFormData] = useState({
-    phoneNumber: '',
-    otp: '',
-    resent: false,
-    manuallyEnteredAccodeCode: false,
-    otp: '',
-  });
-  const { t } = useTranslation();
   const auth = useAuth()
   const { otp, token } = useParams()
+  // const [formData, setFormData] = useState({
+  //   phoneNumber: '',
+  //   otp: '',
+  //   resent: false,
+  //   manuallyEnteredAccodeCode: false,
+  // });
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -25,24 +22,24 @@ function ConfirmationPage() {
     if (otp && token) {
       auth.authenticate(otp, token)
     }
-  }, [])
+  }, [auth, otp, token])
+
+  // function resendAccessCode () {
+  //   auth.resendAccessCode(formData)
+  //   setFormData({ ...formData, resent: true })
+  // }
+
+  // function handleManuallyEnterAccessCode () {
+  //   auth.authenticate(formData.otp, token)
+  //   setFormData({ ...formData, manuallyEnteredAccodeCode: true })
+  // }
+
+  // function handleInputChange (key, value) {
+  //   setFormData({ ...formData, [key]: value })
+  // }
 
   if (auth?.user?.isAuthenticated) {
     return <Navigate to="/survey" />
-  }
-
-  function resendAccessCode () {
-    auth.resendAccessCode(formData)
-    setFormData({ ...formData, resent: true })
-  }
-
-  function handleManuallyEnterAccessCode () {
-    auth.authenticate(formData.otp, token)
-    setFormData({ ...formData, manuallyEnteredAccodeCode: true })
-  }
-
-  function handleInputChange (key, value) {
-    setFormData({ ...formData, [key]: value })
   }
 
   return (

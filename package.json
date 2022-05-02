@@ -27,7 +27,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "HTTPS=true SSL_CRT_FILE=localhost.pem SSL_KEY_FILE=localhost-key.pem react-scripts start",
-    "lint": "eslint src"
+    "lint": "eslint --ext=js --ext=jsx src"
   },
   "eslintConfig": {
     "extends": [

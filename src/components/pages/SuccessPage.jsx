@@ -1,5 +1,4 @@
-import { LoremIpsum } from 'react-lorem-ipsum'
-import './SuccessPage.css';
+import './SuccessPage.css'
 
 function SuccessPage() {
   return (
@@ -15,4 +14,4 @@ function SuccessPage() {
   )
 }
 
-export default SuccessPage;
+export default SuccessPage

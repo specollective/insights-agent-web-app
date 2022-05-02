@@ -1,36 +1,33 @@
 import { useContext } from 'react'
-import 'components/shared/Layout.css'
-import LocaleContext from 'utils/LocaleContext'
-import { Link } from 'react-router-dom'
-import i18n from 'utils/i18n'
-import authenticationService from 'services/authentication'
-import { useNavigate, useLocation, Navigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from 'hooks/authentication'
+import LocaleContext from 'utils/LocaleContext'
+import i18n from 'utils/i18n'
 import { ReactComponent as SmallLogo } from 'images/logo-small.svg'
-
+import 'components/shared/Layout.css'
 
 function Layout(props) {
-  const { locale } = useContext(LocaleContext);
-  const navigate = useNavigate();
-  const location = useLocation();
-  const auth = useAuth();
+  const { locale } = useContext(LocaleContext)
+  const navigate = useNavigate()
+  const location = useLocation()
+  // const auth = useAuth()
 
   function changeLocale (e) {
     if (locale !== e.target.name) {
-      i18n.changeLanguage(e.target.name);
+      i18n.changeLanguage(e.target.name)
     }
   }
 
-  async function logout() {
-    const result = await auth.logout()
-    navigate('/')
-  }
+  // async function logout() {
+  //   const result = await auth.logout()
+  //   navigate('/')
+  // }
 
   async function goToHomePage() {
     navigate('/')
   }
 
-  const renderHeaderLogo = location.pathname !== '/';
+  const renderHeaderLogo = location.pathname !== '/'
 
   return(
     <>
