@@ -1,3 +1,6 @@
+// NOTE: This was only used for testing purposes.
+// Access tokens are set using httponly cookies and are not accessible
+// in JavaScript.
 export function getAccessToken (userData) {
   if (userData?.access_token) {
     return userData.access_token

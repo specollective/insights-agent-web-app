@@ -1,11 +1,11 @@
 import { API_URL } from 'constants/urls'
 import { DEFAULT_FETCH_OPTIONS } from 'constants/fetch'
-import { getAccessToken } from 'utils/sessions'
 
 export async function createSurvey(userData, surveyData) {
   const headers = {  ...DEFAULT_FETCH_OPTIONS.headers }
-  const accessToken = getAccessToken(userData)
 
+  // NOTE: We don't need this because we have httponly cookies
+  const accessToken = getAccessToken(userData)
   if (accessToken) {
     headers['Authorization'] = `Bearer ${accessToken}`
   }

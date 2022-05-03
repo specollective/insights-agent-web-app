@@ -1,18 +1,18 @@
 import { API_URL } from 'constants/urls'
 import { DEFAULT_FETCH_OPTIONS } from 'constants/fetch'
-import { getAccessToken } from 'utils/sessions'
 
 const authenticationService = {
   isAuthenticated: false,
   token: null,
   async currentUser(userData, callback) {
     const headers = {  ...DEFAULT_FETCH_OPTIONS.headers }
-    const accessToken = getAccessToken(userData)
 
-    if (accessToken) {
-      headers['Authorization'] = `Bearer ${accessToken}`
-      sessionStorage.setItem('access_token', accessToken)
-    }
+    // NOTE: We don't need this because we have httponly cookies
+    // const accessToken = getAccessToken(userData)
+    // if (accessToken) {
+    //   headers['Authorization'] = `Bearer ${accessToken}`
+    //   sessionStorage.setItem('access_token', accessToken)
+    // }
 
     const response = await fetch(`${API_URL}/current_user`, {
       ...DEFAULT_FETCH_OPTIONS,
