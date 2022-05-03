@@ -1,3 +1,45 @@
 #ConfirmationPage {
-  text-align: left;
+  margin-top: 2em;
 }
+
+#ConfirmationPage hr {
+  display: block;
+  margin-top: 4em;
+  margin-bottom: 4em;
+}
+
+#ConfirmationPage h1, h2 {
+  text-align: center;
+}
+
+#ConfirmationPage li {
+  padding: 0.2em;
+}
+
+.center {
+  width: 90%;
+  display: block;
+  margin: auto;
+}
+
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .center {
+    width: 80%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .center {
+    width: 60%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

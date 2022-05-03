@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../hooks/authentication'
 import { useTranslation } from 'react-i18next'
-import './SignUp.css'
+import { useAuth } from 'hooks/authentication'
+import 'components/shared/SignUp.css'
 
-export default function SignUp() {
+function SignUp() {
   const auth = useAuth()
   const { t } = useTranslation()
   const navigate = useNavigate()
@@ -68,7 +68,9 @@ export default function SignUp() {
         </div>
 
         <div>
-          <label htmlFor="phone-number">{ t('phoneNumberLabel') }</label>
+          <label htmlFor="phone-number">
+            { t('phoneNumberLabel') }
+          </label>
           <input
             id="phone-number"
             className="form-field"
@@ -82,10 +84,12 @@ export default function SignUp() {
           />
         </div>
 
-        <button className="form-field" type="submit" id="sign-up-button">
+        <button id="sign-up-button" className="form-field" type="submit">
           { t('submitText') }
         </button>
       </form>
     </div>
   )
 }
+
+export default SignUp
