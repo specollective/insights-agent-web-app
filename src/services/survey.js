@@ -5,10 +5,10 @@ export async function createSurvey(userData, surveyData) {
   const headers = {  ...DEFAULT_FETCH_OPTIONS.headers }
 
   // NOTE: We don't need this because we have httponly cookies
-  const accessToken = getAccessToken(userData)
-  if (accessToken) {
-    headers['Authorization'] = `Bearer ${accessToken}`
-  }
+  // const accessToken = getAccessToken(userData)
+  // if (accessToken) {
+  //   headers['Authorization'] = `Bearer ${accessToken}`
+  // }
 
   const response = await fetch(`${API_URL}/surveys`, {
     ...DEFAULT_FETCH_OPTIONS,
