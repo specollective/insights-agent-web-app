@@ -7,6 +7,8 @@ import SurveyPage from 'components/pages/SurveyPage';
 import SuccessPage from 'components/pages/SuccessPage';
 import DownloadPage from 'components/pages/DownloadPage';
 import LandingPage from 'components/pages/LandingPage';
+import DebuggerPage from 'components/pages/DebuggerPage';
+
 // Shared Components
 import Layout from 'components/shared/Layout';
 import RequireAuth from 'components/shared/RequireAuth';
@@ -58,6 +60,13 @@ function App() {
                 <RequireAuth>
                   <SuccessPage />
                 </RequireAuth>
+              }
+            />
+
+            <Route
+              path="/debugger"
+              element={
+                <DebuggerPage />
               }
             />
 
