@@ -1,5 +1,14 @@
 @import url('https://fonts.cdnfonts.com/css/segoe-ui-variable');
 
+#register h2 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000000;
+  text-align: center;
+}
+
 #register input {
   width: 100%;
   margin-bottom: 1em;
@@ -9,7 +18,7 @@
 }
 
 #sign-up-button {
-  width: 50%;
+  /* width: 10em; */
   display: block;
   margin: auto;
   font-family: 'Segoe UI Variable', sans-serif;
@@ -20,5 +29,40 @@
   color: #FFFFFF;
   background: #37770D;
   border: none;
-  padding: 1em;
+  padding: 0.6em;
+  border-radius: 2px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  #register {
+    display: block;
+    width: 80%;
+    margin: auto;
+  }
+
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #register {
+    display: block;
+    width: 50%;
+    margin: auto;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  #register {
+    display: block;
+    width: 30%;
+    margin: auto;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
 }

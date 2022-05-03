@@ -47,6 +47,8 @@ export default function SignUp() {
 
   return (
     <div id="register">
+      <h2>{ t('landingPageHeading') }</h2>
+
       <form className="register-form" onSubmit={handleSubmit}>
         <div className="input-section">
           <label htmlFor="full-name">

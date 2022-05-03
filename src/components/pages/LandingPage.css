@@ -50,6 +50,12 @@ header#organization {
   margin-right: 2em;
 }
 
+.survey-overview {
+  border: 1px solid black;
+  padding-left: 1em;
+  margin-bottom: 2em;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 
@@ -64,7 +70,11 @@ header#organization {
 }
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-
+  .content {
+    width: 50%;
+    display: block;
+    margin: auto;
+  }
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
