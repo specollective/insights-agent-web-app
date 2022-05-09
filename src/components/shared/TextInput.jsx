@@ -1,5 +1,6 @@
 import React from 'react'
 import './textinput.css'
+import { useTranslation } from 'react-i18next'
 
 interface TextInputProps {
   value: string;
@@ -10,6 +11,8 @@ interface TextInputProps {
 }
 
 export default function TextInput({ value, onChange, placeholder, label }: TextInputProps) {
+  const { t } = useTranslation();
+  
   return (
     <>
       <div>

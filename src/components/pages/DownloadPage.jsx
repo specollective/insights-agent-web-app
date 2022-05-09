@@ -1,7 +1,10 @@
 import Instructions from 'components/shared/Instructions'
 import { DOWNLOAD_URL } from 'constants/urls'
+import { useTranslation } from 'react-i18next'
 
 function DownloadPage() {
+  const { t } = useTranslation();
+
   return (
     <main>
       <div>
