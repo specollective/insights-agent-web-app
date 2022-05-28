@@ -10,7 +10,7 @@ function RequireAuth({ children }) {
   useEffect(() => {
     async function fetchData () {
       if (!auth.user) {
-        await auth.fetchCurrentUser()
+        await auth.currentUser()
       }
       setLoading(false)
     }

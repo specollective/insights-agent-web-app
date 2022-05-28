@@ -1,55 +1,50 @@
-import * as React from "react";
-import authenticationService from '../services/authentication';
+import { useContext, createContext, useState } from "react";
+import {
+  fetchMagicLink,
+  fetchConfirmMagicLink,
+  fetchAccessCode,
+  fetchLogout,
+  fetchCurrentUser,
+} from 'services/authentication';
 
-const AuthContext = React.createContext();
+const AuthContext = createContext();
 
 export function useAuth() {
-  return React.useContext(AuthContext);
+  return useContext(AuthContext);
 }
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = React.useState();
+  const [user, setUser] = useState();
 
-  const register = async formData => {
-    try {
-      const response = await authenticationService.register(formData);
-      return { ...response.data, valid: true }
-    } catch (e) {
-      return { value: false, errors: 'errors' }
-    }
+  async function register(formData) {
+    const result = await fetchMagicLink(formData)
+
+    setUser({ ...user, ...result })
   }
 
-  const authenticate = (otp, token) => {
-    return authenticationService.authenticate(otp, token, userData => {
-      setUser({ ...user, ...userData });
-    });
+  async function authenticate(otp, token) {
+    const result = await fetchConfirmMagicLink(otp, token)
+
+    setUser({ ...user, ...result })
   }
 
-  const resendAccessCode = formData => {
-    return authenticationService.resendAccessCode(formData, userData => {
-      setUser({ ...user, ...userData });
-    });
+  async function currentUser () {
+    const result = await fetchCurrentUser()
+
+    setUser({ ...user, ...result })
   }
 
-  const fetchCurrentUser = () => {
-    return authenticationService.currentUser(user, userData => {
-      setUser({ ...user, ...userData });
-      return { ...user, ...userData };
-    });
-  }
+  async function logout () {
+    const result = await fetchLogout()
 
-  const logout = () => {
-    return authenticationService.logout(() => {
-      setUser(null);
-    });
+    setUser(null)
   }
 
   const value = {
     user,
     register,
     authenticate,
-    resendAccessCode,
-    fetchCurrentUser,
+    currentUser,
     logout,
   };
 

@@ -10,6 +10,7 @@
     "i18next": "^21.6.16",
     "i18next-browser-languagedetector": "^6.1.4",
     "i18next-http-backend": "^1.4.0",
+    "jest-fetch-mock": "^3.0.3",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
