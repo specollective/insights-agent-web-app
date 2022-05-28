@@ -5,8 +5,8 @@ import { useAuth } from 'hooks/authentication'
 import 'components/shared/SignUp.css'
 
 function SignUp() {
-  const auth = useAuth()
   const { t } = useTranslation()
+  const auth = useAuth()
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     name: '',
@@ -14,34 +14,32 @@ function SignUp() {
     email: '',
   })
 
-  // const [errors, setErrors] = useState()
-  // const [valid, setValid] = useState(false)
-
-  const handleFullNameInputChange = evt => {
+  function handleFullNameInputChange(evt) {
     evt.persist()
+
     setFormData((formData) => ({
       ...formData,
       name: evt.target.value,
     }))
   }
 
-  const handlePhoneNumberInputChange = evt => {
+  function handlePhoneNumberInputChange(evt) {
     evt.persist()
+
     setFormData((formData) => ({
       ...formData,
       phoneNumber: evt.target.value,
     }))
   }
 
-  const handleSubmit = async evt => {
+  async function handleSubmit(evt) {
     evt.preventDefault()
 
-    const user = await auth.register(formData);
-    if (user.valid) {
+    try {
+      await auth.register(formData)
       navigate('/confirmation', { replace: true });
-    } else {
-      // TODO: Add helpful validation errors.
-      // setErrors(user.errors)
+    } catch (e) {
+      window.alert('Something went wrong')
     }
   }
 

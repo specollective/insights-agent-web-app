@@ -1,5 +1,7 @@
 # Insights Agent Web App
 
+Code repository for the Insights Agent web application.
+
 ## Development Dependencies
 - Node
 - npm
