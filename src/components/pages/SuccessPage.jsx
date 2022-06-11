@@ -1,6 +1,9 @@
 import './SuccessPage.css'
+import { useTranslation } from 'react-i18next'
 
 function SuccessPage() {
+  const { t } = useTranslation();
+
   return (
     <main id="SuccessPage">
       <div className="container">

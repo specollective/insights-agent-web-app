@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../hooks/authentication';
+import { useTranslation } from 'react-i18next'
 
 function RequireAuth({ children }) {
+  const { t } = useTranslation();
   let auth = useAuth();
   let location = useLocation();
   const [loading, setLoading] = useState(true)

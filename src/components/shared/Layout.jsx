@@ -4,11 +4,13 @@ import LocaleContext from 'utils/LocaleContext'
 import i18n from 'utils/i18n'
 import { ReactComponent as SmallLogo } from 'images/logo-small.svg'
 import 'components/shared/Layout.css'
+import { useTranslation } from 'react-i18next'
 
 function Layout(props) {
   const { locale } = useContext(LocaleContext)
   const navigate = useNavigate()
   const location = useLocation()
+  const { t } = useTranslation()
   const renderHeaderLogo = location.pathname !== '/'
 
   function changeLocale (e) {
