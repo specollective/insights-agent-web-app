@@ -11,7 +11,10 @@ import {
 import RadioButtonGroup from 'components/elements/RadioButtonGroup'
 import 'components/pages/SurveyPage.css'
 
+import { useTranslation, Trans } from "react-i18next";
+
 function SurveyPage() {
+  const {t} = useTranslation();
   const auth = useAuth()
   const navigate = useNavigate()
   const [formData, setFormData] = useState(DEFAULT_FORM_VALUES)
@@ -39,7 +42,14 @@ function SurveyPage() {
   return (
     <main className="survey">
       <div className="question">
-        <h4>Insights Agent General Info Survey</h4>
+        <div className="intro-description">
+          <Trans i18nKey="survey-page-header">
+            <h4>Insights Agent General Info Survey</h4>
+            <p>A core part of this study is tracking if technology is equitably benefit every person regardless of who they are. Your answer to these US Census style questions will help us better understand technology + diversity.</p>
+            <p><strong>*Required field</strong></p>
+          </Trans>
+
+        </div>
         <p>Instructions</p>
       </div>
 
