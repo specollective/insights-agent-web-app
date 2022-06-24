@@ -44,13 +44,13 @@ function SurveyPage() {
       <div className="question">
         <div className="intro-description">
           <Trans i18nKey="survey-page-header">
+
             <h4>Insights Agent General Info Survey</h4>
-            <p>A core part of this study is tracking if technology is equitably benefit every person regardless of who they are. Your answer to these US Census style questions will help us better understand technology + diversity.</p>
+            <p>{t("surveyDescription")}</p>
             <p><strong>*Required field</strong></p>
           </Trans>
 
         </div>
-        <p>Instructions</p>
       </div>
 
       <div className="question">
