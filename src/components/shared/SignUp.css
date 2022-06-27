@@ -10,11 +10,17 @@
 }
 
 #register input {
+  display: inline;
   width: 100%;
   margin-bottom: 1em;
   height: 2em;
   border: 1px solid #000000;
   box-sizing: border-box;
+}
+
+.error-message {
+  padding-left: 1em;
+  color: red;
 }
 
 #sign-up-button {
