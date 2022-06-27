@@ -1,4 +1,4 @@
-import Instructions from 'components/shared/Instructions'
+import Instructions from 'components/elements/Instructions'
 import { DOWNLOAD_URL } from 'constants/urls'
 
 function DownloadPage() {

@@ -8,7 +8,7 @@ import {
   EDUCATION_LEVELS,
   GENDER_IDENTITIES,
 } from 'constants/surveys'
-import RadioButtonGroup from 'components/shared/RadioButtonGroup'
+import RadioButtonGroup from 'components/elements/RadioButtonGroup'
 import 'components/pages/SurveyPage.css'
 
 function SurveyPage() {

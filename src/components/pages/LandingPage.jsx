@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import SignUpForm from 'components/shared/SignUp'
+import SignUpForm from 'components/elements/SignUp'
 import { ReactComponent as Logo } from 'images/logo.svg'
 import 'components/pages/LandingPage.css'
 
