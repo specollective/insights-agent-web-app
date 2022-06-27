@@ -10,8 +10,8 @@ import LandingPage from 'components/pages/LandingPage';
 import DebuggerPage from 'components/pages/DebuggerPage';
 
 // Shared Components
-import Layout from 'components/shared/Layout';
-import RequireAuth from 'components/shared/RequireAuth';
+import Layout from 'components/elements/Layout';
+import RequireAuth from 'components/elements/RequireAuth';
 import { AuthProvider } from 'hooks/authentication';
 // Utilities
 import LocaleContext from 'utils/LocaleContext';

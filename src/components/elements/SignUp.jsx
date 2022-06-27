@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from 'hooks/authentication'
-import 'components/shared/SignUp.css'
+import 'components/elements/SignUp.css'
 import * as Yup from 'yup';
 import { withFormik, Form, Field } from 'formik';
 import 'yup-phone';

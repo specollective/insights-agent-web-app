@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import LocaleContext from 'utils/LocaleContext'
 import i18n from 'utils/i18n'
 import { ReactComponent as SmallLogo } from 'images/logo-small.svg'
-import 'components/shared/Layout.css'
+import 'components/elements/Layout.css'
 
 function Layout(props) {
   const { locale } = useContext(LocaleContext)
