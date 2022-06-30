@@ -43,13 +43,11 @@ function SurveyPage() {
     <main className="survey">
       <div className="question">
         <div className="intro-description">
-          <Trans i18nKey="survey-page-header">
 
             <h4>Insights Agent General Info Survey</h4>
             <p>{t("surveyDescription")}</p>
             <p><strong>*Required field</strong></p>
-          </Trans>
-
+  
         </div>
       </div>
 
