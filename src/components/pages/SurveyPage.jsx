@@ -7,37 +7,40 @@ import {
   MARITAL_STATUSES,
   EDUCATION_LEVELS,
   GENDER_IDENTITIES,
+  IS_HISPANIC,
 } from 'constants/surveys'
 import RadioButtonGroup from 'components/elements/RadioButtonGroup'
 import 'components/pages/SurveyPage.css'
+import { Formik, Field, Form, useFormik } from 'formik';
+import { useTranslation, Trans } from "react-i18next";
 
 function SurveyPage() {
+  const {t} = useTranslation();
   const auth = useAuth()
   const navigate = useNavigate()
-  const [formData, setFormData] = useState(DEFAULT_FORM_VALUES)
-
+  const formik = useFormik({
+    initialValues: {
+      ...DEFAULT_FORM_VALUES
+    },
+    onSubmit: async () => {
+      try {
+        await createSurvey(auth.user, formik.values)
+        navigate('/success', { replace: true })
+      } catch (e) {
+        console.log(e)
+      }
+    },
+  });
+  
   if (!auth.user) return <div>Loading</div>
   if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
 
-  const handleSubmit = async () => {
-    try {
-      await createSurvey(auth.user, formData)
-      navigate('/success', { replace: true })
-    } catch (e) {
-      console.log(e)
-    }
-  }
-
   const handleClearForm = () => {
-    setFormData(DEFAULT_FORM_VALUES);
-  }
-
-  const handleInputChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+    formik.resetForm();
   }
 
   return (
-    <main className="survey">
+    <form className="survey" onSubmit={formik.handleSubmit}>
       <div className="question">
         <h4>Insights Agent General Info Survey</h4>
         <p>Instructions</p>
@@ -46,12 +49,12 @@ function SurveyPage() {
       <div className="question">
         <h4>What is your age?</h4>
         <input
+          value={formik.values.age}
           name="age"
           type="text"
-          onChange={handleInputChange}
+          onChange={formik.handleChange}
           data-testid="age-input"
           autoComplete="off"
-          value={formData.age}
         />
       </div>
 
@@ -59,10 +62,10 @@ function SurveyPage() {
         <h4>What gender do you identify with?</h4>
 
         <RadioButtonGroup
-          value={formData.gender}
+          value={formik.values.gender}
           name="gender"
           options={GENDER_IDENTITIES}
-          onChange={handleInputChange}
+          onChange={formik.handleChange}
         />
 
         <div>
@@ -70,62 +73,49 @@ function SurveyPage() {
           <input
             name="gender"
             type="text"
-            onChange={handleInputChange}
+            onChange={formik.handleChange}
             autoComplete="off"
           />
         </div>
       </div>
 
       <div className="question">
-        <h4>Are you of Hispanic, Latino, or Spanish origin?</h4>
-        <div className="radio-button-group">
-          <input
-            checked={formData.isHispanicOrLatino === 'true'}
-            id="latino-yes"
+      <Trans i18nKey="survey-hispanic">
+        <h4>{t("surveyHispanicHeader")}</h4>
+          <RadioButtonGroup
+            value={formik.values.isHispanicOrLatino}
             name="isHispanicOrLatino"
-            onChange={handleInputChange}
-            type="radio"
-            value="true"
+            options={IS_HISPANIC}
+            onChange={formik.handleChange}
           />
-          <label htmlFor="latino-yes">Yes</label><br/>
-
-          <input
-            checked={formData.isHispanicOrLatino === 'false'}
-            id="latino-no"
-            name="isHispanicOrLatino"
-            onChange={handleInputChange}
-            type="radio"
-            value="false"
-          />
-         <label htmlFor="latino-no">No</label>
-        </div>
+        </Trans>
       </div>
-
+      
       <div className="question">
         <h4>What is your level of education?</h4>
         <RadioButtonGroup
-          value={formData.educationLevel}
+          value={formik.values.educationLevel}
           name="educationLevel"
           options={EDUCATION_LEVELS}
-          onChange={handleInputChange}
+          onChange={formik.handleChange}
         />
       </div>
 
       <div className="question">
         <h4>What is your your marital status?</h4>
         <RadioButtonGroup
-          value={formData.maritalStatus}
+          value={formik.values.maritalStatus}
           name="maritalStatus"
           options={MARITAL_STATUSES}
-          onChange={handleInputChange}
+          onChange={formik.handleChange}
         />
       </div>
 
       <div className="actions">
         <button className="left" onClick={handleClearForm}>Clear Form</button>
-        <button className="right" onClick={handleSubmit}>Submit</button>
+        <button className="right">Submit</button>
       </div>
-    </main>
+    </form>
   )
 }
 

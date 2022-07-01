@@ -3,5 +3,6 @@
   "landingPageFooterHeading": "$100 for participating in our research study which can go towards your computer purchase.",
   "fullNameLabel": "Enter Full Name (First & Last)",
   "phoneNumberLabel": "Enter Phone Number",
-  "submitText": "Submit"
+  "submitText": "Submit",
+  "surveyHispanicHeader": "Are you of Hispanic origin?*"
 }

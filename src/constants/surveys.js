@@ -29,3 +29,9 @@ export const GENDER_IDENTITIES = [
   { value: 'non-binary', label: 'Non-binary/non-conforming' },
   { value: 'transgender', label: 'Transgender' },
 ]
+
+export const IS_HISPANIC = [
+  { value: 'true', label: 'Yes' },
+  { value: 'false', label: 'No' },
+  { value: 'dedline', label: 'Decline to identify' }
+]
