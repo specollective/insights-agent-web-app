@@ -7,9 +7,11 @@ import {
   MARITAL_STATUSES,
   EDUCATION_LEVELS,
   GENDER_IDENTITIES,
+  RACE,
 } from 'constants/surveys'
 import RadioButtonGroup from 'components/elements/RadioButtonGroup'
 import 'components/pages/SurveyPage.css'
+import CheckboxGroup from 'components/elements/CheckboxGroup'
 
 function SurveyPage() {
   const auth = useAuth()

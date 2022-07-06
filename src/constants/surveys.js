@@ -5,6 +5,7 @@ export const DEFAULT_FORM_VALUES = {
   educationLevel: '',
   maritalStatus: '',
   isHispanicOrLatino: null,
+  race: '',
 }
 
 export const MARITAL_STATUSES = [
@@ -29,3 +30,4 @@ export const GENDER_IDENTITIES = [
   { value: 'non-binary', label: 'Non-binary/non-conforming' },
   { value: 'transgender', label: 'Transgender' },
 ]
+
