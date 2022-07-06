@@ -11,7 +11,10 @@ import {
 import RadioButtonGroup from 'components/elements/RadioButtonGroup'
 import 'components/pages/SurveyPage.css'
 
+import { useTranslation, Trans } from "react-i18next";
+
 function SurveyPage() {
+  const {t} = useTranslation();
   const auth = useAuth()
   const navigate = useNavigate()
   const [formData, setFormData] = useState(DEFAULT_FORM_VALUES)
@@ -39,8 +42,13 @@ function SurveyPage() {
   return (
     <main className="survey">
       <div className="question">
-        <h4>Insights Agent General Info Survey</h4>
-        <p>Instructions</p>
+        <div className="intro-description">
+
+            <h4>Insights Agent General Info Survey</h4>
+            <p>{t("surveyDescription")}</p>
+            <p><strong>*Required field</strong></p>
+  
+        </div>
       </div>
 
       <div className="question">
