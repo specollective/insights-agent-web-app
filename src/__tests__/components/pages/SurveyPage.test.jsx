@@ -31,6 +31,14 @@ describe('Survey Page', () => {
     })
   })
 
+  describe('Info section', () => {
+    it('renders success message', () => {
+      render(<SurveyPage />);
+      expect(screen.getByText('*Required field'))
+        .toBeInTheDocument()
+    })
+  })
+
   describe('age input', () => {
     it('fills', () => {
       render(<SurveyPage />);
