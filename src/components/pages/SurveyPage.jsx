@@ -13,7 +13,7 @@ import RadioButtonGroup from 'components/elements/RadioButtonGroup'
 import 'components/pages/SurveyPage.css'
 import CheckboxGroup from 'components/elements/CheckboxGroup'
 
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation} from "react-i18next";
 
 function SurveyPage() {
   const {t} = useTranslation();
@@ -51,6 +51,18 @@ function SurveyPage() {
             <p><strong>*Required field</strong></p>
   
         </div>
+      </div>
+
+      <div className="question">
+        <h4>Pleaase select your race.*</h4>
+        <p>Check all that apply</p>
+
+        <CheckboxGroup
+          value={formData.race}
+          name="race"
+          options={RACE}
+          onChange={handleInputChange}
+        />
       </div>
 
       <div className="question">

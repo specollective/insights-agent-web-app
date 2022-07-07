@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 function CheckboxGroup ({ options, name, value, onChange }) {
     return (
       <div className="checkbox-group">
-        {/* { options.map(options => {
+        { options.map(options => {
           return (
             <div key={options.value}>
               <input
@@ -19,10 +19,11 @@ function CheckboxGroup ({ options, name, value, onChange }) {
                 onChange={onChange}
               />
               <label htmlFor={options.value}>{ options.label }</label>
+              console.log(options)
               <br/>
             </div>
           )
-        })} */}
+        })}
       </div>
     )
   }
