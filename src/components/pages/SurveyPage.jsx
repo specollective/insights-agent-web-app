@@ -41,6 +41,19 @@ function SurveyPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  const handleRaceChange = (value, checked) => {
+    if (checked) {
+      setFormData({...formData, race: [...formData.race, value]})
+    } else {
+      const newRaces = formData.race.filter(raceValue => {
+        return raceValue !== value
+      })
+      setFormData({...formData, race: newRaces})
+    }
+
+    
+  }
+
   return (
     <main className="survey">
       <div className="question">
@@ -61,7 +74,7 @@ function SurveyPage() {
           value={formData.race}
           name="race"
           options={RACE}
-          onChange={handleInputChange}
+          onChange={handleRaceChange}
         />
       </div>
 

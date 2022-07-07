@@ -5,21 +5,24 @@ import * as Yup from 'yup';
 
 
 function CheckboxGroup ({ options, name, value, onChange }) {
+    function handleChange(e) {
+        // debugger
+        onChange(e.target.value, e.target.checked)
+    }
     return (
       <div className="checkbox-group">
-        { options.map(options => {
+        { options.map(option => {
           return (
-            <div key={options.value}>
+            <div key={option.value}>
               <input
                 type="checkbox"
-                id={options.value}
+                id={option.value}
                 name={name}
-                value={options.value}
-                checked={FormData.value.includes(options.value)}
-                onChange={onChange}
+                value={option.value}
+                checked={value.includes(option.value)}
+                onChange={handleChange}
               />
-              <label htmlFor={options.value}>{ options.label }</label>
-              console.log(options)
+              <label htmlFor={option.value}>{ option.label }</label>
               <br/>
             </div>
           )
