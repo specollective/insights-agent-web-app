@@ -43,4 +43,14 @@ npm test
 
 Local SSL setup
 
+Please follow the steps in this tutorial to generate your SSL certificate for localhost.
+
 https://www.mariokandut.com/how-to-setup-https-ssl-in-localhost-react/
+
+Once you've installed the certificates, run the following command:
+
+```
+npm run dev
+```
+
+The app should open on https://localhost:3000/
