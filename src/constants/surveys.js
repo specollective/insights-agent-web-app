@@ -5,7 +5,7 @@ export const DEFAULT_FORM_VALUES = {
   educationLevel: '',
   maritalStatus: '',
   isHispanicOrLatino: null,
-  race: ['white'],
+  race: [],
 }
 
 export const MARITAL_STATUSES = [

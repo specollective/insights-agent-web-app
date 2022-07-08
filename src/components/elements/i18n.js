@@ -10,14 +10,14 @@ i18n
     // init i18next
     .init({
         debug: true,
-        fallbackLng: 'en'
+        fallbackLng: 'en',
         interpolation: {
             escapeValue: false,
         },
         resources: {
             en: {
                 transaltion: {
-                // add translations here 
+                // add translations here
                 }
             }
         }

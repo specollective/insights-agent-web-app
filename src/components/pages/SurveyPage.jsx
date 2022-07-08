@@ -15,8 +15,14 @@ import CheckboxGroup from 'components/elements/CheckboxGroup'
 
 import { useTranslation} from "react-i18next";
 
+function buildRaceSelection (formData, value, checked) {
+  return checked
+    ? [...formData.race, value]
+    : formData.race.filter(raceValue => raceValue !== value)
+}
+
 function SurveyPage() {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const auth = useAuth()
   const navigate = useNavigate()
   const [formData, setFormData] = useState(DEFAULT_FORM_VALUES)
@@ -42,27 +48,19 @@ function SurveyPage() {
   }
 
   const handleRaceChange = (value, checked) => {
-    if (checked) {
-      setFormData({...formData, race: [...formData.race, value]})
-    } else {
-      const newRaces = formData.race.filter(raceValue => {
-        return raceValue !== value
-      })
-      setFormData({...formData, race: newRaces})
-    }
-
-    
+    setFormData({
+      ...formData,
+      race: buildRaceSelection(formData, value, checked)
+    });
   }
 
   return (
     <main className="survey">
       <div className="question">
         <div className="intro-description">
-
-            <h4>Insights Agent General Info Survey</h4>
-            <p>{t("surveyDescription")}</p>
-            <p><strong>*Required field</strong></p>
-  
+          <h4>Insights Agent General Info Survey</h4>
+          <p>{t("surveyDescription")}</p>
+          <p><strong>*Required field</strong></p>
         </div>
       </div>
 
