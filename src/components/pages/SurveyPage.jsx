@@ -16,6 +16,12 @@ import CheckboxGroup from 'components/elements/CheckboxGroup'
 import { useTranslation} from "react-i18next";
 
 function buildRaceSelection (formData, value, checked) {
+  const declineValue = 'decline'
+  if (value === declineValue) {
+    return checked ? [value] : []
+  } else if (formData.race.includes(declineValue)) {
+    return [value]
+  }
   return checked
     ? [...formData.race, value]
     : formData.race.filter(raceValue => raceValue !== value)
