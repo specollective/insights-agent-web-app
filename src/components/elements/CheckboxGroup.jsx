@@ -2,9 +2,34 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
+function buildNewSelection(existingList, selectedValue, checked) {
+  const declineValue = 'decline';
+
+  if (selectedValue === declineValue) {
+    return checked ? [selectedValue] : []
+  } else if (existingList.includes(declineValue)) {
+    return [selectedValue]
+  }
+
+  return checked
+    ? [...existingList, selectedValue]
+    : existingList.filter(option => option !== selectedValue)
+}
+
 function CheckboxGroup ({ options, name, value, onChange }) {
   function handleChange({ target }) {
-    onChange(target.value, target.checked)
+    // value is existing options on model
+    const selectedValue = target.value;
+    const checked = target.checked;
+
+    const newListValue = buildNewSelection(value, selectedValue, checked)
+
+    onChange({
+      target: {
+        name,
+        value: newListValue,
+      }
+    })
   }
 
   return (

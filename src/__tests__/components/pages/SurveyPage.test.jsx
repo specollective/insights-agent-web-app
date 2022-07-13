@@ -4,6 +4,7 @@ import SurveyPage from 'components/pages/SurveyPage';
 import { createSurvey } from 'services/survey';
 import i18nTest from 'utils/i18nTest';
 import { I18nextProvider } from 'react-i18next';
+import { RACE } from 'constants/surveys';
 
 jest.mock('hooks/authentication', () => ({
   useAuth: () => {
@@ -50,7 +51,9 @@ describe('Survey Page', () => {
   describe('Age input', () => {
     it('fills', () => {
       renderPage();
+
       const input = screen.getByTestId('age-input')
+
       expect(input).toBeInTheDocument()
 
       const submitButton = screen.getByText('Submit')
@@ -77,10 +80,65 @@ describe('Survey Page', () => {
     it('updates state correctly', async () => {
       renderPage();
 
-      const input = screen.getByLabelText('White');
+      // asserting all expected options are present
+      RACE.forEach((raceOption) => {
+        const input = screen.getByLabelText(raceOption.label);
+        expect(input).toBeInTheDocument();
+      });
 
-      expect(input).toBeInTheDocument();
+      // Testing selecting multiple options
+      await fireEvent.click(screen.getByText('White'));
+      await fireEvent.click(screen.getByText('Filipino'));
 
+      // Testing submitting the form
+      const submitButton = screen.getByText('Submit');
+      fireEvent.click(submitButton);
+
+      // Asserting that the bend service is called with the right values.
+      expect(createSurvey).toHaveBeenCalledWith(
+        { isAuthenticated: true },
+        {
+          age: '',
+          gender: '',
+          zipCode: '',
+          educationLevel: '',
+          maritalStatus: '',
+          isHispanicOrLatino: null,
+          race: ['white', 'filipino'],
+        },
+      );
+    });
+
+    it('handles decline all option', async () => {
+      renderPage();
+
+      await fireEvent.click(screen.getByText('White'));
+      await fireEvent.click(screen.getByText('Filipino'));
+      await fireEvent.click(screen.getByText('Decline to identify'));
+
+      const submitButton = screen.getByText('Submit');
+
+      fireEvent.click(submitButton);
+
+      expect(createSurvey).toHaveBeenCalledWith(
+        { isAuthenticated: true },
+        {
+          age: '',
+          gender: '',
+          zipCode: '',
+          educationLevel: '',
+          maritalStatus: '',
+          isHispanicOrLatino: null,
+          race: ['decline'],
+        },
+      );
+
+    });
+
+    it('handles switching from decline to selecting an option', async () => {
+      renderPage();
+
+      await fireEvent.click(screen.getByText('Decline to identify'));
       await fireEvent.click(screen.getByText('White'));
 
       const submitButton = screen.getByText('Submit');

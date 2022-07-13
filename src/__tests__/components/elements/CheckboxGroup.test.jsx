@@ -2,11 +2,23 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react'
 import CheckboxGroup from 'components/elements/CheckboxGroup';
 
+const FOOD_OPTIONS = [
+  {
+    label: 'Pizza', value: 'pizza'
+  },
+  {
+    label: 'Salad', value: 'salad',
+  },
+  {
+    label: 'Decline favorite foods', value: 'decline',
+  }
+]
+
 describe('CheckboxGroup', () => {
   it('renders label', () => {
     render(
       <CheckboxGroup
-        options={[{ label: 'Pizza', value: 'pizza' }]}
+        options={[{ label: 'Pizza', value: 'pizza'}]}
         name="favorite-foods"
         value={['pizza']}
         onChange={jest.fn()}
@@ -21,7 +33,7 @@ describe('CheckboxGroup', () => {
 
     render(
       <CheckboxGroup
-        options={[{ label: 'Pizza', value: 'pizza' }]}
+        options={FOOD_OPTIONS}
         name="favorite-foods"
         value={[]}
         onChange={mockOnChangeProp}
@@ -32,7 +44,12 @@ describe('CheckboxGroup', () => {
 
     await fireEvent.click(pizzaCheckbox);
 
-    expect(mockOnChangeProp).toHaveBeenCalledWith('pizza', true);
+    expect(mockOnChangeProp).toHaveBeenCalledWith({
+      target: {
+        name: 'favorite-foods',
+        value: ['pizza'],
+      }
+    });
   });
 
   it('calls onChange prop with correct args when checkbox is unselected', async () => {
@@ -40,7 +57,7 @@ describe('CheckboxGroup', () => {
 
     render(
       <CheckboxGroup
-        options={[{ label: 'Pizza', value: 'pizza' }]}
+        options={FOOD_OPTIONS}
         name="favorite-foods"
         value={['pizza']}
         onChange={mockOnChangeProp}
@@ -53,6 +70,66 @@ describe('CheckboxGroup', () => {
 
     await fireEvent.click(screen.getByText('Pizza'));
 
-    expect(mockOnChangeProp).toHaveBeenCalledWith('pizza', false);
+    expect(mockOnChangeProp).toHaveBeenCalledWith({
+      target: {
+        name: 'favorite-foods',
+        value: [],
+      }
+    });
+  });
+
+  it('handle multi-select', async () => {
+    const mockOnChangeProp = jest.fn();
+
+    render(
+      <CheckboxGroup
+        options={FOOD_OPTIONS}
+        name="favorite-foods"
+        value={['pizza']}
+        onChange={mockOnChangeProp}
+      />
+    );
+
+    const pizzaCheckbox = screen.getByLabelText('Pizza');
+
+    expect(pizzaCheckbox.checked).toEqual(true);
+
+    await fireEvent.click(screen.getByText('Pizza'));
+    await fireEvent.click(screen.getByText('Salad'));
+
+    expect(mockOnChangeProp).toHaveBeenCalledWith({
+      target: {
+        name: 'favorite-foods',
+        value: ['pizza', 'salad'],
+      }
+    });
+  });
+
+  it('handle decline all', async () => {
+    const mockOnChangeProp = jest.fn();
+
+    render(
+      <CheckboxGroup
+        options={FOOD_OPTIONS}
+        name="favorite-foods"
+        value={['pizza']}
+        onChange={mockOnChangeProp}
+      />
+    );
+
+    const pizzaCheckbox = screen.getByLabelText('Pizza');
+
+    expect(pizzaCheckbox.checked).toEqual(true);
+
+    await fireEvent.click(screen.getByText('Pizza'));
+    await fireEvent.click(screen.getByText('Salad'));
+    await fireEvent.click(screen.getByText('Decline favorite foods'));
+
+    expect(mockOnChangeProp).toHaveBeenCalledWith({
+      target: {
+        name: 'favorite-foods',
+        value: ['decline'],
+      }
+    });
   });
 });

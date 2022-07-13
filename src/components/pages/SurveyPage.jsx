@@ -12,20 +12,7 @@ import {
 import RadioButtonGroup from 'components/elements/RadioButtonGroup'
 import 'components/pages/SurveyPage.css'
 import CheckboxGroup from 'components/elements/CheckboxGroup'
-
-import { useTranslation} from "react-i18next";
-
-function buildRaceSelection (formData, value, checked) {
-  const declineValue = 'decline'
-  if (value === declineValue) {
-    return checked ? [value] : []
-  } else if (formData.race.includes(declineValue)) {
-    return [value]
-  }
-  return checked
-    ? [...formData.race, value]
-    : formData.race.filter(raceValue => raceValue !== value)
-}
+import { useTranslation} from 'react-i18next';
 
 function SurveyPage() {
   const { t } = useTranslation();
@@ -53,13 +40,6 @@ function SurveyPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleRaceChange = (value, checked) => {
-    setFormData({
-      ...formData,
-      race: buildRaceSelection(formData, value, checked)
-    });
-  }
-
   return (
     <main className="survey">
       <div className="question">
@@ -71,14 +51,14 @@ function SurveyPage() {
       </div>
 
       <div className="question">
-        <h4>Pleaase select your race.*</h4>
+        <h4>Please select your race.*</h4>
         <p>Check all that apply</p>
 
         <CheckboxGroup
           value={formData.race}
           name="race"
           options={RACE}
-          onChange={handleRaceChange}
+          onChange={handleInputChange}
         />
       </div>
 
