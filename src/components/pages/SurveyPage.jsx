@@ -4,10 +4,7 @@ import { useAuth } from 'hooks/authentication'
 import { createSurvey } from 'services/survey'
 import {
   DEFAULT_FORM_VALUES,
-  MARITAL_STATUSES,
-  EDUCATION_LEVELS,
-  GENDER_IDENTITIES,
-  RACE,
+  RACE_OPTIONS,
 } from 'constants/surveys'
 import RadioButtonGroup from 'components/elements/RadioButtonGroup'
 import 'components/pages/SurveyPage.css'
@@ -57,42 +54,9 @@ function SurveyPage() {
         <CheckboxGroup
           value={formData.race}
           name="race"
-          options={RACE}
+          options={RACE_OPTIONS}
           onChange={handleInputChange}
         />
-      </div>
-
-      <div className="question">
-        <h4>What is your age?</h4>
-        <input
-          name="age"
-          type="text"
-          onChange={handleInputChange}
-          data-testid="age-input"
-          autoComplete="off"
-          value={formData.age}
-        />
-      </div>
-
-      <div className="question">
-        <h4>What gender do you identify with?</h4>
-
-        <RadioButtonGroup
-          value={formData.gender}
-          name="gender"
-          options={GENDER_IDENTITIES}
-          onChange={handleInputChange}
-        />
-
-        <div>
-          <label className="preference-input-label">Prefer to self describe</label>
-          <input
-            name="gender"
-            type="text"
-            onChange={handleInputChange}
-            autoComplete="off"
-          />
-        </div>
       </div>
 
       <div className="question">
@@ -118,26 +82,6 @@ function SurveyPage() {
           />
          <label htmlFor="latino-no">No</label>
         </div>
-      </div>
-
-      <div className="question">
-        <h4>What is your level of education?</h4>
-        <RadioButtonGroup
-          value={formData.educationLevel}
-          name="educationLevel"
-          options={EDUCATION_LEVELS}
-          onChange={handleInputChange}
-        />
-      </div>
-
-      <div className="question">
-        <h4>What is your your marital status?</h4>
-        <RadioButtonGroup
-          value={formData.maritalStatus}
-          name="maritalStatus"
-          options={MARITAL_STATUSES}
-          onChange={handleInputChange}
-        />
       </div>
 
       <div className="actions">
