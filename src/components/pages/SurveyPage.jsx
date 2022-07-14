@@ -8,10 +8,12 @@ import {
   EDUCATION_LEVELS,
   GENDER_IDENTITIES,
   RACE,
+  HOUSEHOLD,
 } from 'constants/surveys'
 import RadioButtonGroup from 'components/elements/RadioButtonGroup'
 import 'components/pages/SurveyPage.css'
 import CheckboxGroup from 'components/elements/CheckboxGroup'
+import DropdownGroup from 'components/elements/DropdownGroup'
 import { useTranslation} from 'react-i18next';
 
 function SurveyPage() {
@@ -119,6 +121,18 @@ function SurveyPage() {
          <label htmlFor="latino-no">No</label>
         </div>
       </div>
+
+      <div className="question">
+        <h4>Please answer about your HOUSEHOLD:</h4>
+        <h5>How many people live/stay in your household?</h5>
+        
+        <DropdownGroup
+          value={formData.household}
+          name="household"
+          options={HOUSEHOLD}
+          onChange={handleInputChange}
+        />
+      </div> 
 
       <div className="question">
         <h4>What is your level of education?</h4>
