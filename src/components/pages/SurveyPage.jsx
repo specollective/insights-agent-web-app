@@ -7,14 +7,15 @@ import {
   MARITAL_STATUSES,
   EDUCATION_LEVELS,
   GENDER_IDENTITIES,
+  RACE,
 } from 'constants/surveys'
 import RadioButtonGroup from 'components/elements/RadioButtonGroup'
 import 'components/pages/SurveyPage.css'
-
-import { useTranslation, Trans } from "react-i18next";
+import CheckboxGroup from 'components/elements/CheckboxGroup'
+import { useTranslation} from 'react-i18next';
 
 function SurveyPage() {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const auth = useAuth()
   const navigate = useNavigate()
   const [formData, setFormData] = useState(DEFAULT_FORM_VALUES)
@@ -43,12 +44,22 @@ function SurveyPage() {
     <main className="survey">
       <div className="question">
         <div className="intro-description">
-
-            <h4>Insights Agent General Info Survey</h4>
-            <p>{t("surveyDescription")}</p>
-            <p><strong>*Required field</strong></p>
-  
+          <h4>Insights Agent General Info Survey</h4>
+          <p>{t("surveyDescription")}</p>
+          <p><strong>*Required field</strong></p>
         </div>
+      </div>
+
+      <div className="question">
+        <h4>Please select your race.*</h4>
+        <p>Check all that apply</p>
+
+        <CheckboxGroup
+          value={formData.race}
+          name="race"
+          options={RACE}
+          onChange={handleInputChange}
+        />
       </div>
 
       <div className="question">
