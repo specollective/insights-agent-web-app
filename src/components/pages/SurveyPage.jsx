@@ -7,6 +7,7 @@ import {
   RACE_OPTIONS,
   HOUSEHOLD,
   IS_HISPANIC_OPTIONS,
+  COMPUTER_USE,
 } from 'constants/surveys'
 import 'components/pages/SurveyPage.css'
 import { useTranslation, Trans } from 'react-i18next';
@@ -68,6 +69,17 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>
 
+      <div className="question">
+        <h4>What is the intended use of this computer?*</h4>
+        <p>Check all that apply.</p>
+
+        <CheckboxGroup
+          value={values.computerUse}
+          name="computerUse"
+          options={COMPUTER_USE}
+        />
+      </div>
+
       <div className="actions">
         <button type="button" className="left" onClick={handleClearForm}>Clear Form</button>
         <button type="submit" className="right">Submit</button>
@@ -82,10 +94,12 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
  * @param {} props - includes email and password
  * @returns {object} - formatted field values
  */
-export function mapPropsToValues ({ race, isHispanicOrLatino }) {
+export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, household }) {
   return {
     race: race || [],
     isHispanicOrLatino: isHispanicOrLatino,
+    computerUse: computerUse || [],
+    household: household
   }
 }
 
