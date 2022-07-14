@@ -5,7 +5,8 @@ export const DEFAULT_FORM_VALUES = {
   educationLevel: '',
   maritalStatus: '',
   isHispanicOrLatino: null,
-  race: [],
+  raceOptions: [],
+  internetAccess: [],
 }
 
 export const MARITAL_STATUSES = [
@@ -31,7 +32,7 @@ export const GENDER_IDENTITIES = [
   { value: 'transgender', label: 'Transgender' },
 ]
 
-export const RACE = [
+export const RACE_OPTIONS = [
   { value: 'white', label: 'White'},
   { value: 'black', label: 'Black or African American'},
   { value: 'american-indian', label: 'American Indian or Alaska Native'},
@@ -49,4 +50,12 @@ export const RACE = [
   { value: 'other', label: 'Other race not listed above'},
   { value: 'decline', label: 'Decline to identify'}
 
+]
+
+export const INTERNET_ACCESS = [
+  {value: 'cellular-data', label:'Cellular data plan for smartphone'},
+  {value: 'internet', label:'Broadband internet service'},
+  {value: 'satellite', label:'Satellite internet service'},
+  {value: 'dial-up', label:'Dial up internet service'},
+  {value: 'other-service', label:'Some other service'},
 ]

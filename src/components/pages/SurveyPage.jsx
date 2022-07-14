@@ -7,7 +7,8 @@ import {
   MARITAL_STATUSES,
   EDUCATION_LEVELS,
   GENDER_IDENTITIES,
-  RACE,
+  RACE_OPTIONS,
+  INTERNET_ACCESS,
 } from 'constants/surveys'
 import RadioButtonGroup from 'components/elements/RadioButtonGroup'
 import 'components/pages/SurveyPage.css'
@@ -55,9 +56,21 @@ function SurveyPage() {
         <p>Check all that apply</p>
 
         <CheckboxGroup
-          value={formData.race}
+          value={formData.raceOptions}
           name="race"
-          options={RACE}
+          options={RACE_OPTIONS}
+          onChange={handleInputChange}
+        />
+      </div>
+
+      <div className="question">
+        <h4>How does your houseland access the internet?*</h4>
+        <p>Check all that apply</p>
+
+        <CheckboxGroup
+          value={formData.internetAccess}
+          name="internetAccess"
+          options={INTERNET_ACCESS}
           onChange={handleInputChange}
         />
       </div>
