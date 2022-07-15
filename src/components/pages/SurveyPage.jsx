@@ -1,36 +1,24 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useAuth } from 'hooks/authentication'
-import { createSurvey } from 'services/survey'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from 'hooks/authentication';
+import { createSurvey } from 'services/survey';
 import {
   DEFAULT_FORM_VALUES,
   RACE_OPTIONS,
+  IS_HISPANIC,
 } from 'constants/surveys'
-import RadioButtonGroup from 'components/elements/RadioButtonGroup'
 import 'components/pages/SurveyPage.css'
+import { useTranslation, Trans } from 'react-i18next';
+import { withFormik, Form, Field } from 'formik';
+import * as Yup from 'yup';
 import CheckboxGroup from 'components/elements/CheckboxGroup'
-import { useTranslation} from 'react-i18next';
+import RadioButtonGroup from 'components/elements/RadioButtonGroup'
 
-function SurveyPage() {
+function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
   const { t } = useTranslation();
-  const auth = useAuth()
-  const navigate = useNavigate()
-  const [formData, setFormData] = useState(DEFAULT_FORM_VALUES)
-
-  if (!auth.user) return <div>Loading</div>
-  if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
-
-  const handleSubmit = async () => {
-    try {
-      await createSurvey(auth.user, formData)
-      navigate('/success', { replace: true })
-    } catch (e) {
-      console.log(e)
-    }
-  }
 
   const handleClearForm = () => {
-    setFormData(DEFAULT_FORM_VALUES);
+    setValues(DEFAULT_FORM_VALUES);
   }
 
   const handleInputChange = (e) => {
@@ -38,8 +26,11 @@ function SurveyPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  // TODO: Render errors. Logging here to help with debugging.
+  // console.log(errors);
+
   return (
-    <main className="survey">
+    <Form className="survey">
       <div className="question">
         <div className="intro-description">
           <h4>Insights Agent General Info Survey</h4>
@@ -53,43 +44,99 @@ function SurveyPage() {
         <p>Check all that apply</p>
 
         <CheckboxGroup
-          value={formData.raceOption}
-          name="raceOption"
+          value={values.race}
+          name="race"
           options={RACE_OPTIONS}
-          onChange={handleInputChange}
+          onChange={setFieldValue}
         />
       </div>
 
       <div className="question">
-        <h4>Are you of Hispanic, Latino, or Spanish origin?</h4>
-        <div className="radio-button-group">
-          <input
-            checked={formData.isHispanicOrLatino === 'true'}
-            id="latino-yes"
-            name="isHispanicOrLatino"
-            onChange={handleInputChange}
-            type="radio"
-            value="true"
-          />
-          <label htmlFor="latino-yes">Yes</label><br/>
-
-          <input
-            checked={formData.isHispanicOrLatino === 'false'}
-            id="latino-no"
-            name="isHispanicOrLatino"
-            onChange={handleInputChange}
-            type="radio"
-            value="false"
-          />
-         <label htmlFor="latino-no">No</label>
-        </div>
+        <h4>{t('surveyHispanicHeader')}</h4>
+        <RadioButtonGroup
+          value={values.isHispanicOrLatino}
+          name="isHispanicOrLatino"
+          options={IS_HISPANIC}
+        />
       </div>
 
       <div className="actions">
-        <button className="left" onClick={handleClearForm}>Clear Form</button>
-        <button className="right" onClick={handleSubmit}>Submit</button>
+        <button type="button" className="left" onClick={handleClearForm}>Clear Form</button>
+        <button type="submit" className="right">Submit</button>
       </div>
-    </main>
+    </Form>
+  )
+}
+
+/**
+ * Defines a function to map Formik props to form values
+ * Function name matches Formik option key mapPropsToValues
+ * @param {} props - includes email and password
+ * @returns {object} - formatted field values
+ */
+export function mapPropsToValues ({ race, isHispanicOrLatino }) {
+  return {
+    race: race || [],
+    isHispanicOrLatino: isHispanicOrLatino,
+  }
+}
+
+/**
+ * Defines the logic for handling form submission
+ * Function name matches Formik option key handleSubmit
+ * @param {} values - email and password
+ * @returns {Response} - fetch response object
+ */
+export function handleSubmit(values, { props }) {
+  props.handleSubmit(values);
+}
+
+/**
+ * Defines a schema for form validations
+ * Constant name matches Formik option key validationSchema
+ * @constant
+ * @type {object}
+ */
+export const validationSchema = Yup.object().shape({
+  race: Yup.array().of(Yup.string()).min(1).required(),
+  isHispanicOrLatino: Yup.string().required(),
+  // technologyCompetencyLevel: Yup.number().min(1).max(5),
+  // householdSize: Yup.string().required(),
+  // computerUsage: Yup.string().required(),
+  // numberOfDevices: Yup.string().required(),
+  // internetAccessAvailability: Yup.string().required(),
+});
+
+/**
+ * Wraps SendAccessCodeForm with the withFormik Higher-order component
+ */
+export const SurveyPageForm = withFormik({
+  mapPropsToValues,
+  handleSubmit,
+  validationSchema,
+})(SurveyForm);
+
+function SurveyPage() {
+  const auth = useAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = async formData => {
+    try {
+      await createSurvey(formData);
+      navigate('/success', { replace: true });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  // TODO: Move into useAuth
+  if (!auth.user) return <div>Loading</div>
+  if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
+
+  return (
+    <div className="page">
+      <SurveyPageForm handleSubmit={handleSubmit} />
+    </div>
   )
 }
 

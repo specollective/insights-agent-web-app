@@ -7,7 +7,7 @@ export const RACE_OPTIONS = [
   { value: 'white', label: 'White'},
   { value: 'black', label: 'Black or African American'},
   { value: 'american-indian', label: 'American Indian or Alaska Native'},
-  { value: 'chinese ', label: 'Chinese'},
+  { value: 'chinese', label: 'Chinese'},
   { value: 'filipino', label: 'Filipino'},
   { value: 'asian-indian', label: 'Asian Indian'},
   { value: 'vietnamese', label: 'Vietnamese'},
@@ -19,6 +19,11 @@ export const RACE_OPTIONS = [
   { value: 'other-asian', label: 'Other Asian'},
   { value: 'other-pacific-islander', label: 'Other Pacific Islander'},
   { value: 'other', label: 'Other race not listed above'},
-  { value: 'decline', label: 'Decline to identify'}
+  { value: 'decline', label: 'Decline to identify'},
+]
 
+export const IS_HISPANIC = [
+  { value: 'true', label: 'Yes' },
+  { value: 'false', label: 'No' },
+  { value: 'decline', label: 'Decline to identify' }
 ]
