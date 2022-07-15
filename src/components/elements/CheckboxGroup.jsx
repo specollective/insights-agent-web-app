@@ -3,6 +3,9 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
 function buildNewSelection(existingList, selectedValue, checked) {
+    console.log(existingList)
+    console.log(selectedValue)
+    console.log(checked)
   const declineValue = 'decline';
 
   if (selectedValue === declineValue) {

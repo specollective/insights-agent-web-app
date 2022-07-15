@@ -1,8 +1,7 @@
 export const DEFAULT_FORM_VALUES = {
   isHispanicOrLatino: null,
-  race: [],
+  raceOption: [],
 }
-
 
 export const RACE_OPTIONS = [
   { value: 'white', label: 'White'},

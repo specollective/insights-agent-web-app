@@ -4,7 +4,7 @@ import SurveyPage from 'components/pages/SurveyPage';
 import { createSurvey } from 'services/survey';
 import i18nTest from 'utils/i18nTest';
 import { I18nextProvider } from 'react-i18next';
-import { RACE } from 'constants/surveys';
+import { RACE_OPTIONS } from 'constants/surveys';
 
 jest.mock('hooks/authentication', () => ({
   useAuth: () => {
@@ -48,40 +48,12 @@ describe('Survey Page', () => {
     });
   });
 
-  describe('Age input', () => {
-    it('fills', () => {
-      renderPage();
-
-      const input = screen.getByTestId('age-input')
-
-      expect(input).toBeInTheDocument()
-
-      const submitButton = screen.getByText('Submit')
-
-      fireEvent.change(input, {target: {value: '30'}})
-      fireEvent.click(submitButton)
-
-      expect(createSurvey).toHaveBeenCalledWith(
-        { isAuthenticated: true },
-        {
-          age: '30',
-          gender: '',
-          zipCode: '',
-          educationLevel: '',
-          maritalStatus: '',
-          isHispanicOrLatino: null,
-          race: [],
-        },
-      );
-    });
-  });
-
   describe('Race checkbox group', () => {
     it('updates state correctly', async () => {
       renderPage();
 
       // asserting all expected options are present
-      RACE.forEach((raceOption) => {
+      RACE_OPTIONS.forEach((raceOption) => {
         const input = screen.getByLabelText(raceOption.label);
         expect(input).toBeInTheDocument();
       });
@@ -98,13 +70,8 @@ describe('Survey Page', () => {
       expect(createSurvey).toHaveBeenCalledWith(
         { isAuthenticated: true },
         {
-          age: '',
-          gender: '',
-          zipCode: '',
-          educationLevel: '',
-          maritalStatus: '',
           isHispanicOrLatino: null,
-          race: ['white', 'filipino'],
+          raceOption: ['white', 'filipino'],
         },
       );
     });
@@ -123,13 +90,8 @@ describe('Survey Page', () => {
       expect(createSurvey).toHaveBeenCalledWith(
         { isAuthenticated: true },
         {
-          age: '',
-          gender: '',
-          zipCode: '',
-          educationLevel: '',
-          maritalStatus: '',
           isHispanicOrLatino: null,
-          race: ['decline'],
+          raceOption: ['decline'],
         },
       );
 
@@ -148,13 +110,8 @@ describe('Survey Page', () => {
       expect(createSurvey).toHaveBeenCalledWith(
         { isAuthenticated: true },
         {
-          age: '',
-          gender: '',
-          zipCode: '',
-          educationLevel: '',
-          maritalStatus: '',
           isHispanicOrLatino: null,
-          race: ['white'],
+          raceOption: ['white'],
         },
       );
     });

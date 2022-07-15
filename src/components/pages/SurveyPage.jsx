@@ -34,6 +34,7 @@ function SurveyPage() {
   }
 
   const handleInputChange = (e) => {
+    console.log(e)
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
@@ -52,8 +53,8 @@ function SurveyPage() {
         <p>Check all that apply</p>
 
         <CheckboxGroup
-          value={formData.race}
-          name="race"
+          value={formData.raceOption}
+          name="raceOption"
           options={RACE_OPTIONS}
           onChange={handleInputChange}
         />
