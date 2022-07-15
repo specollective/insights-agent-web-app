@@ -4,7 +4,7 @@ import SurveyPage from 'components/pages/SurveyPage';
 import { createSurvey } from 'services/survey';
 import i18nTest from 'utils/i18nTest';
 import { I18nextProvider } from 'react-i18next';
-import { RACE } from 'constants/surveys';
+import { INTERNET_ACCESS, RACE_OPTIONS } from 'constants/surveys';
 
 jest.mock('hooks/authentication', () => ({
   useAuth: () => {
@@ -48,40 +48,12 @@ describe('Survey Page', () => {
     });
   });
 
-  describe('Age input', () => {
-    it('fills', () => {
-      renderPage();
-
-      const input = screen.getByTestId('age-input')
-
-      expect(input).toBeInTheDocument()
-
-      const submitButton = screen.getByText('Submit')
-
-      fireEvent.change(input, {target: {value: '30'}})
-      fireEvent.click(submitButton)
-
-      expect(createSurvey).toHaveBeenCalledWith(
-        { isAuthenticated: true },
-        {
-          age: '30',
-          gender: '',
-          zipCode: '',
-          educationLevel: '',
-          maritalStatus: '',
-          isHispanicOrLatino: null,
-          race: [],
-        },
-      );
-    });
-  });
-
   describe('Race checkbox group', () => {
     it('updates state correctly', async () => {
       renderPage();
 
       // asserting all expected options are present
-      RACE.forEach((raceOption) => {
+      RACE_OPTIONS.forEach((raceOption) => {
         const input = screen.getByLabelText(raceOption.label);
         expect(input).toBeInTheDocument();
       });
@@ -98,13 +70,9 @@ describe('Survey Page', () => {
       expect(createSurvey).toHaveBeenCalledWith(
         { isAuthenticated: true },
         {
-          age: '',
-          gender: '',
-          zipCode: '',
-          educationLevel: '',
-          maritalStatus: '',
           isHispanicOrLatino: null,
-          race: ['white', 'filipino'],
+          raceOption: ['white', 'filipino'],
+          internetAccess: [],
         },
       );
     });
@@ -123,13 +91,9 @@ describe('Survey Page', () => {
       expect(createSurvey).toHaveBeenCalledWith(
         { isAuthenticated: true },
         {
-          age: '',
-          gender: '',
-          zipCode: '',
-          educationLevel: '',
-          maritalStatus: '',
           isHispanicOrLatino: null,
-          race: ['decline'],
+          raceOption: ['decline'],
+          internetAccess: [],
         },
       );
 
@@ -148,13 +112,39 @@ describe('Survey Page', () => {
       expect(createSurvey).toHaveBeenCalledWith(
         { isAuthenticated: true },
         {
-          age: '',
-          gender: '',
-          zipCode: '',
-          educationLevel: '',
-          maritalStatus: '',
           isHispanicOrLatino: null,
-          race: ['white'],
+          raceOption: ['white'],
+          internetAccess: [],
+        },
+      );
+    });
+  });
+
+  describe('Internet access checkbox group', () => {
+    it('updates state correctly', async () => {
+      renderPage();
+
+      // asserting all expected options are present
+      INTERNET_ACCESS.forEach((internetAccess) => {
+        const input = screen.getByLabelText(internetAccess.label);
+        expect(input).toBeInTheDocument();
+      });
+
+      // Testing selecting multiple options
+      await fireEvent.click(screen.getByText('Broadband internet service'));
+      await fireEvent.click(screen.getByText('Some other service'));
+
+      // Testing submitting the form
+      const submitButton = screen.getByText('Submit');
+      fireEvent.click(submitButton);
+
+      // Asserting that the bend service is called with the right values.
+      expect(createSurvey).toHaveBeenCalledWith(
+        { isAuthenticated: true },
+        {
+          isHispanicOrLatino: null,
+          raceOption: [],
+          internetAccess: ['broadband', 'other-service'],
         },
       );
     });

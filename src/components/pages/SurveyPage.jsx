@@ -4,9 +4,6 @@ import { useAuth } from 'hooks/authentication'
 import { createSurvey } from 'services/survey'
 import {
   DEFAULT_FORM_VALUES,
-  MARITAL_STATUSES,
-  EDUCATION_LEVELS,
-  GENDER_IDENTITIES,
   RACE_OPTIONS,
   INTERNET_ACCESS,
 } from 'constants/surveys'
@@ -53,59 +50,14 @@ function SurveyPage() {
 
       <div className="question">
         <h4>Please select your race.*</h4>
-        <p>Check all that apply</p>
+        <p>Check all that apply.</p>
 
         <CheckboxGroup
-          value={formData.raceOptions}
-          name="race"
+          value={formData.raceOption}
+          name="raceOption"
           options={RACE_OPTIONS}
           onChange={handleInputChange}
         />
-      </div>
-
-      <div className="question">
-        <h4>How does your houseland access the internet?*</h4>
-        <p>Check all that apply</p>
-
-        <CheckboxGroup
-          value={formData.internetAccess}
-          name="internetAccess"
-          options={INTERNET_ACCESS}
-          onChange={handleInputChange}
-        />
-      </div>
-
-      <div className="question">
-        <h4>What is your age?</h4>
-        <input
-          name="age"
-          type="text"
-          onChange={handleInputChange}
-          data-testid="age-input"
-          autoComplete="off"
-          value={formData.age}
-        />
-      </div>
-
-      <div className="question">
-        <h4>What gender do you identify with?</h4>
-
-        <RadioButtonGroup
-          value={formData.gender}
-          name="gender"
-          options={GENDER_IDENTITIES}
-          onChange={handleInputChange}
-        />
-
-        <div>
-          <label className="preference-input-label">Prefer to self describe</label>
-          <input
-            name="gender"
-            type="text"
-            onChange={handleInputChange}
-            autoComplete="off"
-          />
-        </div>
       </div>
 
       <div className="question">
@@ -134,21 +86,12 @@ function SurveyPage() {
       </div>
 
       <div className="question">
-        <h4>What is your level of education?</h4>
-        <RadioButtonGroup
-          value={formData.educationLevel}
-          name="educationLevel"
-          options={EDUCATION_LEVELS}
-          onChange={handleInputChange}
-        />
-      </div>
+        <h4>How does your houseland access the internet?*</h4>
+        <p>Check all that apply.</p>
 
-      <div className="question">
-        <h4>What is your your marital status?</h4>
-        <RadioButtonGroup
-          value={formData.maritalStatus}
-          name="maritalStatus"
-          options={MARITAL_STATUSES}
+        <CheckboxGroup
+          value={formData.internetAccess}
+          name="internetAccess"          options={INTERNET_ACCESS}
           onChange={handleInputChange}
         />
       </div>
