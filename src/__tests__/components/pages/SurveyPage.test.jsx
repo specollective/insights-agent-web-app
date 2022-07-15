@@ -4,7 +4,7 @@ import SurveyPage from 'components/pages/SurveyPage';
 import { createSurvey } from 'services/survey';
 import i18nTest from 'utils/i18nTest';
 import { I18nextProvider } from 'react-i18next';
-import { RACE_OPTIONS } from 'constants/surveys';
+import { COMPUTER_USE, RACE_OPTIONS } from 'constants/surveys';
 
 // Mock out auth hooks
 jest.mock('hooks/authentication', () => ({
