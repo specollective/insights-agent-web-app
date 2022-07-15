@@ -5,7 +5,7 @@ import { createSurvey } from 'services/survey';
 import {
   DEFAULT_FORM_VALUES,
   RACE_OPTIONS,
-  IS_HISPANIC,
+  IS_HISPANIC_OPTIONS,
 } from 'constants/surveys'
 import 'components/pages/SurveyPage.css'
 import { useTranslation, Trans } from 'react-i18next';
@@ -51,7 +51,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         <RadioButtonGroup
           value={values.isHispanicOrLatino}
           name="isHispanicOrLatino"
-          options={IS_HISPANIC}
+          options={IS_HISPANIC_OPTIONS}
         />
       </div>
 

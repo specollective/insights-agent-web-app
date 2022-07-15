@@ -3,6 +3,7 @@ export const DEFAULT_FORM_VALUES = {
   raceOption: [],
 }
 
+// TODO: Apply i18n localization
 export const RACE_OPTIONS = [
   { value: 'white', label: 'White'},
   { value: 'black', label: 'Black or African American'},
@@ -22,7 +23,8 @@ export const RACE_OPTIONS = [
   { value: 'decline', label: 'Decline to identify'},
 ]
 
-export const IS_HISPANIC = [
+// TODO: Apply i18n localization
+export const IS_HISPANIC_OPTIONS = [
   { value: 'true', label: 'Yes' },
   { value: 'false', label: 'No' },
   { value: 'decline', label: 'Decline to identify' }
