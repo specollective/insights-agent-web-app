@@ -4,18 +4,15 @@ import { useAuth } from 'hooks/authentication';
 import { createSurvey } from 'services/survey';
 import {
   DEFAULT_FORM_VALUES,
-  MARITAL_STATUSES,
-  EDUCATION_LEVELS,
-  GENDER_IDENTITIES,
-  IS_HISPANIC,
   RACE_OPTIONS,
-} from 'constants/surveys';
-import 'components/pages/SurveyPage.css';
-import { withFormik, Form, Field } from 'formik';
+  IS_HISPANIC_OPTIONS,
+} from 'constants/surveys'
+import 'components/pages/SurveyPage.css'
 import { useTranslation, Trans } from 'react-i18next';
-import CheckboxGroup from 'components/elements/CheckboxGroup';
-import RadioButtonGroup from 'components/elements/RadioButtonGroup';
+import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import CheckboxGroup from 'components/elements/CheckboxGroup'
+import RadioButtonGroup from 'components/elements/RadioButtonGroup'
 
 function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
   const { t } = useTranslation();
@@ -54,55 +51,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         <RadioButtonGroup
           value={values.isHispanicOrLatino}
           name="isHispanicOrLatino"
-          options={IS_HISPANIC}
-        />
-      </div>
-
-      <div className="question">
-        <h4>What is your age?</h4>
-        <Field
-          value={values.age}
-          name="age"
-          type="text"
-          data-testid="age-input"
-          autoComplete="off"
-        />
-      </div>
-
-      <div className="question">
-        <h4>What gender do you identify with?</h4>
-
-        <RadioButtonGroup
-          value={values.gender}
-          name="gender"
-          options={GENDER_IDENTITIES}
-        />
-
-        <div>
-          <label className="preference-input-label">Prefer to self describe</label>
-          <Field
-            name="gender"
-            type="text"
-            autoComplete="off"
-          />
-        </div>
-      </div>
-
-      <div className="question">
-        <h4>What is your level of education?</h4>
-        <RadioButtonGroup
-          value={values.educationLevel}
-          name="educationLevel"
-          options={EDUCATION_LEVELS}
-        />
-      </div>
-
-      <div className="question">
-        <h4>What is your your marital status?</h4>
-        <RadioButtonGroup
-          value={values.maritalStatus}
-          name="maritalStatus"
-          options={MARITAL_STATUSES}
+          options={IS_HISPANIC_OPTIONS}
         />
       </div>
 

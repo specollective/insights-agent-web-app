@@ -4,7 +4,7 @@ import SurveyPage from 'components/pages/SurveyPage';
 import { createSurvey } from 'services/survey';
 import i18nTest from 'utils/i18nTest';
 import { I18nextProvider } from 'react-i18next';
-import { RACE } from 'constants/surveys';
+import { RACE_OPTIONS } from 'constants/surveys';
 
 // Mock out auth hooks
 jest.mock('hooks/authentication', () => ({
@@ -62,7 +62,7 @@ describe('Survey Page', () => {
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
 
       // asserting all expected options are present
-      RACE.forEach((raceOption) => {
+      RACE_OPTIONS.forEach((raceOption) => {
         const input = raceCheckboxGroup.getByLabelText(raceOption.label);
         expect(input).toBeInTheDocument();
       });
