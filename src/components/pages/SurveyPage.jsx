@@ -21,7 +21,7 @@ function SurveyPage() {
   const auth = useAuth()
   const navigate = useNavigate()
   const [formData, setFormData] = useState(DEFAULT_FORM_VALUES)
-
+  console.log(formData)
   if (!auth.user) return <div>Loading</div>
   if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
 
