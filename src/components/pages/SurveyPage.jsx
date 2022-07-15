@@ -18,7 +18,6 @@ import RadioButtonGroup from 'components/elements/RadioButtonGroup';
 import * as Yup from 'yup';
 
 function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
-  const formData = values;
   const { t } = useTranslation();
 
   const handleClearForm = () => {
@@ -43,7 +42,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         <p>Check all that apply</p>
 
         <CheckboxGroup
-          value={formData.race}
+          value={values.race}
           name="race"
           options={RACE}
           onChange={setFieldValue}
@@ -53,7 +52,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       <div className="question">
         <h4>What is your age?</h4>
         <Field
-          value={formData.age}
+          value={values.age}
           name="age"
           type="text"
           data-testid="age-input"
@@ -65,7 +64,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         <h4>What gender do you identify with?</h4>
 
         <RadioButtonGroup
-          value={formData.gender}
+          value={values.gender}
           name="gender"
           options={GENDER_IDENTITIES}
         />
@@ -83,7 +82,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       <div className="question">
         <h4>What is your level of education?</h4>
         <RadioButtonGroup
-          value={formData.educationLevel}
+          value={values.educationLevel}
           name="educationLevel"
           options={EDUCATION_LEVELS}
         />
@@ -92,7 +91,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       <div className="question">
         <h4>What is your your marital status?</h4>
         <RadioButtonGroup
-          value={formData.maritalStatus}
+          value={values.maritalStatus}
           name="maritalStatus"
           options={MARITAL_STATUSES}
         />
