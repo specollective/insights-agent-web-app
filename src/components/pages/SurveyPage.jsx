@@ -91,7 +91,8 @@ function SurveyPage() {
 
         <CheckboxGroup
           value={formData.internetAccess}
-          name="internetAccess"          options={INTERNET_ACCESS}
+          name="internetAccess"          
+          options={INTERNET_ACCESS}
           onChange={handleInputChange}
         />
       </div>
