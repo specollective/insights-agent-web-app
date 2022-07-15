@@ -12,7 +12,7 @@ jobs:
     - name: install dependencies
       run: npm install
     - name: test
-      run: npm test
+      run: REACT_APP_API_URL=https://localhost:8000/api npm test
 
   test_on_mac:
     runs-on: macos-latest
@@ -24,7 +24,7 @@ jobs:
     - name: install dependencies
       run: npm install
     - name: test
-      run: npm test
+      run: REACT_APP_API_URL=https://localhost:8000/api npm test
 
   test_on_win:
     runs-on: windows-latest
@@ -36,4 +36,4 @@ jobs:
     - name: install dependencies
       run: npm install
     - name: test
-      run: npm test
+      run: REACT_APP_API_URL=https://localhost:8000/api npm test
