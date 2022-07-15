@@ -1,16 +1,17 @@
-function RadioButtonGroup ({ options, name, value, onChange }) {
+import { Formik, Form, Field } from 'formik';
+
+function RadioButtonGroup ({ options, name, value }) {
   return (
     <div className="radio-button-group">
       { options.map(options => {
         return (
           <div key={options.value}>
-            <input
+            <Field
               checked={value === options.value}
               type="radio"
               id={options.value}
               name={name}
               value={options.value}
-              onChange={onChange}
             />
             <label htmlFor={options.value}>{ options.label }</label>
             <br/>

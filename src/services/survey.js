@@ -1,7 +1,7 @@
 import { API_URL } from 'constants/urls'
 import { DEFAULT_FETCH_OPTIONS } from 'constants/fetch'
 
-export async function createSurvey(userData, surveyData) {
+export async function createSurvey(surveyData) {
   const headers = {  ...DEFAULT_FETCH_OPTIONS.headers }
 
   // NOTE: We don't need this because we have httponly cookies

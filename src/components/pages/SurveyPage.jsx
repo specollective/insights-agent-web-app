@@ -1,58 +1,61 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useAuth } from 'hooks/authentication'
-import { createSurvey } from 'services/survey'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from 'hooks/authentication';
+import { createSurvey } from 'services/survey';
 import {
   DEFAULT_FORM_VALUES,
   MARITAL_STATUSES,
   EDUCATION_LEVELS,
   GENDER_IDENTITIES,
   IS_HISPANIC,
-} from 'constants/surveys'
-import RadioButtonGroup from 'components/elements/RadioButtonGroup'
-import 'components/pages/SurveyPage.css'
-import { Formik, Field, Form, useFormik } from 'formik';
-import { useTranslation, Trans } from "react-i18next";
+  RACE,
+} from 'constants/surveys';
+import 'components/pages/SurveyPage.css';
+import { withFormik, Form, Field } from 'formik';
+import { useTranslation, Trans } from 'react-i18next';
+import CheckboxGroup from 'components/elements/CheckboxGroup';
+import RadioButtonGroup from 'components/elements/RadioButtonGroup';
+import * as Yup from 'yup';
 
-function SurveyPage() {
-  const {t} = useTranslation();
-  const auth = useAuth()
-  const navigate = useNavigate()
-  const formik = useFormik({
-    initialValues: {
-      ...DEFAULT_FORM_VALUES
-    },
-    onSubmit: async () => {
-      try {
-        await createSurvey(auth.user, formik.values)
-        navigate('/success', { replace: true })
-      } catch (e) {
-        console.log(e)
-      }
-    },
-  });
-  
-  if (!auth.user) return <div>Loading</div>
-  if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
+function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
+  const formData = values;
+  const { t } = useTranslation();
 
   const handleClearForm = () => {
-    formik.resetForm();
+    setValues(DEFAULT_FORM_VALUES);
   }
 
+  // TODO: Render errors. Logging here to help with debugging.
+  // console.log(errors);
+
   return (
-    <form className="survey" onSubmit={formik.handleSubmit}>
+    <Form className="survey">
       <div className="question">
-        <h4>Insights Agent General Info Survey</h4>
-        <p>Instructions</p>
+        <div className="intro-description">
+          <h4>Insights Agent General Info Survey</h4>
+          <p>{t("surveyDescription")}</p>
+          <p><strong>*Required field</strong></p>
+        </div>
+      </div>
+
+      <div className="question">
+        <h4>Please select your race.*</h4>
+        <p>Check all that apply</p>
+
+        <CheckboxGroup
+          value={formData.race}
+          name="race"
+          options={RACE}
+          onChange={setFieldValue}
+        />
       </div>
 
       <div className="question">
         <h4>What is your age?</h4>
-        <input
-          value={formik.values.age}
+        <Field
+          value={formData.age}
           name="age"
           type="text"
-          onChange={formik.handleChange}
           data-testid="age-input"
           autoComplete="off"
         />
@@ -62,60 +65,115 @@ function SurveyPage() {
         <h4>What gender do you identify with?</h4>
 
         <RadioButtonGroup
-          value={formik.values.gender}
+          value={formData.gender}
           name="gender"
           options={GENDER_IDENTITIES}
-          onChange={formik.handleChange}
         />
 
         <div>
           <label className="preference-input-label">Prefer to self describe</label>
-          <input
+          <Field
             name="gender"
             type="text"
-            onChange={formik.handleChange}
             autoComplete="off"
           />
         </div>
       </div>
 
       <div className="question">
-      <Trans i18nKey="survey-hispanic">
-        <h4>{t("surveyHispanicHeader")}</h4>
-          <RadioButtonGroup
-            value={formik.values.isHispanicOrLatino}
-            name="isHispanicOrLatino"
-            options={IS_HISPANIC}
-            onChange={formik.handleChange}
-          />
-        </Trans>
-      </div>
-      
-      <div className="question">
         <h4>What is your level of education?</h4>
         <RadioButtonGroup
-          value={formik.values.educationLevel}
+          value={formData.educationLevel}
           name="educationLevel"
           options={EDUCATION_LEVELS}
-          onChange={formik.handleChange}
         />
       </div>
 
       <div className="question">
         <h4>What is your your marital status?</h4>
         <RadioButtonGroup
-          value={formik.values.maritalStatus}
+          value={formData.maritalStatus}
           name="maritalStatus"
           options={MARITAL_STATUSES}
-          onChange={formik.handleChange}
         />
       </div>
 
       <div className="actions">
-        <button className="left" onClick={handleClearForm}>Clear Form</button>
-        <button className="right">Submit</button>
+        <button type="button" className="left" onClick={handleClearForm}>Clear Form</button>
+        <button type="submit" className="right">Submit</button>
       </div>
-    </form>
+    </Form>
+  )
+}
+
+/**
+ * Defines a function to map Formik props to form values
+ * Function name matches Formik option key mapPropsToValues
+ * @param {} props - includes email and password
+ * @returns {object} - formatted field values
+ */
+export function mapPropsToValues ({ race }) {
+  return {
+    race: race || [],
+  }
+}
+
+/**
+ * Defines the logic for handling form submission
+ * Function name matches Formik option key handleSubmit
+ * @param {} values - email and password
+ * @returns {Response} - fetch response object
+ */
+export function handleSubmit(values, { props }) {
+  props.handleSubmit(values);
+}
+
+/**
+ * Defines a schema for form validations
+ * Constant name matches Formik option key validationSchema
+ * @constant
+ * @type {object}
+ */
+export const validationSchema = Yup.object().shape({
+  race: Yup.array().of(Yup.string()).min(1).required(),
+  // isHispanicOrLatino: Yup.boolean().required(),
+  // technologyCompetencyLevel: Yup.number().min(1).max(5),
+  // householdSize: Yup.string().required(),
+  // computerUsage: Yup.string().required(),
+  // numberOfDevices: Yup.string().required(),
+  // internetAccessAvailability: Yup.string().required(),
+});
+
+/**
+ * Wraps SendAccessCodeForm with the withFormik Higher-order component
+ */
+export const SurveyPageForm = withFormik({
+  mapPropsToValues,
+  handleSubmit,
+  validationSchema,
+})(SurveyForm);
+
+function SurveyPage() {
+  const auth = useAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = async formData => {
+    try {
+      await createSurvey(formData);
+      navigate('/success', { replace: true });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  // TODO: Move into useAuth
+  if (!auth.user) return <div>Loading</div>
+  if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
+
+  return (
+    <div className="page">
+      <SurveyPageForm handleSubmit={handleSubmit} />
+    </div>
   )
 }
 

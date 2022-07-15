@@ -2,7 +2,14 @@
   padding-top: 1em;
   padding-bottom: 10em;
 }
-
+.intro-description {
+  background: #FFF3C7;
+  display: block;
+  margin: 1em;
+  border-radius: 1em;
+  padding: 1em;
+  text-align: left;
+}
 .question {
   background: #FFFFFF;
   display: block;

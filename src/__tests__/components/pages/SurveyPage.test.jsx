@@ -1,7 +1,10 @@
-import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
-import SurveyPage from 'components/pages/SurveyPage'
-import { createSurvey } from 'services/survey'
+import React from 'react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
+import SurveyPage from 'components/pages/SurveyPage';
+import { createSurvey } from 'services/survey';
+import i18nTest from 'utils/i18nTest';
+import { I18nextProvider } from 'react-i18next';
+import { RACE } from 'constants/surveys';
 
 jest.mock('hooks/authentication', () => ({
   useAuth: () => {
@@ -12,47 +15,90 @@ jest.mock('hooks/authentication', () => ({
       fetchCurrentUser: () => jest.mock()
     }
   },
-}))
+}));
 
 jest.mock('services/survey', () => ({
   createSurvey: jest.fn(),
-}))
+}));
 
 jest.mock('react-router-dom', () => ({
   useNavigate: () => jest.fn(),
-}))
+}));
+
+function renderPage () {
+  render(
+    <I18nextProvider i18n={i18nTest}>
+      <SurveyPage />
+    </I18nextProvider>
+  )
+}
 
 describe('Survey Page', () => {
   describe('Info section', () => {
     it('renders success message', () => {
-      render(<SurveyPage />);
+      renderPage();
       expect(screen.getByText('Insights Agent General Info Survey'))
-        .toBeInTheDocument()
-    })
-  })
+        .toBeInTheDocument();
+    });
 
-  describe('age input', () => {
-    it('fills', () => {
-      render(<SurveyPage />);
-      const input = screen.getByTestId('age-input')
-      expect(input).toBeInTheDocument()
+    it('renders required field message', () => {
+      renderPage();
+      expect(screen.getByText('*Required field'))
+        .toBeInTheDocument();
+    });
+  });
 
-      const submitButton = screen.getByText('Submit')
+  describe('Race checkbox group', () => {
+    it('updates state correctly', async () => {
+      renderPage();
 
-      fireEvent.change(input, {target: {value: '30'}})
-      fireEvent.click(submitButton)
+      // asserting all expected options are present
+      RACE.forEach((raceOption) => {
+        const input = screen.getByLabelText(raceOption.label);
+        expect(input).toBeInTheDocument();
+      });
 
-      expect(createSurvey).toHaveBeenCalledWith(
-        { isAuthenticated: true },
-        {
-          age: '30',
-          gender: '',
-          zipCode: '',
-          educationLevel: '',
-          maritalStatus: '',
-          isHispanicOrLatino: null,
-        },
-      )
-    })
-  })
-})
+      await act(() => {
+        // Testing selecting multiple options
+        fireEvent.click(screen.getByText('White'));
+        fireEvent.click(screen.getByText('Filipino'));
+        fireEvent.click(screen.getByText('Black or African American'));
+        fireEvent.click(screen.getByText('Submit'));
+      });
+
+      // Asserting that the bend service is called with the right values.
+      expect(createSurvey).toHaveBeenCalledWith({
+        race: ['white', 'filipino', 'black'],
+      });
+    });
+
+    it('handles decline all option', async () => {
+      renderPage();
+
+      await act(() => {
+        fireEvent.click(screen.getByText('White'));
+        fireEvent.click(screen.getByText('Filipino'));
+        fireEvent.click(screen.getByText('Decline to identify'));
+        fireEvent.click(screen.getByText('Submit'));
+      });
+
+      expect(createSurvey).toHaveBeenCalledWith({
+        race: ['decline'],
+      });
+    });
+
+    it('handles switching from decline to selecting an option', async () => {
+      renderPage();
+
+      await act(() => {
+        fireEvent.click(screen.getByText('Decline to identify'));
+        fireEvent.click(screen.getByText('Chinese'));
+        fireEvent.click(screen.getByText('Submit'));
+      });
+
+      expect(createSurvey).toHaveBeenCalledWith({
+        race: ['chinese'],
+      });
+    });
+  });
+});
