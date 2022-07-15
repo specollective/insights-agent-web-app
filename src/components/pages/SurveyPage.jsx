@@ -8,7 +8,7 @@ import {
   EDUCATION_LEVELS,
   GENDER_IDENTITIES,
   IS_HISPANIC,
-  RACE,
+  RACE_OPTIONS,
 } from 'constants/surveys';
 import 'components/pages/SurveyPage.css';
 import { withFormik, Form, Field } from 'formik';
@@ -44,8 +44,17 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         <CheckboxGroup
           value={values.race}
           name="race"
-          options={RACE}
+          options={RACE_OPTIONS}
           onChange={setFieldValue}
+        />
+      </div>
+
+      <div className="question">
+        <h4>{t('surveyHispanicHeader')}</h4>
+        <RadioButtonGroup
+          value={values.isHispanicOrLatino}
+          name="isHispanicOrLatino"
+          options={IS_HISPANIC}
         />
       </div>
 
@@ -111,9 +120,10 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
  * @param {} props - includes email and password
  * @returns {object} - formatted field values
  */
-export function mapPropsToValues ({ race }) {
+export function mapPropsToValues ({ race, isHispanicOrLatino }) {
   return {
     race: race || [],
+    isHispanicOrLatino: isHispanicOrLatino,
   }
 }
 
@@ -135,7 +145,7 @@ export function handleSubmit(values, { props }) {
  */
 export const validationSchema = Yup.object().shape({
   race: Yup.array().of(Yup.string()).min(1).required(),
-  // isHispanicOrLatino: Yup.boolean().required(),
+  isHispanicOrLatino: Yup.string().required(),
   // technologyCompetencyLevel: Yup.number().min(1).max(5),
   // householdSize: Yup.string().required(),
   // computerUsage: Yup.string().required(),

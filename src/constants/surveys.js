@@ -31,7 +31,7 @@ export const GENDER_IDENTITIES = [
   { value: 'transgender', label: 'Transgender' },
 ]
 
-export const RACE = [
+export const RACE_OPTIONS = [
   { value: 'white', label: 'White'},
   { value: 'black', label: 'Black or African American'},
   { value: 'american-indian', label: 'American Indian or Alaska Native'},
@@ -48,4 +48,10 @@ export const RACE = [
   { value: 'other-pacific-islander', label: 'Other Pacific Islander'},
   { value: 'other', label: 'Other race not listed above'},
   { value: 'decline', label: 'Decline to identify'},
+]
+
+export const IS_HISPANIC = [
+  { value: 'true', label: 'Yes' },
+  { value: 'false', label: 'No' },
+  { value: 'decline', label: 'Decline to identify' }
 ]

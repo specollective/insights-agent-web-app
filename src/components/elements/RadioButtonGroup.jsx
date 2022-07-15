@@ -3,17 +3,21 @@ import { Formik, Form, Field } from 'formik';
 function RadioButtonGroup ({ options, name, value }) {
   return (
     <div className="radio-button-group">
-      { options.map(options => {
+      { options.map(option => {
+        const id = `${name}-${option.value}`
+
         return (
-          <div key={options.value}>
+          <div key={option.value}>
             <Field
-              checked={value === options.value}
+              checked={value === option.value}
               type="radio"
-              id={options.value}
+              id={id}
               name={name}
-              value={options.value}
+              value={option.value}
             />
-            <label htmlFor={options.value}>{ options.label }</label>
+            <label htmlFor={id}>
+              { option.label }
+            </label>
             <br/>
           </div>
         )

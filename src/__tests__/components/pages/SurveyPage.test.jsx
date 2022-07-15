@@ -1,36 +1,42 @@
 import React from 'react';
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { render, screen, fireEvent, act, within } from '@testing-library/react';
 import SurveyPage from 'components/pages/SurveyPage';
 import { createSurvey } from 'services/survey';
 import i18nTest from 'utils/i18nTest';
 import { I18nextProvider } from 'react-i18next';
 import { RACE } from 'constants/surveys';
 
+// Mock out auth hooks
 jest.mock('hooks/authentication', () => ({
   useAuth: () => {
     return {
-      user: {
-        isAuthenticated: true
-      },
+      user: { isAuthenticated: true },
       fetchCurrentUser: () => jest.mock()
     }
   },
 }));
 
+// Mock out survey service
 jest.mock('services/survey', () => ({
   createSurvey: jest.fn(),
 }));
 
+// Mock out react router
 jest.mock('react-router-dom', () => ({
   useNavigate: () => jest.fn(),
 }));
 
-function renderPage () {
+// Helper function to DRY up the test code.
+function renderPage() {
   render(
     <I18nextProvider i18n={i18nTest}>
       <SurveyPage />
     </I18nextProvider>
   )
+}
+
+function findFormSection(screen, text) {
+  return within(screen.getByText(text).closest('div'));
 }
 
 describe('Survey Page', () => {
@@ -52,22 +58,27 @@ describe('Survey Page', () => {
     it('updates state correctly', async () => {
       renderPage();
 
+      const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
+      const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+
       // asserting all expected options are present
       RACE.forEach((raceOption) => {
-        const input = screen.getByLabelText(raceOption.label);
+        const input = raceCheckboxGroup.getByLabelText(raceOption.label);
         expect(input).toBeInTheDocument();
       });
 
       await act(() => {
         // Testing selecting multiple options
-        fireEvent.click(screen.getByText('White'));
-        fireEvent.click(screen.getByText('Filipino'));
-        fireEvent.click(screen.getByText('Black or African American'));
+        fireEvent.click(raceCheckboxGroup.getByText('White'));
+        fireEvent.click(raceCheckboxGroup.getByText('Filipino'));
+        fireEvent.click(raceCheckboxGroup.getByText('Black or African American'));
+        fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
         fireEvent.click(screen.getByText('Submit'));
       });
 
       // Asserting that the bend service is called with the right values.
       expect(createSurvey).toHaveBeenCalledWith({
+        isHispanicOrLatino: 'decline',
         race: ['white', 'filipino', 'black'],
       });
     });
@@ -75,14 +86,19 @@ describe('Survey Page', () => {
     it('handles decline all option', async () => {
       renderPage();
 
+      const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
+      const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+
       await act(() => {
-        fireEvent.click(screen.getByText('White'));
-        fireEvent.click(screen.getByText('Filipino'));
-        fireEvent.click(screen.getByText('Decline to identify'));
+        fireEvent.click(raceCheckboxGroup.getByText('White'));
+        fireEvent.click(raceCheckboxGroup.getByText('Filipino'));
+        fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
+        fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
         fireEvent.click(screen.getByText('Submit'));
       });
 
       expect(createSurvey).toHaveBeenCalledWith({
+        isHispanicOrLatino: 'decline',
         race: ['decline'],
       });
     });
@@ -90,14 +106,41 @@ describe('Survey Page', () => {
     it('handles switching from decline to selecting an option', async () => {
       renderPage();
 
+      const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
+      const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+
       await act(() => {
-        fireEvent.click(screen.getByText('Decline to identify'));
-        fireEvent.click(screen.getByText('Chinese'));
+        fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
+        fireEvent.click(raceCheckboxGroup.getByText('Chinese'));
+        fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
         fireEvent.click(screen.getByText('Submit'));
       });
 
       expect(createSurvey).toHaveBeenCalledWith({
+        isHispanicOrLatino: 'decline',
         race: ['chinese'],
+      });
+    });
+  });
+
+  describe('Hispanic origin', () => {
+    it('updates state correctly', async () => {
+      renderPage();
+
+      const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
+      const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+
+      await act(() => {
+        // Testing selecting multiple options
+        fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
+        fireEvent.click(hispanicRadioButtonGroup.getByText('Yes'));
+        fireEvent.click(screen.getByText('Submit'));
+      });
+
+      // Asserting that the bend service is called with the right values.
+      expect(createSurvey).toHaveBeenCalledWith({
+        isHispanicOrLatino: 'true',
+        race: ['decline'],
       });
     });
   });
