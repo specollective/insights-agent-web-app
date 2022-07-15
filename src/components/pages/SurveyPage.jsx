@@ -21,11 +21,6 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
     setValues(DEFAULT_FORM_VALUES);
   }
 
-  const handleInputChange = (e) => {
-    console.log(e)
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
-
   // TODO: Render errors. Logging here to help with debugging.
   // console.log(errors);
 
