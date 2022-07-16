@@ -11,7 +11,7 @@ const FOOD_OPTIONS = [
   },
 ]
 
-describe('DropdownGroup', () => {
+xdescribe('DropdownGroup', () => {
   it('renders label', () => {
     render(
       <DropdownGroup
@@ -42,9 +42,5 @@ describe('DropdownGroup', () => {
     await fireEvent.click(saladCheckbox);
 
     expect(mockOnChangeProp);
-
   });
-
-
-
 });

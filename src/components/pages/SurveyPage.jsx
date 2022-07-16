@@ -24,7 +24,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
   }
 
   // TODO: Render errors. Logging here to help with debugging.
-  // console.log(errors);
+  console.log(errors);
 
   return (
     <Form className="survey">
@@ -62,10 +62,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         <h5>How many people live/stay in your household?</h5>
 
         <DropdownGroup
-          value={formData.household}
+          value={values.household}
           name="household"
           options={HOUSEHOLD}
-          onChange={handleInputChange}
         />
       </div>
 
@@ -109,8 +108,8 @@ export function handleSubmit(values, { props }) {
 export const validationSchema = Yup.object().shape({
   race: Yup.array().of(Yup.string()).min(1).required(),
   isHispanicOrLatino: Yup.string().required(),
+  household: Yup.string().required('Please select a household size'),
   // technologyCompetencyLevel: Yup.number().min(1).max(5),
-  // householdSize: Yup.string().required(),
   // computerUsage: Yup.string().required(),
   // numberOfDevices: Yup.string().required(),
   // internetAccessAvailability: Yup.string().required(),

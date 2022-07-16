@@ -1,15 +1,16 @@
-import { Form } from 'formik'
+import { Form, Field } from 'formik'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-function DropdownGroup ({ options, name, value, onChange }) {
-
-    function handleChange(e) {
-      onChange(e)
-    }
-
+function DropdownGroup ({ options, name, value }) {
     return (
-      <select name={name} onChange={handleChange} value={value} className="dropdown-group">
+      <Field
+        data-testid={`dropdown-${name}`}
+        component="select"
+        name={name}
+        value={value}
+        className="dropdown-group"
+      >
         { options.map(option => {
           return (
             <option
@@ -20,7 +21,7 @@ function DropdownGroup ({ options, name, value, onChange }) {
             </option>
           )
         })}
-      </select>
+      </Field>
     )
   }
 
