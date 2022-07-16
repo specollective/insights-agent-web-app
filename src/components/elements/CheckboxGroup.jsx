@@ -21,31 +21,26 @@ function CheckboxGroup ({ options, name, value, onChange }) {
     // value is existing options on model
     const selectedValue = target.value;
     const checked = target.checked;
-
     const newListValue = buildNewSelection(value, selectedValue, checked)
 
-    onChange({
-      target: {
-        name,
-        value: newListValue,
-      }
-    })
+    onChange(name, newListValue)
   }
 
   return (
     <div className="checkbox-group">
       { options.map(option => {
+        const id = `${name}-${option.value}`
         return (
           <div key={option.value}>
             <input
               type="checkbox"
-              id={option.value}
+              id={id}
               name={name}
               value={option.value}
               checked={value.includes(option.value)}
               onChange={handleChange}
             />
-            <label htmlFor={option.value}>{ option.label }</label>
+            <label htmlFor={id}>{ option.label }</label>
             <br/>
           </div>
         )

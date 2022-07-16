@@ -23,5 +23,5 @@ function DropdownGroup ({ options, name, value, onChange }) {
       </select>
     )
   }
-  
+
 export default DropdownGroup
