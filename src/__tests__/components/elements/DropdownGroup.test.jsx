@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react'
+import { Form, Formik } from 'formik';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import DropdownGroup from 'components/elements/DropdownGroup';
 
 const FOOD_OPTIONS = [
@@ -11,36 +12,54 @@ const FOOD_OPTIONS = [
   },
 ]
 
-xdescribe('DropdownGroup', () => {
+function findFormSection(screen, text) {
+  return within(screen.getByText(text).closest('div'));
+}
+
+describe('DropdownGroup', () => {
   it('renders label', () => {
     render(
-      <DropdownGroup
-        options={[{ label: 'Pizza', value: 'pizza'}]}
-        name="favorite-foods"
-        value={'pizza'}
-        onChange={jest.fn()}
-      />
+      <Formik>
+        <Form>
+          <DropdownGroup
+            options={[{ label: 'Pizza', value: 'pizza'}]}
+            name="favorite-foods"
+            value={'pizza'}
+          />
+        </Form>
+      </Formik>
     );
 
     expect(screen.getByText('Pizza')).toBeInTheDocument();
   });
 
-  it('calls onChange prop with correct arguments when checkbox is selected', async () => {
-    const mockOnChangeProp = jest.fn()
+  it('handles selection', async () => {
+    const mockHandleChange = jest.fn();
 
     render(
-      <DropdownGroup
-        options={FOOD_OPTIONS}
-        name="favorite-foods"
-        value={''}
-        onChange={mockOnChangeProp}
-      />
+      <Formik initialValues={{ label: 'pizza', value: 'pizza'}}>
+        <Form onChange={mockHandleChange}>
+          <DropdownGroup
+            options={[
+              { label: 'Pizza', value: 'pizza'},
+              { label: 'Salad', value: 'salad'},
+            ]}
+            name="favorite-foods"
+          />
+        </Form>
+      </Formik>
     );
 
-    const saladCheckbox = screen.getByText('Salad');
+    expect(screen.getByText('Pizza')).toBeInTheDocument();
+    expect(screen.getByText('Salad')).toBeInTheDocument();
 
-    await fireEvent.click(saladCheckbox);
+    await act(() => {
+      fireEvent.change(screen.getByTestId('dropdown-favorite-foods'), {
+        target: { value: 'salad' },
+      });
+    });
 
-    expect(mockOnChangeProp);
+    expect(mockHandleChange.mock.calls[0][0].target.name).toEqual('favorite-foods');
+    expect(mockHandleChange.mock.calls[0][0].target.value).toEqual('salad');
   });
 });

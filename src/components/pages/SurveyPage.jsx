@@ -24,7 +24,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
   }
 
   // TODO: Render errors. Logging here to help with debugging.
-  console.log(errors);
+  // console.log(errors);
 
   return (
     <Form className="survey">
