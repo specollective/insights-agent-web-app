@@ -18,6 +18,7 @@ function RadioButtonGroup ({ options, name, value, isHorizontal=false }) {
               checked={value === option.value}
               type="radio"
               id={id}
+              data-testid={`radio-button-${name}-${option.value}`}
               name={name}
               value={option.value}
             />
