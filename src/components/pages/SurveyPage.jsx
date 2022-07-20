@@ -8,6 +8,7 @@ import {
   HOUSEHOLD,
   IS_HISPANIC_OPTIONS,
   COMPUTER_USE,
+  TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS,
 } from 'constants/surveys'
 import 'components/pages/SurveyPage.css'
 import { useTranslation, Trans } from 'react-i18next';
@@ -79,6 +80,16 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           options={COMPUTER_USE}
         />
       </div>
+      
+      <div className="question">
+        <h4>Rate your level of competence with computer technology*</h4>
+        <RadioButtonGroup
+          value={values.technologyCompetencyLevel}
+          name="technologyCompetencyLevel"
+          options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+          isHorizontal={true}
+        />
+      </div>
 
       <div className="actions">
         <button type="button" className="left" onClick={handleClearForm}>Clear Form</button>
@@ -94,15 +105,15 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
  * @param {} props - includes email and password
  * @returns {object} - formatted field values
  */
-export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, household }) {
+export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, household, technologyCompetencyLevel }) {
   return {
     race: race || [],
     isHispanicOrLatino: isHispanicOrLatino,
     computerUse: computerUse || [],
-    household: household
-  }
+    household: household,
+    technologyCompetencyLevel: technologyCompetencyLevel,
 }
-
+}
 /**
  * Defines the logic for handling form submission
  * Function name matches Formik option key handleSubmit
