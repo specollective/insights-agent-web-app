@@ -1,8 +1,9 @@
 export const DEFAULT_FORM_VALUES = {
   isHispanicOrLatino: null,
-  race: [],
+  internetAccess: [],
   household: '1',
-  computerUse: []
+  computerUse: [],
+  race: [],
 }
 
 // TODO: Apply i18n localization
@@ -30,6 +31,14 @@ export const IS_HISPANIC_OPTIONS = [
   { value: 'true', label: 'Yes' },
   { value: 'false', label: 'No' },
   { value: 'decline', label: 'Decline to identify' }
+]
+
+export const INTERNET_ACCESS = [
+  {value: 'cellular-data', label:'Cellular data plan for smartphone'},
+  {value: 'broadband', label:'Broadband internet service'},
+  {value: 'satellite', label:'Satellite internet service'},
+  {value: 'dial-up', label:'Dial up internet service'},
+  {value: 'other-service', label:'Some other service'},
 ]
 
 export const HOUSEHOLD = [

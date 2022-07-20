@@ -4,7 +4,7 @@ import SurveyPage from 'components/pages/SurveyPage';
 import { createSurvey } from 'services/survey';
 import i18nTest from 'utils/i18nTest';
 import { I18nextProvider } from 'react-i18next';
-import { COMPUTER_USE, RACE_OPTIONS } from 'constants/surveys';
+import { INTERNET_ACCESS, RACE_OPTIONS, COMPUTER_USE } from 'constants/surveys';
 
 // Mock out auth hooks
 jest.mock('hooks/authentication', () => ({
@@ -86,6 +86,7 @@ describe('Survey Page', () => {
         computerUse: [],
         household: '1',
         race: ['white', 'filipino', 'black'],
+        internetAccess: [],
       });
     });
 
@@ -112,6 +113,7 @@ describe('Survey Page', () => {
         computerUse: [],
         household: '1',
         race: ['decline'],
+        internetAccess: [],
       });
     });
 
@@ -137,6 +139,7 @@ describe('Survey Page', () => {
         computerUse: [],
         household: '1',
         race: ['chinese'],
+        internetAccess: [],
       });
     });
   });
@@ -165,6 +168,7 @@ describe('Survey Page', () => {
         computerUse: [],
         household: '1',
         race: ['decline'],
+        internetAccess: [],
       });
     });
   });
