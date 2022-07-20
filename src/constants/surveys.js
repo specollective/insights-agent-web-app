@@ -1,6 +1,7 @@
 export const DEFAULT_FORM_VALUES = {
   isHispanicOrLatino: null,
-  raceOption: [],
+  race: [],
+  household: '1',
 }
 
 // TODO: Apply i18n localization
@@ -28,4 +29,12 @@ export const IS_HISPANIC_OPTIONS = [
   { value: 'true', label: 'Yes' },
   { value: 'false', label: 'No' },
   { value: 'decline', label: 'Decline to identify' }
+]
+
+export const HOUSEHOLD = [
+  { value: '1', label: '1' },
+  { value: '2', label: '2' },
+  { value: '3', label: '3' },
+  { value: '4', label: '4' },
+  { value: '5+', label: '5+' },
 ]

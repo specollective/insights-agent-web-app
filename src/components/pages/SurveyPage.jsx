@@ -5,14 +5,16 @@ import { createSurvey } from 'services/survey';
 import {
   DEFAULT_FORM_VALUES,
   RACE_OPTIONS,
+  HOUSEHOLD,
   IS_HISPANIC_OPTIONS,
 } from 'constants/surveys'
 import 'components/pages/SurveyPage.css'
 import { useTranslation, Trans } from 'react-i18next';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import CheckboxGroup from 'components/elements/CheckboxGroup'
-import RadioButtonGroup from 'components/elements/RadioButtonGroup'
+import CheckboxGroup from 'components/elements/CheckboxGroup';
+import RadioButtonGroup from 'components/elements/RadioButtonGroup';
+import DropdownGroup from 'components/elements/DropdownGroup';
 
 function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
   const { t } = useTranslation();
@@ -52,6 +54,17 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           value={values.isHispanicOrLatino}
           name="isHispanicOrLatino"
           options={IS_HISPANIC_OPTIONS}
+        />
+      </div>
+
+      <div className="question">
+        <h4>Please answer about your HOUSEHOLD:</h4>
+        <h5>How many people live/stay in your household?</h5>
+
+        <DropdownGroup
+          value={values.household}
+          name="household"
+          options={HOUSEHOLD}
         />
       </div>
 
@@ -95,8 +108,8 @@ export function handleSubmit(values, { props }) {
 export const validationSchema = Yup.object().shape({
   race: Yup.array().of(Yup.string()).min(1).required(),
   isHispanicOrLatino: Yup.string().required(),
+  household: Yup.string().required('Please select a household size'),
   // technologyCompetencyLevel: Yup.number().min(1).max(5),
-  // householdSize: Yup.string().required(),
   // computerUsage: Yup.string().required(),
   // numberOfDevices: Yup.string().required(),
   // internetAccessAvailability: Yup.string().required(),

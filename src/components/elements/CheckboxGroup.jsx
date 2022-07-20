@@ -23,7 +23,8 @@ function CheckboxGroup ({ options, name, value, onChange }) {
     const checked = target.checked;
     const newListValue = buildNewSelection(value, selectedValue, checked)
 
-    onChange(name, newListValue)
+    // setFieldValue('race', ['filipino']);
+    onChange(name, newListValue);
   }
 
   return (

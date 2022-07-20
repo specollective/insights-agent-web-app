@@ -60,6 +60,7 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+      const householdSelectContainer = findFormSection(screen, 'Please answer about your HOUSEHOLD:');
 
       // asserting all expected options are present
       RACE_OPTIONS.forEach((raceOption) => {
@@ -73,12 +74,16 @@ describe('Survey Page', () => {
         fireEvent.click(raceCheckboxGroup.getByText('Filipino'));
         fireEvent.click(raceCheckboxGroup.getByText('Black or African American'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
+        fireEvent.change(householdSelectContainer.getByTestId('dropdown-household'), {
+          target: { value: '1' },
+        });
         fireEvent.click(screen.getByText('Submit'));
       });
 
       // Asserting that the bend service is called with the right values.
       expect(createSurvey).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
+        household: '1',
         race: ['white', 'filipino', 'black'],
       });
     });
@@ -88,17 +93,22 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+      const householdSelectContainer = findFormSection(screen, 'Please answer about your HOUSEHOLD:');
 
       await act(() => {
         fireEvent.click(raceCheckboxGroup.getByText('White'));
         fireEvent.click(raceCheckboxGroup.getByText('Filipino'));
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
+        fireEvent.change(householdSelectContainer.getByTestId('dropdown-household'), {
+          target: { value: '1' },
+        });
         fireEvent.click(screen.getByText('Submit'));
       });
 
       expect(createSurvey).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
+        household: '1',
         race: ['decline'],
       });
     });
@@ -108,16 +118,21 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+      const householdSelectContainer = findFormSection(screen, 'Please answer about your HOUSEHOLD:');
 
       await act(() => {
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(raceCheckboxGroup.getByText('Chinese'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
+        fireEvent.change(householdSelectContainer.getByTestId('dropdown-household'), {
+          target: { value: '1' },
+        });
         fireEvent.click(screen.getByText('Submit'));
       });
 
       expect(createSurvey).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
+        household: '1',
         race: ['chinese'],
       });
     });
@@ -129,17 +144,22 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+      const householdSelectContainer = findFormSection(screen, 'Please answer about your HOUSEHOLD:');
 
       await act(() => {
         // Testing selecting multiple options
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Yes'));
+        fireEvent.change(householdSelectContainer.getByTestId('dropdown-household'), {
+          target: { value: '1' },
+        });
         fireEvent.click(screen.getByText('Submit'));
       });
 
       // Asserting that the bend service is called with the right values.
       expect(createSurvey).toHaveBeenCalledWith({
         isHispanicOrLatino: 'true',
+        household: '1',
         race: ['decline'],
       });
     });
