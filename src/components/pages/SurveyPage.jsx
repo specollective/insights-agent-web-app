@@ -5,6 +5,7 @@ import { createSurvey } from 'services/survey';
 import {
   DEFAULT_FORM_VALUES,
   RACE_OPTIONS,
+  INTERNET_ACCESS,
   HOUSEHOLD,
   IS_HISPANIC_OPTIONS,
   COMPUTER_USE,
@@ -91,6 +92,17 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>
 
+      <div className="question">
+        <h4>How does your houseland access the internet?*</h4>
+        <p>Check all that apply.</p>
+
+        <CheckboxGroup
+          value={values.internetAccess}
+          name="internetAccess"          
+          options={INTERNET_ACCESS}
+        />
+      </div>
+      
       <div className="actions">
         <button type="button" className="left" onClick={handleClearForm}>Clear Form</button>
         <button type="submit" className="right">Submit</button>
@@ -105,15 +117,17 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
  * @param {} props - includes email and password
  * @returns {object} - formatted field values
  */
-export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, household, technologyCompetencyLevel }) {
+export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, household, technologyCompetencyLevel, internetAccess }) {
   return {
     race: race || [],
     isHispanicOrLatino: isHispanicOrLatino,
     computerUse: computerUse || [],
     household: household,
     technologyCompetencyLevel: technologyCompetencyLevel,
+    internetAccess: internetAccess || [],
+  }    
 }
-}
+
 /**
  * Defines the logic for handling form submission
  * Function name matches Formik option key handleSubmit
