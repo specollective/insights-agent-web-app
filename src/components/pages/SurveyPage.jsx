@@ -5,13 +5,10 @@ import { createSurvey } from 'services/survey';
 import {
   DEFAULT_FORM_VALUES,
   RACE_OPTIONS,
-<<<<<<< HEAD
   INTERNET_ACCESS,
-=======
   HOUSEHOLD,
   IS_HISPANIC_OPTIONS,
   COMPUTER_USE,
->>>>>>> 260a9e8113c36e6f73b45caebaf300b4365d3dd5
 } from 'constants/surveys'
 import 'components/pages/SurveyPage.css'
 import { useTranslation, Trans } from 'react-i18next';
@@ -46,56 +43,14 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         <p>Check all that apply.</p>
 
         <CheckboxGroup
-<<<<<<< HEAD
-          value={formData.raceOption}
-          name="raceOption"
-          options={RACE_OPTIONS}
-          onChange={handleInputChange}
-=======
           value={values.race}
           name="race"
           options={RACE_OPTIONS}
           onChange={setFieldValue}
->>>>>>> 260a9e8113c36e6f73b45caebaf300b4365d3dd5
         />
       </div>
 
       <div className="question">
-<<<<<<< HEAD
-        <h4>Are you of Hispanic, Latino, or Spanish origin?</h4>
-        <div className="radio-button-group">
-          <input
-            checked={formData.isHispanicOrLatino === 'true'}
-            id="latino-yes"
-            name="isHispanicOrLatino"
-            onChange={handleInputChange}
-            type="radio"
-            value="true"
-          />
-          <label htmlFor="latino-yes">Yes</label><br/>
-
-          <input
-            checked={formData.isHispanicOrLatino === 'false'}
-            id="latino-no"
-            name="isHispanicOrLatino"
-            onChange={handleInputChange}
-            type="radio"
-            value="false"
-          />
-         <label htmlFor="latino-no">No</label>
-        </div>
-      </div>
-
-      <div className="question">
-        <h4>How does your houseland access the internet?*</h4>
-        <p>Check all that apply.</p>
-
-        <CheckboxGroup
-          value={formData.internetAccess}
-          name="internetAccess"          
-          options={INTERNET_ACCESS}
-          onChange={handleInputChange}
-=======
         <h4>{t('surveyHispanicHeader')}</h4>
         <RadioButtonGroup
           value={values.isHispanicOrLatino}
@@ -123,10 +78,20 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           value={values.computerUse}
           name="computerUse"
           options={COMPUTER_USE}
->>>>>>> 260a9e8113c36e6f73b45caebaf300b4365d3dd5
         />
       </div>
 
+      <div className="question">
+        <h4>How does your houseland access the internet?*</h4>
+        <p>Check all that apply.</p>
+
+        <CheckboxGroup
+          value={values.internetAccess}
+          name="internetAccess"          
+          options={INTERNET_ACCESS}
+        />
+      </div>
+      
       <div className="actions">
         <button type="button" className="left" onClick={handleClearForm}>Clear Form</button>
         <button type="submit" className="right">Submit</button>
@@ -141,12 +106,13 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
  * @param {} props - includes email and password
  * @returns {object} - formatted field values
  */
-export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, household }) {
+export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, household, internetAccess }) {
   return {
     race: race || [],
     isHispanicOrLatino: isHispanicOrLatino,
     computerUse: computerUse || [],
-    household: household
+    household: household,
+    internetAccess: internetAccess || [],
   }
 }
 

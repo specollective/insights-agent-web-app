@@ -4,11 +4,7 @@ import SurveyPage from 'components/pages/SurveyPage';
 import { createSurvey } from 'services/survey';
 import i18nTest from 'utils/i18nTest';
 import { I18nextProvider } from 'react-i18next';
-<<<<<<< HEAD
-import { INTERNET_ACCESS, RACE_OPTIONS } from 'constants/surveys';
-=======
-import { COMPUTER_USE, RACE_OPTIONS } from 'constants/surveys';
->>>>>>> 260a9e8113c36e6f73b45caebaf300b4365d3dd5
+import { INTERNET_ACCESS, RACE_OPTIONS, COMPUTER_USE } from 'constants/surveys';
 
 // Mock out auth hooks
 jest.mock('hooks/authentication', () => ({
@@ -68,11 +64,7 @@ describe('Survey Page', () => {
 
       // asserting all expected options are present
       RACE_OPTIONS.forEach((raceOption) => {
-<<<<<<< HEAD
-        const input = screen.getByLabelText(raceOption.label);
-=======
         const input = raceCheckboxGroup.getByLabelText(raceOption.label);
->>>>>>> 260a9e8113c36e6f73b45caebaf300b4365d3dd5
         expect(input).toBeInTheDocument();
       });
 
@@ -89,23 +81,13 @@ describe('Survey Page', () => {
       });
 
       // Asserting that the bend service is called with the right values.
-<<<<<<< HEAD
-      expect(createSurvey).toHaveBeenCalledWith(
-        { isAuthenticated: true },
-        {
-          isHispanicOrLatino: null,
-          raceOption: ['white', 'filipino'],
-          internetAccess: [],
-        },
-      );
-=======
       expect(createSurvey).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
         computerUse: [],
         household: '1',
         race: ['white', 'filipino', 'black'],
+        internetAccess: [],
       });
->>>>>>> 260a9e8113c36e6f73b45caebaf300b4365d3dd5
     });
 
     it('handles decline all option', async () => {
@@ -131,22 +113,13 @@ describe('Survey Page', () => {
         computerUse: [],
         household: '1',
         race: ['decline'],
+        internetAccess: [],
       });
     });
 
     it('handles switching from decline to selecting an option', async () => {
       renderPage();
 
-<<<<<<< HEAD
-      expect(createSurvey).toHaveBeenCalledWith(
-        { isAuthenticated: true },
-        {
-          isHispanicOrLatino: null,
-          raceOption: ['decline'],
-          internetAccess: [],
-        },
-      );
-=======
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
       const householdSelectContainer = findFormSection(screen, 'Please answer about your HOUSEHOLD:');
@@ -160,13 +133,13 @@ describe('Survey Page', () => {
         });
         fireEvent.click(screen.getByText('Submit'));
       });
->>>>>>> 260a9e8113c36e6f73b45caebaf300b4365d3dd5
 
       expect(createSurvey).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
         computerUse: [],
         household: '1',
         race: ['chinese'],
+        internetAccess: [],
       });
     });
   });
@@ -175,53 +148,6 @@ describe('Survey Page', () => {
     it('updates state correctly', async () => {
       renderPage();
 
-<<<<<<< HEAD
-      await fireEvent.click(screen.getByText('Decline to identify'));
-      await fireEvent.click(screen.getByText('White'));
-
-      const submitButton = screen.getByText('Submit');
-
-      fireEvent.click(submitButton);
-
-      expect(createSurvey).toHaveBeenCalledWith(
-        { isAuthenticated: true },
-        {
-          isHispanicOrLatino: null,
-          raceOption: ['white'],
-          internetAccess: [],
-        },
-      );
-    });
-  });
-
-  describe('Internet access checkbox group', () => {
-    it('updates state correctly', async () => {
-      renderPage();
-
-      // asserting all expected options are present
-      INTERNET_ACCESS.forEach((internetAccess) => {
-        const input = screen.getByLabelText(internetAccess.label);
-        expect(input).toBeInTheDocument();
-      });
-
-      // Testing selecting multiple options
-      await fireEvent.click(screen.getByText('Broadband internet service'));
-      await fireEvent.click(screen.getByText('Some other service'));
-
-      // Testing submitting the form
-      const submitButton = screen.getByText('Submit');
-      fireEvent.click(submitButton);
-
-      // Asserting that the bend service is called with the right values.
-      expect(createSurvey).toHaveBeenCalledWith(
-        { isAuthenticated: true },
-        {
-          isHispanicOrLatino: null,
-          raceOption: [],
-          internetAccess: ['broadband', 'other-service'],
-        },
-      );
-=======
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
       const householdSelectContainer = findFormSection(screen, 'Please answer about your HOUSEHOLD:');
@@ -242,8 +168,8 @@ describe('Survey Page', () => {
         computerUse: [],
         household: '1',
         race: ['decline'],
+        internetAccess: [],
       });
->>>>>>> 260a9e8113c36e6f73b45caebaf300b4365d3dd5
     });
   });
 });

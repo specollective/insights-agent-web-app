@@ -1,18 +1,12 @@
 export const DEFAULT_FORM_VALUES = {
   isHispanicOrLatino: null,
-<<<<<<< HEAD
-  raceOption: [],
   internetAccess: [],
-}
-
-=======
-  race: [],
   household: '1',
-  computerUse: []
+  computerUse: [],
+  race: [],
 }
 
 // TODO: Apply i18n localization
->>>>>>> 260a9e8113c36e6f73b45caebaf300b4365d3dd5
 export const RACE_OPTIONS = [
   { value: 'white', label: 'White'},
   { value: 'black', label: 'Black or African American'},
@@ -39,14 +33,14 @@ export const IS_HISPANIC_OPTIONS = [
   { value: 'decline', label: 'Decline to identify' }
 ]
 
-<<<<<<< HEAD
 export const INTERNET_ACCESS = [
   {value: 'cellular-data', label:'Cellular data plan for smartphone'},
   {value: 'broadband', label:'Broadband internet service'},
   {value: 'satellite', label:'Satellite internet service'},
   {value: 'dial-up', label:'Dial up internet service'},
   {value: 'other-service', label:'Some other service'},
-=======
+]
+
 export const HOUSEHOLD = [
   { value: '1', label: '1' },
   { value: '2', label: '2' },
@@ -64,5 +58,4 @@ export const COMPUTER_USE = [
   {value: 'family', label: 'Family'},
   {value: 'gain-new-skills', label: 'Gain new skills'},
   {value: 'job-search', label: 'Job search'},
->>>>>>> 260a9e8113c36e6f73b45caebaf300b4365d3dd5
 ]
