@@ -4,7 +4,7 @@ import SurveyPage from 'components/pages/SurveyPage';
 import { createSurvey } from 'services/survey';
 import i18nTest from 'utils/i18nTest';
 import { I18nextProvider } from 'react-i18next';
-import { RACE_OPTIONS } from 'constants/surveys';
+import { COMPUTER_USE, RACE_OPTIONS } from 'constants/surveys';
 
 // Mock out auth hooks
 jest.mock('hooks/authentication', () => ({
@@ -83,6 +83,7 @@ describe('Survey Page', () => {
       // Asserting that the bend service is called with the right values.
       expect(createSurvey).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
+        computerUse: [],
         household: '1',
         race: ['white', 'filipino', 'black'],
       });
@@ -108,6 +109,7 @@ describe('Survey Page', () => {
 
       expect(createSurvey).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
+        computerUse: [],
         household: '1',
         race: ['decline'],
       });
@@ -132,6 +134,7 @@ describe('Survey Page', () => {
 
       expect(createSurvey).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
+        computerUse: [],
         household: '1',
         race: ['chinese'],
       });
@@ -159,6 +162,7 @@ describe('Survey Page', () => {
       // Asserting that the bend service is called with the right values.
       expect(createSurvey).toHaveBeenCalledWith({
         isHispanicOrLatino: 'true',
+        computerUse: [],
         household: '1',
         race: ['decline'],
       });
