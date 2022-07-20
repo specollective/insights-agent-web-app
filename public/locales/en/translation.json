@@ -4,8 +4,8 @@
   "fullNameLabel": "Enter Full Name (First & Last)",
   "phoneNumberLabel": "Enter Phone Number",
   "submitText": "Submit",
+  "surveyHispanicHeader": "Are you of Hispanic origin?*",
   "surveyTitle": "Insights Agent General Info Survey",
   "surveyDescription": "A core part of this study is tracking if technology is equitably benefit every person regardless of who they are. Your answer to these US Census style questions will help us better understand technology + diversity.",
   "requiredField": "Required field"
-
 }

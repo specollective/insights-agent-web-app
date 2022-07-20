@@ -44,12 +44,7 @@ describe('CheckboxGroup', () => {
 
     await fireEvent.click(pizzaCheckbox);
 
-    expect(mockOnChangeProp).toHaveBeenCalledWith({
-      target: {
-        name: 'favorite-foods',
-        value: ['pizza'],
-      }
-    });
+    expect(mockOnChangeProp).toHaveBeenCalledWith('favorite-foods', ['pizza'])
   });
 
   it('calls onChange prop with correct args when checkbox is unselected', async () => {
@@ -70,12 +65,8 @@ describe('CheckboxGroup', () => {
 
     await fireEvent.click(screen.getByText('Pizza'));
 
-    expect(mockOnChangeProp).toHaveBeenCalledWith({
-      target: {
-        name: 'favorite-foods',
-        value: [],
-      }
-    });
+    expect(mockOnChangeProp)
+      .toHaveBeenCalledWith('favorite-foods', []);
   });
 
   it('handle multi-select', async () => {
@@ -97,12 +88,8 @@ describe('CheckboxGroup', () => {
     await fireEvent.click(screen.getByText('Pizza'));
     await fireEvent.click(screen.getByText('Salad'));
 
-    expect(mockOnChangeProp).toHaveBeenCalledWith({
-      target: {
-        name: 'favorite-foods',
-        value: ['pizza', 'salad'],
-      }
-    });
+    expect(mockOnChangeProp)
+      .toHaveBeenCalledWith('favorite-foods', ['pizza', 'salad']);
   });
 
   it('handle decline all', async () => {
@@ -125,11 +112,6 @@ describe('CheckboxGroup', () => {
     await fireEvent.click(screen.getByText('Salad'));
     await fireEvent.click(screen.getByText('Decline favorite foods'));
 
-    expect(mockOnChangeProp).toHaveBeenCalledWith({
-      target: {
-        name: 'favorite-foods',
-        value: ['decline'],
-      }
-    });
+    expect(mockOnChangeProp).toHaveBeenCalledWith('favorite-foods', ['decline']);
   });
 });
