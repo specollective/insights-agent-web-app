@@ -5,8 +5,8 @@ import { createSurvey } from 'services/survey';
 import {
   DEFAULT_FORM_VALUES,
   RACE_OPTIONS,
+  HOUSEHOLD_MEMBERS,
   INTERNET_ACCESS,
-  HOUSEHOLD,
   IS_HISPANIC_OPTIONS,
   COMPUTER_USE,
 } from 'constants/surveys'
@@ -64,9 +64,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         <h5>How many people live/stay in your household?</h5>
 
         <DropdownGroup
-          value={values.household}
-          name="household"
-          options={HOUSEHOLD}
+          value={values.householdMembers}
+          name="household members"
+          options={HOUSEHOLD_MEMBERS}
         />
       </div>
 
@@ -106,13 +106,12 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
  * @param {} props - includes email and password
  * @returns {object} - formatted field values
  */
-export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, household, internetAccess }) {
+export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, householdMembers }) {
   return {
     race: race || [],
     isHispanicOrLatino: isHispanicOrLatino,
     computerUse: computerUse || [],
-    household: household,
-    internetAccess: internetAccess || [],
+    householdMembers: householdMembers
   }
 }
 
@@ -135,7 +134,7 @@ export function handleSubmit(values, { props }) {
 export const validationSchema = Yup.object().shape({
   race: Yup.array().of(Yup.string()).min(1).required(),
   isHispanicOrLatino: Yup.string().required(),
-  household: Yup.string().required('Please select a household size'),
+  householdMembers: Yup.string().required('Please select a household size'),
   // technologyCompetencyLevel: Yup.number().min(1).max(5),
   // computerUsage: Yup.string().required(),
   // numberOfDevices: Yup.string().required(),
