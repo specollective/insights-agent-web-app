@@ -9,6 +9,7 @@ import {
   INTERNET_ACCESS,
   IS_HISPANIC_OPTIONS,
   COMPUTER_USE,
+  HOUSEHOLD_COMPUTERS,
 } from 'constants/surveys'
 import 'components/pages/SurveyPage.css'
 import { useTranslation, Trans } from 'react-i18next';
@@ -82,6 +83,16 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       </div>
 
       <div className="question">
+        <h4>How many other computers (including tablets) do you have in your household?*</h4>
+
+        <DropdownGroup
+          value={values.householdComputers}
+          name="household members"
+          options={HOUSEHOLD_COMPUTERS}
+        />
+      </div>
+
+      <div className="question">
         <h4>How does your houseland access the internet?*</h4>
         <p>Check all that apply.</p>
 
@@ -89,6 +100,17 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           value={values.internetAccess}
           name="internetAccess"          
           options={INTERNET_ACCESS}
+        />
+      </div>
+
+      <div className="question">
+        <h4>What is the intended use of this computer?*</h4>
+        <p>Check all that apply.</p>
+
+        <CheckboxGroup
+          value={values.computerUse}
+          name="computerUse"
+          options={COMPUTER_USE}
         />
       </div>
       

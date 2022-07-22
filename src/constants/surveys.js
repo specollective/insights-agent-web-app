@@ -3,7 +3,7 @@ export const DEFAULT_FORM_VALUES = {
   race: [],
   householdMembers: '1',
   computerUse: [], 
-  household_computers: ''
+  householdComputers: ''
 }
 
 // TODO: Apply i18n localization
