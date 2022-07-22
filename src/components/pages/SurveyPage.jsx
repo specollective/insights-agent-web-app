@@ -128,12 +128,13 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
  * @param {} props - includes email and password
  * @returns {object} - formatted field values
  */
-export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, householdMembers }) {
+export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, householdMembers, internetAccess }) {
   return {
     race: race || [],
     isHispanicOrLatino: isHispanicOrLatino,
     computerUse: computerUse || [],
-    householdMembers: householdMembers
+    internetAccess: internetAccess || [],
+    householdMembers: householdMembers,
   }
 }
 
