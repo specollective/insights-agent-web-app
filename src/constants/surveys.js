@@ -2,6 +2,7 @@ export const DEFAULT_FORM_VALUES = {
   isHispanicOrLatino: null,
   internetAccess: [],
   household: '1',
+  technologyCompetencyLevel: null,
   computerUse: [],
   race: [],
 }
@@ -58,4 +59,11 @@ export const COMPUTER_USE = [
   {value: 'family', label: 'Family'},
   {value: 'gain-new-skills', label: 'Gain new skills'},
   {value: 'job-search', label: 'Job search'},
+]
+export const TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS = [
+  { value: '1', label: '1', secondaryLabel: 'Not at all' },
+  { value: '2', label: '2', secondaryLabel: 'Slightly' },
+  { value: '3', label: '3', secondaryLabel: 'Fairly' },
+  { value: '4', label: '4', secondaryLabel: 'Highly' },
+  
 ]
