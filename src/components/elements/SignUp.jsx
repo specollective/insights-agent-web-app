@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useAuth } from 'hooks/authentication'
 import 'components/elements/SignUp.css'
 import * as Yup from 'yup';
-import { withFormik, Form, Field } from 'formik';
+import { withFormik, Form, Field, } from 'formik';
 import 'yup-phone';
 
 /**

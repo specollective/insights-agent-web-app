@@ -64,11 +64,24 @@ h5 {
   margin-right: 1em;
 }
 
+html body .question.error {
+  border: 2px solid #FA0000;
+  box-shadow:none;
+}
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+
+  
+  .error, .header {
+    margin: 0 20em;
+    margin-bottom:3px;
+    padding:1em;
+  }
+
   .question, .actions {
     margin-left: 20em;
     margin-right: 20em;
