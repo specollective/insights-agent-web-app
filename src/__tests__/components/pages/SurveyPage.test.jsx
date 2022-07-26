@@ -60,7 +60,7 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const householdMembersSelectContainer = findFormSection(screen, 'Please answer about your HOUSEHOLD:');
+      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?');
 
       // asserting all expected options are present
       RACE_OPTIONS.forEach((raceOption) => {
@@ -74,7 +74,7 @@ describe('Survey Page', () => {
         fireEvent.click(raceCheckboxGroup.getByText('Filipino'));
         fireEvent.click(raceCheckboxGroup.getByText('Black or African American'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
-        fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-household-members'), {
+        fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
         fireEvent.click(screen.getByText('Submit'));
@@ -95,14 +95,14 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const householdMembersSelectContainer = findFormSection(screen, 'Please answer about your HOUSEHOLD:');
+      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?');
 
       await act(() => {
         fireEvent.click(raceCheckboxGroup.getByText('White'));
         fireEvent.click(raceCheckboxGroup.getByText('Filipino'));
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
-        fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-household-members'), {
+        fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
         fireEvent.click(screen.getByText('Submit'));
@@ -122,13 +122,13 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const householdMembersSelectContainer = findFormSection(screen, 'Please answer about your HOUSEHOLD:');
+      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?');
 
       await act(() => {
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(raceCheckboxGroup.getByText('Chinese'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
-        fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-household-members'), {
+        fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
         fireEvent.click(screen.getByText('Submit'));
@@ -150,13 +150,13 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const householdMembersSelectContainer = findFormSection(screen, 'Please answer about your HOUSEHOLD:');
+      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?');
 
       await act(() => {
         // Testing selecting multiple options
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Yes'));
-        fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-household-members'), {
+        fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
         fireEvent.click(screen.getByText('Submit'));
