@@ -1,9 +1,10 @@
 export const DEFAULT_FORM_VALUES = {
   isHispanicOrLatino: null,
-  internetAccess: [],
-  household: '1',
-  computerUse: [],
   race: [],
+  internetAccess: [],
+  householdMembers: '1',
+  computerUse: [], 
+  householdComputers: '0'
 }
 
 // TODO: Apply i18n localization
@@ -41,7 +42,7 @@ export const INTERNET_ACCESS = [
   {value: 'other-service', label:'Some other service'},
 ]
 
-export const HOUSEHOLD = [
+export const HOUSEHOLD_MEMBERS = [
   { value: '1', label: '1' },
   { value: '2', label: '2' },
   { value: '3', label: '3' },
@@ -58,4 +59,13 @@ export const COMPUTER_USE = [
   {value: 'family', label: 'Family'},
   {value: 'gain-new-skills', label: 'Gain new skills'},
   {value: 'job-search', label: 'Job search'},
+]
+
+export const HOUSEHOLD_COMPUTERS = [
+  { value: '0', label: '0' },
+  { value: '1', label: '1' },
+  { value: '2', label: '2' },
+  { value: '3', label: '3' },
+  { value: '4', label: '4' },
+  { value: '5+', label: '5+' },
 ]

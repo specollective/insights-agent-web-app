@@ -22,7 +22,7 @@ describe('DropdownGroup', () => {
       <Formik>
         <Form>
           <DropdownGroup
-            options={[{ label: 'Pizza', value: 'pizza'}]}
+            options={FOOD_OPTIONS}
             name="favorite-foods"
             value={'pizza'}
           />
