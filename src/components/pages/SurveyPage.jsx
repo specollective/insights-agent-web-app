@@ -38,6 +38,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           <p><strong>*Required field</strong></p>
         </div>
       </div>
+    <h4 className="Section-Header">Please answer about YOURSELF:</h4>
 
       <div className="question">
         <h4>Please select your race.*</h4>
@@ -59,14 +60,15 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           options={IS_HISPANIC_OPTIONS}
         />
       </div>
-
+      <div>
+      <h4 className="Section-Header">Please answer about your HOUSEHOLD:</h4>
+      </div>
       <div className="question">
-        <h4>Please answer about your HOUSEHOLD:</h4>
         <h5>How many people live/stay in your household?</h5>
 
         <DropdownGroup
           value={values.householdMembers}
-          name="household members"
+          name="householdMembers"
           options={HOUSEHOLD_MEMBERS}
         />
       </div>
@@ -79,6 +81,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           value={values.computerUse}
           name="computerUse"
           options={COMPUTER_USE}
+          onChange={setFieldValue}
         />
       </div>
 
@@ -87,7 +90,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
 
         <DropdownGroup
           value={values.householdComputers}
-          name="household members"
+          name="householdComputers"
           options={HOUSEHOLD_COMPUTERS}
         />
       </div>
@@ -100,6 +103,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           value={values.internetAccess}
           name="internetAccess"          
           options={INTERNET_ACCESS}
+          onChange={setFieldValue}
         />
       </div>
 
@@ -111,6 +115,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           value={values.computerUse}
           name="computerUse"
           options={COMPUTER_USE}
+          onChange={setFieldValue}
         />
       </div>
       
@@ -128,13 +133,14 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
  * @param {} props - includes email and password
  * @returns {object} - formatted field values
  */
-export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, householdMembers, internetAccess }) {
+export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, householdMembers, internetAccess, householdComputers }) {
   return {
     race: race || [],
     isHispanicOrLatino: isHispanicOrLatino,
     computerUse: computerUse || [],
     internetAccess: internetAccess || [],
     householdMembers: householdMembers,
+    householdComputers: householdComputers,
   }
 }
 
