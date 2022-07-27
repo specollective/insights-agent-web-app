@@ -96,7 +96,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       </div>
 
       <div className="question">
-        <h4>How does your houseland access the internet?*</h4>
+        <h4>How does your household access the internet?*</h4>
         <p>Check all that apply.</p>
 
         <CheckboxGroup
