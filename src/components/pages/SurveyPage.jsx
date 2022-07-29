@@ -9,6 +9,7 @@ import {
   INTERNET_ACCESS,
   IS_HISPANIC_OPTIONS,
   COMPUTER_USE,
+  TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS,
   HOUSEHOLD_COMPUTERS,
 } from 'constants/surveys'
 import 'components/pages/SurveyPage.css'
@@ -84,6 +85,16 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           onChange={setFieldValue}
         />
       </div>
+      
+      <div className="question">
+        <h4>Rate your level of competence with computer technology*</h4>
+        <RadioButtonGroup
+          value={values.technologyCompetencyLevel}
+          name="technologyCompetencyLevel"
+          options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+          isHorizontal={true}
+        />
+      </div>
 
       <div className="question">
         <h4>How many other computers (including tablets) do you have in your household?*</h4>
@@ -133,15 +144,16 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
  * @param {} props - includes email and password
  * @returns {object} - formatted field values
  */
-export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, householdMembers, internetAccess, householdComputers }) {
+export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, householdMembers, technologyCompetencyLevel, internetAccess, householdComputers }) {
   return {
     race: race || [],
     isHispanicOrLatino: isHispanicOrLatino,
     computerUse: computerUse || [],
+    technologyCompetencyLevel: technologyCompetencyLevel,
     internetAccess: internetAccess || [],
     householdMembers: householdMembers,
     householdComputers: householdComputers,
-  }
+  }    
 }
 
 /**

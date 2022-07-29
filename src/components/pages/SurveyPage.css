@@ -83,6 +83,21 @@ h5 {
   }
 }
 
+.question .horizontal div {
+  float:left;
+}
+
+.question .horizontal div label {
+  padding:0;
+  line-height:1.5em;
+  width:100%;
+}
+
+.question .horizontal {
+  overflow: auto;
+  text-align:center;
+}
+
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {}
 
