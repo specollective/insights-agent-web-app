@@ -60,7 +60,7 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const householdSelectContainer = findFormSection(screen, 'Please answer about your HOUSEHOLD:');
+      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?');
 
       // asserting all expected options are present
       RACE_OPTIONS.forEach((raceOption) => {
@@ -74,7 +74,7 @@ describe('Survey Page', () => {
         fireEvent.click(raceCheckboxGroup.getByText('Filipino'));
         fireEvent.click(raceCheckboxGroup.getByText('Black or African American'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
-        fireEvent.change(householdSelectContainer.getByTestId('dropdown-household'), {
+        fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
         fireEvent.click(screen.getByText('Submit'));
@@ -84,7 +84,7 @@ describe('Survey Page', () => {
       expect(createSurvey).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
         computerUse: [],
-        household: '1',
+        householdMembers: '1',
         race: ['white', 'filipino', 'black'],
         internetAccess: [],
       });
@@ -95,14 +95,14 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const householdSelectContainer = findFormSection(screen, 'Please answer about your HOUSEHOLD:');
+      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?');
 
       await act(() => {
         fireEvent.click(raceCheckboxGroup.getByText('White'));
         fireEvent.click(raceCheckboxGroup.getByText('Filipino'));
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
-        fireEvent.change(householdSelectContainer.getByTestId('dropdown-household'), {
+        fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
         fireEvent.click(screen.getByText('Submit'));
@@ -111,7 +111,7 @@ describe('Survey Page', () => {
       expect(createSurvey).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
         computerUse: [],
-        household: '1',
+        householdMembers: '1',
         race: ['decline'],
         internetAccess: [],
       });
@@ -122,13 +122,13 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const householdSelectContainer = findFormSection(screen, 'Please answer about your HOUSEHOLD:');
+      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?');
 
       await act(() => {
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(raceCheckboxGroup.getByText('Chinese'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
-        fireEvent.change(householdSelectContainer.getByTestId('dropdown-household'), {
+        fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
         fireEvent.click(screen.getByText('Submit'));
@@ -137,7 +137,7 @@ describe('Survey Page', () => {
       expect(createSurvey).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
         computerUse: [],
-        household: '1',
+        householdMembers: '1',
         race: ['chinese'],
         internetAccess: [],
       });
@@ -150,14 +150,19 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const householdSelectContainer = findFormSection(screen, 'Please answer about your HOUSEHOLD:');
+      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?');
+      const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
+
 
       await act(() => {
         // Testing selecting multiple options
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Yes'));
-        fireEvent.change(householdSelectContainer.getByTestId('dropdown-household'), {
+        fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
+        });
+        fireEvent.change(householdComputersSelectContainer.getByTestId('dropdown-householdComputers'), {
+          target: { value: '5+' },
         });
         fireEvent.click(screen.getByText('Submit'));
       });
@@ -166,7 +171,37 @@ describe('Survey Page', () => {
       expect(createSurvey).toHaveBeenCalledWith({
         isHispanicOrLatino: 'true',
         computerUse: [],
-        household: '1',
+        householdMembers: '1',
+        householdComputers:'5+',
+        race: ['decline'],
+        internetAccess: [],
+      });
+    });
+  });
+
+  describe('Dropdown Group selections', () => {
+    it('updates dropdown components state correctly', async () => {
+      renderPage();
+
+      const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
+      const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?');
+
+      await act(() => {
+        // Testing selecting value
+        fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
+        fireEvent.click(hispanicRadioButtonGroup.getByText('Yes'));
+        fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
+          target: { value: '3' },
+        });
+        fireEvent.click(screen.getByText('Submit'));
+      });
+
+      // Asserting that the bend service is called with the right values.
+      expect(createSurvey).toHaveBeenCalledWith({
+        isHispanicOrLatino: 'true',
+        computerUse: [],
+        householdMembers: '3',
         race: ['decline'],
         internetAccess: [],
       });
