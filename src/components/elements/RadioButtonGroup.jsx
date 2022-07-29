@@ -1,10 +1,6 @@
 import { Formik, Form, Field } from 'formik';
 import { Fragment } from 'react'
 
-//added isHorizontal parameter to RadioButtonGroup set default of false//
-//horizontalClass sets className for RadioButtonGroup to "horizontal" if the isHorizontal parameter//
-// from surveypage.jsx is true, so can modify through CSS to make it horizontal
-
 function RadioButtonGroup ({ options, name, value, isHorizontal=false }) {
   const horizontalClass =  isHorizontal ? "horizontal" : "";
   return (
