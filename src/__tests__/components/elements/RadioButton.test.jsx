@@ -44,9 +44,6 @@ const FOOD_OPTIONS = [
         </Formik>
       );
   
-    //   expect(screen.getByText('Pizza')).toBeInTheDocument();
-    //   expect(screen.getByText('Salad')).toBeInTheDocument();
-  
       await act(() => {
         // fireEvent.click(screen.getByTestId('radio-button-favorite-foods-salad'))
         fireEvent.click(screen.getByLabelText('Salad'))  

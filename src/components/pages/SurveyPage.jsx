@@ -144,7 +144,7 @@ export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, house
     household: household,
     technologyCompetencyLevel: technologyCompetencyLevel,
     internetAccess: internetAccess || [],
-  }    
+  }  
 }
 
 /**
