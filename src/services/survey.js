@@ -17,10 +17,11 @@ export async function createSurvey(surveyData) {
     method: 'POST',
     body: JSON.stringify({
       hispanic_origin: surveyData.isHispanicOrLatino,
-      gender: surveyData.gender,
-      age: surveyData.age,
-      marital_status: surveyData.maritalStatus,
-      education_level: surveyData.educationLevel,
+      computer_use: surveyData.computerUse.join(','),
+      technology_compentency_level: surveyData.technologyCompetencyLevel,
+      internet_access: surveyData.internetAccess.join(','),
+      household_members: surveyData.householdMembers,
+      household_computers: surveyData.householdComputers,
     }),
   });
 

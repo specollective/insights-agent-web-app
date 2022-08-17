@@ -85,7 +85,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           onChange={setFieldValue}
         />
       </div>
-      
+
       <div className="question">
         <h4>Rate your level of competence with computer technology*</h4>
         <RadioButtonGroup
@@ -112,13 +112,13 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
 
         <CheckboxGroup
           value={values.internetAccess}
-          name="internetAccess"          
+          name="internetAccess"
           options={INTERNET_ACCESS}
           onChange={setFieldValue}
         />
       </div>
 
-      <div className="question">
+      {/*<div className="question">
         <h4>What is the intended use of this computer?*</h4>
         <p>Check all that apply.</p>
 
@@ -128,8 +128,8 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           options={COMPUTER_USE}
           onChange={setFieldValue}
         />
-      </div>
-      
+      </div>*/}
+
       <div className="actions">
         <button type="button" className="left" onClick={handleClearForm}>Clear Form</button>
         <button type="submit" className="right">Submit</button>
@@ -153,7 +153,7 @@ export function mapPropsToValues ({ race, isHispanicOrLatino, computerUse, house
     internetAccess: internetAccess || [],
     householdMembers: householdMembers,
     householdComputers: householdComputers,
-  }    
+  }
 }
 
 /**
