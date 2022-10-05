@@ -1,12 +1,18 @@
-import React, { StrictMode } from 'react'
-import { BrowserRouter } from 'react-router-dom'
-import { createRoot } from 'react-dom/client'
-import App from './App'
-import reportWebVitals from './reportWebVitals'
-import './index.css'
+import React, { StrictMode } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import './index.css';
+import makeMirageServer from './mirage';
 
-const rootElement = document.getElementById('root')
-const root = createRoot(rootElement)
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+
+if (process.env.NODE_ENV === 'development') {
+  console.log('YEA!');
+  makeMirageServer();
+}
 
 root.render(
   <StrictMode>

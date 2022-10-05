@@ -15,12 +15,12 @@ function ConfirmationPage() {
   // });
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (otp && token) {
-      auth.authenticate(otp, token)
+      auth.authenticate(otp, token);
     }
   }, [auth, otp, token])
 
