@@ -28,13 +28,13 @@ export function AuthProvider({ children }) {
     setUser({ ...user, ...result })
   }
 
-  async function currentUser () {
+  async function currentUser() {
     const result = await fetchCurrentUser()
 
     setUser({ ...user, ...result })
   }
 
-  async function logout () {
+  async function logout() {
     const result = await fetchLogout()
 
     setUser(null)

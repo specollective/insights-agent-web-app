@@ -50,9 +50,7 @@ export async function fetchConfirmMagicLink(otp, token) {
   })
 
   if (response.ok) {
-    const json = await response.json()
-
-    // sessionStorage.setItem('access_token', json.access_token)
+    const json = await response.json();
 
     return { ...json, isAuthenticated: true }
   } else {
