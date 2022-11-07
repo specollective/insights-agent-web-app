@@ -10,47 +10,53 @@ Code repository for the Insights Agent web application.
 
 ## Contributing
 
-Clone the repository
+### Clone the repository
 
 ```
 git clone git@github.com:specollective/insights-agent-web-app.git
 cd insights-agent-web-app
 ```
 
-Use required node version via nvm.
+### Use required node version via nvm.
 
 ```
 nvm use
 ```
 
-Install JavaScript dependencies.
+### Install JavaScript dependencies.
 
 ```
 npm install
 ```
 
-Start development server
+### Start development server
+
+Run the following command and the app should open should open on http://localhost:3000.
 
 ```
 npm start
 ```
 
-Run tests
+### Running development server with mock API
+
+```
+npm run start:mirage
+```
+
+### Running development server with SSL encryption
+
+Useful for testing certain authentication flows. Please follow the steps in this tutorial to generate your SSL certificate for localhost.
+
+https://www.mariokandut.com/how-to-setup-https-ssl-in-localhost-react
+
+Once you've installed the certificates, run the following command and the app should open on https://localhost:3000.
+
+```
+npm run start:ssl
+```
+
+### Run tests
 
 ```
 npm test
 ```
-
-Local SSL setup
-
-Please follow the steps in this tutorial to generate your SSL certificate for localhost.
-
-https://www.mariokandut.com/how-to-setup-https-ssl-in-localhost-react/
-
-Once you've installed the certificates, run the following command:
-
-```
-npm run dev
-```
-
-The app should open on https://localhost:3000/
