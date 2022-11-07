@@ -6,12 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import makeMirageServer from './mirage';
 
+const useMirage = process.env.REACT_APP_USE_MIRAGE;
+const isDevelopment = process.env.NODE_ENV === 'development';
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
-if (process.env.NODE_ENV === 'development') {
-  console.log('YEA!');
-  makeMirageServer();
+if (useMirage && isDevelopment) {
+  makeMirageServer({ environment: 'development' });
 }
 
 root.render(

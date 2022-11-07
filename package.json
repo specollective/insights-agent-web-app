@@ -30,7 +30,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "HTTPS=true SSL_CRT_FILE=localhost.pem SSL_KEY_FILE=localhost-key.pem react-scripts start",
+    "start:mirage": "REACT_APP_USE_MIRAGE=true react-scripts start",
+    "start:ssl": "HTTPS=true SSL_CRT_FILE=localhost.pem SSL_KEY_FILE=localhost-key.pem react-scripts start",
     "lint": "eslint --ext=js --ext=jsx src"
   },
   "eslintConfig": {
