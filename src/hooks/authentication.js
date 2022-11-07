@@ -2,7 +2,6 @@ import { useContext, createContext, useState } from "react";
 import {
   fetchMagicLink,
   fetchConfirmMagicLink,
-  fetchAccessCode,
   fetchLogout,
   fetchCurrentUser,
 } from 'services/authentication';
@@ -35,7 +34,7 @@ export function AuthProvider({ children }) {
   }
 
   async function logout() {
-    const result = await fetchLogout()
+    await fetchLogout()
 
     setUser(null)
   }

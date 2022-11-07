@@ -4,15 +4,22 @@ import { API_URL } from 'constants/urls';
 export default function () {
   createServer({
     routes() {
-      this.post(`${API_URL}/send_magic_link`, (schema, request) => ({
+      this.isAuthenticated = false;
+      this.urlPrefix = API_URL;
+
+      this.post('/send_magic_link', (schema, request) => {
+        console.log('send_magic_link');
+
+        return {
+          id: 1,
+        };
+      });
+
+      this.post('/confirm_magic_link', (schema, request) => ({
         id: 1,
       }));
 
-      this.post(`${API_URL}/confirm_magic_link`, (schema, request) => ({
-        id: 1,
-      }));
-
-      this.post(`${API_URL}/surveys`, (schema, request) => {
+      this.post('/surveys', (schema, request) => {
         const attrs = JSON.parse(request.requestBody)
         
         return {
