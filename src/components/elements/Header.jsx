@@ -4,14 +4,14 @@ import './Header.css'
 export default function Header() {
   return (
     <>
-      <div id='banner'>
-        <h1>
+      <div id="banner">
+        <h1 >
           Insights Agent Research Study
         </h1>
-        <p id='intro'>
+        <p id="intro">
           <LoremIpsum />
         </p>
       </div>
     </>
-  )
+  );
 }
