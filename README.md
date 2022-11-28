@@ -29,6 +29,14 @@ nvm use
 npm install
 ```
 
+### Set up environment variables
+
+Copy the contents of the `.env.example` to a file named `.env`.
+
+```
+REACT_APP_API_URL=http://localhost:8000/api
+```
+
 ### Start development server
 
 Run the following command and the app should open should open on http://localhost:3000.
