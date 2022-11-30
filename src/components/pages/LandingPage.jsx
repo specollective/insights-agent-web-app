@@ -12,11 +12,10 @@ function LandingPage() {
         <Logo />
       </div>
 
-      <div className="content">
-        <div className="video-container">
+      <div className="px-12 md:px-20 lg:px-36">
+        <div className='pt-8'>
           <div className="video-responsive">
             <iframe
-              className="video-iframe"
               src="https://www.youtube.com/embed/ScMzIvxBSi4"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -26,7 +25,7 @@ function LandingPage() {
           </div>
         </div>
 
-        <div className="container">
+        <div className="">
           <p>
             Have you ever felt that "technology is too confusing" or "this is not how I would use technology" or "I need something that actually helps me"? Than you are the right person to help us out...
           </p>
