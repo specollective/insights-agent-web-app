@@ -26,19 +26,19 @@ function LandingPage() {
         </div>
 
         <div className="">
-          <p>
+          <p className='pt-8'>
             Have you ever felt that "technology is too confusing" or "this is not how I would use technology" or "I need something that actually helps me"? Than you are the right person to help us out...
           </p>
 
-          <p>
+          <p className='pt-8'>
             The fact is that technology is often made for technologists by technologists. Current customer information does not include everyone. With your help buildJUSTLY can help technologists understand all kinds of customers.
           </p>
 
-          <p>
+          <p className='pt-10'>
             When you agree to the study, we’ll ask you to install something we call the Insight Agent.
           </p>
 
-          <ul>
+          <ul className='pt-10'>
             <li>Once an hour, the Insight Agent will capture the programs and websites on the computer.</li>
             <li>This information will be sent by internet to our servers.</li>
             <li>All of the information will be collected with other information from other participants around the United States.</li>
