@@ -6,6 +6,34 @@ import 'components/pages/LandingPage.css'
 function LandingPage() {
   const { t } = useTranslation()
 
+  const bullet = (
+    <div className='inline'>
+      <div className='bullet'></div>
+    </div>
+  )
+
+  const introParagraphs = [
+    `Have you ever felt that "technology is too confusing" or "this is
+  not how I would use technology" or "I need something that actually
+  helps me"? Than you are the right person to help us out...`,
+    `The fact is that technology is often made for technologists by
+  technologists. Current customer information does not include
+  everyone. With your help buildJUSTLY can help technologists
+  understand all kinds of customers.`,
+    `When you agree to the study, we’ll ask you to install something wecall the Insight Agent.`,
+  ]
+
+  const firstUnorderedListParagraphs = [
+    `Once an hour, the Insight Agent will capture the programs and
+    websites on the computer.`,
+    `This information will be sent by internet to our servers.`,
+    `All of the information will be collected with other information
+    from other participants around the United States.`,
+    `The servers will sort the information by type into categories like
+    social media, entertainment, work productivity, education and
+    more.`,
+  ]
+
   return (
     <main>
       <div className='organization'>
@@ -25,42 +53,20 @@ function LandingPage() {
           </div>
         </div>
 
-        <div className=''>
-          <p className='pt-8 lg:pt-20'>
-            Have you ever felt that "technology is too confusing" or "this is
-            not how I would use technology" or "I need something that actually
-            helps me"? Than you are the right person to help us out...
-          </p>
-
-          <p className='pt-8 lg:pt-18'>
-            The fact is that technology is often made for technologists by
-            technologists. Current customer information does not include
-            everyone. With your help buildJUSTLY can help technologists
-            understand all kinds of customers.
-          </p>
-
-          <p className='pt-10 lg:pt-18'>
-            When you agree to the study, we’ll ask you to install something we
-            call the Insight Agent.
-          </p>
+        <div className='Intro'>
+          {introParagraphs.map((p, index) => (
+            <p className='pt-8 lg:pt-20' key={index}>
+              {p}
+            </p>
+          ))}
 
           <ul className='px-10 lg:pt-18'>
-            <li className='pt-10'>
-              Once an hour, the Insight Agent will capture the programs and
-              websites on the computer.
-            </li>
-            <li className='pt-10'>
-              This information will be sent by internet to our servers.
-            </li>
-            <li className='pt-10'>
-              All of the information will be collected with other information
-              from other participants around the United States.
-            </li>
-            <li className='pt-10'>
-              The servers will sort the information by type into categories like
-              social media, entertainment, work productivity, education and
-              more.
-            </li>
+            {firstUnorderedListParagraphs.map((p, index) => (
+              <li className='pt-10' key={index}>
+                {bullet}
+                {p}
+              </li>
+            ))}
           </ul>
 
           <div className='font-extrabold text-center pt-10 text-xl md:text-2xl lg:text-3xl'>
