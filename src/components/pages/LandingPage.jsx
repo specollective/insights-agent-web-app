@@ -57,7 +57,7 @@ function LandingPage() {
       </div>
 
       <div className='px-12 md:px-32 lg:px-56 xl:px-80 xl:text-xl'>
-        <div className='pt-8'>
+        <div className='py-6'>
           <div className='video-responsive'>
             <iframe
               src='https://www.youtube.com/embed/ScMzIvxBSi4'
@@ -71,7 +71,7 @@ function LandingPage() {
 
         <div className='Intro'>
           {introParagraphs.map((p, index) => (
-            <p className='py-2 lg:pt-20' key={index}>
+            <p className='py-2 lg:py-8' key={index}>
               {p}
             </p>
           ))}
@@ -88,7 +88,7 @@ function LandingPage() {
             ))}
           </ul>
 
-          <div className='font-extrabold text-center py-12 text-xl md:text-2xl lg:text-3xl'>
+          <div className='font-extrabold text-center py-10 text-xl md:text-2xl lg:text-3xl'>
             <h3>Your Privacy is Important</h3>
           </div>
 
@@ -104,7 +104,7 @@ function LandingPage() {
             <img alt='tabs' src={RightTaskbar}></img>
           </div>
 
-          <div className='font-extrabold text-center py-12 text-xl md:text-2xl lg:text-3xl'>
+          <div className='font-extrabold text-center py-10 text-xl md:text-2xl lg:text-3xl'>
             <h3>What will happen to the data:</h3>
           </div>
 
