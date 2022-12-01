@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import SignUpForm from 'components/elements/SignUp'
 // import { ReactComponent as Logo } from 'images/logo.svg'
-import HeroComponent from '../elements/HeroComponent'
+import HeroMobile from '../elements/HeroMobile'
 import 'components/pages/LandingPage.css'
 import TabImage from '../../images/tabsImage.svg'
 import RightTaskbar from '../../images/rightTaskbar.svg'
@@ -53,8 +53,8 @@ function LandingPage() {
 
   return (
     <main>
-      <div className="organization">
-        <HeroComponent />
+      <div className="visible md:hidden">
+        <HeroMobile />
       </div>
 
       <div className='px-12 md:px-32 lg:px-56 xl:px-80 xl:text-xl'>

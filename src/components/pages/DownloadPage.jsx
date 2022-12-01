@@ -1,9 +1,13 @@
+import HeroMobile from 'components/elements/HeroMobile';
 import Instructions from 'components/elements/Instructions'
 import { DOWNLOAD_URL } from 'constants/urls'
 
 function DownloadPage() {
   return (
     <main>
+      <div className="visible md:hidden">
+        <HeroMobile />
+      </div>
       <div>
         <h1>Getting the App</h1>
         <a href={DOWNLOAD_URL}>

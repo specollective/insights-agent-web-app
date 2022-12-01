@@ -5,9 +5,6 @@ module.exports = {
     "./components/**/*.{js,jsx,ts,tsx}", 
   ],
   theme: {
-    fontFamily: {
-      hero: "Segoe UI",
-    },
     extend: {
       colors: {
         "green" : {
