@@ -59,7 +59,7 @@ export function SignUpForm({ touched, errors }) {
         Sign up to participate in our study!
       </h1>
       <div
-        className='grid md:grid md:grid-cols-2 py-8 md:px-24 lg:px-32 justify-center xl:text-xl'
+        className='grid md:grid md:grid-cols-2 py-8 md:px-24 lg:px-32 xl:px-72 justify-center xl:text-xl'
         id=''
       >
         <div className='grid grid-rows-2 px-2'>
@@ -130,7 +130,7 @@ function SignUp() {
   }
 
   return (
-    <div className='page py-16 px-24 lg:px-56 xl:px-64 place-self-center'>
+    <div className='page py-16'>
       <SignUpFormWithFormik handleSubmit={handleSubmit} />
     </div>
   )
