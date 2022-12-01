@@ -2,6 +2,8 @@ import { useTranslation } from 'react-i18next'
 import SignUpForm from 'components/elements/SignUp'
 import { ReactComponent as Logo } from 'images/logo.svg'
 import 'components/pages/LandingPage.css'
+import TabImage from '../../images/tabsImage.svg'
+import RightTaskbar from '../../images/rightTaskbar.svg'
 
 function LandingPage() {
   const { t } = useTranslation()
@@ -73,6 +75,9 @@ function LandingPage() {
               {p}
             </p>
           ))}
+          <div className='grid pt-8 place-content-center'>
+            <img alt='tabs' src={TabImage}></img>
+          </div>
 
           <ul className='px-10 lg:pt-18'>
             {firstUnorderedListParagraphs.map((p, index) => (
@@ -95,6 +100,9 @@ function LandingPage() {
               </li>
             ))}
           </ul>
+          <div className='grid pt-8 place-content-center'>
+            <img alt='tabs' src={RightTaskbar}></img>
+          </div>
 
           <div className='font-extrabold text-center pt-10 text-xl md:text-2xl lg:text-3xl'>
             <h3>What will happen to the data:</h3>
