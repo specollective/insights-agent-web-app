@@ -87,7 +87,7 @@ export function SignUpForm({ touched, errors }) {
             role='phoneNumber'
             name='phoneNumber'
             data-test-id='phone-number'
-            placeholder='Phone number'
+            placeholder='Phone Number'
             className='border border-black p-2 rounded'
           />
           <label htmlFor='phone-number' className='text-sm'>
