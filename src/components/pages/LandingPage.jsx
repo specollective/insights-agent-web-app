@@ -12,7 +12,7 @@ function LandingPage() {
         <Logo />
       </div>
 
-      <div className="px-12 md:px-20 lg:px-36">
+      <div className="px-12 md:px-20 lg:px-72">
         <div className='pt-8'>
           <div className="video-responsive">
             <iframe
