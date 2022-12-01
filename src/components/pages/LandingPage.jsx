@@ -79,7 +79,7 @@ function LandingPage() {
             <img alt='tabs' src={TabImage}></img>
           </div>
 
-          <ul className='px-10 lg:pt-18'>
+          <ul className='px-10'>
             {firstUnorderedListParagraphs.map((p, index) => (
               <li className='pt-10' key={index}>
                 {bullet}
@@ -88,11 +88,11 @@ function LandingPage() {
             ))}
           </ul>
 
-          <div className='font-extrabold text-center pt-10 text-xl md:text-2xl lg:text-3xl'>
+          <div className='font-extrabold text-center py-12 text-xl md:text-2xl lg:text-3xl'>
             <h3>Your Privacy is Important</h3>
           </div>
 
-          <ul className='px-10 lg:pt-18'>
+          <ul className='px-10'>
             {privacyList.map((p, index) => (
               <li className='pt-10' key={index}>
                 {bullet}
@@ -104,11 +104,11 @@ function LandingPage() {
             <img alt='tabs' src={RightTaskbar}></img>
           </div>
 
-          <div className='font-extrabold text-center pt-10 text-xl md:text-2xl lg:text-3xl'>
+          <div className='font-extrabold text-center py-12 text-xl md:text-2xl lg:text-3xl'>
             <h3>What will happen to the data:</h3>
           </div>
 
-          <ul className='px-10 lg:pt-18'>
+          <ul className='px-10'>
             {whatWillHappenList.map((p, index) => (
               <li className='pt-10'>
                 {bullet}
@@ -117,7 +117,7 @@ function LandingPage() {
             ))}
           </ul>
 
-          <div className='pt-10 lg:pt-18'>
+          <div className='pt-10'>
             <p>
               You are the expert of you and we'll pay you for that expertise.
               We'll compensate you at the beginning of the study and at the
