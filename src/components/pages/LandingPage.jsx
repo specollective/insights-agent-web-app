@@ -69,13 +69,13 @@ function LandingPage() {
           </div>
         </div>
 
-        <div className='Intro'>
+        <div>
           {introParagraphs.map((p, index) => (
             <p className='py-2 lg:py-8' key={index}>
               {p}
             </p>
           ))}
-          <div className='grid py-8 place-content-center'>
+          <div className='grid place-content-center py-8'>
             <img alt='tabs' src={TabImage}></img>
           </div>
 
@@ -88,88 +88,96 @@ function LandingPage() {
             ))}
           </ul>
 
-          <div className='font-extrabold text-center py-10 text-xl md:text-2xl lg:text-3xl'>
-            <h3>Your Privacy is Important</h3>
-          </div>
+          <section>
+            <div className='py-10 font-extrabold text-center text-xl md:text-2xl lg:text-3xl'>
+              <h3>Your Privacy is Important</h3>
+            </div>
 
-          <ul className='px-10'>
-            {privacyList.map((p, index) => (
-              <li className='py-2 md:py-6' key={index}>
-                {bullet}
-                {p}
-              </li>
-            ))}
-          </ul>
-          <div className='grid py-8 place-content-center'>
+            <ul className='px-10'>
+              {privacyList.map((p, index) => (
+                <li className='py-2 md:py-6' key={index}>
+                  {bullet}
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <div className='grid place-content-center py-8'>
             <img alt='tabs' src={RightTaskbar}></img>
           </div>
 
-          <div className='font-extrabold text-center py-10 text-xl md:text-2xl lg:text-3xl'>
-            <h3>What will happen to the data:</h3>
-          </div>
+          <section>
+            <div className='py-10 font-extrabold text-center text-xl md:text-2xl lg:text-3xl'>
+              <h3>What will happen to the data:</h3>
+            </div>
 
-          <ul className='px-10'>
-            {whatWillHappenList.map((p, index) => (
-              <li className='py-2 md:py-6'>
-                {bullet}
-                {p}
-              </li>
-            ))}
-          </ul>
-
-          <div className='pt-10'>
-            <p>
-              You are the expert of you and we'll pay you for that expertise.
-              We'll compensate you at the beginning of the study and at the
-              conclusion of the study.
-            </p>
-            <p>
-              We'll also ask you for additional information through voluntary
-              surveys and interviews throughout the study period.
-            </p>
-          </div>
-
-          <div className='border border-black rounded mt-10 p-4 md:p-6 lg:p-16'>
-            <h4 className='font-bold'>Purpose of the Research Project</h4>
-            <p className='pl-8 pt-4'>
-              Study computer use in underserved populations
-            </p>
-
-            <h4 className='font-bold pt-4'>Data Collected</h4>
-            <ul>
-              <li className='pl-8 pt-4'>
-                • A one time survey of demographic information
-              </li>
-              <li className='pl-8'>
-                • Website and application useage, anonymized for privacy
-              </li>
-              <li className='pl-8'>• Internet connectivity statistic</li>
-              <li className='pl-8'>
-                • No additional data will be collected as part of this study
-              </li>
-              <li className='pl-8'>
-                • No additional PII data will be collected as part of this study
-              </li>
+            <ul className='px-10'>
+              {whatWillHappenList.map((p, index) => (
+                <li className='py-2 md:py-6'>
+                  {bullet}
+                  {p}
+                </li>
+              ))}
             </ul>
+            <div className='pt-10'>
+              <p>
+                You are the expert of you and we'll pay you for that expertise.
+                We'll compensate you at the beginning of the study and at the
+                conclusion of the study.
+              </p>
+              <p>
+                We'll also ask you for additional information through voluntary
+                surveys and interviews throughout the study period.
+              </p>
+            </div>
+          </section>
 
-            <h4 className='font-bold pt-4'>Benefits</h4>
-            <p className='pl-8 pt-4'>
-              To you: $25 gift card at sign up, $75 gift card at completion.
-            </p>
-            <p className='pl-8 pt-4'>
-              To buildJUSTLY: Data to help understand computer usage by
-              demographics
-            </p>
+          <section>
+            <div className='border border-black rounded mt-10 p-4 md:p-6 lg:p-16'>
+              <h4 className='font-bold'>Purpose of the Research Project</h4>
+              <p className='pl-8 pt-4'>
+                Study computer use in underserved populations
+              </p>
 
-            <h4 className='font-bold'>Risks</h4>
-            <p className='pl-8 pt-4'>
-              No computer performance issues identified
-            </p>
-          </div>
+              <h4 className='font-bold pt-4'>Data Collected</h4>
+              <ul>
+                <li className='pl-8 pt-4'>
+                  • A one time survey of demographic information
+                </li>
+                <li className='pl-8'>
+                  • Website and application useage, anonymized for privacy
+                </li>
+                <li className='pl-8'>• Internet connectivity statistic</li>
+                <li className='pl-8'>
+                  • No additional data will be collected as part of this study
+                </li>
+                <li className='pl-8'>
+                  • No additional PII data will be collected as part of this
+                  study
+                </li>
+              </ul>
+
+              <h4 className='font-bold pt-4'>Benefits</h4>
+              <p className='pl-8 pt-4'>
+                To you: $25 gift card at sign up, $75 gift card at completion.
+              </p>
+              <p className='pl-8 pt-4'>
+                To buildJUSTLY: Data to help understand computer usage by
+                demographics
+              </p>
+
+              <h4 className='font-bold'>Risks</h4>
+              <p className='pl-8 pt-4'>
+                No computer performance issues identified
+              </p>
+            </div>
+          </section>
         </div>
       </div>
-
-      <SignUpForm />
+      <section>
+        <SignUpForm />
+      </section>
     </main>
   )
 }
