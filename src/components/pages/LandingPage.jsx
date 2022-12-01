@@ -71,17 +71,17 @@ function LandingPage() {
 
         <div className='Intro'>
           {introParagraphs.map((p, index) => (
-            <p className='pt-8 lg:pt-20' key={index}>
+            <p className='py-2 lg:pt-20' key={index}>
               {p}
             </p>
           ))}
-          <div className='grid pt-8 place-content-center'>
+          <div className='grid py-8 place-content-center'>
             <img alt='tabs' src={TabImage}></img>
           </div>
 
           <ul className='px-10'>
             {firstUnorderedListParagraphs.map((p, index) => (
-              <li className='pt-10' key={index}>
+              <li className='py-2 md:py-6' key={index}>
                 {bullet}
                 {p}
               </li>
@@ -94,13 +94,13 @@ function LandingPage() {
 
           <ul className='px-10'>
             {privacyList.map((p, index) => (
-              <li className='pt-10' key={index}>
+              <li className='py-2 md:py-6' key={index}>
                 {bullet}
                 {p}
               </li>
             ))}
           </ul>
-          <div className='grid pt-8 place-content-center'>
+          <div className='grid py-8 place-content-center'>
             <img alt='tabs' src={RightTaskbar}></img>
           </div>
 
@@ -110,7 +110,7 @@ function LandingPage() {
 
           <ul className='px-10'>
             {whatWillHappenList.map((p, index) => (
-              <li className='pt-10'>
+              <li className='py-2 md:py-6'>
                 {bullet}
                 {p}
               </li>

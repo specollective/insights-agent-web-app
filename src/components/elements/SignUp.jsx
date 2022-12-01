@@ -72,7 +72,7 @@ export function SignUpForm({ touched, errors }) {
             placeholder='Full Name'
             className='border border-black p-2 rounded'
           />
-          <label htmlFor='name'>
+          <label htmlFor='name' className='text-sm'>
             {t('fullNameLabel')}
             <span className='error-message'>
               {touched.name && errors.name && <span>{errors.name}</span>}
@@ -90,7 +90,7 @@ export function SignUpForm({ touched, errors }) {
             placeholder='Phone number'
             className='border border-black p-2 rounded'
           />
-          <label htmlFor='phone-number'>
+          <label htmlFor='phone-number' className='text-sm'>
             {t('phoneNumberLabel')}
             <span className='error-message'>
               {touched.phoneNumber && errors.phoneNumber && (
