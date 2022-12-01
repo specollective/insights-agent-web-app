@@ -91,7 +91,7 @@ export function SignUpForm({ touched, errors }) {
             className='border border-black p-2 rounded'
           />
           <label htmlFor='phone-number' className='text-sm'>
-            {t('phoneNumberLabel')}
+            {t('phoneNumberLabel')} (XXX-XXX-XXXX)
             <span className='error-message'>
               {touched.phoneNumber && errors.phoneNumber && (
                 <span>{errors.phoneNumber}</span>
