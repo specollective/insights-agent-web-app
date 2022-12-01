@@ -34,6 +34,20 @@ function LandingPage() {
     more.`,
   ]
 
+  const privacyList = [
+    `We use industry standard practices to safeguard your data.`,
+    `Additionally, your data will be anonymized before we use it for
+    research.`,
+    `You are in control and can opt out of the study at any time.`,
+  ]
+
+  const whatWillHappenList = [
+    `We will share our findings with technology builders so that they
+    can build technology that’s useful for people like you and your
+    community.`,
+    `We want to make sure that all customers are represented.`,
+  ]
+
   return (
     <main>
       <div className='organization'>
@@ -74,16 +88,12 @@ function LandingPage() {
           </div>
 
           <ul className='px-10 lg:pt-18'>
-            <li className='pt-10'>
-              We use industry standard practices to safeguard your data.
-            </li>
-            <li className='pt-10'>
-              Additionally, your data will be anonymized before we use it for
-              research.
-            </li>
-            <li className='pt-10'>
-              You are in control and can opt out of the study at any time.{' '}
-            </li>
+            {privacyList.map((p, index) => (
+              <li className='pt-10' key={index}>
+                {bullet}
+                {p}
+              </li>
+            ))}
           </ul>
 
           <div className='font-extrabold text-center pt-10 text-xl md:text-2xl lg:text-3xl'>
@@ -91,14 +101,12 @@ function LandingPage() {
           </div>
 
           <ul className='px-10 lg:pt-18'>
-            <li className='pt-10'>
-              We will share our findings with technology builders so that they
-              can build technology that’s useful for people like you and your
-              community.
-            </li>
-            <li className='pt-10'>
-              We want to make sure that all customers are represented.
-            </li>
+            {whatWillHappenList.map((p, index) => (
+              <li className='pt-10'>
+                {bullet}
+                {p}
+              </li>
+            ))}
           </ul>
 
           <div className='pt-10 lg:pt-18'>
