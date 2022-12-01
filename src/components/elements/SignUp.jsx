@@ -132,8 +132,8 @@ function SignUp() {
   }
 
   return (
-    <div className="page">
-      <h1>Sign up to participate in our study!</h1>
+    <div className="page pt-8">
+      <h1 className='text-center'>Sign up to participate in our study!</h1>
       <SignUpFormWithFormik handleSubmit={handleSubmit} />
     </div>
   )
