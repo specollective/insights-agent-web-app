@@ -55,11 +55,14 @@ export function SignUpForm({ touched, errors }) {
 
   return (
     <Form>
+      <h1 className='text-center xl:text-xl'>
+        Sign up to participate in our study!
+      </h1>
       <div
-        className='grid md:grid md:grid-cols-2 pt-8 md:px-24 lg:px-32 justify-center'
+        className='grid md:grid md:grid-cols-2 py-8 md:px-24 lg:px-32 justify-center xl:text-xl'
         id=''
       >
-        <div className='grid grid-rows-2 px-2 pl-32'>
+        <div className='grid grid-rows-2 px-2'>
           <Field
             id='name'
             type='text'
@@ -77,7 +80,7 @@ export function SignUpForm({ touched, errors }) {
           </label>
         </div>
 
-        <div className='grid grid-rows-2 px-2 pr-32'>
+        <div className='grid grid-rows-2 px-2'>
           <Field
             id='phoneNumber'
             type='text'
@@ -97,8 +100,8 @@ export function SignUpForm({ touched, errors }) {
           </label>
         </div>
       </div>
-      <button id='sign-up-button' type='submit'>
-        Next
+      <button id='sign-up-button' type='submit' className='border rounded-lg'>
+        Submit
       </button>
     </Form>
   )
@@ -127,8 +130,7 @@ function SignUp() {
   }
 
   return (
-    <div className='page pt-8'>
-      <h1 className='text-center'>Sign up to participate in our study!</h1>
+    <div className='page py-16 px-24 lg:px-56 xl:px-64 place-self-center'>
       <SignUpFormWithFormik handleSubmit={handleSubmit} />
     </div>
   )

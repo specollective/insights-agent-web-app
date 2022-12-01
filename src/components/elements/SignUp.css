@@ -32,13 +32,14 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 17px;
-  color: #FFFFFF;
-  background: #37770D;
+  color: #ffffff;
+  background: #37770d;
   border: none;
   padding: 0.6em;
-  border-radius: 2px;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 5px;
 }
-
 
 @media only screen and (max-width: 600px) {
   #register {
@@ -46,11 +47,9 @@
     width: 80%;
     margin: auto;
   }
-
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
@@ -70,5 +69,4 @@
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-
 }
