@@ -4,15 +4,15 @@ import { DOWNLOAD_URL } from 'constants/urls'
 function DownloadPage() {
   return (
     <main>
-      <div className="center mt-6">
-        <button className="w-350 p-4 rounded bg-[#37770D] border-black">
+      <div className="flex flex-col items-center  mt-12">
+        <button className="w-350 p-4 rounded-small bg-[#37770D] border-black border-2">
           <a className="text-white" href={DOWNLOAD_URL}>
             Download for Mac
           </a>
         </button>
       </div>
 
-      <div className="mt-6" id="installation">
+      <div className="mt-28" id="installation">
         <h3 className="center header font-medium text-2xl">
           Set-Up Instructions
         </h3>
