@@ -8,7 +8,7 @@ header#organization {
   margin: 0;
   padding-top: 2em;
   padding-bottom: 2em;
-  background: #E4E4E4;
+  background: #e4e4e4;
 }
 
 .info-bullets {
@@ -27,7 +27,9 @@ header#organization {
   height: 0;
 }
 
-.video-responsive iframe, .video-responsible object, .video-responsible embed {
+.video-responsive iframe,
+.video-responsible object,
+.video-responsible embed {
   position: absolute;
   top: 0;
   left: 0;
@@ -36,7 +38,7 @@ header#organization {
 }
 
 .organization {
-  background: #70B443;
+  background: #70b443;
   margin-bottom: 2em;
 }
 
@@ -56,17 +58,23 @@ header#organization {
   margin-bottom: 2em;
 }
 
+.bullet {
+  margin-right: 1em;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: #c4c4c4;
+  border-radius: 10px;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-
 }
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
@@ -78,5 +86,4 @@ header#organization {
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-
 }
