@@ -1,5 +1,5 @@
-import { useContext, useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import HeroDesktop from './HeroDesktop'
 import LocaleContext from 'utils/LocaleContext'
 import 'components/elements/Layout.css'
@@ -32,7 +32,7 @@ function Layout(props) {
         </div>
       </header>
 
-      <div className="hidden md:block">
+      <div className='hidden md:block'>
         <HeroDesktop />
       </div>
 
