@@ -9,7 +9,7 @@ export default function Instructions() {
         {/*add numbers*/}
         <li className="mt-6 mx-10 px-6 py-2 list-decimal">
           Click Insights Agent icon on your desktop
-           <img src={logoPlaceHolder}/>
+           <img className="mt-6" src={logoPlaceHolder}/>
         </li>
         <li className="mt-6 mx-10 px-6 py-2 list-decimal">
           Enter your phone number that you used to sign up for this study
