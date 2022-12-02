@@ -9,7 +9,6 @@ function Layout(props) {
   const { locale } = useContext(LocaleContext)
   const navigate = useNavigate()
   const location = useLocation()
-  const renderHeaderLogo = location.pathname !== '/'
   const [selected, setSelected] = useState('true')
 
   function changeLocale (e) {
@@ -26,18 +25,16 @@ function Layout(props) {
 
   return(
     <>
-      <header className="header">
-        <div className="row px-9">
-          <div className="column align-left font-light text-gray-500">
-            { renderHeaderLogo &&  
-              <button onClick={goToHomePage}>buildJustly</button>
-            }
+      <header className='header'>
+        <div className='row px-9'>
+          <div className='column align-left font-light text-gray-500 md:hidden'>
+            <button onClick={goToHomePage}>buildJustly</button>
           </div>
 
-          <div className="languages column align-right">
-            <button className={!selected ? "font-semibold" : ""} name="es" onClick={changeLocale}>Español</button>
-            |&nbsp;
-            <button className={selected ? "font-semibold" : ""} name="en" onClick={changeLocale}>English</button>
+          <div className='languages column align-right'>
+            <button className={!selected ? 'font-semibold' : ''} name='es' onClick={changeLocale}>Español</button>
+            &nbsp;|&nbsp;
+            <button className={selected ? 'font-semibold' : ''} name='en' onClick={changeLocale}>English</button>
           </div>
         </div>
       </header>
