@@ -13,12 +13,16 @@ function DownloadPage() {
       </div>
 
       <div className="mt-6" id="installation">
-        <h3 className="center header">Set-Up Instructions</h3>
+        <h3 className="center header font-medium text-2xl">
+          Set-Up Instructions
+        </h3>
         <Instructions />
       </div>
 
-      <div className="mt-6" id="uninstall">
-        <h3 className="center header">Uninstall Instructions</h3>
+      <div className="mt-6 mr-6" id="uninstall">
+        <h3 className="center header font-medium text-2xl">
+          Uninstall Instructions
+        </h3>
         <Instructions />
       </div>
     </main>
