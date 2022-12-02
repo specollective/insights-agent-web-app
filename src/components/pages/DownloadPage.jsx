@@ -4,18 +4,21 @@ import { DOWNLOAD_URL } from 'constants/urls'
 function DownloadPage() {
   return (
     <main>
-      <div className="bg-[#37770D ]">
-        <h1>Getting the App</h1>
-        <a href={DOWNLOAD_URL}>Download for Mac</a>
+      <div className="center mt-6">
+        <button className="w-350 p-4 rounded bg-[#37770D] border-black">
+          <a className="text-white" href={DOWNLOAD_URL}>
+            Download for Mac
+          </a>
+        </button>
       </div>
 
-      <div id="installation">
-        <h3>Installation Instructions</h3>
+      <div className="mt-6" id="installation">
+        <h3 className="center header">Set-Up Instructions</h3>
         <Instructions />
       </div>
 
-      <div id="uninstall">
-        <h3>Uninstall Instructions</h3>
+      <div className="mt-6" id="uninstall">
+        <h3 className="center header">Uninstall Instructions</h3>
         <Instructions />
       </div>
     </main>

@@ -124,10 +124,12 @@ function SignUp() {
 
   async function handleSubmit(formData) {
     try {
+      console.log(formData)
       await auth.register(formData)
       navigate('/confirmation', { replace: true });
     } catch (e) {
-      window.alert('Something went wrong')
+      console.log(e)
+      //window.alert(e)
     }
   }
 
