@@ -28,7 +28,7 @@ function Layout(props) {
       <header className='header'>
         <div className='row px-9'>
           <div className='column align-left font-light text-gray-500 md:hidden'>
-            <button onClick={goToHomePage}>buildJustly</button>
+            <button onClick={goToHomePage}>buildJUSTLY</button>
           </div>
 
           <div className='languages column align-right'>
