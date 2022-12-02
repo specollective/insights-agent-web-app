@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import HeroDesktop from './HeroDesktop'
 import LocaleContext from 'utils/LocaleContext'
 import i18n from 'utils/i18n'
 import { ReactComponent as SmallLogo } from 'images/logo-small.svg'
@@ -35,6 +36,10 @@ function Layout(props) {
           </div>
         </div>
       </header>
+
+      <div className="hidden md:block">
+        <HeroDesktop />
+      </div>
 
       <div>
         {props.children}
