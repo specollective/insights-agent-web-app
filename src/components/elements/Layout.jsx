@@ -2,21 +2,14 @@ import { useContext, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import HeroDesktop from './HeroDesktop'
 import LocaleContext from 'utils/LocaleContext'
-import i18n from 'utils/i18n'
 import 'components/elements/Layout.css'
 
 function Layout(props) {
-  const { locale } = useContext(LocaleContext)
+  const { locale, setLocale } = useContext(LocaleContext)
   const navigate = useNavigate()
-  const location = useLocation()
-  const [selected, setSelected] = useState('true')
-
+    
   function changeLocale (e) {
-    if (locale !== e.target.name) {
-      i18n.changeLanguage(e.target.name)
-      setSelected(!selected)
-    }
-
+    setLocale(e.target.name)
   }
 
   function goToHomePage() {
@@ -32,9 +25,9 @@ function Layout(props) {
           </div>
 
           <div className='languages column align-right'>
-            <button className={!selected ? 'font-semibold' : ''} name='es' onClick={changeLocale}>Español</button>
+            <button className={(locale === 'es') ? 'font-semibold' : ''} name='es' onClick={changeLocale}>Español</button>
             &nbsp;|&nbsp;
-            <button className={selected ? 'font-semibold' : ''} name='en' onClick={changeLocale}>English</button>
+            <button className={(locale === 'en') ? 'font-semibold' : ''} name='en' onClick={changeLocale}>English</button>
           </div>
         </div>
       </header>

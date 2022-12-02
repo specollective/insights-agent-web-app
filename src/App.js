@@ -19,12 +19,12 @@ import i18n from 'utils/i18n';
 import './App.css';
 
 function App() {
-  const [locale, setLocale] = useState(i18n.language);
-
-  // Trigger i18n initialization.
+  const [locale, setLocale] = useState(localStorage.getItem('locale') || 'en');
+ 
   useEffect(() => {
-    i18n.on('languageChanged', (lng) => setLocale(i18n.language));
-  }, [])
+    localStorage.setItem('locale', locale)
+    i18n.changeLanguage(locale)
+  }, [locale])
 
   return (
     <LocaleContext.Provider value={{locale, setLocale}}>
