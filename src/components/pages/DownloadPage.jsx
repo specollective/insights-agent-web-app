@@ -1,4 +1,5 @@
 import Instructions from 'components/elements/Instructions'
+import InstructionsUninstall from 'components/elements/InstructionsUninstall'
 import { DOWNLOAD_URL } from 'constants/urls';
 import downloadButton from "../../images/download-arrow.svg";
 
@@ -26,7 +27,7 @@ function DownloadPage() {
         <h3 className="center header font-medium text-xl">
           Uninstall Instructions
         </h3>
-        <Instructions />
+        <InstructionsUninstall />
       </div>
     </main>
   );

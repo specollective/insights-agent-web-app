@@ -7,9 +7,9 @@ export default function Instructions() {
     <>
       <ol className="mt-12 text-lg center">
         {/*add numbers*/}
-        <li className="before:text-blue-500 mt-6 mx-10 px-6 py-2 list-decimal">
+        <li className="mt-6 mx-10 px-6 py-2 list-decimal">
           Click Insights Agent icon on your desktop
-          <img className="mt-6" src={logoPlaceHolder} />
+           <img className="mt-6" src={logoPlaceHolder}/>
         </li>
         <li className="mt-6 mx-10 px-6 py-2 list-decimal">
           Enter your phone number that you used to sign up for this study
