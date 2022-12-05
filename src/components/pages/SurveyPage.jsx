@@ -34,17 +34,21 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
     <Form className="survey ">
       <div className="question bg-[#AECA9B] rounded">
         <div className="intro-description ">
-          <h4 className="center font-bold text-xl">Insights Agent General Info Survey</h4>
+          <h4 className="center font-bold text-xl">
+            Insights Agent General Info Survey
+          </h4>
           <p className="my-6">{t("surveyDescription")}</p>
           <p>
             <strong>*Required field</strong>
           </p>
         </div>
       </div>
-      <h4 className="Section-Header">Please answer about YOURSELF:</h4>
+      <h4 className="Section-Header font-semibold">
+        Please answer about YOURSELF:
+      </h4>
 
       <div className="question">
-        <h4>Please select your race.*</h4>
+        <h4 className="font-semibold">Please select your race.*</h4>
         <p>Check all that apply.</p>
 
         <CheckboxGroup
@@ -56,35 +60,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       </div>
 
       <div className="question">
-        <h4>{t("surveyHispanicHeader")}</h4>
+        <h4 className="font-semibold">{t("surveyHispanicHeader")}</h4>
         <RadioButtonGroup
           value={values.isHispanicOrLatino}
           name="isHispanicOrLatino"
           options={IS_HISPANIC_OPTIONS}
-        />
-      </div>
-      <div>
-        <h4 className="Section-Header">Please answer about your HOUSEHOLD:</h4>
-      </div>
-      <div className="question">
-        <h5>How many people live/stay in your household?</h5>
-
-        <DropdownGroup
-          value={values.householdMembers}
-          name="householdMembers"
-          options={HOUSEHOLD_MEMBERS}
-        />
-      </div>
-
-      <div className="question">
-        <h4>What is the intended use of this computer?*</h4>
-        <p>Check all that apply.</p>
-
-        <CheckboxGroup
-          value={values.computerUse}
-          name="computerUse"
-          options={COMPUTER_USE}
-          onChange={setFieldValue}
         />
       </div>
 
@@ -98,8 +78,37 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>
 
+      <div>
+        <h4 className="Section-Header font-semibold">
+          Please answer about your HOUSEHOLD:
+        </h4>
+      </div>
       <div className="question">
-        <h4>
+        <h5 className="font-semibold">
+          How many people live/stay in your household?
+        </h5>
+
+        <DropdownGroup
+          value={values.householdMembers}
+          name="householdMembers"
+          options={HOUSEHOLD_MEMBERS}
+        />
+      </div>
+
+      <div className="question">
+        <h4 className="font-semibold">What is the intended use of this computer?*</h4>
+        <p>Check all that apply.</p>
+
+        <CheckboxGroup
+          value={values.computerUse}
+          name="computerUse"
+          options={COMPUTER_USE}
+          onChange={setFieldValue}
+        />
+      </div>
+
+      <div className="question">
+        <h4 className="font-semibold">
           How many other computers (including tablets) do you have in your
           household?*
         </h4>
@@ -112,7 +121,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       </div>
 
       <div className="question">
-        <h4>How does your household access the internet?*</h4>
+        <h4 className="font-semibold">How does your household access the internet?*</h4>
         <p>Check all that apply.</p>
 
         <CheckboxGroup
