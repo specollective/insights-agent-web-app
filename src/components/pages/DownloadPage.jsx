@@ -19,7 +19,7 @@ function DownloadPage() {
       </div>
 
       <div className="mt-24" id="installation">
-        <h2 className="center header font-medium text-2xl">
+        <h2 className="header font-medium text-2xl">
           Set-Up Instructions
         </h2>
         <Instructions />
