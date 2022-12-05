@@ -43,7 +43,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           </p>
         </div>
       </div>
-      <h4 className="Section-Header font-semibold">
+      <h4 className="Section-Header font-semibold justify-start">
         Please answer about YOURSELF:
       </h4>
 
@@ -149,10 +149,10 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       </div>*/}
 
       <div className="actions">
-        <button type="button" className="left" onClick={handleClearForm}>
+        <button type="button" className="left cursor-pointer" onClick={handleClearForm}>
           Clear Form
         </button>
-        <button type="submit" className="right text-white bg-[#37770D] rounded-sm">
+        <button type="submit" className="right text-white bg-[#37770D] rounded-sm px-6 py-2">
           Submit
         </button>
       </div>

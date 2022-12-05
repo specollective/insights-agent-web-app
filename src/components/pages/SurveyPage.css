@@ -12,7 +12,7 @@
 }
 
 .question {
-  background: #AECA9B;
+  /* background: #AECA9B; */
   display: block;
   margin: 1em;
   border-radius: 10px;
@@ -44,9 +44,9 @@ h5 {
   margin-right: 1em;
 }
 
-.actions button {
+/* .actions button {
   width: 30%;
-}
+} */
 
 .left {
   float: left;
