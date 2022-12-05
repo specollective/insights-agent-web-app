@@ -4,13 +4,15 @@ import logoPlaceHolder from '../../images/ellipse61.png'
 
 export default function Instructions() {
   return (
-  
-     
     <ol className="mt-12 text-lg center">
       {/*add numbers*/}
       <li className=" before:content-['1'] before:mr-6 before:text-black before:font-semibold before:text-2xl list-none mt-6 mx-2 py-2">
         Click Insights Agent icon on your desktop
-        <img className="mt-6 mx-10" src={logoPlaceHolder} />
+        <img
+          className="mt-6 mx-10"
+          src={logoPlaceHolder}
+          alt="grey circle image placeholder for logo"
+        />
       </li>
       <li className="before:content-['2'] before:mr-6 before:text-black before:font-semibold before:text-2xl list-none mt-6 mx-2 py-2">
         Enter your phone number that you used to sign up for this study
@@ -27,7 +29,6 @@ export default function Instructions() {
         If you have received an error message or if you are having trouble,
         please contact us at 800-XXX-XXXX or email us at help@insightsagent.com
       </li>
-      </ol>
-     
+    </ol>
   );
 }
