@@ -96,7 +96,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       </div>
 
       <div className="question">
-        <h4 className="font-semibold">What is the intended use of this computer?*</h4>
+        <h4 className="font-semibold">
+          What is the intended use of this computer?*
+        </h4>
         <p>Check all that apply.</p>
 
         <CheckboxGroup
@@ -121,7 +123,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       </div>
 
       <div className="question">
-        <h4 className="font-semibold">How does your household access the internet?*</h4>
+        <h4 className="font-semibold">
+          How does your household access the internet?*
+        </h4>
         <p>Check all that apply.</p>
 
         <CheckboxGroup
@@ -148,7 +152,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         <button type="button" className="left" onClick={handleClearForm}>
           Clear Form
         </button>
-        <button type="submit" className="right">
+        <button type="submit" className="right text-white bg-[#37770D] rounded-sm">
           Submit
         </button>
       </div>
