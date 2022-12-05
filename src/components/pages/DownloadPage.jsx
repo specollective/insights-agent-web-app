@@ -8,8 +8,8 @@ function DownloadPage() {
   return (
     <main>
       <div className="flex flex-col items-center  mt-40">
-        <button className="invisible lg:visible w-350 p-4 rounded bg-[#37770D] border-black border-2 flex">
-          <img src={downloadButton} className="pr-4"/>
+        <button className="hidden lg:flex p-4  rounded border-black border-2 bg-[#37770D] w-350">
+          <img src={downloadButton} className="pr-4" />
           <a className="text-white text-extrabold" href={DOWNLOAD_URL}>
             Download for Mac
           </a>
