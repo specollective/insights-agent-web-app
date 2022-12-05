@@ -7,6 +7,7 @@ import downloadButton from "../../images/download-arrow.svg";
 function DownloadPage() {
   return (
     <main>
+      <h1 className="sr-only"></h1>
     
       <div className="flex flex-col items-center  mt-40">
         <button className="hidden lg:flex p-4 rounded border-black border-2 bg-[#37770D] w-350">
@@ -18,16 +19,16 @@ function DownloadPage() {
       </div>
 
       <div className="mt-24" id="installation">
-        <h1 className="center header font-medium text-2xl">
+        <h2 className="center header font-medium text-2xl">
           Set-Up Instructions
-        </h1>
+        </h2>
         <Instructions />
       </div>
 
       <div className="mt-40 mr-6" id="uninstall">
-        <h1 className="center header font-medium text-2xl">
+        <h2 className="center header font-medium text-2xl">
           Uninstall Instructions
-        </h1>
+        </h2>
         <InstructionsUninstall />
       </div>
     </main>
