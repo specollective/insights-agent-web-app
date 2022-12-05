@@ -4,7 +4,7 @@ import logoPlaceHolder from '../../images/ellipse61.png'
 
 export default function Instructions() {
   return (
-    <>
+   
       <ol className="mt-12 text-lg center">
         {/*add numbers*/}
         <li className=" before:content-['1'] before:text-black before:text-2xl before:font-semibold before:mr-6 mt-6 mx-2 py-2 list-none">
@@ -28,6 +28,6 @@ export default function Instructions() {
           help@insightsagent.com
         </li>
       </ol>
-    </>
+   
   );
 }

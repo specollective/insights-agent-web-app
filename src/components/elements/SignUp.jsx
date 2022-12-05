@@ -128,7 +128,7 @@ function SignUp() {
       await auth.register(formData)
       navigate('/confirmation', { replace: true });
     } catch (e) {
-      window.alert(e)
+      window.alert('Something went wrong')
     }
   }
 
