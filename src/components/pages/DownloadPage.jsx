@@ -7,7 +7,7 @@ import downloadButton from "../../images/download-arrow.svg";
 function DownloadPage() {
   return (
     <main>
-      <h1 className="sr-only"></h1>
+    
       <div className="flex flex-col items-center  mt-40">
         <button className="hidden lg:flex p-4 rounded border-black border-2 bg-[#37770D] w-350">
           <img src={downloadButton} className="pr-4" alt="download image arrow pointing down" />
