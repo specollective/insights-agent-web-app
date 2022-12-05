@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from 'hooks/authentication';
+//import { useAuth } from 'hooks/authentication';
 import { createSurvey } from 'services/survey';
 import {
   DEFAULT_FORM_VALUES,
@@ -31,15 +31,17 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
   // console.log(errors);
 
   return (
-    <Form className="survey">
-      <div className="question">
-        <div className="intro-description">
-          <h4>Insights Agent General Info Survey</h4>
-          <p>{t("surveyDescription")}</p>
-          <p><strong>*Required field</strong></p>
+    <Form className="survey ">
+      <div className="question bg-[#AECA9B] rounded">
+        <div className="intro-description ">
+          <h4 className="center font-bold text-xl">Insights Agent General Info Survey</h4>
+          <p className="my-6">{t("surveyDescription")}</p>
+          <p>
+            <strong>*Required field</strong>
+          </p>
         </div>
       </div>
-    <h4 className="Section-Header">Please answer about YOURSELF:</h4>
+      <h4 className="Section-Header">Please answer about YOURSELF:</h4>
 
       <div className="question">
         <h4>Please select your race.*</h4>
@@ -54,7 +56,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       </div>
 
       <div className="question">
-        <h4>{t('surveyHispanicHeader')}</h4>
+        <h4>{t("surveyHispanicHeader")}</h4>
         <RadioButtonGroup
           value={values.isHispanicOrLatino}
           name="isHispanicOrLatino"
@@ -62,7 +64,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>
       <div>
-      <h4 className="Section-Header">Please answer about your HOUSEHOLD:</h4>
+        <h4 className="Section-Header">Please answer about your HOUSEHOLD:</h4>
       </div>
       <div className="question">
         <h5>How many people live/stay in your household?</h5>
@@ -97,7 +99,10 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       </div>
 
       <div className="question">
-        <h4>How many other computers (including tablets) do you have in your household?*</h4>
+        <h4>
+          How many other computers (including tablets) do you have in your
+          household?*
+        </h4>
 
         <DropdownGroup
           value={values.householdComputers}
@@ -131,11 +136,15 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       </div>*/}
 
       <div className="actions">
-        <button type="button" className="left" onClick={handleClearForm}>Clear Form</button>
-        <button type="submit" className="right">Submit</button>
+        <button type="button" className="left" onClick={handleClearForm}>
+          Clear Form
+        </button>
+        <button type="submit" className="right">
+          Submit
+        </button>
       </div>
     </Form>
-  )
+  );
 }
 
 /**
@@ -192,7 +201,7 @@ export const SurveyPageForm = withFormik({
 })(SurveyForm);
 
 function SurveyPage() {
-  const auth = useAuth();
+  //const auth = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async formData => {
@@ -205,8 +214,8 @@ function SurveyPage() {
   }
 
   // TODO: Move into useAuth
-  if (!auth.user) return <div>Loading</div>
-  if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
+  //if (!auth.user) return <div>Loading</div>
+  //if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
 
   return (
     <div className="page">
