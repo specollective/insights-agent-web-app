@@ -122,6 +122,7 @@ function SignUp() {
 
   async function handleSubmit(formData) {
     try {
+      
       await auth.register(formData)
       navigate('/confirmation', { replace: true })
     } catch (e) {
