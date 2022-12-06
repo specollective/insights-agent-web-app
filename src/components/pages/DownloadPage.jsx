@@ -1,3 +1,4 @@
+import HeroMobile from 'components/elements/HeroMobile';
 import Instructions from 'components/elements/Instructions'
 import InstructionsUninstall from 'components/elements/InstructionsUninstall'
 import { DOWNLOAD_URL } from 'constants/urls';
