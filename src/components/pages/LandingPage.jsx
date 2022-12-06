@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import SignUpForm from 'components/elements/SignUp'
-// import { ReactComponent as Logo } from 'images/logo.svg'
 import HeroMobile from '../elements/HeroMobile'
 import 'components/pages/LandingPage.css'
 import TabImage from '../../images/tabsImage.svg'

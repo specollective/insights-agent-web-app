@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from 'hooks/authentication';
@@ -5,32 +6,38 @@ import { createSurvey } from "services/survey";
 import {
   DEFAULT_FORM_VALUES,
   RACE_OPTIONS,
+  RACE_OPTIONS_TWO,
   HOUSEHOLD_MEMBERS,
   INTERNET_ACCESS,
   IS_HISPANIC_OPTIONS,
   COMPUTER_USE,
   TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS,
   HOUSEHOLD_COMPUTERS,
-} from "constants/surveys";
-import "components/pages/SurveyPage.css";
-import { useTranslation, Trans } from "react-i18next";
-import { withFormik, Form, Field } from "formik";
-import * as Yup from "yup";
-import CheckboxGroup from "components/elements/CheckboxGroup";
-import RadioButtonGroup from "components/elements/RadioButtonGroup";
-import DropdownGroup from "components/elements/DropdownGroup";
+
+} from 'constants/surveys'
+import 'components/pages/SurveyPage.css'
+import { useTranslation, Trans } from 'react-i18next'
+import { withFormik, Form, Field } from 'formik'
+import * as Yup from 'yup'
+import CheckboxGroup from 'components/elements/CheckboxGroup'
+import RadioButtonGroup from 'components/elements/RadioButtonGroup'
+import DropdownGroup from 'components/elements/DropdownGroup'
+
 
 function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   const handleClearForm = () => {
-    setValues(DEFAULT_FORM_VALUES);
-  };
+
+    setValues(DEFAULT_FORM_VALUES)
+  }
+
 
   // TODO: Render errors. Logging here to help with debugging.
   // console.log(errors);
 
   return (
+
     <Form className="flex flex-col lg:mx-40 md:mx-20 lg:place-items-center py-20 px-4">
       <div className=" bg-[#AECA9B] rounded">
         <div className="rounded p-6">
@@ -38,11 +45,13 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             Insights Agent General Info Survey
           </h4>
           <p>{t("surveyDescription")}</p>
+
           <p>
             <strong>*Required field</strong>
           </p>
         </div>
       </div>
+
       <section className="min-w-full space-y-4 px-6 py-10 md:px-0">
         <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
 
@@ -135,6 +144,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
+
         {/*<div className="question">
         <h4>What is the intended use of this computer?*</h4>
         <p>Check all that apply.</p>
@@ -163,6 +173,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           </button>
         </div>
       </section>
+
     </Form>
   );
 }
@@ -200,7 +211,7 @@ export function mapPropsToValues({
  * @returns {Response} - fetch response object
  */
 export function handleSubmit(values, { props }) {
-  props.handleSubmit(values);
+  props.handleSubmit(values)
 }
 
 /**
@@ -217,7 +228,7 @@ export const validationSchema = Yup.object().shape({
   // computerUsage: Yup.string().required(),
   // numberOfDevices: Yup.string().required(),
   // internetAccessAvailability: Yup.string().required(),
-});
+})
 
 /**
  * Wraps SendAccessCodeForm with the withFormik Higher-order component
@@ -226,18 +237,20 @@ export const SurveyPageForm = withFormik({
   mapPropsToValues,
   handleSubmit,
   validationSchema,
-})(SurveyForm);
+})(SurveyForm)
 
 function SurveyPage() {
   const auth = useAuth();
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleSubmit = async (formData) => {
     try {
-      await createSurvey(formData);
-      navigate("/success", { replace: true });
+
+      await createSurvey(formData)
+      navigate('/success', { replace: true })
+
     } catch (e) {
-      console.log(e);
+      console.log(e)
     }
   };
 
@@ -246,7 +259,7 @@ function SurveyPage() {
   if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
 
   return (
-    <div className="page">
+    <div className='page'>
       <SurveyPageForm handleSubmit={handleSubmit} />
     </div>
   );
