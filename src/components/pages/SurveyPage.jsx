@@ -32,7 +32,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
 
   return (
     <Form className="survey ">
-      <div className="question bg-[#AECA9B] rounded">
+      <div className="question bg-[#AECA9B] rounded md:mx-20 lg:mx-20">
         <div className="intro-description ">
           <h4 className="center font-bold text-xl">
             Insights Agent General Info Survey
@@ -43,11 +43,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           </p>
         </div>
       </div>
-      <h4 className="Section-Header font-semibold justify-start">
+      <h4 className="Section-Header font-semibold">
         Please answer about YOURSELF:
       </h4>
 
-      <div className="question">
+      <div className="question md:mx-20 lg:mx-20">
         <h4 className="font-semibold">Please select your race.*</h4>
         <p>Check all that apply.</p>
 
@@ -59,7 +59,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>
 
-      <div className="question">
+      <div className="question md:mx-20 lg:mx-20">
         <h4 className="font-semibold">{t("surveyHispanicHeader")}</h4>
         <RadioButtonGroup
           value={values.isHispanicOrLatino}
@@ -68,7 +68,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>
 
-      <div className="question">
+      <div className="question md:mx-20 lg:mx-20">
         <h4>Rate your level of competence with computer technology*</h4>
         <RadioButtonGroup
           value={values.technologyCompetencyLevel}
@@ -79,11 +79,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       </div>
 
       <div>
-        <h4 className="Section-Header font-semibold">
+        <h4 className="Section-Header font-semibold sm:ml-10 lg:ml-20">
           Please answer about your HOUSEHOLD:
         </h4>
       </div>
-      <div className="question">
+      <div className="question md:mx-20 lg:mx-20">
         <h5 className="font-semibold">
           How many people live/stay in your household?
         </h5>
@@ -95,7 +95,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>
 
-      <div className="question">
+      <div className="question md:mx-20 lg:mx-20">
         <h4 className="font-semibold">
           What is the intended use of this computer?*
         </h4>
@@ -109,7 +109,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>
 
-      <div className="question">
+      <div className="question md:mx-20 lg:mx-20">
         <h4 className="font-semibold">
           How many other computers (including tablets) do you have in your
           household?*
@@ -122,7 +122,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>
 
-      <div className="question">
+      <div className="question md:mx-20 lg:mx-20">
         <h4 className="font-semibold">
           How does your household access the internet?*
         </h4>
@@ -148,11 +148,18 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>*/}
 
-      <div className="actions">
-        <button type="button" className="left cursor-pointer" onClick={handleClearForm}>
+      <div className="actions md:mx-20 lg:mx-20">
+        <button
+          type="button"
+          className="left cursor-pointer"
+          onClick={handleClearForm}
+        >
           Clear Form
         </button>
-        <button type="submit" className="right text-white bg-[#37770D] rounded-sm px-6 py-2">
+        <button
+          type="submit"
+          className="right text-white bg-[#37770D] rounded-sm px-6 py-2"
+        >
           Submit
         </button>
       </div>

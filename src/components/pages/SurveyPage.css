@@ -31,12 +31,12 @@
 h5 {
   text-align: left;
 }
-
+/* 
 .Section-Header {
   text-align: left;
-  margin-left: 20em;
+   margin-left: 20em; 
   margin-right: 20em;
-}
+} */
 
 .actions {
   display: block;
@@ -77,8 +77,8 @@ h5 {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   .question, .actions {
-    margin-left: 20em;
-    margin-right: 20em;
+    /*margin-left: 20em;
+    margin-right: 20em;*/
     background: white;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, .25);
   }
