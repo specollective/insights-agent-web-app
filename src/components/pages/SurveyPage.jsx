@@ -43,7 +43,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           </p>
         </div>
       </div>
-      <section className="min-w-full  space-y-4 px-6 py-10 md:px-0">
+      <section className="min-w-full space-y-4 px-6 py-10 md:px-0">
         <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
 
         <div className="rounded shadow-lg p-6 ">
@@ -58,7 +58,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question">
+        <div className="rounded shadow-lg p-6">
           <h4 className="font-semibold">{t("surveyHispanicHeader")}</h4>
           <RadioButtonGroup
             value={values.isHispanicOrLatino}
@@ -67,7 +67,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question ">
+        <div className="flex flex-col rounded shadow-lg p-6">
           <h4>Rate your level of competence with computer technology*</h4>
           <RadioButtonGroup
             value={values.technologyCompetencyLevel}
@@ -82,7 +82,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             Please answer about your HOUSEHOLD:
           </h4>
         </div>
-        <div className="question ">
+        <div className="flex flex-col rounded shadow-lg p-6 ">
           <h5 className="font-semibold">
             How many people live/stay in your household?
           </h5>
@@ -94,7 +94,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question ">
+        <div className="flex flex-col rounded shadow-lg p-6 ">
           <h4 className="font-semibold">
             What is the intended use of this computer?*
           </h4>
@@ -108,7 +108,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question ">
+        <div className="flex flex-col rounded shadow-lg p-6  ">
           <h4 className="font-semibold">
             How many other computers (including tablets) do you have in your
             household?*
@@ -121,13 +121,14 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question">
+        <div className="flex flex-col rounded shadow-lg p-6  ">
           <h4 className="font-semibold">
             How does your household access the internet?*
           </h4>
           <p>Check all that apply.</p>
 
           <CheckboxGroup
+    
             value={values.internetAccess}
             name="internetAccess"
             options={INTERNET_ACCESS}
