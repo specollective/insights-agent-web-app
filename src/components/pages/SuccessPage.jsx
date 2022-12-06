@@ -2,7 +2,7 @@ import './SuccessPage.css'
 
 function SuccessPage() {
   return (
-    <main id="SuccessPage">
+    <main className="text-center">
       <div className="container">
         <h1>Thank You!</h1>
         <p>Your survey has been submitted</p>
