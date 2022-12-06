@@ -43,10 +43,10 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           </p>
         </div>
       </div>
-      <section className="min-w-full  px-6 py-10 md:px-0">
+      <section className="min-w-full  space-y-4 px-6 py-10 md:px-0">
         <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
 
-        <div className="question ">
+        <div className="rounded shadow-lg p-6 ">
           <h4 className="font-semibold">Please select your race.*</h4>
           <p>Check all that apply.</p>
 
@@ -58,7 +58,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question ">
+        <div className="question">
           <h4 className="font-semibold">{t("surveyHispanicHeader")}</h4>
           <RadioButtonGroup
             value={values.isHispanicOrLatino}
