@@ -32,22 +32,22 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
 
   return (
     <Form className="survey ">
-      <div className="question bg-[#AECA9B] rounded md:mx-20 lg:mx-20">
+      <div className="question bg-[#AECA9B] rounded md:mx-20 lg:mx-60">
         <div className="intro-description ">
-          <h4 className="center font-bold text-xl">
+          <h4 className="font-semibold text-2xl text-xl md:left lg:text-center">
             Insights Agent General Info Survey
           </h4>
-          <p className="my-6">{t("surveyDescription")}</p>
+          <p className="my-6 mx-15 lg:px-10">{t("surveyDescription")}</p>
           <p>
-            <strong>*Required field</strong>
+            <strong className="lg:px-10">*Required field</strong>
           </p>
         </div>
       </div>
-      <h4 className="Section-Header font-semibold">
+      <h4 className="Section-Header font-semibold ml-15 lg:ml-60">
         Please answer about YOURSELF:
       </h4>
 
-      <div className="question md:mx-20 lg:mx-20">
+      <div className="question md:mx-20 lg:mx-60">
         <h4 className="font-semibold">Please select your race.*</h4>
         <p>Check all that apply.</p>
 
@@ -59,7 +59,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>
 
-      <div className="question md:mx-20 lg:mx-20">
+      <div className="question md:mx-20 lg:mx-60">
         <h4 className="font-semibold">{t("surveyHispanicHeader")}</h4>
         <RadioButtonGroup
           value={values.isHispanicOrLatino}
@@ -68,7 +68,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>
 
-      <div className="question md:mx-20 lg:mx-20">
+      <div className="question md:mx-20 lg:mx-60">
         <h4>Rate your level of competence with computer technology*</h4>
         <RadioButtonGroup
           value={values.technologyCompetencyLevel}
@@ -79,11 +79,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       </div>
 
       <div>
-        <h4 className="Section-Header font-semibold sm:ml-10 lg:ml-20">
+        <h4 className="Section-Header font-semibold sm:ml-10 lg:ml-60">
           Please answer about your HOUSEHOLD:
         </h4>
       </div>
-      <div className="question md:mx-20 lg:mx-20">
+      <div className="question md:mx-20 lg:mx-60">
         <h5 className="font-semibold">
           How many people live/stay in your household?
         </h5>
@@ -95,7 +95,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>
 
-      <div className="question md:mx-20 lg:mx-20">
+      <div className="question md:mx-20 lg:mx-60">
         <h4 className="font-semibold">
           What is the intended use of this computer?*
         </h4>
@@ -109,7 +109,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>
 
-      <div className="question md:mx-20 lg:mx-20">
+      <div className="question md:mx-20 lg:mx-60">
         <h4 className="font-semibold">
           How many other computers (including tablets) do you have in your
           household?*
@@ -122,7 +122,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>
 
-      <div className="question md:mx-20 lg:mx-20">
+      <div className="question md:mx-20 lg:mx-60">
         <h4 className="font-semibold">
           How does your household access the internet?*
         </h4>
@@ -148,7 +148,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>*/}
 
-      <div className="actions md:mx-20 lg:mx-20">
+      <div className="actions md:mx-20 lg:mx-60">
         <button
           type="button"
           className="left cursor-pointer"
