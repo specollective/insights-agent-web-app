@@ -1,7 +1,4 @@
-.survey {
-  padding-top: 1em;
-  padding-bottom: 10em;
-}
+
 
 .intro-description {
   display: block;
@@ -12,11 +9,9 @@
 }
 
 .question {
-  /* background: #AECA9B; */
+ 
   display: block;
-  margin: 1em;
   border-radius: 10px;
-  padding: 1em;
   text-align: left;
 }
 
@@ -77,8 +72,7 @@ h5 {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   .question, .actions {
-    /*margin-left: 20em;
-    margin-right: 20em;*/
+    
     background: white;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, .25);
   }
@@ -89,7 +83,7 @@ h5 {
 }
 
 .question .horizontal div label {
-  padding:0;
+  /* padding:0; */
   line-height:1.5em;
   width:100%;
 }
