@@ -27,7 +27,7 @@ function App() {
   }, [])
 
   return (
-    <LocaleContext.Provider value={{locale, setLocale}}>
+    <LocaleContext.Provider value={{ locale, setLocale }}>
       <AuthProvider>
         <Layout>
           <Routes>
@@ -39,18 +39,14 @@ function App() {
               element={<ConfirmationPage />}
             />
 
-            <Route
-              exact
-              path="/confirmation"
-              element={<ConfirmationPage />}
-            />
+            <Route exact path="/confirmation" element={<ConfirmationPage />} />
 
             <Route
               path="/survey"
               element={
-             
+                <RequireAuth>
                   <SurveyPage />
-              
+                </RequireAuth>
               }
             />
 
@@ -58,19 +54,12 @@ function App() {
               path="/success"
               element={
                 <RequireAuth>
-              
-                <SuccessPage />
-                 </RequireAuth>
-                
+                  <SuccessPage />
+                </RequireAuth>
               }
             />
 
-            <Route
-              path="/debugger"
-              element={
-                <DebuggerPage />
-              }
-            />
+            <Route path="/debugger" element={<DebuggerPage />} />
 
             <Route path="/download" element={<DownloadPage />} />
           </Routes>
