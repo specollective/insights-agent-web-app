@@ -31,24 +31,22 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
   // console.log(errors);
 
   return (
-    <Form className="flex flex-col md:mx-20 lg:place-items-center py-20">
-      <div className=" bg-[#AECA9B] rounded ">
-        <div className="intro-description ">
-          <h4 className="font-semibold text-2xl text-xl md:left lg:text-center">
+    <Form className="flex flex-col md:mx-20 lg:place-items-center py-20 px-4">
+      <div className=" bg-[#AECA9B] rounded">
+        <div className="rounded p-6">
+          <h4 className="font-semibold text-xl md:left lg:text-center">
             Insights Agent General Info Survey
           </h4>
           <p className="">{t("surveyDescription")}</p>
           <p>
-            <strong className="lg:px-10">*Required field</strong>
+            <strong>*Required field</strong>
           </p>
         </div>
       </div>
       <section className="min-w-full  px-6 py-10 md:px-0">
-        <h4 className="Section-Header font-semibold ">
-          Please answer about YOURSELF:
-        </h4>
+        <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
 
-        <div className="question">
+        <div className="question ">
           <h4 className="font-semibold">Please select your race.*</h4>
           <p>Check all that apply.</p>
 
@@ -80,7 +78,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
 
         <div>
-          <h4 className="Section-Header font-semibold ">
+          <h4 className="font-semibold ">
             Please answer about your HOUSEHOLD:
           </h4>
         </div>
@@ -123,7 +121,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question ">
+        <div className="question">
           <h4 className="font-semibold">
             How does your household access the internet?*
           </h4>
@@ -149,7 +147,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>*/}
 
-        <div className="actions">
+        <div className="">
           <button
             type="button"
             className="left cursor-pointer"
