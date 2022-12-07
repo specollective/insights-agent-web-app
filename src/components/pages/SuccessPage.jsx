@@ -20,7 +20,7 @@ function SuccessPage() {
       </ul>
 
       <div>
-        <a href='https://buildjustly.org/' className='text-[#064187] underline md:no-underline md:hover:underline'>
+        <a href='https://buildjustly.org/' target="_blank" rel="noreferrer" className='text-[#064187] underline md:no-underline md:hover:underline'>
           Visit buildJUSTLY.org
         </a>
       </div>
