@@ -18,6 +18,10 @@ function SuccessPage() {
         </li>
       </ul>
 
+      <a href='https://buildjustly.org/' className='text-[#064187] underline md:no-underline md:hover:underline'>
+        Visit buildJUSTLY.org
+      </a>
+
     </main>
   )
 }
