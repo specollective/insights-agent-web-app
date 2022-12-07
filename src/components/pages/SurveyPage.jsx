@@ -1,7 +1,6 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from 'hooks/authentication';
+import { useAuth } from "hooks/authentication";
 import { createSurvey } from "services/survey";
 import {
   DEFAULT_FORM_VALUES,
@@ -13,31 +12,26 @@ import {
   COMPUTER_USE,
   TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS,
   HOUSEHOLD_COMPUTERS,
-
-} from 'constants/surveys'
-import 'components/pages/SurveyPage.css'
-import { useTranslation, Trans } from 'react-i18next'
-import { withFormik, Form, Field } from 'formik'
-import * as Yup from 'yup'
-import CheckboxGroup from 'components/elements/CheckboxGroup'
-import RadioButtonGroup from 'components/elements/RadioButtonGroup'
-import DropdownGroup from 'components/elements/DropdownGroup'
-
+} from "constants/surveys";
+import "components/pages/SurveyPage.css";
+import { useTranslation, Trans } from "react-i18next";
+import { withFormik, Form, Field } from "formik";
+import * as Yup from "yup";
+import CheckboxGroup from "components/elements/CheckboxGroup";
+import RadioButtonGroup from "components/elements/RadioButtonGroup";
+import DropdownGroup from "components/elements/DropdownGroup";
 
 function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const handleClearForm = () => {
-
-    setValues(DEFAULT_FORM_VALUES)
-  }
-
+    setValues(DEFAULT_FORM_VALUES);
+  };
 
   // TODO: Render errors. Logging here to help with debugging.
   // console.log(errors);
 
   return (
-
     <Form className="flex flex-col lg:mx-40 md:mx-20 lg:place-items-center py-20 px-4">
       <div className=" bg-[#AECA9B] rounded">
         <div className="rounded p-6">
@@ -52,19 +46,24 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
       </div>
 
-      <section className="min-w-full space-y-4 px-6 py-10 md:px-0">
+      <section className="min-w-full space-y-4 py-10 md:px-0 lg:px-6">
         <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
 
         <div className="question p-4">
           <h4 className="font-semibold">Please select your race.*</h4>
           <p>Check all that apply.</p>
+          {/* needs closing div */}
 
-            <CheckboxGroup
-              value={values.race}
-              name="race"
-              options={RACE_OPTIONS}
-              onChange={setFieldValue}
-            />
+          <div className="grid grid-cols-1 lg:grid lg:grid-cols-2 pt-4">
+            <div>
+              <CheckboxGroup
+                value={values.race}
+                name="race"
+                options={RACE_OPTIONS}
+                onChange={setFieldValue}
+              />
+            </div>
+          </div>
         </div>
 
         <div className="question p-4">
@@ -86,15 +85,66 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div>
-          <h4 className="font-semibold ">
-            Please answer about your HOUSEHOLD:
+        <div className="question p-4">
+          <h4>
+            I can usually handle most difficulties I encounter when using a
+            computer
           </h4>
+          <RadioButtonGroup
+            value={values.technologyCompetencyLevel}
+            name="technologyCompetencyLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
         </div>
         <div className="question p-4">
-          <h5 className="font-semibold">
-            How many people live/stay in your household?*
-          </h5>
+          <h4>I can solve problems as they arise when I use a computer</h4>
+          <RadioButtonGroup
+            value={values.technologyCompetencyLevel}
+            name="technologyCompetencyLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+        <div className="question p-4">
+          <h4>I can usually handle computer problems on my own</h4>
+          <RadioButtonGroup
+            value={values.technologyCompetencyLevel}
+            name="technologyCompetencyLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+
+        <div className="question p-4">
+          <h4>
+            If my computer is acting up, I can find a way to get what I want
+            without relying on others
+          </h4>
+          <RadioButtonGroup
+            value={values.technologyCompetencyLevel}
+            name="technologyCompetencyLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+        <div className="question  p-4">
+          <h4>
+            I can complete a complex computer based task (e.g., setting up a
+            printer or wi-fi)
+          </h4>
+          <RadioButtonGroup
+            value={values.technologyCompetencyLevel}
+            name="technologyCompetencyLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+        <div>
+          <h4 className="font-semibold">Please answer about your HOUSEHOLD:</h4>
+        </div>
+        <div className="question p-4">
+          <h5>How many people live/stay in your household?</h5>
 
           <DropdownGroup
             value={values.householdMembers}
@@ -104,9 +154,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
 
         <div className="question p-4">
-          <h4 className="font-semibold">
-            What is the intended use of this computer?*
-          </h4>
+          <h4>What is the intended use of this computer?*</h4>
           <p>Check all that apply.</p>
 
           <CheckboxGroup
@@ -118,7 +166,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
 
         <div className="question p-4">
-          <h4 className="font-semibold">
+          <h4>
             How many other computers (including tablets) do you have in your
             household?*
           </h4>
@@ -131,9 +179,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
 
         <div className="question p-4">
-          <h4 className="font-semibold">
-            How does your household access the internet?*
-          </h4>
+          <h4>How does your household access the internet?*</h4>
           <p>Check all that apply.</p>
 
           <CheckboxGroup
@@ -143,7 +189,6 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             onChange={setFieldValue}
           />
         </div>
-
 
         {/*<div className="question">
         <h4>What is the intended use of this computer?*</h4>
@@ -173,7 +218,6 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           </button>
         </div>
       </section>
-
     </Form>
   );
 }
@@ -211,7 +255,7 @@ export function mapPropsToValues({
  * @returns {Response} - fetch response object
  */
 export function handleSubmit(values, { props }) {
-  props.handleSubmit(values)
+  props.handleSubmit(values);
 }
 
 /**
@@ -228,7 +272,7 @@ export const validationSchema = Yup.object().shape({
   // computerUsage: Yup.string().required(),
   // numberOfDevices: Yup.string().required(),
   // internetAccessAvailability: Yup.string().required(),
-})
+});
 
 /**
  * Wraps SendAccessCodeForm with the withFormik Higher-order component
@@ -237,29 +281,27 @@ export const SurveyPageForm = withFormik({
   mapPropsToValues,
   handleSubmit,
   validationSchema,
-})(SurveyForm)
+})(SurveyForm);
 
 function SurveyPage() {
-  const auth = useAuth();
-  const navigate = useNavigate()
+  //const auth = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = async (formData) => {
     try {
-
-      await createSurvey(formData)
-      navigate('/success', { replace: true })
-
+      await createSurvey(formData);
+      navigate("/success", { replace: true });
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
   };
 
   // TODO: Move into useAuth
-  if (!auth.user) return <div>Loading</div>
-  if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
+  // if (!auth.user) return <div>Loading</div>
+  // if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
 
   return (
-    <div className='page'>
+    <div className="page">
       <SurveyPageForm handleSubmit={handleSubmit} />
     </div>
   );
