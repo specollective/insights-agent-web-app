@@ -46,7 +46,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
       </div>
 
-      <section className="min-w-full space-y-4 py-10 md:px-0 lg:px-6">
+      <section className="min-w-full space-y-4 px-0 py-10 md:px-0 lg:px-6">
         <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
 
         <div className="question p-4">
@@ -76,7 +76,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
 
         <div className="question p-4">
-          <h4>Rate your level of competence with computer technology*</h4>
+          <h4 className="font-semibold">
+            Rate your level of competence with computer technology*
+          </h4>
           <RadioButtonGroup
             value={values.technologyCompetencyLevel}
             name="technologyCompetencyLevel"
@@ -86,7 +88,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
 
         <div className="question p-4">
-          <h4>
+          <h4 className="font-semibold">
             I can usually handle most difficulties I encounter when using a
             computer
           </h4>
@@ -98,7 +100,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
         <div className="question p-4">
-          <h4>I can solve problems as they arise when I use a computer</h4>
+          <h4 className="font-semibold">
+            I can solve problems as they arise when I use a computer
+          </h4>
           <RadioButtonGroup
             value={values.technologyCompetencyLevel}
             name="technologyCompetencyLevel"
@@ -107,7 +111,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
         <div className="question p-4">
-          <h4>I can usually handle computer problems on my own</h4>
+          <h4 className="font-semibold">
+            I can usually handle computer problems on my own
+          </h4>
           <RadioButtonGroup
             value={values.technologyCompetencyLevel}
             name="technologyCompetencyLevel"
@@ -117,7 +123,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
 
         <div className="question p-4">
-          <h4>
+          <h4 className="font-semibold">
             If my computer is acting up, I can find a way to get what I want
             without relying on others
           </h4>
@@ -130,7 +136,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
        
         <div className="question p-4 ">
-          <h4>
+          <h4 className="font-semibold">
             I can complete a complex computer based task (e.g., setting up a
             printer or wi-fi)
           </h4>
@@ -141,7 +147,6 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             isHorizontal={true}
           />
         </div>
-
 
         <div>
           <h4 className="font-semibold ">
