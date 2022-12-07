@@ -141,11 +141,17 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             isHorizontal={true}
           />
         </div>
+
+
         <div>
-          <h4 className="font-semibold">Please answer about your HOUSEHOLD:</h4>
+          <h4 className="font-semibold ">
+            Please answer about your HOUSEHOLD:
+          </h4>
         </div>
         <div className="question p-4">
-          <h5>How many people live/stay in your household?</h5>
+          <h5 className="font-semibold">
+            How many people live/stay in your household?
+          </h5>
 
           <DropdownGroup
             value={values.householdMembers}
@@ -155,7 +161,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
 
         <div className="question p-4">
-          <h4>What is the intended use of this computer?*</h4>
+          <h4 className="font-semibold">
+            What is the intended use of this computer?*
+          </h4>
           <p>Check all that apply.</p>
 
           <CheckboxGroup
@@ -167,7 +175,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
 
         <div className="question p-4">
-          <h4>
+          <h4 className="font-semibold">
             How many other computers (including tablets) do you have in your
             household?*
           </h4>
@@ -180,7 +188,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
 
         <div className="question p-4">
-          <h4>How does your household access the internet?*</h4>
+          <h4 className="font-semibold">
+            How does your household access the internet?*
+          </h4>
           <p>Check all that apply.</p>
 
           <CheckboxGroup
