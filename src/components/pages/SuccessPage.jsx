@@ -26,7 +26,7 @@ function SuccessPage() {
       </div>
       
       <div className='hidden md:block align-right pt-5 text-xl underline'>
-        <Link to='/' className=''>Go back to Home</Link>
+        <Link to='/'>Go back to Home</Link>
       </div>
 
     </main>
