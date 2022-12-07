@@ -4,5 +4,5 @@ import SuccessPage from 'components/pages/SuccessPage';
 
 it('renders success message', () => {
   render(<SuccessPage />);
-  expect(screen.getByText('Thank You!')).toBeInTheDocument();
+  expect(screen.getByText('Your survey has been submitted')).toBeInTheDocument();
 });
