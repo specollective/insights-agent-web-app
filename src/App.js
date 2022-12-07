@@ -57,9 +57,9 @@ function App() {
             <Route
               path='/success'
               element={
-                <RequireAuth>
+                // <RequireAuth>
                   <SuccessPage />
-                </RequireAuth>
+                // </RequireAuth>
               }
             />
 
