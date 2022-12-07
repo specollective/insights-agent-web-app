@@ -1,21 +1,17 @@
-.survey {
-  padding-top: 1em;
-  padding-bottom: 10em;
-}
+
+
 .intro-description {
-  background: #FFF3C7;
   display: block;
   margin: 1em;
   border-radius: 1em;
   padding: 1em;
   text-align: left;
 }
+
 .question {
-  background: #FFFFFF;
+ 
   display: block;
-  margin: 1em;
   border-radius: 10px;
-  padding: 1em;
   text-align: left;
 }
 
@@ -31,11 +27,6 @@ h5 {
   text-align: left;
 }
 
-.Section-Header {
-  text-align: left;
-  margin-left: 20em;
-  margin-right: 20em;
-}
 
 .actions {
   display: block;
@@ -43,9 +34,7 @@ h5 {
   margin-right: 1em;
 }
 
-.actions button {
-  width: 30%;
-}
+
 
 .left {
   float: left;
@@ -76,8 +65,6 @@ h5 {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   .question, .actions {
-    margin-left: 20em;
-    margin-right: 20em;
     background: white;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, .25);
   }
@@ -88,7 +75,7 @@ h5 {
 }
 
 .question .horizontal div label {
-  padding:0;
+
   line-height:1.5em;
   width:100%;
 }
@@ -105,6 +92,3 @@ h5 {
 @media only screen and (min-width: 1200px) {}
 
 
-/* background: #FFFFFF;
-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
-border-radius: 10px; */

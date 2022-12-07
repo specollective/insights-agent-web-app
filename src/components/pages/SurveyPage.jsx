@@ -1,7 +1,8 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from 'hooks/authentication';
-import { createSurvey } from 'services/survey'
+import { createSurvey } from "services/survey";
 import {
   DEFAULT_FORM_VALUES,
   RACE_OPTIONS,
@@ -12,6 +13,7 @@ import {
   COMPUTER_USE,
   TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS,
   HOUSEHOLD_COMPUTERS,
+
 } from 'constants/surveys'
 import 'components/pages/SurveyPage.css'
 import { useTranslation, Trans } from 'react-i18next'
@@ -21,121 +23,129 @@ import CheckboxGroup from 'components/elements/CheckboxGroup'
 import RadioButtonGroup from 'components/elements/RadioButtonGroup'
 import DropdownGroup from 'components/elements/DropdownGroup'
 
+
 function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
   const { t } = useTranslation()
 
   const handleClearForm = () => {
+
     setValues(DEFAULT_FORM_VALUES)
   }
+
 
   // TODO: Render errors. Logging here to help with debugging.
   // console.log(errors);
 
   return (
-    <Form className='survey'>
-      <div className='question'>
-        <div className='intro-description'>
-          <h4>Insights Agent General Info Survey</h4>
-          <p>{t('surveyDescription')}</p>
+
+    <Form className="flex flex-col lg:mx-40 md:mx-20 lg:place-items-center py-20 px-4">
+      <div className=" bg-[#AECA9B] rounded">
+        <div className="rounded p-6">
+          <h4 className="font-semibold text-xl md:left lg:text-center">
+            Insights Agent General Info Survey
+          </h4>
+          <p>{t("surveyDescription")}</p>
+
           <p>
             <strong>*Required field</strong>
           </p>
         </div>
       </div>
-      <h4 className='Section-Header'>Please answer about YOURSELF:</h4>
 
-      <div className='question'>
-        <h4>Please select your race.*</h4>
-        <p>Check all that apply.</p>
-        <div className='grid grid-cols-1 lg:grid lg:grid-cols-2 pt-4'>
-          <div>
-            <CheckboxGroup
-              value={values.race}
-              name='race'
-              options={RACE_OPTIONS}
-              onChange={setFieldValue}
-            />
-          </div>
-          <div>
-            <CheckboxGroup
-              value={values.race}
-              name='race'
-              options={RACE_OPTIONS_TWO}
-              onChange={setFieldValue}
-            />
-          </div>
+      <section className="min-w-full space-y-4 px-6 py-10 md:px-0">
+        <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
+
+        <div className="question p-4 ">
+          <h4 className="font-semibold">Please select your race.*</h4>
+          <p>Check all that apply.</p>
+
+          <CheckboxGroup
+            value={values.race}
+            name="race"
+            options={RACE_OPTIONS}
+            onChange={setFieldValue}
+          />
         </div>
-      </div>
 
-      <div className='question'>
-        <h4>{t('surveyHispanicHeader')}</h4>
-        <RadioButtonGroup
-          value={values.isHispanicOrLatino}
-          name='isHispanicOrLatino'
-          options={IS_HISPANIC_OPTIONS}
-        />
-      </div>
-      <div>
-        <h4 className='Section-Header'>Please answer about your HOUSEHOLD:</h4>
-      </div>
-      <div className='question'>
-        <h5>How many people live/stay in your household?</h5>
+        <div className="question p-4">
+          <h4 className="font-semibold">{t("surveyHispanicHeader")}</h4>
+          <RadioButtonGroup
+            value={values.isHispanicOrLatino}
+            name="isHispanicOrLatino"
+            options={IS_HISPANIC_OPTIONS}
+          />
+        </div>
 
-        <DropdownGroup
-          value={values.householdMembers}
-          name='householdMembers'
-          options={HOUSEHOLD_MEMBERS}
-        />
-      </div>
+        <div className="question p-4">
+          <h4>Rate your level of competence with computer technology*</h4>
+          <RadioButtonGroup
+            value={values.technologyCompetencyLevel}
+            name="technologyCompetencyLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
 
-      <div className='question'>
-        <h4>What is the intended use of this computer?*</h4>
-        <p>Check all that apply.</p>
+        <div>
+          <h4 className="font-semibold ">
+            Please answer about your HOUSEHOLD:
+          </h4>
+        </div>
+        <div className="question p-4">
+          <h5 className="font-semibold">
+            How many people live/stay in your household?
+          </h5>
 
-        <CheckboxGroup
-          value={values.computerUse}
-          name='computerUse'
-          options={COMPUTER_USE}
-          onChange={setFieldValue}
-        />
-      </div>
+          <DropdownGroup
+            value={values.householdMembers}
+            name="householdMembers"
+            options={HOUSEHOLD_MEMBERS}
+          />
+        </div>
 
-      <div className='question'>
-        <h4>Rate your level of competence with computer technology*</h4>
-        <RadioButtonGroup
-          value={values.technologyCompetencyLevel}
-          name='technologyCompetencyLevel'
-          options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
-          isHorizontal={true}
-        />
-      </div>
+        <div className="question p-4">
+          <h4 className="font-semibold">
+            What is the intended use of this computer?*
+          </h4>
+          <p>Check all that apply.</p>
 
-      <div className='question'>
-        <h4>
-          How many other computers (including tablets) do you have in your
-          household?*
-        </h4>
+          <CheckboxGroup
+            value={values.computerUse}
+            name="computerUse"
+            options={COMPUTER_USE}
+            onChange={setFieldValue}
+          />
+        </div>
 
-        <DropdownGroup
-          value={values.householdComputers}
-          name='householdComputers'
-          options={HOUSEHOLD_COMPUTERS}
-        />
-      </div>
+        <div className="question p-4">
+          <h4 className="font-semibold">
+            How many other computers (including tablets) do you have in your
+            household?*
+          </h4>
 
-      <div className='question'>
-        <h4>How does your household access the internet?*</h4>
-        <p>Check all that apply.</p>
+          <DropdownGroup
+            value={values.householdComputers}
+            name="householdComputers"
+            options={HOUSEHOLD_COMPUTERS}
+          />
+        </div>
 
-        <CheckboxGroup
-          value={values.internetAccess}
-          name='internetAccess'
-          options={INTERNET_ACCESS}
-          onChange={setFieldValue}
-        />
-      </div>
+        <div className="question p-4">
+          <h4 className="font-semibold">
+            How does your household access the internet?*
+          </h4>
+          <p>Check all that apply.</p>
 
-      {/*<div className="question">
+          <CheckboxGroup
+            value={values.internetAccess}
+            name="internetAccess"
+            options={INTERNET_ACCESS}
+            onChange={setFieldValue}
+          />
+        </div>
+
+
+        {/*<div className="question">
         <h4>What is the intended use of this computer?*</h4>
         <p>Check all that apply.</p>
 
@@ -147,16 +157,25 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         />
       </div>*/}
 
-      <div className='actions'>
-        <button type='button' className='left' onClick={handleClearForm}>
-          Clear Form
-        </button>
-        <button type='submit' className='right'>
-          Submit
-        </button>
-      </div>
+        <div className="actions">
+          <button
+            type="button"
+            className="left cursor-pointer"
+            onClick={handleClearForm}
+          >
+            Clear Form
+          </button>
+          <button
+            type="submit"
+            className="right text-white bg-green-100 rounded-sm px-6 py-2"
+          >
+            Submit
+          </button>
+        </div>
+      </section>
+
     </Form>
-  )
+  );
 }
 
 /**
@@ -182,7 +201,7 @@ export function mapPropsToValues({
     internetAccess: internetAccess || [],
     householdMembers: householdMembers,
     householdComputers: householdComputers,
-  }
+  };
 }
 
 /**
@@ -204,7 +223,7 @@ export function handleSubmit(values, { props }) {
 export const validationSchema = Yup.object().shape({
   race: Yup.array().of(Yup.string()).min(1).required(),
   isHispanicOrLatino: Yup.string().required(),
-  householdMembers: Yup.string().required('Please select a household size'),
+  householdMembers: Yup.string().required("Please select a household size"),
   // technologyCompetencyLevel: Yup.number().min(1).max(5),
   // computerUsage: Yup.string().required(),
   // numberOfDevices: Yup.string().required(),
@@ -226,12 +245,14 @@ function SurveyPage() {
 
   const handleSubmit = async (formData) => {
     try {
+
       await createSurvey(formData)
       navigate('/success', { replace: true })
+
     } catch (e) {
       console.log(e)
     }
-  }
+  };
 
   // TODO: Move into useAuth
   if (!auth.user) return <div>Loading</div>
@@ -241,7 +262,7 @@ function SurveyPage() {
     <div className='page'>
       <SurveyPageForm handleSubmit={handleSubmit} />
     </div>
-  )
+  );
 }
 
-export default SurveyPage
+export default SurveyPage;

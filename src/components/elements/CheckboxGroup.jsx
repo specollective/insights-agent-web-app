@@ -29,8 +29,8 @@ function CheckboxGroup ({ options, name, value, onChange }) {
 
   return (
     <div className="checkbox-group">
-      { options.map(option => {
-        const id = `${name}-${option.value}`
+      {options.map((option) => {
+        const id = `${name}-${option.value}`;
         return (
           <div key={option.value}>
             <input
@@ -41,13 +41,13 @@ function CheckboxGroup ({ options, name, value, onChange }) {
               checked={value.includes(option.value)}
               onChange={handleChange}
             />
-            <label htmlFor={id}>{ option.label }</label>
-            <br/>
+            <label htmlFor={id}>{option.label}</label>
+            <br />
           </div>
-        )
+        );
       })}
     </div>
-  )
+  );
 }
 
 export default CheckboxGroup

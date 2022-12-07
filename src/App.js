@@ -27,7 +27,7 @@ function App() {
   }, [locale])
 
   return (
-    <LocaleContext.Provider value={{locale, setLocale}}>
+    <LocaleContext.Provider value={{ locale, setLocale }}>
       <AuthProvider>
         <Layout>
           <Routes>
@@ -39,11 +39,13 @@ function App() {
               element={<ConfirmationPage />}
             />
 
+
             <Route
               exact
               path='/confirmation'
               element={<ConfirmationPage />}
             />
+
 
             <Route
               path='/survey'
@@ -62,6 +64,7 @@ function App() {
                 </RequireAuth>
               }
             />
+
 
             <Route
               path='/debugger'
