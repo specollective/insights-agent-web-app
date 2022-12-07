@@ -25,7 +25,7 @@ function SuccessPage() {
         </a>
       </div>
       
-      <div className='hidden md:block float-right pt-5 text-xl underline'>
+      <div className='hidden md:block align-right pt-5 text-xl underline'>
         <Link to='/' className=''>Go back to Home</Link>
       </div>
 
