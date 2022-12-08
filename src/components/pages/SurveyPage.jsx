@@ -49,17 +49,16 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           <p>Check all that apply.</p>
           {/* needs closing div */}
 
-          <div className="grid grid-cols-1 lg:grid lg:grid-cols-2 pt-4">
-            <div>
-              <CheckboxGroup
-                value={values.race}
-                name="race"
-                options={RACE_OPTIONS}
-                onChange={setFieldValue}
-              />
-            </div>
-          </div>
+            <CheckboxGroup
+              value={values.race}
+              name="race"
+              options={RACE_OPTIONS}
+              onChange={setFieldValue}
+            />
         </div>
+        <span className='error-message'>
+            { err.race && <span>{err.race}</span> }
+        </span>
 
         <div className="question p-4">
           <h4 className="font-semibold">{t("surveyHispanicHeader")}</h4>
@@ -68,7 +67,12 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             name="isHispanicOrLatino"
             options={IS_HISPANIC_OPTIONS}
           />
+          <label htmlFor='name' className='text-sm'>
+          </label>
         </div>
+        <span className='error-message'>
+            { err.isHispanicOrLatino && <span>{err.isHispanicOrLatino}</span>}
+        </span>
 
         <div className="question p-4">
           <h4 className="font-semibold">
@@ -116,6 +120,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             isHorizontal={true}
           />
         </div>
+        <span className='error-message'>
+            { err.isHispanicOrLatino && <span>{err.isHispanicOrLatino}</span>}
+        </span>
 
         <div className="question p-4">
           <h4 className="font-semibold">
@@ -160,6 +167,10 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
+        <span className='error-message'>
+            { err.householdMembers && <span>{err.householdMembers}</span>}
+        </span>
+
         <div className="question p-4">
           <h4 className="font-semibold">
             What is the intended use of this computer?*
@@ -173,6 +184,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             onChange={setFieldValue}
           />
         </div>
+        <span className='error-message'>
+            { err.computerUsage && <span>{err.computerUsage}</span>}
+        </span>
 
         <div className="question p-4">
           <h4 className="font-semibold">
@@ -186,6 +200,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             options={HOUSEHOLD_COMPUTERS}
           />
         </div>
+        <span className='error-message'>
+            { err.householdComputers && <span>{err.householdComputers}</span>}
+        </span>
 
         <div className="question p-4">
           <h4 className="font-semibold">
@@ -200,6 +217,10 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             onChange={setFieldValue}
           />
         </div>
+        <span className='error-message'>
+            { err.internetAccessAvailability && <span>{err.internetAccessAvailability}</span>}
+        </span>
+
 
         {/*<div className="question">
         <h4>What is the intended use of this computer?*</h4>
@@ -224,9 +245,12 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           <button
             type="submit"
             className="right text-white bg-green-100 rounded-sm px-6 py-2"
+            // onClick={errorClick}
+            onClick={()=> setErr(errors)}
           >
             Submit
           </button>
+          <p>  {fillOutForm}</p>
         </div>
       </section>
     </Form>
@@ -278,8 +302,12 @@ export function handleSubmit(values, { props }) {
 export const validationSchema = Yup.object().shape({
   race: Yup.array().of(Yup.string()).min(1).required("Field is required"),
   isHispanicOrLatino: Yup.string().required("Field is required"),
-  householdMembers: Yup.string().required("Please select a household size"),
-  // technologyCompetencyLevel: Yup.number().min(1).max(5),
+  householdMembers: Yup.string().required("Field is required"),
+  technologyCompetencyLevel: Yup.number().min(1).max(5),
+  computerUsage: Yup.string().required("Field is required"),
+  householdComputers: Yup.string().required("Field is required"),
+  internetAccessAvailability: Yup.string().required("Field is required"),
+    // technologyCompetencyLevel: Yup.number().min(1).max(5),
   // computerUsage: Yup.string().required(),
   // numberOfDevices: Yup.string().required(),
   // internetAccessAvailability: Yup.string().required(),
