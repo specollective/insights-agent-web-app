@@ -80,8 +80,8 @@ function LandingPage() {
           </div>
 
           <ul className='px-10'>
-            {firstUnorderedListParagraphs.map((p, index) => (
-              <li className='py-2 md:py-6' key={index}>
+            {firstUnorderedListParagraphs.map((p, i) => (
+              <li className='py-2 md:py-6' key={`${p}-${i}`}>
                 {bullet}
                 {p}
               </li>
@@ -94,8 +94,8 @@ function LandingPage() {
             </div>
 
             <ul className='px-10'>
-              {privacyList.map((p, index) => (
-                <li className='py-2 md:py-6' key={index}>
+              {privacyList.map((p, i) => (
+                <li className='py-2 md:py-6' key={`${p}-${i}`}>
                   {bullet}
                   {p}
                 </li>
@@ -113,8 +113,8 @@ function LandingPage() {
             </div>
 
             <ul className='px-10'>
-              {whatWillHappenList.map((p, index) => (
-                <li className='py-2 md:py-6'>
+              {whatWillHappenList.map((p, i) => (
+                <li className='py-2 md:py-6' key={`${p}-${i}`}>
                   {bullet}
                   {p}
                 </li>

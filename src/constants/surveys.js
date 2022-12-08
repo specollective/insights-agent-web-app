@@ -18,6 +18,7 @@ export const RACE_OPTIONS = [
   { value: 'asian-indian', label: 'Asian Indian' },
   { value: 'vietnamese', label: 'Vietnamese' },
   { value: 'korean', label: 'Korean' },
+  { value: 'decline', label: 'Decline to identify' }
 ]
 export const RACE_OPTIONS_TWO = [
   { value: 'japanese', label: 'Japanese' },
