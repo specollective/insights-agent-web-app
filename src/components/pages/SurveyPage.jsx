@@ -276,8 +276,8 @@ export function handleSubmit(values, { props }) {
  * @type {object}
  */
 export const validationSchema = Yup.object().shape({
-  race: Yup.array().of(Yup.string()).min(1).required(),
-  isHispanicOrLatino: Yup.string().required(),
+  race: Yup.array().of(Yup.string()).min(1).required("Field is required"),
+  isHispanicOrLatino: Yup.string().required("Field is required"),
   householdMembers: Yup.string().required("Please select a household size"),
   // technologyCompetencyLevel: Yup.number().min(1).max(5),
   // computerUsage: Yup.string().required(),
