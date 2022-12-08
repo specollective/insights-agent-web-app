@@ -6,7 +6,7 @@ import { createSurvey } from "services/survey";
 import {
   DEFAULT_FORM_VALUES,
   RACE_OPTIONS,
-  RACE_OPTIONS_TWO,
+  // RACE_OPTIONS_TWO,
   HOUSEHOLD_MEMBERS,
   INTERNET_ACCESS,
   IS_HISPANIC_OPTIONS,
