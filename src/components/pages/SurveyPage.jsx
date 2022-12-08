@@ -1,12 +1,12 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from 'hooks/authentication';
+// import { useAuth } from 'hooks/authentication';
 import { createSurvey } from "services/survey";
 import {
   DEFAULT_FORM_VALUES,
   RACE_OPTIONS,
-  // RACE_OPTIONS_TWO,
+  RACE_OPTIONS_TWO,
   HOUSEHOLD_MEMBERS,
   INTERNET_ACCESS,
   IS_HISPANIC_OPTIONS,
@@ -55,16 +55,25 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       <section className="min-w-full space-y-4 px-6 py-10 md:px-0">
         <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
 
-        <div className="question p-4 ">
+        <div className="question p-4">
           <h4 className="font-semibold">Please select your race.*</h4>
           <p>Check all that apply.</p>
 
-          <CheckboxGroup
-            value={values.race}
-            name="race"
-            options={RACE_OPTIONS}
-            onChange={setFieldValue}
-          />
+          <div className="">
+            <CheckboxGroup
+              value={values.race}
+              name="race"
+              options={RACE_OPTIONS}
+              onChange={setFieldValue}
+            />
+
+            <CheckboxGroup
+              value={values.race}
+              name="race"
+              options={RACE_OPTIONS_TWO}
+              onChange={setFieldValue}
+            />
+          </div>
         </div>
 
         <div className="question p-4">
@@ -240,7 +249,7 @@ export const SurveyPageForm = withFormik({
 })(SurveyForm)
 
 function SurveyPage() {
-  const auth = useAuth();
+  // const auth = useAuth();
   const navigate = useNavigate()
 
   const handleSubmit = async (formData) => {
@@ -255,8 +264,8 @@ function SurveyPage() {
   };
 
   // TODO: Move into useAuth
-  if (!auth.user) return <div>Loading</div>
-  if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
+  // if (!auth.user) return <div>Loading</div>
+  // if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
 
   return (
     <div className='page'>

@@ -50,9 +50,9 @@ function App() {
             <Route
               path='/survey'
               element={
-                <RequireAuth>
+                // <RequireAuth>
                   <SurveyPage />
-                </RequireAuth>
+                // </RequireAuth>
               }
             />
 
