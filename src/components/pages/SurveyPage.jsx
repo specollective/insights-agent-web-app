@@ -55,16 +55,16 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       <section className="min-w-full space-y-4 px-6 py-10 md:px-0">
         <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
 
-        <div className="question p-4 ">
+        <div className="question p-4">
           <h4 className="font-semibold">Please select your race.*</h4>
           <p>Check all that apply.</p>
 
-          <CheckboxGroup
-            value={values.race}
-            name="race"
-            options={RACE_OPTIONS}
-            onChange={setFieldValue}
-          />
+            <CheckboxGroup
+              value={values.race}
+              name="race"
+              options={RACE_OPTIONS}
+              onChange={setFieldValue}
+            />
         </div>
 
         <div className="question p-4">
@@ -93,7 +93,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
         <div className="question p-4">
           <h5 className="font-semibold">
-            How many people live/stay in your household?
+            How many people live/stay in your household?*
           </h5>
 
           <DropdownGroup
