@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { useAuth } from 'hooks/authentication';
+import { useAuth } from 'hooks/authentication';
 import { createSurvey } from "services/survey";
 import {
   DEFAULT_FORM_VALUES,
@@ -249,7 +249,7 @@ export const SurveyPageForm = withFormik({
 })(SurveyForm)
 
 function SurveyPage() {
-  // const auth = useAuth();
+  const auth = useAuth();
   const navigate = useNavigate()
 
   const handleSubmit = async (formData) => {
@@ -264,8 +264,8 @@ function SurveyPage() {
   };
 
   // TODO: Move into useAuth
-  // if (!auth.user) return <div>Loading</div>
-  // if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
+  if (!auth.user) return <div>Loading</div>
+  if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
 
   return (
     <div className='page'>
