@@ -60,7 +60,7 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?');
+      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
 
       // asserting all expected options are present
       RACE_OPTIONS.forEach((raceOption) => {
