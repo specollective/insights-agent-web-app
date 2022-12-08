@@ -28,7 +28,7 @@ export const RACE_OPTIONS_TWO = [
   { value: 'other-asian', label: 'Other Asian' },
   { value: 'other-pacific-islander', label: 'Other Pacific Islander' },
   { value: 'other', label: 'Other race not listed above' },
-  { value: 'decline', label: 'Decline to identify' },
+  // { value: 'decline', label: 'Decline to identify' },
 ]
 
 // TODO: Apply i18n localization
