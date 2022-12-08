@@ -59,21 +59,12 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           <h4 className="font-semibold">Please select your race.*</h4>
           <p>Check all that apply.</p>
 
-          <div className="">
             <CheckboxGroup
               value={values.race}
               name="race"
               options={RACE_OPTIONS}
               onChange={setFieldValue}
             />
-
-            <CheckboxGroup
-              value={values.race}
-              name="race"
-              options={RACE_OPTIONS_TWO}
-              onChange={setFieldValue}
-            />
-          </div>
         </div>
 
         <div className="question p-4">
