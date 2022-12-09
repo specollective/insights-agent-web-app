@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent, act, within } from '@testing-library/react';
 import SurveyPage from 'components/pages/SurveyPage';
-import { createSurvey } from 'services/survey';
+import { createSurveyResult } from 'services/survey_result';
 import i18nTest from 'utils/i18nTest';
 import { I18nextProvider } from 'react-i18next';
 import { INTERNET_ACCESS, RACE_OPTIONS, COMPUTER_USE } from 'constants/surveys';
@@ -81,7 +81,7 @@ describe('Survey Page', () => {
       });
 
       // Asserting that the bend service is called with the right values.
-      expect(createSurvey).toHaveBeenCalledWith({
+      expect(createSurveyResult).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
         computerUse: [],
         householdMembers: '1',
@@ -108,7 +108,7 @@ describe('Survey Page', () => {
         fireEvent.click(screen.getByText('Submit'));
       });
 
-      expect(createSurvey).toHaveBeenCalledWith({
+      expect(createSurveyResult).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
         computerUse: [],
         householdMembers: '1',
@@ -134,7 +134,7 @@ describe('Survey Page', () => {
         fireEvent.click(screen.getByText('Submit'));
       });
 
-      expect(createSurvey).toHaveBeenCalledWith({
+      expect(createSurveyResult).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
         computerUse: [],
         householdMembers: '1',
@@ -168,7 +168,7 @@ describe('Survey Page', () => {
       });
 
       // Asserting that the bend service is called with the right values.
-      expect(createSurvey).toHaveBeenCalledWith({
+      expect(createSurveyResult).toHaveBeenCalledWith({
         isHispanicOrLatino: 'true',
         computerUse: [],
         householdMembers: '1',
@@ -198,7 +198,7 @@ describe('Survey Page', () => {
       });
 
       // Asserting that the bend service is called with the right values.
-      expect(createSurvey).toHaveBeenCalledWith({
+      expect(createSurveyResult).toHaveBeenCalledWith({
         isHispanicOrLatino: 'true',
         computerUse: [],
         householdMembers: '3',

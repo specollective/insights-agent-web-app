@@ -42,7 +42,13 @@ function App() {
             <Route exact path="/confirmation" element={<ConfirmationPage />} />
 
             <Route
-              path="/survey"
+              exact
+              path='/confirmation'
+              element={<ConfirmationPage />}
+            />
+
+            <Route
+              path='/surveys/:surveyId'
               element={
                 <RequireAuth>
                   <SurveyPage />

@@ -42,7 +42,8 @@ function ConfirmationPage() {
   // }
 
   if (auth?.user?.isAuthenticated) {
-    return <Navigate to="/survey" />
+    // Hardcode survey id for now because we only have one.
+    return <Navigate to="/surveys/1" />
   }
 
   return (
