@@ -303,8 +303,13 @@ function SurveyPage() {
   const { surveyId } = useParams()
 
   const handleSubmit = async (formData) => {
+    const { survey_token } = auth.user
     try {
-      await createSurveyResult({ surveyId, ...formData})
+      await createSurveyResult({ 
+        token: survey_token, 
+        surveyId, 
+        ...formData
+      })
       navigate('/success', { replace: true })
     } catch (e) {
       console.log(e);

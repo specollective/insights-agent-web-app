@@ -16,6 +16,7 @@ export async function createSurveyResult(surveyData) {
     credentials: 'include',
     method: 'POST',
     body: JSON.stringify({
+      token: surveyData.token,
       survey_id: surveyData.surveyId,
       hispanic_origin: surveyData.isHispanicOrLatino,
       computer_use: surveyData.computerUse.join(','),
