@@ -57,7 +57,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             />
         </div>
         <span className='error-message'>
-            { err.race && <span>{err.race}</span> }
+            { err.race && <span>Field Required</span> }
         </span>
 
         <div className="question p-4">
@@ -71,7 +71,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           </label>
         </div>
         <span className='error-message'>
-            { err.isHispanicOrLatino && <span>{err.isHispanicOrLatino}</span>}
+            { err.isHispanicOrLatino && <span>Field Required</span>}
         </span>
 
         <div className="question p-4">
@@ -218,7 +218,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
         <span className='error-message'>
-            { err.internetAccessAvailability && <span>{err.internetAccessAvailability}</span>}
+            { touched.internetAccess && err.internetAccess && <span>Field Required</span>}
         </span>
 
 
