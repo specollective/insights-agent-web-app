@@ -17,13 +17,14 @@ jest.mock('hooks/authentication', () => ({
 }));
 
 // Mock out survey service
-jest.mock('services/survey', () => ({
-  createSurvey: jest.fn(),
+jest.mock('services/survey_result', () => ({
+  createSurveyResult: jest.fn(),
 }));
 
 // Mock out react router
 jest.mock('react-router-dom', () => ({
   useNavigate: () => jest.fn(),
+  useParams: () => jest.fn(),
 }));
 
 // Helper function to DRY up the test code.
