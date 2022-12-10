@@ -128,7 +128,8 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             isHorizontal={true}
           />
         </div>
-        <div className="question  p-4">
+       
+        <div className="question p-4 ">
           <h4>
             I can complete a complex computer based task (e.g., setting up a
             printer or wi-fi)
