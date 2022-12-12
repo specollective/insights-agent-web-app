@@ -1,12 +1,8 @@
 import { Link } from 'react-router-dom'
-import ProgressBar2 from '../../images/ProgressBar2.svg'
 
 function SuccessPage() {
   return (
     <main className="px-10 md:px-40 xl:px-60 py-12 text-center">
-      <div className='grid place-items-center md:pt-8 pb-16'>
-        <img src={ProgressBar2} alt='progress' />
-      </div>
       <h1 className='pb-7 md:pb-12 text-base md:text-3xl font-semibold'>
         Thank you for providing your data and helping us build the future of technology - for everyone.
       </h1>
