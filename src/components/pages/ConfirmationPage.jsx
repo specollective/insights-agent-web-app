@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
 import { Navigate } from 'react-router'
-import { useParams, Link } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useAuth } from 'hooks/authentication'
 import './ConfirmationPage.css'
-import ProgressBar1 from '../../images/ProgressBar1.svg'
 
 function ConfirmationPage() {
   const auth = useAuth()
@@ -46,31 +45,26 @@ function ConfirmationPage() {
   return (
     <main id="ConfirmationPage">
       <div className="center">
-        <div className='grid place-items-center md:pt-8 pb-16'>
-          <img src={ProgressBar1} alt='progress' />
-        </div>
         <div>
-          <h1 className='pb-7 md:pb-12 text-base md:text-3xl font-semibold'>
-            Thank you for helping us empower the building of a better future for all, through equitable technology.
-          </h1>
+          <h1>Thank you</h1>
+          <h2>for helping us empower the building of a better future for all, through equitable technology.</h2>
           <p>
             We have received your information for participation. You should be receiving a text message to the phone number provided with next steps.
           </p>
         </div>
-        <div className='hidden md:block align-right text-xl underline pt-36'>
-          <Link to='/'>Go back to Home</Link>
-        </div>
+
+        <hr />
 
         <div className="container">
-          {/* <p>
+          <p>
             If you have not received a text message please proceed to the following steps:
-          </p> */}
+          </p>
 
-          {/* <ol>
+          <ol>
             <li>If you have not received a text message, please resubmit your Name and Phone number below.</li>
             <li>If you have already resubmitted your phone number and are still not receiving a text message, please </li>
             <li>If you have tried previous steps and are still not receiving a text message, please contact us at 800-555-1234</li>
-          </ol> */}
+          </ol>
         </div>
 
           {/*<div>
@@ -91,7 +85,6 @@ function ConfirmationPage() {
                 onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
               />
             </div>
-
             <button onClick={resendAccessCode} className="form-field" type="submit" disabled={formData.resent}>
               { formData.resent ? 'Sent' : 'Resend' }
             </button>
@@ -160,7 +153,6 @@ function ConfirmationPage() {
                 onChange={(e) => handleInputChange('message', e.target.value)}
               ></textarea>
             </div>
-
             <button className="form-field" type="submit">
               { t('submitText') }
             </button>
