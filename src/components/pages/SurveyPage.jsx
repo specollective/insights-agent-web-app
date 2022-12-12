@@ -23,8 +23,10 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
   const { t } = useTranslation();
 
   const handleClearForm = () => {
-    setValues(DEFAULT_FORM_VALUES);
-  };
+    errors = null
+    setValues(DEFAULT_FORM_VALUES)
+  }
+
 
   return (
     <Form className="flex flex-col lg:mx-40 md:mx-20 lg:place-items-center py-20 px-4">
@@ -44,7 +46,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       <section className="min-w-full space-y-4 px-0 py-10 md:px-0 lg:px-6">
         <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
 
-        <div className={ `question p-4 ${err.race ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-4 ${touched.race && errors.race ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">Please select your race.*</h4>
           <p>Check all that apply.</p>
           {/* needs closing div */}
@@ -57,10 +59,10 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             />
         </div>
         <span className='error-message'>
-            { err.race && <span>Field Required</span> }
+            { touched.race && errors.race && <span>Field Required</span> }
         </span>
 
-        <div className={ `question p-4 ${err.isHispanicOrLatino ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-4 ${touched.isHispanicOrLatino && errors.isHispanicOrLatino ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">{t("surveyHispanicHeader")}</h4>
           <RadioButtonGroup
             value={values.isHispanicOrLatino}
@@ -71,7 +73,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           </label>
         </div>
         <span className='error-message'>
-            { err.isHispanicOrLatino && <span>Field Required</span>}
+            { touched.isHispanicOrLatino && errors.isHispanicOrLatino && <span>Field Required</span>}
         </span>
 
         <div className="question p-4">
@@ -155,7 +157,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             Please answer about your HOUSEHOLD:
           </h4>
         </div>
-        <div className={ `question p-4 ${err.householdMembers ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-4 ${touched.householdMembers && errors.householdMembers ? "border-2 border-[#FA0000]" : ""}` }>
           <h5 className="font-semibold">
             How many people live/stay in your household?*
           </h5>
@@ -167,11 +169,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
         <span className='error-message'>
-            { err.householdMembers && <span>{err.householdMembers}</span>}
+            { touched.householdMembers && errors.householdMembers && <span>{errors.householdMembers}</span>}
         </span>
 
         {/* <div className={"question p-4"}> */}
-        <div className={ `question p-4 ${err.computerUse ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-4 ${touched.computerUse && errors.computerUse ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             What is the intended use of this computer?*
           </h4>
@@ -185,10 +187,10 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
         <span className='error-message'>
-            { err.computerUse && <span>Field Required</span>}
+            { touched.computerUse && errors.computerUse && <span>Field Required</span>}
         </span>
 
-        <div className={ `question p-4 ${err.householdComputers ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-4 ${touched.householdComputers && errors.householdComputers ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             How many other computers (including tablets) do you have in your
             household?*
@@ -201,10 +203,10 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
         <span className='error-message'>
-            { err.householdComputers && <span>{err.householdComputers}</span>}
+            { touched.householdComputers && errors.householdComputers && <span>{errors.householdComputers}</span>}
         </span>
 
-        <div className={ `question p-4 ${err.internetAccess ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-4 ${touched.internetAccess && errors.internetAccess ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             How does your household access the internet?*
           </h4>
@@ -218,7 +220,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
         <span className='error-message'>
-            { touched.internetAccess && err.internetAccess && <span>Field Required</span>}
+            { touched.internetAccess && errors.internetAccess && <span>Field Required</span>}
         </span>
 
 
@@ -245,11 +247,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           <button
             type="submit"
             className="right text-white bg-green-100 rounded-sm px-6 py-2"
-            onClick={()=> setErr(errors)}
           >
             Submit
           </button>
-          <p>  {fillOutForm}</p>
         </div>
       </section>
     </Form>
