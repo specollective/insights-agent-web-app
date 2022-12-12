@@ -44,9 +44,9 @@ function App() {
             <Route
               path="/survey"
               element={
-                <RequireAuth>
+             
                   <SurveyPage />
-                </RequireAuth>
+                
               }
             />
 
