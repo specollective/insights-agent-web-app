@@ -155,7 +155,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
         <div className="question p-4">
           <h5 className="font-semibold">
-            How many people live/stay in your household?
+            How many people live/stay in your household?*
           </h5>
 
           <DropdownGroup
