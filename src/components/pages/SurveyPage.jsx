@@ -76,7 +76,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             { touched.isHispanicOrLatino && errors.isHispanicOrLatino && <span>Field Required</span>}
         </span>
 
-        <div className="question p-4">
+        <div className={ `question p-4 ${touched.technologyCompetencyLevel && errors.technologyCompetencyLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             Rate your level of competence with computer technology*
           </h4>
@@ -151,6 +151,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             isHorizontal={true}
           />
         </div>
+        <span className='error-message'>
+            { touched.technologyCompetencyLevel && errors.technologyCompetencyLevel && <span>Field Required</span>}
+        </span>
 
         <div>
           <h4 className="font-semibold ">
@@ -302,7 +305,7 @@ export const validationSchema = Yup.object().shape({
   race: Yup.array().of(Yup.string()).min(1).required("Field is required"),
   isHispanicOrLatino: Yup.string().required("Field is required"),
   householdMembers: Yup.string().required("Field is required"),
-  technologyCompetencyLevel: Yup.number().min(1).max(5),
+  technologyCompetencyLevel: Yup.number().min(1).required("Field is required"),
   computerUse: Yup.array().of(Yup.string()).min(1).required("Field is required"),
   householdComputers: Yup.string().required("Field is required"),
   internetAccess: Yup.array().of(Yup.string()).min(1).required("Field is required"),
