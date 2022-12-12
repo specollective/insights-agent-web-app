@@ -185,7 +185,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
         <span className='error-message'>
-            { err.computerUsage && <span>{err.computerUsage}</span>}
+            { err.computerUse && <span>Field Required</span>}
         </span>
 
         <div className="question p-4">
@@ -245,7 +245,6 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           <button
             type="submit"
             className="right text-white bg-green-100 rounded-sm px-6 py-2"
-            // onClick={errorClick}
             onClick={()=> setErr(errors)}
           >
             Submit
@@ -304,14 +303,10 @@ export const validationSchema = Yup.object().shape({
   isHispanicOrLatino: Yup.string().required("Field is required"),
   householdMembers: Yup.string().required("Field is required"),
   technologyCompetencyLevel: Yup.number().min(1).max(5),
-  computerUsage: Yup.string().required("Field is required"),
+  computerUse: Yup.array().of(Yup.string()).min(1).required("Field is required"),
   householdComputers: Yup.string().required("Field is required"),
-  internetAccessAvailability: Yup.string().required("Field is required"),
-    // technologyCompetencyLevel: Yup.number().min(1).max(5),
-  // computerUsage: Yup.string().required(),
-  // numberOfDevices: Yup.string().required(),
-  // internetAccessAvailability: Yup.string().required(),
-});
+  internetAccess: Yup.array().of(Yup.string()).min(1).required("Field is required"),
+})
 
 /**
  * Wraps SendAccessCodeForm with the withFormik Higher-order component
