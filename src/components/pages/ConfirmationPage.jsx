@@ -54,7 +54,6 @@ function ConfirmationPage() {
         </div>
 
         <hr />
-
         <div className="container">
           <p>
             If you have not received a text message please proceed to the following steps:
