@@ -61,6 +61,7 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -78,6 +79,7 @@ describe('Survey Page', () => {
         fireEvent.click(raceCheckboxGroup.getByText('Filipino'));
         fireEvent.click(raceCheckboxGroup.getByText('Black or African American'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
+        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
@@ -97,6 +99,7 @@ describe('Survey Page', () => {
         householdComputers:'5+',
         race: ['white', 'filipino', 'black'],
         internetAccess: ['dial-up'],
+        technologyCompetencyLevel: '1',
       });
     });
 
@@ -105,6 +108,7 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -115,6 +119,7 @@ describe('Survey Page', () => {
         fireEvent.click(raceCheckboxGroup.getByText('Filipino'));
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
+        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
@@ -133,6 +138,7 @@ describe('Survey Page', () => {
         householdComputers:'5+',
         race: ['decline'],
         internetAccess: ['dial-up'],
+        technologyCompetencyLevel: '1',
       });
     });
 
@@ -141,6 +147,7 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -150,6 +157,7 @@ describe('Survey Page', () => {
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(raceCheckboxGroup.getByText('Chinese'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
+        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
@@ -168,6 +176,7 @@ describe('Survey Page', () => {
         householdComputers:'5+',
         race: ['chinese'],
         internetAccess: ['dial-up'],
+        technologyCompetencyLevel: '1',
       });
     });
   });
@@ -178,6 +187,7 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -188,6 +198,7 @@ describe('Survey Page', () => {
         // Testing selecting multiple options
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Yes'));
+        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
@@ -207,6 +218,7 @@ describe('Survey Page', () => {
         householdComputers:'5+',
         race: ['decline'],
         internetAccess: ['dial-up'],
+        technologyCompetencyLevel: '1',
       });
     });
   });
@@ -217,6 +229,7 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -226,6 +239,7 @@ describe('Survey Page', () => {
         // Testing selecting value
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Yes'));
+        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '3' },
         });
@@ -245,6 +259,7 @@ describe('Survey Page', () => {
         householdComputers:'5+',
         race: ['decline'],
         internetAccess: ['dial-up'],
+        technologyCompetencyLevel: '1',
       });
     });
   });
