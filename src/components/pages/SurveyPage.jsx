@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from 'hooks/authentication';
@@ -13,31 +12,26 @@ import {
   COMPUTER_USE,
   TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS,
   HOUSEHOLD_COMPUTERS,
-
-} from 'constants/surveys'
-import 'components/pages/SurveyPage.css'
-import { useTranslation, Trans } from 'react-i18next'
-import { withFormik, Form, Field } from 'formik'
-import * as Yup from 'yup'
-import CheckboxGroup from 'components/elements/CheckboxGroup'
-import RadioButtonGroup from 'components/elements/RadioButtonGroup'
-import DropdownGroup from 'components/elements/DropdownGroup'
-
+} from "constants/surveys";
+import "components/pages/SurveyPage.css";
+import { useTranslation, Trans } from "react-i18next";
+import { withFormik, Form, Field } from "formik";
+import * as Yup from "yup";
+import CheckboxGroup from "components/elements/CheckboxGroup";
+import RadioButtonGroup from "components/elements/RadioButtonGroup";
+import DropdownGroup from "components/elements/DropdownGroup";
 
 function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const handleClearForm = () => {
-
-    setValues(DEFAULT_FORM_VALUES)
-  }
-
+    setValues(DEFAULT_FORM_VALUES);
+  };
 
   // TODO: Render errors. Logging here to help with debugging.
   // console.log(errors);
 
   return (
-
     <Form className="flex flex-col lg:mx-40 md:mx-20 lg:place-items-center py-20 px-4">
       <div className=" bg-[#AECA9B] rounded">
         <div className="rounded p-6">
@@ -52,19 +46,24 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
       </div>
 
-      <section className="min-w-full space-y-4 px-6 py-10 md:px-0">
+      <section className="min-w-full space-y-4 px-0 py-10 md:px-0 lg:px-6">
         <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
 
         <div className="question p-4">
           <h4 className="font-semibold">Please select your race.*</h4>
           <p>Check all that apply.</p>
+          {/* needs closing div */}
 
-            <CheckboxGroup
-              value={values.race}
-              name="race"
-              options={RACE_OPTIONS}
-              onChange={setFieldValue}
-            />
+          <div className="grid grid-cols-1 lg:grid lg:grid-cols-2 pt-4">
+            <div>
+              <CheckboxGroup
+                value={values.race}
+                name="race"
+                options={RACE_OPTIONS}
+                onChange={setFieldValue}
+              />
+            </div>
+          </div>
         </div>
 
         <div className="question p-4">
@@ -77,7 +76,70 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
         </div>
 
         <div className="question p-4">
-          <h4>Rate your level of competence with computer technology*</h4>
+          <h4 className="font-semibold">
+            Rate your level of competence with computer technology*
+          </h4>
+          <RadioButtonGroup
+            value={values.technologyCompetencyLevel}
+            name="technologyCompetencyLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+
+        <div className="question p-4">
+          <h4 className="font-semibold">
+            I can usually handle most difficulties I encounter when using a
+            computer
+          </h4>
+          <RadioButtonGroup
+            value={values.technologyCompetencyLevel}
+            name="technologyCompetencyLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+        <div className="question p-4">
+          <h4 className="font-semibold">
+            I can solve problems as they arise when I use a computer
+          </h4>
+          <RadioButtonGroup
+            value={values.technologyCompetencyLevel}
+            name="technologyCompetencyLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+        <div className="question p-4">
+          <h4 className="font-semibold">
+            I can usually handle computer problems on my own
+          </h4>
+          <RadioButtonGroup
+            value={values.technologyCompetencyLevel}
+            name="technologyCompetencyLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+
+        <div className="question p-4">
+          <h4 className="font-semibold">
+            If my computer is acting up, I can find a way to get what I want
+            without relying on others
+          </h4>
+          <RadioButtonGroup
+            value={values.technologyCompetencyLevel}
+            name="technologyCompetencyLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+       
+        <div className="question p-4 ">
+          <h4 className="font-semibold">
+            I can complete a complex computer based task (e.g., setting up a
+            printer or wi-fi)
+          </h4>
           <RadioButtonGroup
             value={values.technologyCompetencyLevel}
             name="technologyCompetencyLevel"
@@ -144,7 +206,6 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-
         {/*<div className="question">
         <h4>What is the intended use of this computer?*</h4>
         <p>Check all that apply.</p>
@@ -173,7 +234,6 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           </button>
         </div>
       </section>
-
     </Form>
   );
 }
@@ -211,7 +271,7 @@ export function mapPropsToValues({
  * @returns {Response} - fetch response object
  */
 export function handleSubmit(values, { props }) {
-  props.handleSubmit(values)
+  props.handleSubmit(values);
 }
 
 /**
@@ -228,7 +288,7 @@ export const validationSchema = Yup.object().shape({
   // computerUsage: Yup.string().required(),
   // numberOfDevices: Yup.string().required(),
   // internetAccessAvailability: Yup.string().required(),
-})
+});
 
 /**
  * Wraps SendAccessCodeForm with the withFormik Higher-order component
@@ -237,7 +297,7 @@ export const SurveyPageForm = withFormik({
   mapPropsToValues,
   handleSubmit,
   validationSchema,
-})(SurveyForm)
+})(SurveyForm);
 
 function SurveyPage() {
   const auth = useAuth();
@@ -245,12 +305,10 @@ function SurveyPage() {
 
   const handleSubmit = async (formData) => {
     try {
-
-      await createSurvey(formData)
-      navigate('/success', { replace: true })
-
+      await createSurvey(formData);
+      navigate("/success", { replace: true });
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
   };
 
@@ -259,7 +317,7 @@ function SurveyPage() {
   if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
 
   return (
-    <div className='page'>
+    <div className="page">
       <SurveyPageForm handleSubmit={handleSubmit} />
     </div>
   );

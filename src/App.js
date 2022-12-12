@@ -31,24 +31,18 @@ function App() {
       <AuthProvider>
         <Layout>
           <Routes>
-            <Route path='/' element={<LandingPage />} />
+            <Route path="/" element={<LandingPage />} />
 
             <Route
               exact
-              path='/confirmation/:otp/:token'
+              path="/confirmation/:otp/:token"
               element={<ConfirmationPage />}
             />
 
+            <Route exact path="/confirmation" element={<ConfirmationPage />} />
 
             <Route
-              exact
-              path='/confirmation'
-              element={<ConfirmationPage />}
-            />
-
-
-            <Route
-              path='/survey'
+              path="/survey"
               element={
                 <RequireAuth>
                   <SurveyPage />
@@ -57,7 +51,7 @@ function App() {
             />
 
             <Route
-              path='/success'
+              path="/success"
               element={
                 <RequireAuth>
                   <SuccessPage />
@@ -65,15 +59,9 @@ function App() {
               }
             />
 
+            <Route path="/debugger" element={<DebuggerPage />} />
 
-            <Route
-              path='/debugger'
-              element={
-                <DebuggerPage />
-              }
-            />
-
-            <Route path='/download' element={<DownloadPage />} />
+            <Route path="/download" element={<DownloadPage />} />
           </Routes>
         </Layout>
       </AuthProvider>
