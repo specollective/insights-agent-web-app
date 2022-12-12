@@ -19,12 +19,17 @@ import CheckboxGroup from "components/elements/CheckboxGroup";
 import RadioButtonGroup from "components/elements/RadioButtonGroup";
 import DropdownGroup from "components/elements/DropdownGroup";
 
-function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
-  const { t } = useTranslation();
+function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetForm }) {
+  const { t } = useTranslation()
 
-  const handleClearForm = () => {
-    errors = null
-    setValues(DEFAULT_FORM_VALUES)
+  const handleClearForm = (e) => {
+    e.preventDefault()
+    resetForm()
+    // console.log(e)
+    // setValues(DEFAULT_FORM_VALUES);
+    // errors = {}
+    // touched = {}
+    // handleReset
   }
 
 
@@ -175,7 +180,6 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             { touched.householdMembers && errors.householdMembers && <span>{errors.householdMembers}</span>}
         </span>
 
-        {/* <div className={"question p-4"}> */}
         <div className={ `question p-4 ${touched.computerUse && errors.computerUse ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             What is the intended use of this computer?*
@@ -244,6 +248,8 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             type="button"
             className="left cursor-pointer"
             onClick={handleClearForm}
+            // onClick={handleClearForm(handleReset)}
+            // onClick={handleReset}
           >
             Clear Form
           </button>

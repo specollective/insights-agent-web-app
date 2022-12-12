@@ -8,6 +8,7 @@ function DropdownGroup ({ options, name }) {
       component="select"
       name={name}
       className="dropdown-group"
+      // isClearable = {true}
     >
       { options.map(option => {
         return (
