@@ -44,7 +44,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       <section className="min-w-full space-y-4 px-0 py-10 md:px-0 lg:px-6">
         <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
 
-        <div className="question p-4">
+        <div className={ `question p-4 ${err.race ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">Please select your race.*</h4>
           <p>Check all that apply.</p>
           {/* needs closing div */}
@@ -60,7 +60,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             { err.race && <span>Field Required</span> }
         </span>
 
-        <div className="question p-4">
+        <div className={ `question p-4 ${err.isHispanicOrLatino ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">{t("surveyHispanicHeader")}</h4>
           <RadioButtonGroup
             value={values.isHispanicOrLatino}
@@ -155,7 +155,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             Please answer about your HOUSEHOLD:
           </h4>
         </div>
-        <div className="question p-4">
+        <div className={ `question p-4 ${err.householdMembers ? "border-2 border-[#FA0000]" : ""}` }>
           <h5 className="font-semibold">
             How many people live/stay in your household?*
           </h5>
@@ -166,12 +166,12 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             options={HOUSEHOLD_MEMBERS}
           />
         </div>
-
         <span className='error-message'>
             { err.householdMembers && <span>{err.householdMembers}</span>}
         </span>
 
-        <div className="question p-4">
+        {/* <div className={"question p-4"}> */}
+        <div className={ `question p-4 ${err.computerUse ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             What is the intended use of this computer?*
           </h4>
@@ -188,7 +188,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             { err.computerUse && <span>Field Required</span>}
         </span>
 
-        <div className="question p-4">
+        <div className={ `question p-4 ${err.householdComputers ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             How many other computers (including tablets) do you have in your
             household?*
@@ -204,7 +204,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             { err.householdComputers && <span>{err.householdComputers}</span>}
         </span>
 
-        <div className="question p-4">
+        <div className={ `question p-4 ${err.internetAccess ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             How does your household access the internet?*
           </h4>
