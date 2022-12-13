@@ -130,42 +130,6 @@ function ConfirmationPage() {
             </div>
           )*/}
 
-          {/*<div className="container">
-            <h2>Contact Us</h2>
-            <p className="paragraph">
-              If you are unable to receive a confirmation message or manually entering an access code
-              responds with an error, please send use a message.
-            </p>
-            <div>
-              <label htmlFor="phone-number">Phone Number</label>
-              <input
-                id="phone-number"
-                className="form-field"
-                type="text"
-                placeholder=""
-                required
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                className="form-field"
-                type="text"
-                placeholder=""
-                required
-                name="message"
-                value={formData.message}
-                onChange={(e) => handleInputChange('message', e.target.value)}
-              ></textarea>
-            </div>
-            <button className="form-field" type="submit">
-              { t('submitText') }
-            </button>
-          </div>*/}
         </div>
         <SignUpForm />
 
