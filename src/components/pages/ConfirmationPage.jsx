@@ -4,6 +4,8 @@ import { useParams, Link } from "react-router-dom"
 import { useAuth } from 'hooks/authentication'
 import './ConfirmationPage.css'
 import ProgressBar1 from '../../images/ProgressBar1.svg'
+import SignUpForm from 'components/elements/SignUp'
+
 
 function ConfirmationPage() {
   const auth = useAuth()
@@ -165,6 +167,8 @@ function ConfirmationPage() {
             </button>
           </div>*/}
         </div>
+        <SignUpForm />
+
     </main>
   )
 }
