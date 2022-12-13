@@ -127,9 +127,6 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             isHorizontal={true}
           />
         </div>
-        <span className='error-message'>
-            { err.isHispanicOrLatino && <span>{err.isHispanicOrLatino}</span>}
-        </span>
 
         <div className="question p-4">
           <h4 className="font-semibold">
