@@ -61,6 +61,14 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
                 onChange={setFieldValue}
               />
             </div>
+            <div>
+              <CheckboxGroup
+                value={values.race}
+                name="race"
+                options={RACE_OPTIONS_TWO}
+                onChange={setFieldValue}
+              />
+            </div>
           </div>
         </div>
 
