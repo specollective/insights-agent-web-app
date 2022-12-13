@@ -49,7 +49,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       <section className="min-w-full space-y-4 px-0 py-10  md:px-0 lg:px-6 ">
         <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
 
-        <div className="question p-4 shadow-md">
+        <div className="question p-4">
           <h4 className="font-semibold">Please select your race.*</h4>
           <p>Check all that apply.</p>
           {/* needs closing div */}
@@ -66,7 +66,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           </div>
         </div>
 
-        <div className="question p-4 shadow-md">
+        <div className="question p-4">
           <h4 className="font-semibold">{t("surveyHispanicHeader")}</h4>
           <RadioButtonGroup
             value={values.isHispanicOrLatino}
@@ -75,7 +75,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question p-4 shadow-md">
+        <div className="question p-4">
           <h4 className="font-semibold">
             Rate your level of competence with computer technology*
           </h4>
@@ -87,7 +87,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question p-4 shadow-md">
+        <div className="question p-4">
           <h4 className="font-semibold">
             I can usually handle most difficulties I encounter when using a
             computer
@@ -99,7 +99,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             isHorizontal={true}
           />
         </div>
-        <div className="question p-4 shadow-md">
+        <div className="question p-4">
           <h4 className="font-semibold">
             I can solve problems as they arise when I use a computer
           </h4>
@@ -110,7 +110,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             isHorizontal={true}
           />
         </div>
-        <div className="question p-4 shadow-md">
+        <div className="question p-4">
           <h4 className="font-semibold">
             I can usually handle computer problems on my own
           </h4>
@@ -122,7 +122,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question p-4 shadow-md">
+        <div className="question p-4">
           <h4 className="font-semibold">
             If my computer is acting up, I can find a way to get what I want
             without relying on others
@@ -135,7 +135,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question p-4 shadow-md">
+        <div className="question p-4">
           <h4 className="font-semibold">
             I can complete a complex computer based task (e.g., setting up a
             printer or wi-fi)
@@ -153,19 +153,20 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             Please answer about your HOUSEHOLD:
           </h4>
         </div>
-        <div className="question p-4 shadow-md">
+        <div className="question p-4">
           <h5 className="font-semibold">
             How many people live/stay in your household?*
           </h5>
-
+       
           <DropdownGroup
-            value={values.householdMembers}
-            name="householdMembers"
-            options={HOUSEHOLD_MEMBERS}
-          />
+              value={values.householdMembers}
+              name="householdMembers"
+              options={HOUSEHOLD_MEMBERS}
+            />
+          
         </div>
 
-        <div className="question p-4 shadow-md">
+        <div className="question p-4">
           <h4 className="font-semibold">
             What is the intended use of this computer?*
           </h4>
@@ -179,7 +180,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question p-4 shadow-md">
+        <div className="question p-4">
           <h4 className="font-semibold">
             How many other computers (including tablets) do you have in your
             household?*
@@ -192,7 +193,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question p-4 shadow-md">
+        <div className="question p-4">
           <h4 className="font-semibold">
             How does your household access the internet?*
           </h4>

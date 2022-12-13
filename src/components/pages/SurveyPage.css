@@ -13,6 +13,7 @@
   display: block;
   border-radius: 10px;
   text-align: left;
+  @apply shadow-md;
 }
 
 .question > input {
