@@ -60,7 +60,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             />
         </div>
         <span className='error-message'>
-            { touched.race && errors.race && <span>Field Required</span> }
+            { touched.race && errors.race && <span>{errors.race}</span> }
         </span>
 
         <div className={ `question p-4 ${touched.isHispanicOrLatino && errors.isHispanicOrLatino ? "border-2 border-[#FA0000]" : ""}` }>
@@ -74,7 +74,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           </label>
         </div>
         <span className='error-message'>
-            { touched.isHispanicOrLatino && errors.isHispanicOrLatino && <span>Field Required</span>}
+            { touched.isHispanicOrLatino && errors.isHispanicOrLatino && <span>{ errors.isHispanicOrLatino }</span>}
         </span>
 
         <div className={ `question p-4 ${touched.technologyCompetencyLevel && errors.technologyCompetencyLevel ? "border-2 border-[#FA0000]" : ""}` }>
@@ -150,7 +150,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-            { touched.technologyCompetencyLevel && errors.technologyCompetencyLevel && <span>Field Required</span>}
+            { touched.technologyCompetencyLevel && errors.technologyCompetencyLevel && <span>{errors.technologyCompetencyLevel}</span>}
         </span>
 
         <div>
@@ -187,7 +187,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-            { touched.computerUse && errors.computerUse && <span>Field Required</span>}
+            { touched.computerUse && errors.computerUse && <span> {errors.computerUse} </span>}
         </span>
 
         <div className={ `question p-4 ${touched.householdComputers && errors.householdComputers ? "border-2 border-[#FA0000]" : ""}` }>
@@ -220,7 +220,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-            { touched.internetAccess && errors.internetAccess && <span>Field Required</span>}
+            { touched.internetAccess && errors.internetAccess && <span>Error: Required Field</span>}
         </span>
 
 
@@ -301,13 +301,13 @@ export function handleSubmit(values, { props }) {
  * @type {object}
  */
 export const validationSchema = Yup.object().shape({
-  race: Yup.array().of(Yup.string()).min(1).required("Field is required"),
-  isHispanicOrLatino: Yup.string().required("Field is required"),
-  householdMembers: Yup.string().required("Field is required"),
-  technologyCompetencyLevel: Yup.number().min(1).required("Field is required"),
-  computerUse: Yup.array().of(Yup.string()).min(1).required("Field is required"),
-  householdComputers: Yup.string().required("Field is required"),
-  internetAccess: Yup.array().of(Yup.string()).min(1).required("Field is required"),
+  race: Yup.array().min(1, "Error: Required Field"),
+  isHispanicOrLatino: Yup.string().required("Error: Required Field"),
+  householdMembers: Yup.string().required("Error: Required Field"),
+  technologyCompetencyLevel: Yup.number().min(1).required("Error: Required Field"),
+  computerUse: Yup.array().min(1, "Error: Required Field"),
+  householdComputers: Yup.string().required("Error: Required Field"),
+  internetAccess: Yup.array().min(1, "Error: Required Field"),
 })
 
 /**
