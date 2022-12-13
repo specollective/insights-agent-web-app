@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useAuth } from 'hooks/authentication';
+// import { useAuth } from 'hooks/authentication';
 import { createSurveyResult } from "services/survey_result";
 import {
   DEFAULT_FORM_VALUES,
@@ -52,16 +52,17 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           <p>Check all that apply.</p>
           {/* needs closing div */}
 
-            <CheckboxGroup
-              value={values.race}
-              name="race"
-              options={RACE_OPTIONS}
-              onChange={setFieldValue}
-            />
+          <div className="grid grid-cols-1 lg:grid lg:grid-cols-2 pt-4">
+            <div>
+              <CheckboxGroup
+                value={values.race}
+                name="race"
+                options={RACE_OPTIONS}
+                onChange={setFieldValue}
+              />
+            </div>
+          </div>
         </div>
-        <span className='error-message'>
-            { touched.race && errors.race && <span>{errors.race}</span> }
-        </span>
 
         <div className={ `question p-4 ${touched.isHispanicOrLatino && errors.isHispanicOrLatino ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">{t("surveyHispanicHeader")}</h4>
@@ -318,7 +319,7 @@ export const SurveyPageForm = withFormik({
 })(SurveyForm);
 
 function SurveyPage() {
-  const auth = useAuth();
+  // const auth = useAuth();
   const navigate = useNavigate()
   const { surveyId } = useParams()
 
@@ -337,8 +338,8 @@ function SurveyPage() {
   };
 
   // TODO: Move into useAuth
-  if (!auth.user) return <div>Loading</div>
-  if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
+  // if (!auth.user) return <div>Loading</div>
+  // if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
 
   return (
     <div className="page">
