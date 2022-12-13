@@ -18,14 +18,6 @@ export const RACE_OPTIONS = [
   { value: 'asian-indian', label: 'Asian Indian' },
   { value: 'vietnamese', label: 'Vietnamese' },
   { value: 'korean', label: 'Korean' },
-  // { value: 'japanese', label: 'Japanese' },
-  // { value: 'hawaiian', label: 'Native Hawaiian' },
-  // { value: 'samoan', label: 'Samoan' },
-  // { value: 'chamorro', label: 'Charmorro' },
-  // { value: 'other-asian', label: 'Other Asian' },
-  // { value: 'other-pacific-islander', label: 'Other Pacific Islander' },
-  // { value: 'other', label: 'Other race not listed above' },
-  // { value: 'decline', label: 'Decline to identify' },
 ]
 export const RACE_OPTIONS_TWO = [
   { value: 'japanese', label: 'Japanese' },
