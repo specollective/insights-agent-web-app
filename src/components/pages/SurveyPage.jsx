@@ -241,8 +241,6 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             type="button"
             className="left cursor-pointer"
             onClick={handleClearForm}
-            // onClick={handleClearForm(handleReset)}
-            // onClick={handleReset}
           >
             Clear Form
           </button>
@@ -320,7 +318,7 @@ export const SurveyPageForm = withFormik({
 })(SurveyForm);
 
 function SurveyPage() {
-  // const auth = useAuth();
+  const auth = useAuth();
   const navigate = useNavigate()
   const { surveyId } = useParams()
 
@@ -339,8 +337,8 @@ function SurveyPage() {
   };
 
   // TODO: Move into useAuth
-  // if (!auth.user) return <div>Loading</div>
-  // if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
+  if (!auth.user) return <div>Loading</div>
+  if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
 
   return (
     <div className="page">
