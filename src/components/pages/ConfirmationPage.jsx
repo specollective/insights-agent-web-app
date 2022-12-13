@@ -3,6 +3,7 @@ import { Navigate } from 'react-router'
 import { useParams } from "react-router-dom"
 import { useAuth } from 'hooks/authentication'
 import './ConfirmationPage.css'
+import ProgressBar1 from '../../images/ProgressBar1.svg'
 
 function ConfirmationPage() {
   const auth = useAuth()
@@ -45,6 +46,9 @@ function ConfirmationPage() {
   return (
     <main id="ConfirmationPage">
       <div className="center">
+        <div className='grid place-content-center pb-8 md:pt-8 md:pb-16'>
+          <img src={ProgressBar1} alt='progress' />
+        </div>
         <div>
           <h1>Thank you</h1>
           <h2>for helping us empower the building of a better future for all, through equitable technology.</h2>
