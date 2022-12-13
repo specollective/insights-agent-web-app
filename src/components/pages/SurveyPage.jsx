@@ -25,11 +25,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
   const handleClearForm = (e) => {
     e.preventDefault()
     resetForm()
-    // console.log(e)
-    // setValues(DEFAULT_FORM_VALUES);
-    // errors = {}
-    // touched = {}
-    // handleReset
+    setValues(DEFAULT_FORM_VALUES);
   }
 
 
