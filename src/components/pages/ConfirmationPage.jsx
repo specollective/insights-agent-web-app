@@ -70,9 +70,9 @@ function ConfirmationPage() {
           </p>
 
           <ul className='list-decimal px-8'>
-            <li className='py-4'>If you have not received a text message, please resubmit your Name and Phone number below.</li>
-            <li className='py-4'>If you have already resubmitted your phone number and are still not receiving a text message, please </li>
-            <li className='py-4'>If you have tried previous steps and are still not receiving a text message, please contact us at 800-555-1234</li>
+            <li>If you have not received a text message, please resubmit your Name and Phone number below.</li>
+            <li>If you have already resubmitted your phone number and are still not receiving a text message, please </li>
+            <li>If you have tried previous steps and are still not receiving a text message, please contact us at 800-555-1234</li>
           </ul>
         </div>
 
