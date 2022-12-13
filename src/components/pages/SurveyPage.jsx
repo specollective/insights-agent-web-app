@@ -74,7 +74,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           </label>
         </div>
         <span className='error-message'>
-            { touched.isHispanicOrLatino && errors.isHispanicOrLatino && <span>{ errors.isHispanicOrLatino }</span>}
+            { touched.isHispanicOrLatino && errors.isHispanicOrLatino && <span> Error: Required Field </span>}
         </span>
 
         <div className={ `question p-4 ${touched.technologyCompetencyLevel && errors.technologyCompetencyLevel ? "border-2 border-[#FA0000]" : ""}` }>
@@ -150,7 +150,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-            { touched.technologyCompetencyLevel && errors.technologyCompetencyLevel && <span>{errors.technologyCompetencyLevel}</span>}
+            { touched.technologyCompetencyLevel && errors.technologyCompetencyLevel && <span> Error: Required Field </span>}
         </span>
 
         <div>
@@ -220,7 +220,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-            { touched.internetAccess && errors.internetAccess && <span>Error: Required Field</span>}
+            { touched.internetAccess && errors.internetAccess && <span> {errors.internetAccess} </span>}
         </span>
 
 
@@ -300,9 +300,9 @@ export function handleSubmit(values, { props }) {
  */
 export const validationSchema = Yup.object().shape({
   race: Yup.array().min(1, "Error: Required Field"),
-  isHispanicOrLatino: Yup.string().required("Error: Required Field"),
+  isHispanicOrLatino: Yup.string().required(),
   householdMembers: Yup.string().required("Error: Required Field"),
-  technologyCompetencyLevel: Yup.number().min(1).required("Error: Required Field"),
+  technologyCompetencyLevel: Yup.number().min(1).required(),
   computerUse: Yup.array().min(1, "Error: Required Field"),
   householdComputers: Yup.string().required("Error: Required Field"),
   internetAccess: Yup.array().min(1, "Error: Required Field"),
