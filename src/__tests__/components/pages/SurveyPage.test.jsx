@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent, act, within } from '@testing-library/react';
 import SurveyPage from 'components/pages/SurveyPage';
-import { createSurvey } from 'services/survey';
+import { createSurveyResult } from 'services/survey_result';
 import i18nTest from 'utils/i18nTest';
 import { I18nextProvider } from 'react-i18next';
 import { INTERNET_ACCESS, RACE_OPTIONS, COMPUTER_USE } from 'constants/surveys';
@@ -17,13 +17,14 @@ jest.mock('hooks/authentication', () => ({
 }));
 
 // Mock out survey service
-jest.mock('services/survey', () => ({
-  createSurvey: jest.fn(),
+jest.mock('services/survey_result', () => ({
+  createSurveyResult: jest.fn(),
 }));
 
 // Mock out react router
 jest.mock('react-router-dom', () => ({
   useNavigate: () => jest.fn(),
+  useParams: () => jest.fn(),
 }));
 
 // Helper function to DRY up the test code.
@@ -81,7 +82,7 @@ describe('Survey Page', () => {
       });
 
       // Asserting that the bend service is called with the right values.
-      expect(createSurvey).toHaveBeenCalledWith({
+      expect(createSurveyResult).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
         computerUse: [],
         householdMembers: '1',
@@ -108,7 +109,7 @@ describe('Survey Page', () => {
         fireEvent.click(screen.getByText('Submit'));
       });
 
-      expect(createSurvey).toHaveBeenCalledWith({
+      expect(createSurveyResult).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
         computerUse: [],
         householdMembers: '1',
@@ -134,7 +135,7 @@ describe('Survey Page', () => {
         fireEvent.click(screen.getByText('Submit'));
       });
 
-      expect(createSurvey).toHaveBeenCalledWith({
+      expect(createSurveyResult).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
         computerUse: [],
         householdMembers: '1',
@@ -168,7 +169,7 @@ describe('Survey Page', () => {
       });
 
       // Asserting that the bend service is called with the right values.
-      expect(createSurvey).toHaveBeenCalledWith({
+      expect(createSurveyResult).toHaveBeenCalledWith({
         isHispanicOrLatino: 'true',
         computerUse: [],
         householdMembers: '1',
@@ -198,7 +199,7 @@ describe('Survey Page', () => {
       });
 
       // Asserting that the bend service is called with the right values.
-      expect(createSurvey).toHaveBeenCalledWith({
+      expect(createSurveyResult).toHaveBeenCalledWith({
         isHispanicOrLatino: 'true',
         computerUse: [],
         householdMembers: '3',

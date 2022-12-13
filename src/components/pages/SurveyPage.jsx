@@ -1,11 +1,9 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from 'hooks/authentication';
-import { createSurvey } from "services/survey";
+import { createSurveyResult } from "services/survey_result";
 import {
   DEFAULT_FORM_VALUES,
   RACE_OPTIONS,
-  RACE_OPTIONS_TWO,
   HOUSEHOLD_MEMBERS,
   INTERNET_ACCESS,
   IS_HISPANIC_OPTIONS,
@@ -302,11 +300,17 @@ export const SurveyPageForm = withFormik({
 function SurveyPage() {
   const auth = useAuth();
   const navigate = useNavigate()
+  const { surveyId } = useParams()
 
   const handleSubmit = async (formData) => {
+    const { survey_token } = auth.user
     try {
-      await createSurvey(formData);
-      navigate("/success", { replace: true });
+      await createSurveyResult({ 
+        token: survey_token, 
+        surveyId, 
+        ...formData
+      })
+      navigate('/success', { replace: true })
     } catch (e) {
       console.log(e);
     }
