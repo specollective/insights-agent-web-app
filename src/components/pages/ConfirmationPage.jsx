@@ -52,28 +52,28 @@ function ConfirmationPage() {
           <img src={ProgressBar1} alt='progress' />
         </div>
         <div>
-          <h1 className='pb-7 md:pb-12 text-base md:text-3xl font-semibold'>Thank you for helping us empower the building of a better future for all, through equitable technology.</h1>
-          <p>
+          <h1 className='pb-12 px-8 text-base md:text-3xl font-semibold'>Thank you for helping us empower the building of a better future for all, through equitable technology.</h1>
+          <p className='px-8'>
             We have received your information for participation. You should be receiving a text message to the phone number provided with next steps.
           </p>
         </div>
 
-        <div className='hidden md:grid place-content-center pt-16 text-xl underline'>
+        <div className='grid place-content-center pt-16 text-sm md:text-xl underline'>
           <Link to='/'>Go back to Home</Link>
         </div>
 
         <hr />
 
-        <div className="container">
+        <div className="px-8">
           <p className='text-base pb-16'>
             If you have not received a text message please proceed to the following steps:
           </p>
 
-          <ol className='list-decimal'>
-            <li>If you have not received a text message, please resubmit your Name and Phone number below.</li>
-            <li>If you have already resubmitted your phone number and are still not receiving a text message, please </li>
-            <li>If you have tried previous steps and are still not receiving a text message, please contact us at 800-555-1234</li>
-          </ol>
+          <ul className='list-decimal px-8'>
+            <li className='py-4'>If you have not received a text message, please resubmit your Name and Phone number below.</li>
+            <li className='py-4'>If you have already resubmitted your phone number and are still not receiving a text message, please </li>
+            <li className='py-4'>If you have tried previous steps and are still not receiving a text message, please contact us at 800-555-1234</li>
+          </ul>
         </div>
 
           {/*<div>
