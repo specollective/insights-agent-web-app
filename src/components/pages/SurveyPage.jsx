@@ -131,17 +131,20 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             { touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel && <span> Error: Required Field </span>}
         </span>
 
-        <div className="question p-4">
+        <div className={ `question p-4 ${touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             I can usually handle computer problems on my own
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.handleComputerProblemsLevel}
+            name="handleComputerProblemsLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
+        <span className='error-message'>
+            { touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel && <span> Error: Required Field </span>}
+        </span>
 
         <div className="question p-4">
           <h4 className="font-semibold">
@@ -291,6 +294,7 @@ export function mapPropsToValues({
   householdComputers,
   computerDifficultyLevel, 
   solveComputerProblemsLevel,
+  handleComputerProblemsLevel,
 }) {
   return {
     race: race || [],
@@ -302,6 +306,7 @@ export function mapPropsToValues({
     householdComputers: householdComputers,
     computerDifficultyLevel: computerDifficultyLevel, 
     solveComputerProblemsLevel: solveComputerProblemsLevel,
+    handleComputerProblemsLevel: handleComputerProblemsLevel,
   };
 }
 
@@ -328,6 +333,7 @@ export const validationSchema = Yup.object().shape({
   technologyCompetencyLevel: Yup.number().min(1).required(),
   computerDifficultyLevel: Yup.number().min(1).required(),
   solveComputerProblemsLevel: Yup.number().min(1).required(),
+  handleComputerProblemsLevel: Yup.number().min(1).required(),
   computerUse: Yup.array().min(1, "Error: Required Field"),
   householdComputers: Yup.string().required("Error: Required Field"),
   internetAccess: Yup.array().min(1, "Error: Required Field"),
