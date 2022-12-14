@@ -14,6 +14,9 @@ function LandingPage() {
     </div>
   )
 
+  const translatedIntro = t("introParagraphs")
+  console.log(translatedIntro)
+
   const introParagraphs = [
     `Have you ever felt that "technology is too confusing" or "this is
   not how I would use technology" or "I need something that actually
@@ -90,7 +93,7 @@ function LandingPage() {
 
           <section>
             <div className='py-10 font-extrabold text-center text-xl md:text-2xl lg:text-3xl'>
-              <h3>Your Privacy is Important</h3>
+              <h3>{t("LandingPrivacyImportant")}</h3>
             </div>
 
             <ul className='px-10'>
@@ -109,7 +112,7 @@ function LandingPage() {
 
           <section>
             <div className='py-10 font-extrabold text-center text-xl md:text-2xl lg:text-3xl'>
-              <h3>What will happen to the data:</h3>
+              <h3>{t("LandingWhatWillHappen")}:</h3>
             </div>
 
             <ul className='px-10'>
@@ -122,9 +125,7 @@ function LandingPage() {
             </ul>
             <div className='pt-10'>
               <p>
-                You are the expert of you and we'll pay you for that expertise.
-                We'll compensate you at the beginning of the study and at the
-                conclusion of the study.
+              {t("LandingYouAreTheExpert")}
               </p>
               <p>
                 We'll also ask you for additional information through voluntary

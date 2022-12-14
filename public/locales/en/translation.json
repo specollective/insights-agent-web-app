@@ -72,5 +72,8 @@
     "2": "Slightly",
     "3": "Fairly",
     "4": "Highly"
-  }
+  },
+  "LandingPrivacyImportant": "Your Privacy is Important",
+  "LandingWhatWillHappen": "What will happen to the data",
+  "LandingYouAreTheExpert": "You are the expert of you and we'll pay you for that expertise. We'll compensate you at the beginning of the study and at the conclusion of the study."
 }
