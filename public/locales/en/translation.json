@@ -43,5 +43,15 @@
     "other-pacific-islander": "Other Pacific Islander",
     "other": "Other race not listed above",
     "decline": "Decline to identify"
+  },
+  "HispanicOptions": {
+    "true": "Yes"
+  },
+  "InternetAccessOptions": {
+    "cellular-data": "Cellular data plan for smartphone",
+    "broadband": "Broadband internet service",
+    "satellite": "Satellite internet service",
+    "dial-up": "Dial up internet service",
+    "other-service": "Some other service"
   }
 }

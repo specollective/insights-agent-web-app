@@ -1,6 +1,5 @@
 import { Trans } from 'react-i18next'
 
-
 export const DEFAULT_FORM_VALUES = {
   isHispanicOrLatino: null,
   internetAccess: [],
@@ -40,17 +39,17 @@ export const RACE_OPTIONS_TWO = [
 
 // TODO: Apply i18n localization
 export const IS_HISPANIC_OPTIONS = [
-  { value: 'true', label: 'Yes' },
-  { value: 'false', label: 'No' },
+  { value: 'true', label: <Trans i18nKey="HispanicTrue" /> },
+  { value: 'false', label: <Trans i18nKey="HispanicOptions.true" /> },
   { value: 'decline', label: 'Decline to identify' },
 ]
 
 export const INTERNET_ACCESS = [
-  { value: 'cellular-data', label: 'Cellular data plan for smartphone' },
-  { value: 'broadband', label: 'Broadband internet service' },
-  { value: 'satellite', label: 'Satellite internet service' },
-  { value: 'dial-up', label: 'Dial up internet service' },
-  { value: 'other-service', label: 'Some other service' },
+  { value: 'cellular-data', label: <Trans i18nKey="InternetAccessOptions.cellular-data" /> },
+  { value: 'broadband', label: <Trans i18nKey="InternetAccessOptions.broadband" /> },
+  { value: 'satellite', label: <Trans i18nKey="InternetAccessOptions.satellite" /> },
+  { value: 'dial-up', label: <Trans i18nKey="InternetAccessOptions.dial-up" /> },
+  { value: 'other-service', label: <Trans i18nKey="InternetAccessOptions.other-service" /> },
 ]
 
 export const HOUSEHOLD_MEMBERS = [
