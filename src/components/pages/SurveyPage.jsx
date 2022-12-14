@@ -106,14 +106,14 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             computer
           </h4>
           <RadioButtonGroup
-            value={values.computerDifficulties}
-            name="computerDifficulties"
+            value={values.computerDifficultyLevel}
+            name="computerDifficultyLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
         <span className='error-message'>
-            { touched.computerDifficulties && errors.computerDifficulties && <span> Error: Required Field </span>}
+            { touched.computerDifficultyLevel && errors.computerDifficultyLevel && <span> Error: Required Field </span>}
         </span>
         <div className="question p-4">
           <h4 className="font-semibold">
@@ -284,7 +284,7 @@ export function mapPropsToValues({
   technologyCompetencyLevel,
   internetAccess,
   householdComputers,
-  computerDifficulties
+  computerDifficultyLevel
 }) {
   return {
     race: race || [],
@@ -294,7 +294,7 @@ export function mapPropsToValues({
     internetAccess: internetAccess || [],
     householdMembers: householdMembers,
     householdComputers: householdComputers,
-    computerDifficulties: computerDifficulties
+    computerDifficultyLevel: computerDifficultyLevel
   };
 }
 
@@ -319,7 +319,7 @@ export const validationSchema = Yup.object().shape({
   isHispanicOrLatino: Yup.string().required(),
   householdMembers: Yup.string().required("Error: Required Field"),
   technologyCompetencyLevel: Yup.number().min(1).required(),
-  computerDifficulties: Yup.number().min(1).required(),
+  computerDifficultyLevel: Yup.number().min(1).required(),
   computerUse: Yup.array().min(1, "Error: Required Field"),
   householdComputers: Yup.string().required("Error: Required Field"),
   internetAccess: Yup.array().min(1, "Error: Required Field"),
