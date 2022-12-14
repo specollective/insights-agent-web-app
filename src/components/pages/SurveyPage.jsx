@@ -1,11 +1,9 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 // import { useAuth } from 'hooks/authentication';
-import { createSurvey } from "services/survey";
+import { createSurveyResult } from "services/survey_result";
 import {
   DEFAULT_FORM_VALUES,
   RACE_OPTIONS,
-  RACE_OPTIONS_TWO,
   HOUSEHOLD_MEMBERS,
   INTERNET_ACCESS,
   IS_HISPANIC_OPTIONS,
@@ -49,7 +47,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       <section className="min-w-full space-y-4 px-0 py-10  md:px-0 lg:px-6 ">
         <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
 
-        <div className="question p-4">
+        <div className="question">
           <h4 className="font-semibold">Please select your race.*</h4>
           <p>Check all that apply.</p>
           {/* needs closing div */}
@@ -66,7 +64,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           </div>
         </div>
 
-        <div className="question p-4">
+        <div className="question">
           <h4 className="font-semibold">{t("surveyHispanicHeader")}</h4>
           <RadioButtonGroup
             value={values.isHispanicOrLatino}
@@ -75,7 +73,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question p-4">
+        <div className="question">
           <h4 className="font-semibold">
             Rate your level of competence with computer technology*
           </h4>
@@ -87,7 +85,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question p-4">
+        <div className="question">
           <h4 className="font-semibold">
             I can usually handle most difficulties I encounter when using a
             computer
@@ -99,7 +97,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             isHorizontal={true}
           />
         </div>
-        <div className="question p-4">
+        <div className="question">
           <h4 className="font-semibold">
             I can solve problems as they arise when I use a computer
           </h4>
@@ -110,7 +108,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             isHorizontal={true}
           />
         </div>
-        <div className="question p-4">
+        <div className="question">
           <h4 className="font-semibold">
             I can usually handle computer problems on my own
           </h4>
@@ -122,7 +120,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question p-4">
+        <div className="question">
           <h4 className="font-semibold">
             If my computer is acting up, I can find a way to get what I want
             without relying on others
@@ -135,7 +133,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question p-4">
+        <div className="question">
           <h4 className="font-semibold">
             I can complete a complex computer based task (e.g., setting up a
             printer or wi-fi)
@@ -153,7 +151,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             Please answer about your HOUSEHOLD:
           </h4>
         </div>
-        <div className="question p-4">
+        <div className="question">
           <h5 className="font-semibold">
             How many people live/stay in your household?*
           </h5>
@@ -166,7 +164,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           
         </div>
 
-        <div className="question p-4">
+        <div className="question">
           <h4 className="font-semibold">
             What is the intended use of this computer?*
           </h4>
@@ -180,7 +178,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question p-4">
+        <div className="question">
           <h4 className="font-semibold">
             How many other computers (including tablets) do you have in your
             household?*
@@ -193,7 +191,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
           />
         </div>
 
-        <div className="question p-4">
+        <div className="question">
           <h4 className="font-semibold">
             How does your household access the internet?*
           </h4>
@@ -303,14 +301,20 @@ export const SurveyPageForm = withFormik({
 function SurveyPage() {
   // const auth = useAuth();
   const navigate = useNavigate()
+  const { surveyId } = useParams()
 
   const handleSubmit = async (formData) => {
-    try {
-      await createSurvey(formData);
-      navigate("/success", { replace: true });
-    } catch (e) {
-      console.log(e);
-    }
+    // const { survey_token } = auth.user
+    // try {
+    //   await createSurveyResult({ 
+    //     token: survey_token, 
+    //     surveyId, 
+    //     ...formData
+    //   })
+    //   navigate('/success', { replace: true })
+    // } catch (e) {
+    //   console.log(e);
+    // }
   };
 
   // TODO: Move into useAuth
