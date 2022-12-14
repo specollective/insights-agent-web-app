@@ -100,7 +100,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
 
-        <div className={ `question p-4 ${touched.technologyCompetencyLevel && errors.technologyCompetencyLevel ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-4 ${touched.computerDifficultyLevel && errors.computerDifficultyLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             I can usually handle most difficulties I encounter when using a
             computer
@@ -115,17 +115,22 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         <span className='error-message'>
             { touched.computerDifficultyLevel && errors.computerDifficultyLevel && <span> Error: Required Field </span>}
         </span>
-        <div className="question p-4">
+
+        <div className={ `question p-4 ${touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             I can solve problems as they arise when I use a computer
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.solveComputerProblemsLevel}
+            name="solveComputerProblemsLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
+        <span className='error-message'>
+            { touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel && <span> Error: Required Field </span>}
+        </span>
+
         <div className="question p-4">
           <h4 className="font-semibold">
             I can usually handle computer problems on my own
@@ -284,7 +289,8 @@ export function mapPropsToValues({
   technologyCompetencyLevel,
   internetAccess,
   householdComputers,
-  computerDifficultyLevel
+  computerDifficultyLevel, 
+  solveComputerProblemsLevel,
 }) {
   return {
     race: race || [],
@@ -294,7 +300,8 @@ export function mapPropsToValues({
     internetAccess: internetAccess || [],
     householdMembers: householdMembers,
     householdComputers: householdComputers,
-    computerDifficultyLevel: computerDifficultyLevel
+    computerDifficultyLevel: computerDifficultyLevel, 
+    solveComputerProblemsLevel: solveComputerProblemsLevel,
   };
 }
 
@@ -320,6 +327,7 @@ export const validationSchema = Yup.object().shape({
   householdMembers: Yup.string().required("Error: Required Field"),
   technologyCompetencyLevel: Yup.number().min(1).required(),
   computerDifficultyLevel: Yup.number().min(1).required(),
+  solveComputerProblemsLevel: Yup.number().min(1).required(),
   computerUse: Yup.array().min(1, "Error: Required Field"),
   householdComputers: Yup.string().required("Error: Required Field"),
   internetAccess: Yup.array().min(1, "Error: Required Field"),

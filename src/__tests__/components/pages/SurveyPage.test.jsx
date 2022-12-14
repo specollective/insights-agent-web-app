@@ -63,6 +63,7 @@ describe('Survey Page', () => {
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
       const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
+      const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -87,6 +88,7 @@ describe('Survey Page', () => {
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
         fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
+        fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
@@ -108,6 +110,7 @@ describe('Survey Page', () => {
         internetAccess: ['dial-up'],
         technologyCompetencyLevel: '1',
         computerDifficultyLevel: '3',
+        solveComputerProblemsLevel: '2',
       });
     });
 
@@ -118,6 +121,7 @@ describe('Survey Page', () => {
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
       const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
+      const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -130,6 +134,7 @@ describe('Survey Page', () => {
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
         fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
+        fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
@@ -150,6 +155,7 @@ describe('Survey Page', () => {
         internetAccess: ['dial-up'],
         technologyCompetencyLevel: '1',
         computerDifficultyLevel: '3',
+        solveComputerProblemsLevel: '2',
       });
     });
 
@@ -160,6 +166,7 @@ describe('Survey Page', () => {
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
       const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
+      const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -171,6 +178,7 @@ describe('Survey Page', () => {
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
         fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
+        fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
@@ -191,6 +199,7 @@ describe('Survey Page', () => {
         internetAccess: ['dial-up'],
         technologyCompetencyLevel: '1',
         computerDifficultyLevel: '3',
+        solveComputerProblemsLevel: '2',
       });
     });
   });
@@ -203,6 +212,7 @@ describe('Survey Page', () => {
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
       const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
+      const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -215,6 +225,7 @@ describe('Survey Page', () => {
         fireEvent.click(hispanicRadioButtonGroup.getByText('Yes'));
         fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
+        fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
@@ -236,6 +247,7 @@ describe('Survey Page', () => {
         internetAccess: ['dial-up'],
         technologyCompetencyLevel: '1',
         computerDifficultyLevel: '3',
+        solveComputerProblemsLevel: '2',
       });
     });
   });
@@ -248,6 +260,7 @@ describe('Survey Page', () => {
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
       const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
+      const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -259,6 +272,7 @@ describe('Survey Page', () => {
         fireEvent.click(hispanicRadioButtonGroup.getByText('Yes'));
         fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
+        fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '3' },
         });
@@ -280,6 +294,7 @@ describe('Survey Page', () => {
         internetAccess: ['dial-up'],
         technologyCompetencyLevel: '1',
         computerDifficultyLevel: '3',
+        solveComputerProblemsLevel: '2',
       });
     });
   });

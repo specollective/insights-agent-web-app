@@ -6,7 +6,8 @@ export const DEFAULT_FORM_VALUES = {
   householdMembers: '1',
   computerUse: [],
   householdComputers: '0',
-  computerDifficulties: null,
+  computerDifficultyLevel: null,
+  solveComputerProblemsLevel: null,
 }
 
 // TODO: Apply i18n localization
