@@ -116,14 +116,20 @@ export const SignUpFormWithFormik = withFormik({
   validationSchema,
 })(SignUpForm)
 
-function SignUp() {
+function SignUp({ retry }) {
   const auth = useAuth()
   const navigate = useNavigate()
 
   async function handleSubmit(formData) {
     try {
       
-      await auth.register(formData)
+      const response = await auth.register(formData)
+
+      if ( !retry && response.error ) {
+        window.alert(response.error)
+        return
+      }
+
       navigate('/confirmation', { replace: true })
     } catch (e) {
       window.alert('Something went wrong')

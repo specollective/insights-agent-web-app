@@ -62,7 +62,7 @@ function ConfirmationPage() {
 
       </div>
       
-      <SignUpForm />
+      <SignUpForm retry/>
     </main>
   )
 }
