@@ -73,10 +73,10 @@ export const COMPUTER_USE = [
 ]
 
 export const TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS = [
-  { value: '1', label: '1', secondaryLabel: 'Not at all' },
-  { value: '2', label: '2', secondaryLabel: 'Slightly' },
-  { value: '3', label: '3', secondaryLabel: 'Fairly' },
-  { value: '4', label: '4', secondaryLabel: 'Highly' },
+  { value: '1', label: '1', secondaryLabel: <Trans i18nKey="CompetencyOptions.1" /> },
+  { value: '2', label: '2', secondaryLabel: <Trans i18nKey="CompetencyOptions.2" /> },
+  { value: '3', label: '3', secondaryLabel: <Trans i18nKey="CompetencyOptions.3" /> },
+  { value: '4', label: '4', secondaryLabel: <Trans i18nKey="CompetencyOptions.4" /> },
 ]
 
 export const HOUSEHOLD_COMPUTERS = [

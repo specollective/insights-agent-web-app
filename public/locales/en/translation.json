@@ -63,5 +63,11 @@
     "satellite": "Satellite internet service",
     "dial-up": "Dial up internet service",
     "other-service": "Some other service"
+  },
+  "CompetencyOptions": {
+    "1": "Not at all",
+    "2": "Slightly",
+    "3": "Fairly",
+    "4": "Highly"
   }
 }
