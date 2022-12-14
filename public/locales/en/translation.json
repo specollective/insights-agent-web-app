@@ -75,5 +75,17 @@
   },
   "LandingPrivacyImportant": "Your Privacy is Important",
   "LandingWhatWillHappen": "What will happen to the data",
-  "LandingYouAreTheExpert": "You are the expert of you and we'll pay you for that expertise. We'll compensate you at the beginning of the study and at the conclusion of the study."
+  "LandingYouAreTheExpert": "You are the expert of you and we'll pay you for that expertise. We'll compensate you at the beginning of the study and at the conclusion of the study.",
+  "LandingWellAsk": "We'll also ask you for additional information through voluntary surveys and interviews throughout the study period.",
+  "LandingPurposeOfProject": "Purpose of the Research Project",
+  "LandingStudyComputerUse": "Study computer use in underserved populations",
+  "LandingDataCollected": "Data Collected",
+  "LandingOneTimeStudy": "A one time survey of demographic information",
+  "LandingWebsiteAndApplication": "Website and application usage, anonymized for privacy",
+  "LandingInternetConnectivity": "Internet connectivity statistic",
+  "LandingNoAdditionalData": "No additional data will be collected as part of this study",
+  "LandingNoAdditionalPII": "No additional PII data will be collected as part of this study",
+  "LandingToYou": "To you: $25 gift card at sign up, $75 gift card at completion",
+  "LandingToBuildJUSTLY": "To buildJUSTLY: Data to help understand computer usage by demographics",
+  "LandingNoComputerPerformance": "No computer performance issues identified"
 }

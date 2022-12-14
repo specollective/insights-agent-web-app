@@ -125,52 +125,49 @@ function LandingPage() {
             </ul>
             <div className='pt-10'>
               <p>
-              {t("LandingYouAreTheExpert")}
+                {t("LandingYouAreTheExpert")}
               </p>
               <p>
-                We'll also ask you for additional information through voluntary
-                surveys and interviews throughout the study period.
+                {t("LandingWellAsk")}
               </p>
             </div>
           </section>
 
           <section>
             <div className='border border-black rounded mt-10 p-4 md:p-6 lg:p-16'>
-              <h4 className='font-bold'>Purpose of the Research Project</h4>
+              <h4 className='font-bold'>{t("LandingPurposeOfProject")}</h4>
               <p className='pl-8 pt-4'>
-                Study computer use in underserved populations
+              {t("LandingStudyComputerUse")}
               </p>
 
-              <h4 className='font-bold pt-4'>Data Collected</h4>
+              <h4 className='font-bold pt-4'>{t("LandingDataCollected")}</h4>
               <ul>
                 <li className='pl-8 pt-4'>
-                  • A one time survey of demographic information
+                  • {t("LandingOneTimeStudy")}
                 </li>
                 <li className='pl-8'>
-                  • Website and application useage, anonymized for privacy
+                  • {t("LandingWebsiteAndApplication")}
                 </li>
-                <li className='pl-8'>• Internet connectivity statistic</li>
+                <li className='pl-8'>• {t("LandingInternetConnectivity")}</li>
                 <li className='pl-8'>
-                  • No additional data will be collected as part of this study
+                  • {t("LandingNoAdditionalData")}
                 </li>
                 <li className='pl-8'>
-                  • No additional PII data will be collected as part of this
-                  study
+                  • {t("LandingNoAdditionalPII")}
                 </li>
               </ul>
 
               <h4 className='font-bold pt-4'>Benefits</h4>
               <p className='pl-8 pt-4'>
-                To you: $25 gift card at sign up, $75 gift card at completion.
+                {t("LandingToYou")}
               </p>
               <p className='pl-8 pt-4'>
-                To buildJUSTLY: Data to help understand computer usage by
-                demographics
+                {t("LandingToBuildJUSTLY")}
               </p>
 
               <h4 className='font-bold'>Risks</h4>
               <p className='pl-8 pt-4'>
-                No computer performance issues identified
+                {t("LandingNoComputerPerformance")}
               </p>
             </div>
           </section>
