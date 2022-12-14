@@ -21,6 +21,10 @@
   "surveyICanComplete": "I can complete a complex computer based task (e.g., setting up a printer or wi-fi)",
   "surveyAnswerAboutHousehold": "Please answer about your HOUSEHOLD",
   "surveyHowManyLiveInHousehold": "How many people live/stay in your household?",
-  "surveyIntendedUse": "What is the intended use of this computer?"
+  "surveyIntendedUse": "What is the intended use of this computer?",
+  "surveyHowManyOtherComputers": "How many other computers (including tablets) do you have in your household?",
+  "surveyHowDoesHouseholdAccess": "How does your household access the internet?",
+  "surveyClearForm": "Clear Form",
+  "surveySubmit": "Submit"
 
 }

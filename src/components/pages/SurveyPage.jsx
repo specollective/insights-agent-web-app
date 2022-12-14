@@ -229,8 +229,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           }`}
         >
           <h4 className="font-semibold">
-            How many other computers (including tablets) do you have in your
-            household?*
+            {t("surveyHowManyOtherComputers")}
           </h4>
 
           <DropdownGroup
@@ -253,9 +252,10 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           }`}
         >
           <h4 className="font-semibold">
-            How does your household access the internet?*
+            {t("surveyHowDoesHouseholdAccess")}*
           </h4>
-          <p>Check all that apply.</p>
+          <p>{t("surveyCheckAll")}</p>
+
 
           <CheckboxGroup
             value={values.internetAccess}
@@ -276,13 +276,13 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             className="left cursor-pointer"
             onClick={handleClearForm}
           >
-            Clear Form
+            {t("surveyClearForm")}
           </button>
           <button
             type="submit"
             className="right text-white bg-green-100 rounded-sm px-6 py-2"
           >
-            Submit
+            {t("surveySubmit")}
           </button>
         </div>
       </section>
