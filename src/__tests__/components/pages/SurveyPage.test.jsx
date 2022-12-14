@@ -4,7 +4,7 @@ import SurveyPage from 'components/pages/SurveyPage';
 import { createSurveyResult } from 'services/survey_result';
 import i18nTest from 'utils/i18nTest';
 import { I18nextProvider } from 'react-i18next';
-import { INTERNET_ACCESS, RACE_OPTIONS, COMPUTER_USE } from 'constants/surveys';
+import { INTERNET_ACCESS, RACE_OPTIONS, RACE_OPTIONS_TWO, COMPUTER_USE } from 'constants/surveys';
 
 // Mock out auth hooks
 jest.mock('hooks/authentication', () => ({
@@ -69,6 +69,11 @@ describe('Survey Page', () => {
       
       // asserting all expected options are present
       RACE_OPTIONS.forEach((raceOption) => {
+        const input = raceCheckboxGroup.getByLabelText(raceOption.label);
+        expect(input).toBeInTheDocument();
+      });
+
+      RACE_OPTIONS_TWO.forEach((raceOption) => {
         const input = raceCheckboxGroup.getByLabelText(raceOption.label);
         expect(input).toBeInTheDocument();
       });
