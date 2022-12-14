@@ -100,18 +100,21 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
 
-        <div className="question p-4">
+        <div className={ `question p-4 ${touched.technologyCompetencyLevel && errors.technologyCompetencyLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             I can usually handle most difficulties I encounter when using a
             computer
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.computerDifficulties}
+            name="computerDifficulties"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
+        <span className='error-message'>
+            { touched.computerDifficulties && errors.computerDifficulties && <span> Error: Required Field </span>}
+        </span>
         <div className="question p-4">
           <h4 className="font-semibold">
             I can solve problems as they arise when I use a computer
@@ -281,6 +284,7 @@ export function mapPropsToValues({
   technologyCompetencyLevel,
   internetAccess,
   householdComputers,
+  computerDifficulties
 }) {
   return {
     race: race || [],
@@ -290,6 +294,7 @@ export function mapPropsToValues({
     internetAccess: internetAccess || [],
     householdMembers: householdMembers,
     householdComputers: householdComputers,
+    computerDifficulties: computerDifficulties
   };
 }
 
@@ -314,6 +319,7 @@ export const validationSchema = Yup.object().shape({
   isHispanicOrLatino: Yup.string().required(),
   householdMembers: Yup.string().required("Error: Required Field"),
   technologyCompetencyLevel: Yup.number().min(1).required(),
+  computerDifficulties: Yup.number().min(1).required(),
   computerUse: Yup.array().min(1, "Error: Required Field"),
   householdComputers: Yup.string().required("Error: Required Field"),
   internetAccess: Yup.array().min(1, "Error: Required Field"),
