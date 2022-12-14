@@ -4,6 +4,7 @@ import { createSurveyResult } from "services/survey_result";
 import {
   DEFAULT_FORM_VALUES,
   RACE_OPTIONS,
+  RACE_OPTIONS_TWO,
   HOUSEHOLD_MEMBERS,
   INTERNET_ACCESS,
   IS_HISPANIC_OPTIONS,
@@ -11,6 +12,7 @@ import {
   TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS,
   HOUSEHOLD_COMPUTERS,
 } from "constants/surveys";
+
 import "components/pages/SurveyPage.css";
 import { useTranslation, Trans } from "react-i18next";
 import { withFormik, Form, Field } from "formik";
