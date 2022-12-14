@@ -88,16 +88,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             { touched.isHispanicOrLatino && errors.isHispanicOrLatino && <span> Error: Required Field </span>}
         </span>
 
-        <div className={ `question p-4 ${touched.technologyCompetencyLevel && errors.technologyCompetencyLevel ? "border-2 border-[#FA0000]" : ""}` }>
+        <div>
           <h4 className="font-semibold">
             Rate your level of competence with computer technology*
           </h4>
-          <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
-            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
-            isHorizontal={true}
-          />
+          
         </div>
 
         <div className={ `question p-4 ${touched.computerDifficultyLevel && errors.computerDifficultyLevel ? "border-2 border-[#FA0000]" : ""}` }>
@@ -292,7 +287,6 @@ export function mapPropsToValues({
   isHispanicOrLatino,
   computerUse,
   householdMembers,
-  technologyCompetencyLevel,
   internetAccess,
   householdComputers,
   computerDifficultyLevel, 
@@ -305,7 +299,6 @@ export function mapPropsToValues({
     race: race || [],
     isHispanicOrLatino: isHispanicOrLatino,
     computerUse: computerUse || [],
-    technologyCompetencyLevel: technologyCompetencyLevel,
     internetAccess: internetAccess || [],
     householdMembers: householdMembers,
     householdComputers: householdComputers,
@@ -337,7 +330,6 @@ export const validationSchema = Yup.object().shape({
   race: Yup.array().min(1, "Error: Required Field"),
   isHispanicOrLatino: Yup.string().required(),
   householdMembers: Yup.string().required("Error: Required Field"),
-  technologyCompetencyLevel: Yup.number().min(1).required(),
   computerDifficultyLevel: Yup.number().min(1).required(),
   solveComputerProblemsLevel: Yup.number().min(1).required(),
   handleComputerProblemsLevel: Yup.number().min(1).required(),

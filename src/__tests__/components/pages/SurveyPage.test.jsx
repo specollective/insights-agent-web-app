@@ -61,7 +61,6 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
       const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
       const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
@@ -89,7 +88,6 @@ describe('Survey Page', () => {
         fireEvent.click(raceCheckboxGroup.getByText('Filipino'));
         fireEvent.click(raceCheckboxGroup.getByText('Black or African American'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
-        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
         fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
         fireEvent.click(handleProblemsRadioButtonGroup.getByText('4'));
@@ -114,7 +112,6 @@ describe('Survey Page', () => {
         householdComputers:'5+',
         race: ['white', 'filipino', 'black'],
         internetAccess: ['dial-up'],
-        technologyCompetencyLevel: '1',
         computerDifficultyLevel: '3',
         solveComputerProblemsLevel: '2',
         handleComputerProblemsLevel: '4',
@@ -128,7 +125,6 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
       const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
       const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
@@ -144,7 +140,6 @@ describe('Survey Page', () => {
         fireEvent.click(raceCheckboxGroup.getByText('Filipino'));
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
-        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
         fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
         fireEvent.click(handleProblemsRadioButtonGroup.getByText('4'));
@@ -168,7 +163,6 @@ describe('Survey Page', () => {
         householdComputers:'5+',
         race: ['decline'],
         internetAccess: ['dial-up'],
-        technologyCompetencyLevel: '1',
         computerDifficultyLevel: '3',
         solveComputerProblemsLevel: '2',
         handleComputerProblemsLevel: '4',
@@ -182,7 +176,6 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
       const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
       const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
@@ -197,7 +190,6 @@ describe('Survey Page', () => {
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(raceCheckboxGroup.getByText('Chinese'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
-        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
         fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
         fireEvent.click(handleProblemsRadioButtonGroup.getByText('4'));
@@ -221,7 +213,6 @@ describe('Survey Page', () => {
         householdComputers:'5+',
         race: ['chinese'],
         internetAccess: ['dial-up'],
-        technologyCompetencyLevel: '1',
         computerDifficultyLevel: '3',
         solveComputerProblemsLevel: '2',
         handleComputerProblemsLevel: '4',
@@ -237,7 +228,6 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
       const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
       const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
@@ -253,7 +243,6 @@ describe('Survey Page', () => {
         // Testing selecting multiple options
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Yes'));
-        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
         fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
         fireEvent.click(handleProblemsRadioButtonGroup.getByText('4'));
@@ -278,7 +267,6 @@ describe('Survey Page', () => {
         householdComputers:'5+',
         race: ['decline'],
         internetAccess: ['dial-up'],
-        technologyCompetencyLevel: '1',
         computerDifficultyLevel: '3',
         solveComputerProblemsLevel: '2',
         handleComputerProblemsLevel: '4',
@@ -294,7 +282,6 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
       const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
       const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
@@ -309,7 +296,6 @@ describe('Survey Page', () => {
         // Testing selecting value
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Yes'));
-        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
         fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
         fireEvent.click(handleProblemsRadioButtonGroup.getByText('4'));
@@ -334,7 +320,6 @@ describe('Survey Page', () => {
         householdComputers:'5+',
         race: ['decline'],
         internetAccess: ['dial-up'],
-        technologyCompetencyLevel: '1',
         computerDifficultyLevel: '3',
         solveComputerProblemsLevel: '2',
         handleComputerProblemsLevel: '4',

@@ -1,7 +1,6 @@
 export const DEFAULT_FORM_VALUES = {
   isHispanicOrLatino: null,
   internetAccess: [],
-  technologyCompetencyLevel: null,
   race: [],
   householdMembers: '1',
   computerUse: [],
