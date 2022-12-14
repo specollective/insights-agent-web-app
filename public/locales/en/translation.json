@@ -26,5 +26,7 @@
   "surveyHowDoesHouseholdAccess": "How does your household access the internet?",
   "surveyClearForm": "Clear Form",
   "surveySubmit": "Submit", 
-  "RaceOptionsWhite": "white"
+  "RaceOptions": {
+    "white": "White"
+  }
 }

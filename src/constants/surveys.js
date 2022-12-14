@@ -1,4 +1,5 @@
-import { t } from "i18next"
+import { Trans } from 'react-i18next'
+
 
 export const DEFAULT_FORM_VALUES = {
   isHispanicOrLatino: null,
@@ -16,7 +17,7 @@ export const DEFAULT_FORM_VALUES = {
 
 // TODO: Apply i18n localization
 export const RACE_OPTIONS = [
-  { value: 'white', label: t("RaceOptionsWhite")},
+  { value: 'white', label: <Trans i18nKey="RaceOptions.white" />},
   { value: 'black', label: 'Black or African American' },
   { value: 'american-indian', label: 'American Indian or Alaska Native' },
   { value: 'chinese', label: 'Chinese' },
