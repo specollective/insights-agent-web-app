@@ -19,6 +19,29 @@
   "LandingToYou": "To you: $25 gift card at sign up, $75 gift card at completion",
   "LandingToBuildJUSTLY": "To buildJUSTLY: Data to help understand computer usage by demographics",
   "LandingNoComputerPerformance": "No computer performance issues identified",
+  "LandingIntroParagraphs": [
+    "Have you ever felt that \"technology is too confusing\" or \"this is not how I would use technology\" or \"I need something that actually helps me\"? Then you are the right person to help us out...",
+    "The fact is that technology is often made for technologists by technologists. Current customer information does not include everyone. With your help buildJUSTLY can help technologists understand all kinds of customers.",
+    "When you agree to the study, we’ll ask you to install something we call the Insight Agent."
+  ],
+  "LandingFirstUnorderedList": [
+    "Once an hour, the Insight Agent will capture the programs and websites on the computer",
+    "This information will be sent by internet to our servers.",
+    "All of the information will be collected with other information from other participants around the United States.",
+    "The servers will sort the information by type into categories like social media, entertainment, work productivity, education and more."
+  ],
+  "LandingPrivacyList": [
+    "We use industry standard practices to safeguard your data.",
+    "Additionally, your data will be anonymized before we use it for research.",
+    "You are in control and can opt out of the study at any time."
+  ],
+  "LandingWhatWillHappenList": [
+    "We will share our findings with technology builders so that they can build technology that’s useful for people like you and your community.",
+    "We want to make sure that all customers are represented."
+  ],
+  "LandingBenefits": "Benefits",
+  "LandingRisks": "Risks",
+  
   "surveyHispanicHeader": "Are you of Hispanic origin?*",
   "surveyTitle": "Insights Agent General Info Survey",
   "surveyDescription": "A core part of this study is tracking if technology is equitably benefit every person regardless of who they are. Your answer to these US Census style questions will help us better understand technology + diversity.",
@@ -87,27 +110,5 @@
     "2": "Slightly",
     "3": "Fairly",
     "4": "Highly"
-  },
-  "LandingIntroParagraphs": [
-    "Have you ever felt that \"technology is too confusing\" or \"this is not how I would use technology\" or \"I need something that actually helps me\"? Then you are the right person to help us out...",
-    "The fact is that technology is often made for technologists by technologists. Current customer information does not include everyone. With your help buildJUSTLY can help technologists understand all kinds of customers.",
-    "When you agree to the study, we’ll ask you to install something we call the Insight Agent."
-  ],
-  "LandingFirstUnorderedList": [
-    "Once an hour, the Insight Agent will capture the programs and websites on the computer",
-    "This information will be sent by internet to our servers.",
-    "All of the information will be collected with other information from other participants around the United States.",
-    "The servers will sort the information by type into categories like social media, entertainment, work productivity, education and more."
-  ],
-  "LandingPrivacyList": [
-    "We use industry standard practices to safeguard your data.",
-    "Additionally, your data will be anonymized before we use it for research.",
-    "You are in control and can opt out of the study at any time."
-  ],
-  "LandingWhatWillHappenList": [
-    "We will share our findings with technology builders so that they can build technology that’s useful for people like you and your community.",
-    "We want to make sure that all customers are represented."
-  ],
-  "LandingBenefits": "Benefits",
-  "LandingRisks": "Risks"
+  }
 }
