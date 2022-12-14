@@ -4,6 +4,21 @@
   "fullNameLabel": "Enter Full Name (First & Last)",
   "phoneNumberLabel": "Enter Phone Number",
   "submitText": "Submit",
+  "LandingPrivacyImportant": "Your Privacy is Important",
+  "LandingWhatWillHappen": "What will happen to the data",
+  "LandingYouAreTheExpert": "You are the expert of you and we'll pay you for that expertise. We'll compensate you at the beginning of the study and at the conclusion of the study.",
+  "LandingWellAsk": "We'll also ask you for additional information through voluntary surveys and interviews throughout the study period.",
+  "LandingPurposeOfProject": "Purpose of the Research Project",
+  "LandingStudyComputerUse": "Study computer use in underserved populations",
+  "LandingDataCollected": "Data Collected",
+  "LandingOneTimeStudy": "A one time survey of demographic information",
+  "LandingWebsiteAndApplication": "Website and application usage, anonymized for privacy",
+  "LandingInternetConnectivity": "Internet connectivity statistic",
+  "LandingNoAdditionalData": "No additional data will be collected as part of this study",
+  "LandingNoAdditionalPII": "No additional PII data will be collected as part of this study",
+  "LandingToYou": "To you: $25 gift card at sign up, $75 gift card at completion",
+  "LandingToBuildJUSTLY": "To buildJUSTLY: Data to help understand computer usage by demographics",
+  "LandingNoComputerPerformance": "No computer performance issues identified",
   "surveyHispanicHeader": "Are you of Hispanic origin?*",
   "surveyTitle": "Insights Agent General Info Survey",
   "surveyDescription": "A core part of this study is tracking if technology is equitably benefit every person regardless of who they are. Your answer to these US Census style questions will help us better understand technology + diversity.",
@@ -73,19 +88,15 @@
     "3": "Fairly",
     "4": "Highly"
   },
-  "LandingPrivacyImportant": "Your Privacy is Important",
-  "LandingWhatWillHappen": "What will happen to the data",
-  "LandingYouAreTheExpert": "You are the expert of you and we'll pay you for that expertise. We'll compensate you at the beginning of the study and at the conclusion of the study.",
-  "LandingWellAsk": "We'll also ask you for additional information through voluntary surveys and interviews throughout the study period.",
-  "LandingPurposeOfProject": "Purpose of the Research Project",
-  "LandingStudyComputerUse": "Study computer use in underserved populations",
-  "LandingDataCollected": "Data Collected",
-  "LandingOneTimeStudy": "A one time survey of demographic information",
-  "LandingWebsiteAndApplication": "Website and application usage, anonymized for privacy",
-  "LandingInternetConnectivity": "Internet connectivity statistic",
-  "LandingNoAdditionalData": "No additional data will be collected as part of this study",
-  "LandingNoAdditionalPII": "No additional PII data will be collected as part of this study",
-  "LandingToYou": "To you: $25 gift card at sign up, $75 gift card at completion",
-  "LandingToBuildJUSTLY": "To buildJUSTLY: Data to help understand computer usage by demographics",
-  "LandingNoComputerPerformance": "No computer performance issues identified"
+  "LandingIntroParagraphs": [
+    "Have you ever felt that \"technology is too confusing\" or \"this is not how I would use technology\" or \"I need something that actually helps me\"? Then you are the right person to help us out...",
+    "The fact is that technology is often made for technologists by technologists. Current customer information does not include everyone. With your help buildJUSTLY can help technologists understand all kinds of customers.",
+    "When you agree to the study, we’ll ask you to install something we call the Insight Agent."
+  ],
+  "LandingFirstUnorderedList": [
+    "Once an hour, the Insight Agent will capture the programs and websites on the computer",
+    "This information will be sent by internet to our servers.",
+    "All of the information will be collected with other information from other participants around the United States.",
+    "The servers will sort the information by type into categories like social media, entertainment, work productivity, education and more."
+  ]
 }

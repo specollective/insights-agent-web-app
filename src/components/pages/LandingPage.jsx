@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next'
+import { useTranslation, Trans } from 'react-i18next'
 import SignUpForm from 'components/elements/SignUp'
 import HeroMobile from '../elements/HeroMobile'
 import 'components/pages/LandingPage.css'
@@ -17,16 +17,16 @@ function LandingPage() {
   const translatedIntro = t("introParagraphs")
   console.log(translatedIntro)
 
-  const introParagraphs = [
-    `Have you ever felt that "technology is too confusing" or "this is
-  not how I would use technology" or "I need something that actually
-  helps me"? Than you are the right person to help us out...`,
-    `The fact is that technology is often made for technologists by
-  technologists. Current customer information does not include
-  everyone. With your help buildJUSTLY can help technologists
-  understand all kinds of customers.`,
-    `When you agree to the study, we’ll ask you to install something wecall the Insight Agent.`,
-  ]
+  // const introParagraphs = [
+  //   `Have you ever felt that "technology is too confusing" or "this is
+  // not how I would use technology" or "I need something that actually
+  // helps me"? Than you are the right person to help us out...`,
+  //   `The fact is that technology is often made for technologists by
+  // technologists. Current customer information does not include
+  // everyone. With your help buildJUSTLY can help technologists
+  // understand all kinds of customers.`,
+  //   `When you agree to the study, we’ll ask you to install something we call the Insight Agent.`,
+  // ]
 
   const firstUnorderedListParagraphs = [
     `Once an hour, the Insight Agent will capture the programs and
@@ -73,11 +73,12 @@ function LandingPage() {
         </div>
 
         <div>
-          {introParagraphs.map((p, index) => (
-            <p className='py-2 lg:py-8' key={index}>
+          {t("LandingIntroParagraphs", { returnObjects: true }).map(p => (
+            <p className='py-2 lg:py-8' key={p}>
               {p}
             </p>
           ))}
+
           <div className='grid place-content-center py-8'>
             <img alt='tabs' src={TabImage}></img>
           </div>
@@ -178,4 +179,18 @@ function LandingPage() {
   )
 }
 
+{/* <Trans i18nKey="LandingIntroParagraphs">
+            <ul i18nIsDynamicList>
+            {['rupert', 'max'].map(p => (
+              <li className='py-2 md:py-6' key={`${p}-${p}`}>
+                {bullet}
+                {p}
+              </li> */}
+            // ))}
+              {/* <li className='py-2 md:py-6' key={`${p}-${i}`}>
+              {bullet}
+              {p}
+              </li> */}
+            {/* </ul> */}
+          {/* </Trans> */}
 export default LandingPage
