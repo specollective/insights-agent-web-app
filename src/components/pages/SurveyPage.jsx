@@ -4,6 +4,7 @@ import { createSurveyResult } from "services/survey_result";
 import {
   DEFAULT_FORM_VALUES,
   RACE_OPTIONS,
+  RACE_OPTIONS_TWO,
   HOUSEHOLD_MEMBERS,
   INTERNET_ACCESS,
   IS_HISPANIC_OPTIONS,
@@ -11,6 +12,7 @@ import {
   TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS,
   HOUSEHOLD_COMPUTERS,
 } from "constants/surveys";
+
 import "components/pages/SurveyPage.css";
 import { useTranslation, Trans } from "react-i18next";
 import { withFormik, Form, Field } from "formik";
@@ -52,16 +54,25 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           <p>Check all that apply.</p>
           {/* needs closing div */}
 
-            <CheckboxGroup
-              value={values.race}
-              name="race"
-              options={RACE_OPTIONS}
-              onChange={setFieldValue}
-            />
+          <div className="grid grid-cols-1 lg:grid lg:grid-cols-2 pt-4">
+            <div>
+              <CheckboxGroup
+                value={values.race}
+                name="race"
+                options={RACE_OPTIONS}
+                onChange={setFieldValue}
+              />
+            </div>
+            <div>
+              <CheckboxGroup
+                value={values.race}
+                name="race"
+                options={RACE_OPTIONS_TWO}
+                onChange={setFieldValue}
+              />
+            </div>
+          </div>
         </div>
-        <span className='error-message'>
-            { touched.race && errors.race && <span>{errors.race}</span> }
-        </span>
 
         <div className={ `question p-4 ${touched.isHispanicOrLatino && errors.isHispanicOrLatino ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">{t("surveyHispanicHeader")}</h4>
