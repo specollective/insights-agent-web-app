@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useAuth } from 'hooks/authentication';
+// import { useAuth } from 'hooks/authentication';
 import { createSurveyResult } from "services/survey_result";
 import {
   DEFAULT_FORM_VALUES,
@@ -36,12 +36,12 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
       <div className=" bg-[#AECA9B] rounded">
         <div className="rounded p-6">
           <h4 className="font-semibold text-xl md:left lg:text-center">
-            Insights Agent General Info Survey
+            {t("insightsAgentGeneralInfoSurvey")}
           </h4>
           <p>{t("surveyDescription")}</p>
 
           <p>
-            <strong>*Required field</strong>
+            <strong>*{t("requiredField")}</strong>
           </p>
         </div>
       </div>
@@ -389,27 +389,27 @@ export const SurveyPageForm = withFormik({
 })(SurveyForm);
 
 function SurveyPage() {
-  const auth = useAuth();
+  // const auth = useAuth();
   const navigate = useNavigate()
   const { surveyId } = useParams()
 
   const handleSubmit = async (formData) => {
-    const { survey_token } = auth.user
-    try {
-      await createSurveyResult({ 
-        token: survey_token, 
-        surveyId, 
-        ...formData
-      })
-      navigate('/success', { replace: true })
-    } catch (e) {
-      console.log(e);
-    }
+    // const { survey_token } = auth.user
+    // try {
+    //   await createSurveyResult({ 
+    //     token: survey_token, 
+    //     surveyId, 
+    //     ...formData
+    //   })
+    //   navigate('/success', { replace: true })
+    // } catch (e) {
+    //   console.log(e);
+    // }
   };
 
   // TODO: Move into useAuth
-  if (!auth.user) return <div>Loading</div>
-  if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
+  // if (!auth.user) return <div>Loading</div>
+  // if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
 
   return (
     <div className="page">
