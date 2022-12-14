@@ -98,5 +98,10 @@
     "This information will be sent by internet to our servers.",
     "All of the information will be collected with other information from other participants around the United States.",
     "The servers will sort the information by type into categories like social media, entertainment, work productivity, education and more."
+  ],
+  "LandingPrivacyList": [
+    "We use industry standard practices to safeguard your data.",
+    "Additionally, your data will be anonymized before we use it for research.",
+    "You are in control and can opt out of the study at any time."
   ]
 }

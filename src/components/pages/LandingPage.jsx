@@ -98,7 +98,7 @@ function LandingPage() {
             </div>
 
             <ul className='px-10'>
-              {privacyList.map((p, i) => (
+              {t("LandingPrivacyList", { returnObjects: true }).map((p, i) => (
                 <li className='py-2 md:py-6' key={`${p}-${i}`}>
                   {bullet}
                   {p}
