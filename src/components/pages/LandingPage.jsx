@@ -28,16 +28,16 @@ function LandingPage() {
   //   `When you agree to the study, we’ll ask you to install something we call the Insight Agent.`,
   // ]
 
-  const firstUnorderedListParagraphs = [
-    `Once an hour, the Insight Agent will capture the programs and
-    websites on the computer.`,
-    `This information will be sent by internet to our servers.`,
-    `All of the information will be collected with other information
-    from other participants around the United States.`,
-    `The servers will sort the information by type into categories like
-    social media, entertainment, work productivity, education and
-    more.`,
-  ]
+  // const firstUnorderedListParagraphs = [
+  //   `Once an hour, the Insight Agent will capture the programs and
+  //   websites on the computer.`,
+  //   `This information will be sent by internet to our servers.`,
+  //   `All of the information will be collected with other information
+  //   from other participants around the United States.`,
+  //   `The servers will sort the information by type into categories like
+  //   social media, entertainment, work productivity, education and
+  //   more.`,
+  // ]
 
   const privacyList = [
     `We use industry standard practices to safeguard your data.`,
@@ -84,8 +84,8 @@ function LandingPage() {
           </div>
 
           <ul className='px-10'>
-            {firstUnorderedListParagraphs.map((p, i) => (
-              <li className='py-2 md:py-6' key={`${p}-${i}`}>
+            {t("LandingFirstUnorderedList", { returnObjects: true }).map(p => (
+              <li className='py-2 md:py-6' key={p}>
                 {bullet}
                 {p}
               </li>
