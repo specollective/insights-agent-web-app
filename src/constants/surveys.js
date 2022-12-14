@@ -1,3 +1,5 @@
+import { t } from "i18next"
+
 export const DEFAULT_FORM_VALUES = {
   isHispanicOrLatino: null,
   internetAccess: [],
@@ -14,7 +16,7 @@ export const DEFAULT_FORM_VALUES = {
 
 // TODO: Apply i18n localization
 export const RACE_OPTIONS = [
-  { value: 'white', label: 'White' },
+  { value: 'white', label: t("RaceOptionsWhite")},
   { value: 'black', label: 'Black or African American' },
   { value: 'american-indian', label: 'American Indian or Alaska Native' },
   { value: 'chinese', label: 'Chinese' },
