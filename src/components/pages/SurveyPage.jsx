@@ -26,9 +26,6 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
     setValues(DEFAULT_FORM_VALUES);
   };
 
-  // TODO: Render errors. Logging here to help with debugging.
-  // console.log(errors);
-
   return (
     <Form className="flex flex-col lg:mx-40 md:mx-20 lg:place-items-center py-20 px-4">
       <div className=" bg-[#AECA9B] rounded">
