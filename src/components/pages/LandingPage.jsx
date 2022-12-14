@@ -39,19 +39,19 @@ function LandingPage() {
   //   more.`,
   // ]
 
-  const privacyList = [
-    `We use industry standard practices to safeguard your data.`,
-    `Additionally, your data will be anonymized before we use it for
-    research.`,
-    `You are in control and can opt out of the study at any time.`,
-  ]
+  // const privacyList = [
+  //   `We use industry standard practices to safeguard your data.`,
+  //   `Additionally, your data will be anonymized before we use it for
+  //   research.`,
+  //   `You are in control and can opt out of the study at any time.`,
+  // ]
 
-  const whatWillHappenList = [
-    `We will share our findings with technology builders so that they
-    can build technology that’s useful for people like you and your
-    community.`,
-    `We want to make sure that all customers are represented.`,
-  ]
+  // const whatWillHappenList = [
+  //   `We will share our findings with technology builders so that they
+  //   can build technology that’s useful for people like you and your
+  //   community.`,
+  //   `We want to make sure that all customers are represented.`,
+  // ]
 
   return (
     <main>
@@ -98,8 +98,8 @@ function LandingPage() {
             </div>
 
             <ul className='px-10'>
-              {t("LandingPrivacyList", { returnObjects: true }).map((p, i) => (
-                <li className='py-2 md:py-6' key={`${p}-${i}`}>
+              {t("LandingPrivacyList", { returnObjects: true }).map(p => (
+                <li className='py-2 md:py-6' key={p}>
                   {bullet}
                   {p}
                 </li>
@@ -117,8 +117,8 @@ function LandingPage() {
             </div>
 
             <ul className='px-10'>
-              {whatWillHappenList.map((p, i) => (
-                <li className='py-2 md:py-6' key={`${p}-${i}`}>
+              {t("LandingWhatWillHappenList", { returnObjects: true }).map(p => (
+                <li className='py-2 md:py-6' key={p}>
                   {bullet}
                   {p}
                 </li>
@@ -179,18 +179,5 @@ function LandingPage() {
   )
 }
 
-{/* <Trans i18nKey="LandingIntroParagraphs">
-            <ul i18nIsDynamicList>
-            {['rupert', 'max'].map(p => (
-              <li className='py-2 md:py-6' key={`${p}-${p}`}>
-                {bullet}
-                {p}
-              </li> */}
-            // ))}
-              {/* <li className='py-2 md:py-6' key={`${p}-${i}`}>
-              {bullet}
-              {p}
-              </li> */}
-            {/* </ul> */}
-          {/* </Trans> */}
+
 export default LandingPage
