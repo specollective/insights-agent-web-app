@@ -47,6 +47,16 @@
   "HispanicOptions": {
     "true": "Yes"
   },
+  "ComputerUseOptions": {
+    "entertainment": "Entertainment",
+    "gaming": "Gaming",
+    "school": "School",
+    "creativity": "Creativity",
+    "business": "Business",
+    "family": "Family",
+    "gain-new-skills": "Gain new skills",
+    "job-search": "Job search"
+  },
   "InternetAccessOptions": {
     "cellular-data": "Cellular data plan for smartphone",
     "broadband": "Broadband internet service",

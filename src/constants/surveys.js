@@ -62,14 +62,14 @@ export const HOUSEHOLD_MEMBERS = [
 ]
 
 export const COMPUTER_USE = [
-  { value: 'entertainment', label: 'Entertainment' },
-  { value: 'gaming', label: 'Gaming' },
-  { value: 'school', label: 'School' },
-  { value: 'creativity', label: 'Creativity' },
-  { value: 'business', label: 'Business' },
-  { value: 'family', label: 'Family' },
-  { value: 'gain-new-skills', label: 'Gain new skills' },
-  { value: 'job-search', label: 'Job search' },
+  { value: 'entertainment', label: <Trans i18nKey="ComputerUseOptions.entertainment" /> },
+  { value: 'gaming', label: <Trans i18nKey="ComputerUseOptions.gaming" /> },
+  { value: 'school', label: <Trans i18nKey="ComputerUseOptions.school" /> },
+  { value: 'creativity', label: <Trans i18nKey="ComputerUseOptions.creativity" /> },
+  { value: 'business', label: <Trans i18nKey="ComputerUseOptions.business" /> },
+  { value: 'family', label: <Trans i18nKey="ComputerUseOptions.family" /> },
+  { value: 'gain-new-skills', label: <Trans i18nKey="ComputerUseOptions.gain-new-skills" /> },
+  { value: 'job-search', label: <Trans i18nKey="ComputerUseOptions.job-search" /> },
 ]
 
 export const TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS = [
