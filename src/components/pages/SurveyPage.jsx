@@ -19,12 +19,15 @@ import CheckboxGroup from "components/elements/CheckboxGroup";
 import RadioButtonGroup from "components/elements/RadioButtonGroup";
 import DropdownGroup from "components/elements/DropdownGroup";
 
-function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
-  const { t } = useTranslation();
+function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetForm }) {
+  const { t } = useTranslation()
 
-  const handleClearForm = () => {
+  const handleClearForm = (e) => {
+    e.preventDefault()
+    resetForm()
     setValues(DEFAULT_FORM_VALUES);
-  };
+  }
+
 
   return (
     <Form className="flex flex-col lg:mx-40 md:mx-20 lg:place-items-center py-20 px-4">
@@ -44,33 +47,37 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       <section className="min-w-full space-y-4 px-0 py-10 md:px-0 lg:px-6">
         <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
 
-        <div className="question p-4">
+        <div className={ `question p-4 ${touched.race && errors.race ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">Please select your race.*</h4>
           <p>Check all that apply.</p>
           {/* needs closing div */}
 
-          <div className="grid grid-cols-1 lg:grid lg:grid-cols-2 pt-4">
-            <div>
-              <CheckboxGroup
-                value={values.race}
-                name="race"
-                options={RACE_OPTIONS}
-                onChange={setFieldValue}
-              />
-            </div>
-          </div>
+            <CheckboxGroup
+              value={values.race}
+              name="race"
+              options={RACE_OPTIONS}
+              onChange={setFieldValue}
+            />
         </div>
+        <span className='error-message'>
+            { touched.race && errors.race && <span>{errors.race}</span> }
+        </span>
 
-        <div className="question p-4">
+        <div className={ `question p-4 ${touched.isHispanicOrLatino && errors.isHispanicOrLatino ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">{t("surveyHispanicHeader")}</h4>
           <RadioButtonGroup
             value={values.isHispanicOrLatino}
             name="isHispanicOrLatino"
             options={IS_HISPANIC_OPTIONS}
           />
+          <label htmlFor='name' className='text-sm'>
+          </label>
         </div>
+        <span className='error-message'>
+            { touched.isHispanicOrLatino && errors.isHispanicOrLatino && <span> Error: Required Field </span>}
+        </span>
 
-        <div className="question p-4">
+        <div className={ `question p-4 ${touched.technologyCompetencyLevel && errors.technologyCompetencyLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             Rate your level of competence with computer technology*
           </h4>
@@ -142,13 +149,16 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             isHorizontal={true}
           />
         </div>
+        <span className='error-message'>
+            { touched.technologyCompetencyLevel && errors.technologyCompetencyLevel && <span> Error: Required Field </span>}
+        </span>
 
         <div>
           <h4 className="font-semibold ">
             Please answer about your HOUSEHOLD:
           </h4>
         </div>
-        <div className="question p-4">
+        <div className={ `question p-4 ${touched.householdMembers && errors.householdMembers ? "border-2 border-[#FA0000]" : ""}` }>
           <h5 className="font-semibold">
             How many people live/stay in your household?*
           </h5>
@@ -159,8 +169,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             options={HOUSEHOLD_MEMBERS}
           />
         </div>
+        <span className='error-message'>
+            { touched.householdMembers && errors.householdMembers && <span>{errors.householdMembers}</span>}
+        </span>
 
-        <div className="question p-4">
+        <div className={ `question p-4 ${touched.computerUse && errors.computerUse ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             What is the intended use of this computer?*
           </h4>
@@ -173,8 +186,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             onChange={setFieldValue}
           />
         </div>
+        <span className='error-message'>
+            { touched.computerUse && errors.computerUse && <span> {errors.computerUse} </span>}
+        </span>
 
-        <div className="question p-4">
+        <div className={ `question p-4 ${touched.householdComputers && errors.householdComputers ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             How many other computers (including tablets) do you have in your
             household?*
@@ -186,8 +202,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             options={HOUSEHOLD_COMPUTERS}
           />
         </div>
+        <span className='error-message'>
+            { touched.householdComputers && errors.householdComputers && <span>{errors.householdComputers}</span>}
+        </span>
 
-        <div className="question p-4">
+        <div className={ `question p-4 ${touched.internetAccess && errors.internetAccess ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             How does your household access the internet?*
           </h4>
@@ -200,6 +219,10 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             onChange={setFieldValue}
           />
         </div>
+        <span className='error-message'>
+            { touched.internetAccess && errors.internetAccess && <span> {errors.internetAccess} </span>}
+        </span>
+
 
         {/*<div className="question">
         <h4>What is the intended use of this computer?*</h4>
@@ -276,14 +299,14 @@ export function handleSubmit(values, { props }) {
  * @type {object}
  */
 export const validationSchema = Yup.object().shape({
-  race: Yup.array().of(Yup.string()).min(1).required(),
+  race: Yup.array().min(1, "Error: Required Field"),
   isHispanicOrLatino: Yup.string().required(),
-  householdMembers: Yup.string().required("Please select a household size"),
-  // technologyCompetencyLevel: Yup.number().min(1).max(5),
-  // computerUsage: Yup.string().required(),
-  // numberOfDevices: Yup.string().required(),
-  // internetAccessAvailability: Yup.string().required(),
-});
+  householdMembers: Yup.string().required("Error: Required Field"),
+  technologyCompetencyLevel: Yup.number().min(1).required(),
+  computerUse: Yup.array().min(1, "Error: Required Field"),
+  householdComputers: Yup.string().required("Error: Required Field"),
+  internetAccess: Yup.array().min(1, "Error: Required Field"),
+})
 
 /**
  * Wraps SendAccessCodeForm with the withFormik Higher-order component

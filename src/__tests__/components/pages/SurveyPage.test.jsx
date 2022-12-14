@@ -61,8 +61,12 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
-
+      const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
+      const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
+      const internetAccessCheckbox = findFormSection(screen, 'How does your household access the internet?*');
+      
       // asserting all expected options are present
       RACE_OPTIONS.forEach((raceOption) => {
         const input = raceCheckboxGroup.getByLabelText(raceOption.label);
@@ -75,19 +79,27 @@ describe('Survey Page', () => {
         fireEvent.click(raceCheckboxGroup.getByText('Filipino'));
         fireEvent.click(raceCheckboxGroup.getByText('Black or African American'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
+        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
+        fireEvent.change(householdComputersSelectContainer.getByTestId('dropdown-householdComputers'), {
+          target: { value: '5+' },
+        });
+        fireEvent.click(computerUsageCheckbox.getByText('Gaming'));
+        fireEvent.click(internetAccessCheckbox.getByText('Dial up internet service'));
         fireEvent.click(screen.getByText('Submit'));
       });
 
       // Asserting that the bend service is called with the right values.
       expect(createSurveyResult).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
-        computerUse: [],
+        computerUse: ['gaming'],
         householdMembers: '1',
+        householdComputers:'5+',
         race: ['white', 'filipino', 'black'],
-        internetAccess: [],
+        internetAccess: ['dial-up'],
+        technologyCompetencyLevel: '1',
       });
     });
 
@@ -96,25 +108,37 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
+      const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
+      const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
+      const internetAccessCheckbox = findFormSection(screen, 'How does your household access the internet?*');
 
       await act(() => {
         fireEvent.click(raceCheckboxGroup.getByText('White'));
         fireEvent.click(raceCheckboxGroup.getByText('Filipino'));
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
+        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
+        fireEvent.change(householdComputersSelectContainer.getByTestId('dropdown-householdComputers'), {
+          target: { value: '5+' },
+        });
+        fireEvent.click(computerUsageCheckbox.getByText('Gaming'));
+        fireEvent.click(internetAccessCheckbox.getByText('Dial up internet service'));
         fireEvent.click(screen.getByText('Submit'));
       });
 
       expect(createSurveyResult).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
-        computerUse: [],
+        computerUse: ['gaming'],
         householdMembers: '1',
+        householdComputers:'5+',
         race: ['decline'],
-        internetAccess: [],
+        internetAccess: ['dial-up'],
+        technologyCompetencyLevel: '1',
       });
     });
 
@@ -123,24 +147,36 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
+      const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
+      const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
+      const internetAccessCheckbox = findFormSection(screen, 'How does your household access the internet?*');
 
       await act(() => {
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(raceCheckboxGroup.getByText('Chinese'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
+        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
+        fireEvent.change(householdComputersSelectContainer.getByTestId('dropdown-householdComputers'), {
+          target: { value: '5+' },
+        });
+        fireEvent.click(computerUsageCheckbox.getByText('Gaming'));
+        fireEvent.click(internetAccessCheckbox.getByText('Dial up internet service'));
         fireEvent.click(screen.getByText('Submit'));
       });
 
       expect(createSurveyResult).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
-        computerUse: [],
+        computerUse: ['gaming'],
         householdMembers: '1',
+        householdComputers:'5+',
         race: ['chinese'],
-        internetAccess: [],
+        internetAccess: ['dial-up'],
+        technologyCompetencyLevel: '1',
       });
     });
   });
@@ -151,31 +187,38 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
+      const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
+      const internetAccessCheckbox = findFormSection(screen, 'How does your household access the internet?*');
 
 
       await act(() => {
         // Testing selecting multiple options
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Yes'));
+        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
         fireEvent.change(householdComputersSelectContainer.getByTestId('dropdown-householdComputers'), {
           target: { value: '5+' },
         });
+        fireEvent.click(computerUsageCheckbox.getByText('Gaming'));
+        fireEvent.click(internetAccessCheckbox.getByText('Dial up internet service'));
         fireEvent.click(screen.getByText('Submit'));
       });
 
       // Asserting that the bend service is called with the right values.
       expect(createSurveyResult).toHaveBeenCalledWith({
         isHispanicOrLatino: 'true',
-        computerUse: [],
+        computerUse: ['gaming'],
         householdMembers: '1',
         householdComputers:'5+',
         race: ['decline'],
-        internetAccess: [],
+        internetAccess: ['dial-up'],
+        technologyCompetencyLevel: '1',
       });
     });
   });
@@ -186,25 +229,37 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
+      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
+      const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
+      const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
+      const internetAccessCheckbox = findFormSection(screen, 'How does your household access the internet?*');
 
       await act(() => {
         // Testing selecting value
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Yes'));
+        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '3' },
         });
+        fireEvent.change(householdComputersSelectContainer.getByTestId('dropdown-householdComputers'), {
+          target: { value: '5+' },
+        });
+        fireEvent.click(computerUsageCheckbox.getByText('Gaming'));
+        fireEvent.click(internetAccessCheckbox.getByText('Dial up internet service'));
         fireEvent.click(screen.getByText('Submit'));
       });
 
       // Asserting that the bend service is called with the right values.
       expect(createSurveyResult).toHaveBeenCalledWith({
         isHispanicOrLatino: 'true',
-        computerUse: [],
+        computerUse: ['gaming'],
         householdMembers: '3',
+        householdComputers:'5+',
         race: ['decline'],
-        internetAccess: [],
+        internetAccess: ['dial-up'],
+        technologyCompetencyLevel: '1',
       });
     });
   });
