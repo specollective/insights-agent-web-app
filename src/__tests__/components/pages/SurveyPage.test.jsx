@@ -65,6 +65,8 @@ describe('Survey Page', () => {
       const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
       const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
       const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
+      const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
+      const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -91,6 +93,8 @@ describe('Survey Page', () => {
         fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
         fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
         fireEvent.click(handleProblemsRadioButtonGroup.getByText('4'));
+        fireEvent.click(computerActingRadioButtonGroup.getByText('1'));
+        fireEvent.click(complexRadioButtonGroup.getByText('4'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
@@ -114,6 +118,8 @@ describe('Survey Page', () => {
         computerDifficultyLevel: '3',
         solveComputerProblemsLevel: '2',
         handleComputerProblemsLevel: '4',
+        computerActingUpLevel: '1',
+        complexComputerLevel: '4',
       });
     });
 
@@ -126,6 +132,8 @@ describe('Survey Page', () => {
       const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
       const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
       const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
+      const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
+      const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -140,6 +148,8 @@ describe('Survey Page', () => {
         fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
         fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
         fireEvent.click(handleProblemsRadioButtonGroup.getByText('4'));
+        fireEvent.click(computerActingRadioButtonGroup.getByText('1'));
+        fireEvent.click(complexRadioButtonGroup.getByText('4'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
@@ -162,6 +172,8 @@ describe('Survey Page', () => {
         computerDifficultyLevel: '3',
         solveComputerProblemsLevel: '2',
         handleComputerProblemsLevel: '4',
+        computerActingUpLevel: '1',
+        complexComputerLevel: '4',
       });
     });
 
@@ -174,6 +186,8 @@ describe('Survey Page', () => {
       const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
       const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
       const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
+      const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
+      const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -187,6 +201,8 @@ describe('Survey Page', () => {
         fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
         fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
         fireEvent.click(handleProblemsRadioButtonGroup.getByText('4'));
+        fireEvent.click(computerActingRadioButtonGroup.getByText('1'));
+        fireEvent.click(complexRadioButtonGroup.getByText('4'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
@@ -209,6 +225,8 @@ describe('Survey Page', () => {
         computerDifficultyLevel: '3',
         solveComputerProblemsLevel: '2',
         handleComputerProblemsLevel: '4',
+        computerActingUpLevel: '1',
+        complexComputerLevel: '4',
       });
     });
   });
@@ -223,6 +241,8 @@ describe('Survey Page', () => {
       const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
       const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
       const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
+      const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
+      const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -237,6 +257,8 @@ describe('Survey Page', () => {
         fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
         fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
         fireEvent.click(handleProblemsRadioButtonGroup.getByText('4'));
+        fireEvent.click(computerActingRadioButtonGroup.getByText('1'));
+        fireEvent.click(complexRadioButtonGroup.getByText('4'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
@@ -260,6 +282,8 @@ describe('Survey Page', () => {
         computerDifficultyLevel: '3',
         solveComputerProblemsLevel: '2',
         handleComputerProblemsLevel: '4',
+        computerActingUpLevel: '1',
+        complexComputerLevel: '4',
       });
     });
   });
@@ -274,6 +298,8 @@ describe('Survey Page', () => {
       const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
       const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
       const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
+      const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
+      const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -287,6 +313,8 @@ describe('Survey Page', () => {
         fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
         fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
         fireEvent.click(handleProblemsRadioButtonGroup.getByText('4'));
+        fireEvent.click(computerActingRadioButtonGroup.getByText('1'));
+        fireEvent.click(complexRadioButtonGroup.getByText('4'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '3' },
         });
@@ -310,6 +338,8 @@ describe('Survey Page', () => {
         computerDifficultyLevel: '3',
         solveComputerProblemsLevel: '2',
         handleComputerProblemsLevel: '4',
+        computerActingUpLevel: '1',
+        complexComputerLevel: '4',
       });
     });
   });
