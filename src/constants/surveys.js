@@ -39,9 +39,9 @@ export const RACE_OPTIONS_TWO = [
 
 // TODO: Apply i18n localization
 export const IS_HISPANIC_OPTIONS = [
-  { value: 'true', label: <Trans i18nKey="HispanicTrue" /> },
-  { value: 'false', label: <Trans i18nKey="HispanicOptions.true" /> },
-  { value: 'decline', label: 'Decline to identify' },
+  { value: 'true', label:  <Trans i18nKey="HispanicOptions.true" /> },
+  { value: 'false', label: <Trans i18nKey="HispanicOptions.false" /> },
+  { value: 'decline', label: <Trans i18nKey="HispanicOptions.decline" /> },
 ]
 
 export const INTERNET_ACCESS = [
@@ -53,7 +53,7 @@ export const INTERNET_ACCESS = [
 ]
 
 export const HOUSEHOLD_MEMBERS = [
-  { value: 'Select One', label: 'Select One' },
+  { value: 'Select One', label: <Trans i18nKey="HouseholdSelectOne" /> },
   { value: '1', label: '1' },
   { value: '2', label: '2' },
   { value: '3', label: '3' },

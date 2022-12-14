@@ -44,8 +44,11 @@
     "other": "Other race not listed above",
     "decline": "Decline to identify"
   },
+  "HouseholdSelectOne": "Select One",
   "HispanicOptions": {
-    "true": "Yes"
+    "true": "Yes",
+    "false": "No",
+    "decline": "Decline to identify"
   },
   "ComputerUseOptions": {
     "entertainment": "Entertainment",
