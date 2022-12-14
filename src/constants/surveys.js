@@ -29,13 +29,13 @@ export const RACE_OPTIONS = [
 
 export const RACE_OPTIONS_TWO = [
   { value: 'japanese', label: <Trans i18nKey="RaceOptions.japanese" /> },
-  { value: 'hawaiian', label: 'Native Hawaiian' },
-  { value: 'samoan', label: 'Samoan' },
-  { value: 'chamorro', label: 'Charmorro' },
-  { value: 'other-asian', label: 'Other Asian' },
-  { value: 'other-pacific-islander', label: 'Other Pacific Islander' },
-  { value: 'other', label: 'Other race not listed above' },
-  { value: 'decline', label: 'Decline to identify' },
+  { value: 'hawaiian', label: <Trans i18nKey="RaceOptions.hawaiian" /> },
+  { value: 'samoan', label: <Trans i18nKey="RaceOptions.samoan" /> },
+  { value: 'chamorro', label: <Trans i18nKey="RaceOptions.chamorro" /> },
+  { value: 'other-asian', label: <Trans i18nKey="RaceOptions.other-asian" /> },
+  { value: 'other-pacific-islander', label: <Trans i18nKey="RaceOptions.other-pacific-islander" /> },
+  { value: 'other', label: <Trans i18nKey="RaceOptions.other" /> },
+  { value: 'decline', label: <Trans i18nKey="RaceOptions.decline" /> },
 ]
 
 // TODO: Apply i18n localization

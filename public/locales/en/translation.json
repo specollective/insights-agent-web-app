@@ -35,6 +35,13 @@
     "asian-indian": "Asian Indian",
     "vietnamese": "Vietnamese",
     "korean": "Korean",
-    "japanese": "Japanese"
+    "japanese": "Japanese",
+    "hawaiian": "Native Hawaiian",
+    "samoan": "Samoan",
+    "chamorro": "Chamorro",
+    "other-asian": "Other Asian",
+    "other-pacific-islander": "Other Pacific Islander",
+    "other": "Other race not listed above",
+    "decline": "Decline to identify"
   }
 }
