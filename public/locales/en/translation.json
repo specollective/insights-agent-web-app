@@ -107,5 +107,7 @@
   "LandingWhatWillHappenList": [
     "We will share our findings with technology builders so that they can build technology that’s useful for people like you and your community.",
     "We want to make sure that all customers are represented."
-  ]
+  ],
+  "LandingBenefits": "Benefits",
+  "LandingRisks": "Risks"
 }

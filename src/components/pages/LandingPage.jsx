@@ -1,4 +1,4 @@
-import { useTranslation, Trans } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import SignUpForm from 'components/elements/SignUp'
 import HeroMobile from '../elements/HeroMobile'
 import 'components/pages/LandingPage.css'
@@ -13,46 +13,7 @@ function LandingPage() {
       <div className='bullet'></div>
     </div>
   )
-
-  const translatedIntro = t("introParagraphs")
-  console.log(translatedIntro)
-
-  // const introParagraphs = [
-  //   `Have you ever felt that "technology is too confusing" or "this is
-  // not how I would use technology" or "I need something that actually
-  // helps me"? Than you are the right person to help us out...`,
-  //   `The fact is that technology is often made for technologists by
-  // technologists. Current customer information does not include
-  // everyone. With your help buildJUSTLY can help technologists
-  // understand all kinds of customers.`,
-  //   `When you agree to the study, we’ll ask you to install something we call the Insight Agent.`,
-  // ]
-
-  // const firstUnorderedListParagraphs = [
-  //   `Once an hour, the Insight Agent will capture the programs and
-  //   websites on the computer.`,
-  //   `This information will be sent by internet to our servers.`,
-  //   `All of the information will be collected with other information
-  //   from other participants around the United States.`,
-  //   `The servers will sort the information by type into categories like
-  //   social media, entertainment, work productivity, education and
-  //   more.`,
-  // ]
-
-  // const privacyList = [
-  //   `We use industry standard practices to safeguard your data.`,
-  //   `Additionally, your data will be anonymized before we use it for
-  //   research.`,
-  //   `You are in control and can opt out of the study at any time.`,
-  // ]
-
-  // const whatWillHappenList = [
-  //   `We will share our findings with technology builders so that they
-  //   can build technology that’s useful for people like you and your
-  //   community.`,
-  //   `We want to make sure that all customers are represented.`,
-  // ]
-
+  
   return (
     <main>
       <div className="visible md:hidden">
@@ -158,7 +119,7 @@ function LandingPage() {
                 </li>
               </ul>
 
-              <h4 className='font-bold pt-4'>Benefits</h4>
+              <h4 className='font-bold pt-4'>{t("LandingBenefits")}</h4>
               <p className='pl-8 pt-4'>
                 {t("LandingToYou")}
               </p>
@@ -166,7 +127,7 @@ function LandingPage() {
                 {t("LandingToBuildJUSTLY")}
               </p>
 
-              <h4 className='font-bold'>Risks</h4>
+              <h4 className='font-bold'>{t("LandingRisks")}</h4>
               <p className='pl-8 pt-4'>
                 {t("LandingNoComputerPerformance")}
               </p>
