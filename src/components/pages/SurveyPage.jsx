@@ -46,16 +46,12 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         </div>
       </div>
 
-      <section className="min-w-full space-y-4 px-0 py-10  md:px-0 lg:px-6 ">
-        <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
+      <section className="min-w-full space-y-4 px-0 py-10 md:px-0 lg:px-6">
+        <h4 className="font-semibold ">{t("surveyAnswerAboutYourself")}:</h4>
 
-        <div
-          className={`question p-4 ${
-            touched.race && errors.race ? "border-2 border-[#FA0000]" : ""
-          }`}
-        >
-          <h4 className="font-semibold">Please select your race.*</h4>
-          <p>Check all that apply.</p>
+        <div className={ `question p-4 ${touched.race && errors.race ? "border-2 border-[#FA0000]" : ""}` }>
+          <h4 className="font-semibold">{t("surveySelectYourRace")}*</h4>
+          <p>{t("surveyCheckAll")}</p>
           {/* needs closing div */}
 
           <div className="grid grid-cols-1 lg:grid lg:grid-cols-2 pt-4">
