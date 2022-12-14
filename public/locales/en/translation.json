@@ -11,5 +11,16 @@
   "requiredField": "Required field",
   "surveyAnswerAboutYourself": "Please answer about YOURSELF",
   "surveySelectYourRace": "Please select your race.",
-  "surveyCheckAll": "Check all that apply"
+  "surveyCheckAll": "Check all that apply",
+  "surveyErrorRequired": "Error: Required Field",
+  "surveyCompetency": "Rate your level of competence with computer technology",
+  "surveyICanUsuallyHandleDifficulties": "I can usually handle most difficulties I encounter when using a computer",
+  "surveyICanSolveProblems": "I can solve problems as they arise when I use a computer",
+  "surveyICanUsuallyHandleProblems": "I can usually handle computer problems on my own",
+  "surveyComputerActingUp": "If my computer is acting up, I can find a way to get what I want without relying on others",
+  "surveyICanComplete": "I can complete a complex computer based task (e.g., setting up a printer or wi-fi)",
+  "surveyAnswerAboutHousehold": "Please answer about your HOUSEHOLD",
+  "surveyHowManyLiveInHousehold": "How many people live/stay in your household?",
+  "surveyIntendedUse": "What is the intended use of this computer?"
+
 }
