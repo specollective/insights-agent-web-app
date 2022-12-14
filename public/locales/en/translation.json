@@ -27,6 +27,14 @@
   "surveyClearForm": "Clear Form",
   "surveySubmit": "Submit", 
   "RaceOptions": {
-    "white": "White"
+    "white": "White",
+    "black": "Black or African American",
+    "american-indian": "American Indian or Alaska Native",
+    "chinese": "Chinese",
+    "filipino": "Filipino",
+    "asian-indian": "Asian Indian",
+    "vietnamese": "Vietnamese",
+    "korean": "Korean",
+    "japanese": "Japanese"
   }
 }

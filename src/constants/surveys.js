@@ -18,17 +18,17 @@ export const DEFAULT_FORM_VALUES = {
 // TODO: Apply i18n localization
 export const RACE_OPTIONS = [
   { value: 'white', label: <Trans i18nKey="RaceOptions.white" />},
-  { value: 'black', label: 'Black or African American' },
-  { value: 'american-indian', label: 'American Indian or Alaska Native' },
-  { value: 'chinese', label: 'Chinese' },
-  { value: 'filipino', label: 'Filipino' },
-  { value: 'asian-indian', label: 'Asian Indian' },
-  { value: 'vietnamese', label: 'Vietnamese' },
-  { value: 'korean', label: 'Korean' },
+  { value: 'black', label: <Trans i18nKey="RaceOptions.black" /> },
+  { value: 'american-indian', label: <Trans i18nKey="RaceOptions.american-indian" /> },
+  { value: 'chinese', label: <Trans i18nKey="RaceOptions.chinese" /> },
+  { value: 'filipino', label: <Trans i18nKey="RaceOptions.filipino" /> },
+  { value: 'asian-indian', label: <Trans i18nKey="RaceOptions.asian-indian" /> },
+  { value: 'vietnamese', label: <Trans i18nKey="RaceOptions.vietnamese" /> },
+  { value: 'korean', label: <Trans i18nKey="RaceOptions.korean" /> },
 ]
 
 export const RACE_OPTIONS_TWO = [
-  { value: 'japanese', label: 'Japanese' },
+  { value: 'japanese', label: <Trans i18nKey="RaceOptions.japanese" /> },
   { value: 'hawaiian', label: 'Native Hawaiian' },
   { value: 'samoan', label: 'Samoan' },
   { value: 'chamorro', label: 'Charmorro' },
