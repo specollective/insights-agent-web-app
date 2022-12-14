@@ -88,11 +88,16 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             { touched.isHispanicOrLatino && errors.isHispanicOrLatino && <span> Error: Required Field </span>}
         </span>
 
-        <div>
-          <h4 className="font-semibold">
+        <div className="font-semibold">
+          <h4 className="pb-5">
             Rate your level of competence with computer technology*
           </h4>
-          
+          <ol className="list-outside">
+            <li>1- Not at all confident</li>
+            <li>2- Slightly confident</li>
+            <li>3- Fairly confident</li>
+            <li>4- Highly confident</li>
+          </ol>
         </div>
 
         <div className={ `question p-4 ${touched.computerDifficultyLevel && errors.computerDifficultyLevel ? "border-2 border-[#FA0000]" : ""}` }>
