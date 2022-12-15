@@ -118,5 +118,11 @@
   "ConfirmationNotReceivedInstructions": "If you have not received a text message please proceed to the following steps:",
   "ConfirmationNotReceivedFirst": "If you have not received a text message, please resubmit your Name and Phone number below.",
   "ConfirmationNotReceivedSecond": "If you have already resubmitted your phone number and are still not receiving a text message, please",
-  "ConfirmationNotReceivedThird": "If you have tried previous steps and are still not receiving a text message, please contact us at 800-555-1234."
+  "ConfirmationNotReceivedThird": "If you have tried previous steps and are still not receiving a text message, please contact us at 800-555-1234.",
+
+  "SuccessHeader": "Thank you for providing your data and helping us build the future of technology - for everyone.",
+  "SuccessProcessing": "We are processing your information now and we’ll notify you with next steps.",
+  "SuccessTextMessage": "You’ll receive a text message at the number you provided.",
+  "SuccessIfYouDoNotReceive": "If you do not receive a message within 7 days, please send an email to tech4all@buildjustly.org and mention the Insights Agent.",
+  "SuccessLink": "Visit buildJUSTLY.org"
 }
