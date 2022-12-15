@@ -27,7 +27,8 @@ export async function createSurveyResult(surveyData) {
       solve_computer_problems_level: surveyData.solveComputerProblemsLevel,
       handle_computer_problems_level: surveyData.handleComputerProblemsLevel,
       computer_acting_up_level: surveyData.computerActingUpLevel,
-      complex_computer_level: surveyData.complexComputerLevel,     
+      complex_computer_level: surveyData.complexComputerLevel,
+      race: surveyData.race.join(',')
     }),
   });
 
