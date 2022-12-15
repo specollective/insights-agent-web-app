@@ -26,15 +26,16 @@
 
 .dropdown-group{
   @apply border-2 ;
-  @apply border-gray-200;
+  @apply border-gray-300;
 }
-.checkbox-group:checked{
-  @apply bg-green-500
+.checkbox-group{
+  @apply accent-green-100
 }
 
-.question:checked{
-  @apply bg-green-500;
+.radio-button-group{
+   @apply accent-green-100
 }
+
 
 .download {
   background: #E4E4E4;

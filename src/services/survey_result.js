@@ -20,10 +20,14 @@ export async function createSurveyResult(surveyData) {
       survey_id: surveyData.surveyId,
       hispanic_origin: surveyData.isHispanicOrLatino,
       computer_use: surveyData.computerUse.join(','),
-      technology_compentency_level: surveyData.technologyCompetencyLevel,
       internet_access: surveyData.internetAccess.join(','),
       household_members: surveyData.householdMembers,
       household_computers: surveyData.householdComputers,
+      computer_difficulty_level: surveyData.computerDifficultyLevel,
+      solve_computer_problems_level: surveyData.solveComputerProblemsLevel,
+      handle_computer_problems_level: surveyData.handleComputerProblemsLevel,
+      computer_acting_up_level: surveyData.computerActingUpLevel,
+      complex_computer_level: surveyData.complexComputerLevel,     
     }),
   });
 

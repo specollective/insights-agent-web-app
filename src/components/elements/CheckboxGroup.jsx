@@ -1,6 +1,4 @@
 import React from 'react';
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
 
 function buildNewSelection(existingList, selectedValue, checked) {
   const declineValue = 'decline';
@@ -36,7 +34,7 @@ function CheckboxGroup ({ options, name, value, onChange }) {
             <input
               type="checkbox"
               id={id}
-              name={name}
+              name={ `${name}.${option.value}` }
               value={option.value}
               checked={value.includes(option.value)}
               onChange={handleChange}

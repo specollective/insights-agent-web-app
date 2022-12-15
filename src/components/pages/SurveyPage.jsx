@@ -4,6 +4,7 @@ import { createSurveyResult } from "services/survey_result";
 import {
   DEFAULT_FORM_VALUES,
   RACE_OPTIONS,
+  RACE_OPTIONS_TWO,
   HOUSEHOLD_MEMBERS,
   INTERNET_ACCESS,
   IS_HISPANIC_OPTIONS,
@@ -11,6 +12,7 @@ import {
   TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS,
   HOUSEHOLD_COMPUTERS,
 } from "constants/surveys";
+
 import "components/pages/SurveyPage.css";
 import { useTranslation, Trans } from "react-i18next";
 import { withFormik, Form, Field } from "formik";
@@ -19,15 +21,15 @@ import CheckboxGroup from "components/elements/CheckboxGroup";
 import RadioButtonGroup from "components/elements/RadioButtonGroup";
 import DropdownGroup from "components/elements/DropdownGroup";
 
-function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
-  const { t } = useTranslation();
+function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetForm }) {
+  const { t } = useTranslation()
 
-  const handleClearForm = () => {
+  const handleClearForm = (e) => {
+    e.preventDefault()
+    resetForm()
     setValues(DEFAULT_FORM_VALUES);
-  };
+  }
 
-  // TODO: Render errors. Logging here to help with debugging.
-  // console.log(errors);
 
   return (
     <Form className="flex flex-col lg:mx-40 md:mx-20 lg:place-items-center py-20 px-4">
@@ -47,7 +49,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
       <section className="min-w-full space-y-4 px-0 py-10  md:px-0 lg:px-6 ">
         <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
 
-        <div className="question">
+        <div className={ `question p-4 ${touched.race && errors.race ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">Please select your race.*</h4>
           <p>Check all that apply.</p>
           {/* needs closing div */}
@@ -61,97 +63,127 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
                 onChange={setFieldValue}
               />
             </div>
+            <div>
+              <CheckboxGroup
+                value={values.race}
+                name="race"
+                options={RACE_OPTIONS_TWO}
+                onChange={setFieldValue}
+              />
+            </div>
           </div>
         </div>
 
-        <div className="question">
+        <div className={ `question p-4 ${touched.isHispanicOrLatino && errors.isHispanicOrLatino ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">{t("surveyHispanicHeader")}</h4>
           <RadioButtonGroup
             value={values.isHispanicOrLatino}
             name="isHispanicOrLatino"
             options={IS_HISPANIC_OPTIONS}
           />
+          <label htmlFor='name' className='text-sm'>
+          </label>
         </div>
+        <span className='error-message'>
+            { touched.isHispanicOrLatino && errors.isHispanicOrLatino && <span> Error: Required Field </span>}
+        </span>
 
-        <div className="question">
-          <h4 className="font-semibold">
+        <div className="font-semibold">
+          <h4 className="pb-5">
             Rate your level of competence with computer technology*
           </h4>
-          <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
-            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
-            isHorizontal={true}
-          />
+          <ol className="list-outside">
+            <li>1- Not at all confident</li>
+            <li>2- Slightly confident</li>
+            <li>3- Fairly confident</li>
+            <li>4- Highly confident</li>
+          </ol>
         </div>
 
-        <div className="question">
+        <div className={ `question p-4 ${touched.computerDifficultyLevel && errors.computerDifficultyLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             I can usually handle most difficulties I encounter when using a
             computer
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.computerDifficultyLevel}
+            name="computerDifficultyLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
-        <div className="question">
+        <span className='error-message'>
+            { touched.computerDifficultyLevel && errors.computerDifficultyLevel && <span> Error: Required Field </span>}
+        </span>
+
+        <div className={ `question p-4 ${touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             I can solve problems as they arise when I use a computer
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.solveComputerProblemsLevel}
+            name="solveComputerProblemsLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
-        <div className="question">
+        <span className='error-message'>
+            { touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel && <span> Error: Required Field </span>}
+        </span>
+
+        <div className={ `question p-4 ${touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             I can usually handle computer problems on my own
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.handleComputerProblemsLevel}
+            name="handleComputerProblemsLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
+        <span className='error-message'>
+            { touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel && <span> Error: Required Field </span>}
+        </span>
 
-        <div className="question">
+        <div className={ `question p-4 ${touched.computerActingUpLevel && errors.computerActingUpLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             If my computer is acting up, I can find a way to get what I want
             without relying on others
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.computerActingUpLevel}
+            name="computerActingUpLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
-
-        <div className="question">
+        <span className='error-message'>
+            { touched.computerActingUpLevel && errors.computerActingUpLevel && <span> Error: Required Field </span>}
+        </span>
+        
+        <div className={ `question p-4 ${touched.complexComputerLevel && errors.complexComputerLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             I can complete a complex computer based task (e.g., setting up a
             printer or wi-fi)
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.complexComputerLevel}
+            name="complexComputerLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
+        <span className='error-message'>
+            { touched.complexComputerLevel && errors.complexComputerLevel && <span> Error: Required Field </span>}
+        </span>
 
         <div>
           <h4 className="font-semibold ">
             Please answer about your HOUSEHOLD:
           </h4>
         </div>
-        <div className="question">
+        <div className={ `question p-4 ${touched.householdMembers && errors.householdMembers ? "border-2 border-[#FA0000]" : ""}` }>
           <h5 className="font-semibold">
             How many people live/stay in your household?*
           </h5>
@@ -163,8 +195,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             />
           
         </div>
+        <span className='error-message'>
+            { touched.householdMembers && errors.householdMembers && <span>{errors.householdMembers}</span>}
+        </span>
 
-        <div className="question">
+        <div className={ `question p-4 ${touched.computerUse && errors.computerUse ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             What is the intended use of this computer?*
           </h4>
@@ -177,8 +212,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             onChange={setFieldValue}
           />
         </div>
+        <span className='error-message'>
+            { touched.computerUse && errors.computerUse && <span> {errors.computerUse} </span>}
+        </span>
 
-        <div className="question">
+        <div className={ `question p-4 ${touched.householdComputers && errors.householdComputers ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             How many other computers (including tablets) do you have in your
             household?*
@@ -190,8 +228,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             options={HOUSEHOLD_COMPUTERS}
           />
         </div>
+        <span className='error-message'>
+            { touched.householdComputers && errors.householdComputers && <span>{errors.householdComputers}</span>}
+        </span>
 
-        <div className="question">
+        <div className={ `question p-4 ${touched.internetAccess && errors.internetAccess ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             How does your household access the internet?*
           </h4>
@@ -204,6 +245,10 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues }) {
             onChange={setFieldValue}
           />
         </div>
+        <span className='error-message'>
+            { touched.internetAccess && errors.internetAccess && <span> {errors.internetAccess} </span>}
+        </span>
+
 
         {/*<div className="question">
         <h4>What is the intended use of this computer?*</h4>
@@ -248,18 +293,26 @@ export function mapPropsToValues({
   isHispanicOrLatino,
   computerUse,
   householdMembers,
-  technologyCompetencyLevel,
   internetAccess,
   householdComputers,
+  computerDifficultyLevel, 
+  solveComputerProblemsLevel,
+  handleComputerProblemsLevel,
+  computerActingUpLevel,
+  complexComputerLevel,
 }) {
   return {
     race: race || [],
     isHispanicOrLatino: isHispanicOrLatino,
     computerUse: computerUse || [],
-    technologyCompetencyLevel: technologyCompetencyLevel,
     internetAccess: internetAccess || [],
     householdMembers: householdMembers,
     householdComputers: householdComputers,
+    computerDifficultyLevel: computerDifficultyLevel, 
+    solveComputerProblemsLevel: solveComputerProblemsLevel,
+    handleComputerProblemsLevel: handleComputerProblemsLevel,
+    computerActingUpLevel: computerActingUpLevel,
+    complexComputerLevel: complexComputerLevel,
   };
 }
 
@@ -280,14 +333,18 @@ export function handleSubmit(values, { props }) {
  * @type {object}
  */
 export const validationSchema = Yup.object().shape({
-  race: Yup.array().of(Yup.string()).min(1).required(),
+  race: Yup.array().min(1, "Error: Required Field"),
   isHispanicOrLatino: Yup.string().required(),
-  householdMembers: Yup.string().required("Please select a household size"),
-  // technologyCompetencyLevel: Yup.number().min(1).max(5),
-  // computerUsage: Yup.string().required(),
-  // numberOfDevices: Yup.string().required(),
-  // internetAccessAvailability: Yup.string().required(),
-});
+  householdMembers: Yup.string().required("Error: Required Field"),
+  computerDifficultyLevel: Yup.number().min(1).required(),
+  solveComputerProblemsLevel: Yup.number().min(1).required(),
+  handleComputerProblemsLevel: Yup.number().min(1).required(),
+  computerActingUpLevel: Yup.number().min(1).required(),
+  complexComputerLevel: Yup.number().min(1).required(),
+  computerUse: Yup.array().min(1, "Error: Required Field"),
+  householdComputers: Yup.string().required("Error: Required Field"),
+  internetAccess: Yup.array().min(1, "Error: Required Field"),
+})
 
 /**
  * Wraps SendAccessCodeForm with the withFormik Higher-order component

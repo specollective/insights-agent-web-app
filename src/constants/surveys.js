@@ -1,11 +1,15 @@
 export const DEFAULT_FORM_VALUES = {
   isHispanicOrLatino: null,
   internetAccess: [],
-  technologyCompetencyLevel: null,
   race: [],
   householdMembers: '1',
   computerUse: [],
   householdComputers: '0',
+  computerDifficultyLevel: null,
+  solveComputerProblemsLevel: null,
+  handleComputerProblemsLevel: null,
+  computerActingUpLevel: null,
+  complexComputerLevel: null,
 }
 
 // TODO: Apply i18n localization
@@ -18,8 +22,8 @@ export const RACE_OPTIONS = [
   { value: 'asian-indian', label: 'Asian Indian' },
   { value: 'vietnamese', label: 'Vietnamese' },
   { value: 'korean', label: 'Korean' },
-  { value: 'decline', label: 'Decline to identify' },
 ]
+
 export const RACE_OPTIONS_TWO = [
   { value: 'japanese', label: 'Japanese' },
   { value: 'hawaiian', label: 'Native Hawaiian' },
@@ -47,7 +51,7 @@ export const INTERNET_ACCESS = [
 ]
 
 export const HOUSEHOLD_MEMBERS = [
-  { value: '0', label: '0' },
+  { value: 'Select One', label: 'Select One' },
   { value: '1', label: '1' },
   { value: '2', label: '2' },
   { value: '3', label: '3' },
