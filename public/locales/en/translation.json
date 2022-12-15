@@ -119,7 +119,7 @@
   "ConfirmationNotReceivedInstructions": "If you have not received a text message please proceed to the following steps:",
   "ConfirmationNotReceivedFirst": "If you have not received a text message, please resubmit your Name and Phone number below.",
   "ConfirmationNotReceivedSecond": "If you have already resubmitted your phone number and are still not receiving a text message, please",
-  "ConfirmationNotReceivedThird": "If you have tried previous steps and are still not receiving a text message, please contact us at 800-555-1234.",
+  "ConfirmationNotReceivedThird": "If you have tried previous steps and are still not receiving a text message, please contact us at help@insightsagent.com.",
 
   "SuccessHeader": "Thank you for providing your data and helping us build the future of technology - for everyone.",
   "SuccessProcessing": "We are processing your information now and we’ll notify you with next steps.",
@@ -135,10 +135,10 @@
   "InstructionsSecond": "Enter your phone number that you used to sign up for this study",
   "InstructionsThird": "You will receive a 6 digit verification code via text to that phone number provided. Enter that code on the prompt",
   "InstructionsFourth": "Please read the study reminder before pushing the Start button to start running the Insights Agent",
-  "InstructionsFifth": "If you have received an error message or if you are having trouble, please contact us at 800-XXX-XXXX or email us at help@insightsagent.com",
+  "InstructionsFifth": "If you have received an error message or if you are having trouble, please contact us at help@insightsagent.com",
 
   "UninstallSecond": "Enter your phone number that you used to sign up for this study",
   "UninstallThird": "You will receive a 6 digit verification code via text to that phone number provided. Enter that code on the prompt",
   "UninstallFourth": "Please read the study reminder before pushing the Start button to start running the Insights Agent",
-  "UninstallFifth": "If you have received an error message or if you are having trouble, please contact us at 800-XXX-XXXX or email us at help@insightsagent.com"
+  "UninstallFifth": "If you have received an error message or if you are having trouble, please contact us at help@insightsagent.com"
 }
