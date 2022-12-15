@@ -111,7 +111,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-          { touched.computerDifficultyLevel && errors.computerDifficultyLevel && <span> Error: Required Field </span>}
+          { touched.computerDifficultyLevel && errors.computerDifficultyLevel && <span> {t("RequiredField")} </span>}
         </span>
 
         <div className={ `question p-4 ${touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
@@ -126,7 +126,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-          { touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel && <span> Error: Required Field </span>}
+          { touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel && <span> {t("RequiredField")} </span>}
         </span>
 
         <div className={ `question p-4 ${touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
@@ -141,7 +141,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-          { touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel && <span> Error: Required Field </span>}
+          { touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel && <span> {t("RequiredField")} </span>}
         </span>
 
         <div className={ `question p-4 ${touched.computerActingUpLevel && errors.computerActingUpLevel ? "border-2 border-[#FA0000]" : ""}` }>
@@ -156,7 +156,8 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-          { touched.computerActingUpLevel && errors.computerActingUpLevel && <span> Error: Required Field </span>}
+          { touched.computerActingUpLevel && errors.computerActingUpLevel && <span> 
+            {t("RequiredField")} </span>}
         </span>
        
         <div className={ `question p-4 ${touched.complexComputerLevel && errors.complexComputerLevel ? "border-2 border-[#FA0000]" : ""}` }>
@@ -171,7 +172,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-          { touched.complexComputerLevel && errors.complexComputerLevel && <span> Error: Required Field </span>}
+          { touched.complexComputerLevel && errors.complexComputerLevel && <span> {t("RequiredField")} </span>}
         </span>
 
         <div>
