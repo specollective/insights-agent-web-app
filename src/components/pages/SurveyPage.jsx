@@ -103,8 +103,8 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             {t("SurveyICanUsuallyHandleDifficulties")}*
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.computerDifficultyLevel}
+            name="computerDifficultyLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
@@ -118,8 +118,8 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             {t("SurveyICanSolveProblems")}*
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.solveComputerProblemsLevel}
+            name="solveComputerProblemsLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
@@ -133,20 +133,23 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             {t("SurveyICanUsuallyHandleProblems")}*
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.handleComputerProblemsLevel}
+            name="handleComputerProblemsLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
+        <span className='error-message'>
+            { touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel && <span> Error: Required Field </span>}
+        </span>
 
         <div className={ `question p-6 ${touched.computerActingUpLevel && errors.computerActingUpLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             {t("SurveyComputerActingUp")}*
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.computerActingUpLevel}
+            name="computerActingUpLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
@@ -160,14 +163,14 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             {t("SurveyICanComplete")}*
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.complexComputerLevel}
+            name="complexComputerLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
         <span className='error-message'>
-            { touched.technologyCompetencyLevel && errors.technologyCompetencyLevel && <span>{t("SurveyErrorRequired")}</span>}
+            { touched.complexComputerLevel && errors.complexComputerLevel && <span>{t("SurveyErrorRequired")}</span>}
         </span>
 
         <div>
