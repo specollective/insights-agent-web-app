@@ -99,65 +99,79 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           </ol>
         </div>
 
-        <div className={ `question p-4 ${touched.computerDifficultyLevel && errors.computerDifficultyLevel ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-4 ${touched.computerDifficultyLevel && errors.computerDifficultyLevel ? "border-2 border-[#FA0000]" : ""}` }>          
           <h4 className="font-semibold">
             {t("SurveyICanUsuallyHandleDifficulties")}*
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
-            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
-            isHorizontal={true}
-          />
-        </div>
-        <div className="question p-4">
-          <h4 className="font-semibold">
-            {t("SurveyICanSolveProblems")}*
-          </h4>
-          <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
-            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
-            isHorizontal={true}
-          />
-        </div>
-        <div className="question p-4">
-          <h4 className="font-semibold">
-            {t("SurveyICanUsuallyHandleProblems")}*
-          </h4>
-          <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
-            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
-            isHorizontal={true}
-          />
-        </div>
-
-        <div className="question p-4">
-          <h4 className="font-semibold">
-            {t("SurveyComputerActingUp")}*
-          </h4>
-          <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
-            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
-            isHorizontal={true}
-          />
-        </div>
-       
-        <div className="question p-4 ">
-          <h4 className="font-semibold">
-            {t("SurveyICanComplete")}*
-          </h4>
-          <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.computerDifficultyLevel}
+            name="computerDifficultyLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
         <span className='error-message'>
-            { touched.technologyCompetencyLevel && errors.technologyCompetencyLevel && <span>{t("SurveyErrorRequired")}</span>}
+          { touched.computerDifficultyLevel && errors.computerDifficultyLevel && <span> Error: Required Field </span>}
+        </span>
+
+        <div className={ `question p-4 ${touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
+          <h4 className="font-semibold">
+            {t("SurveyICanSolveProblems")}*
+          </h4>
+          <RadioButtonGroup
+            value={values.solveComputerProblemsLevel}
+            name="solveComputerProblemsLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+        <span className='error-message'>
+          { touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel && <span> Error: Required Field </span>}
+        </span>
+
+        <div className={ `question p-4 ${touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
+          <h4 className="font-semibold">
+            {t("SurveyICanUsuallyHandleProblems")}*
+          </h4>
+          <RadioButtonGroup
+            value={values.handleComputerProblemsLevel}
+            name="handleComputerProblemsLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+        <span className='error-message'>
+          { touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel && <span> Error: Required Field </span>}
+        </span>
+
+        <div className={ `question p-4 ${touched.computerActingUpLevel && errors.computerActingUpLevel ? "border-2 border-[#FA0000]" : ""}` }>
+          <h4 className="font-semibold">
+            {t("SurveyComputerActingUp")}*
+          </h4>
+          <RadioButtonGroup
+            value={values.computerActingUpLevel}
+            name="computerActingUpLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+        <span className='error-message'>
+          { touched.computerActingUpLevel && errors.computerActingUpLevel && <span> Error: Required Field </span>}
+        </span>
+       
+        <div className={ `question p-4 ${touched.complexComputerLevel && errors.complexComputerLevel ? "border-2 border-[#FA0000]" : ""}` }>
+          <h4 className="font-semibold">
+            {t("SurveyICanComplete")}*
+          </h4>
+          <RadioButtonGroup
+            value={values.complexComputerLevel}
+            name="complexComputerLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+        <span className='error-message'>
+          { touched.complexComputerLevel && errors.complexComputerLevel && <span> Error: Required Field </span>}
         </span>
 
         <div>
