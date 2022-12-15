@@ -14,8 +14,11 @@
   border-radius: 10px;
   text-align: left;
   @apply shadow-md;
-  @apply p-4
+  @apply p-4;
+ 
 }
+
+
 
 .question > input {
   width: 100%;
@@ -24,6 +27,13 @@
 .dropdown-group{
   @apply border-2 ;
   @apply border-gray-200;
+}
+.checkbox-group:checked{
+  @apply bg-green-500
+}
+
+.question:checked{
+  @apply bg-green-500;
 }
 
 .download {
