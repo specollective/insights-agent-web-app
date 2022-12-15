@@ -41,7 +41,7 @@
   ],
   "LandingBenefits": "Benefits",
   "LandingRisks": "Risks",
-  
+
   "surveyHispanicHeader": "Are you of Hispanic origin?*",
   "surveyTitle": "Insights Agent General Info Survey",
   "surveyDescription": "A core part of this study is tracking if technology is equitably benefit every person regardless of who they are. Your answer to these US Census style questions will help us better understand technology + diversity.",
@@ -110,5 +110,13 @@
     "2": "Slightly",
     "3": "Fairly",
     "4": "Highly"
-  }
+  },
+
+  "ConfirmationHeading": "Thank you fo helping us empower the building of a better future for all, through equitable technology.",
+  "ConfirmationWeHaveReceived": "We have received your information for participation. You should be receiving a text message to the phone number provided with next steps.",
+  "ConfirmationGoHome": "Go back to Home",
+  "ConfirmationNotReceivedInstructions": "If you have not received a text message please proceed to the following steps:",
+  "ConfirmationNotReceivedFirst": "If you have not received a text message, please resubmit your Name and Phone number below.",
+  "ConfirmationNotReceivedSecond": "If you have already resubmitted your phone number and are still not receiving a text message, please",
+  "ConfirmationNotReceivedThird": "If you have tried previous steps and are still not receiving a text message, please contact us at 800-555-1234."
 }

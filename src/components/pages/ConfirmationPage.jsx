@@ -5,11 +5,15 @@ import { useAuth } from 'hooks/authentication'
 import './ConfirmationPage.css'
 import ProgressBar1 from '../../images/ProgressBar1.svg'
 import SignUpForm from 'components/elements/SignUp'
+import { useTranslation } from "react-i18next";
+
 
 
 function ConfirmationPage() {
   const auth = useAuth()
   const { otp, token } = useParams()
+  const { t } = useTranslation()
+
   // const [formData, setFormData] = useState({
   //   phoneNumber: '',
   //   otp: '',
@@ -53,27 +57,29 @@ function ConfirmationPage() {
           <img src={ProgressBar1} alt='progress' />
         </div>
         <div>
-          <h1 className='pb-12 px-8 text-base md:text-3xl font-semibold'>Thank you for helping us empower the building of a better future for all, through equitable technology.</h1>
+          <h1 className='pb-12 px-8 text-base md:text-3xl font-semibold'>
+            {t("ConfirmationHeading")}
+          </h1>
           <p className='px-8'>
-            We have received your information for participation. You should be receiving a text message to the phone number provided with next steps.
+            {t("ConfirmationWeHaveReceived")}
           </p>
         </div>
 
         <div className='grid place-content-center pt-16 text-sm md:text-xl underline'>
-          <Link to='/'>Go back to Home</Link>
+          <Link to='/'>{t("ConfirmationGoHome")}</Link>
         </div>
 
         <hr />
 
         <div className="px-8">
           <p className='text-base pb-16'>
-            If you have not received a text message please proceed to the following steps:
+            {t("ConfirmationNotReceivedInstructions")}
           </p>
 
           <ul className='list-decimal px-8'>
-            <li>If you have not received a text message, please resubmit your Name and Phone number below.</li>
-            <li>If you have already resubmitted your phone number and are still not receiving a text message, please </li>
-            <li>If you have tried previous steps and are still not receiving a text message, please contact us at 800-555-1234</li>
+            <li>{t("ConfirmationNotReceivedFirst")}</li>
+            <li>{t("ConfirmationNotReceivedSecond")}</li>
+            <li>{t("ConfirmationNotReceivedThird")}</li>
           </ul>
         </div>
 
