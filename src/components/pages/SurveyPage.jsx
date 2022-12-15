@@ -123,7 +123,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         </div>
         <div className="question p-4">
           <h4 className="font-semibold">
-            {t("SurveyICanUsuallyHandleProblems")}
+            {t("SurveyICanUsuallyHandleProblems")}*
           </h4>
           <RadioButtonGroup
             value={values.technologyCompetencyLevel}
@@ -147,7 +147,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
        
         <div className="question p-4 ">
           <h4 className="font-semibold">
-            {t("SurveyICanComplete")}
+            {t("SurveyICanComplete")}*
           </h4>
           <RadioButtonGroup
             value={values.technologyCompetencyLevel}
