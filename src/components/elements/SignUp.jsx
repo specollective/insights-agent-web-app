@@ -56,7 +56,7 @@ export function SignUpForm({ touched, errors }) {
   return (
     <Form>
       <h1 className='text-center xl:text-xl'>
-        {t("landingPageHeading")}
+        {t("LandingPageHeading")}
       </h1>
       <div
         className='grid md:grid md:grid-cols-2 py-8 md:px-24 lg:px-32 xl:px-72 justify-center xl:text-xl'

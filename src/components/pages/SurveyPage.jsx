@@ -14,7 +14,7 @@ import {
 } from "constants/surveys";
 
 import "components/pages/SurveyPage.css";
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import CheckboxGroup from "components/elements/CheckboxGroup";
@@ -36,22 +36,22 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
       <div className=" bg-[#AECA9B] rounded">
         <div className="rounded p-6">
           <h4 className="font-semibold text-xl md:left lg:text-center">
-            {t("insightsAgentGeneralInfoSurvey")}
+            {t("InsightsAgentGeneralInfoSurvey")}
           </h4>
-          <p>{t("surveyDescription")}</p>
+          <p>{t("SurveyDescription")}</p>
 
           <p>
-            <strong>*{t("requiredField")}</strong>
+            <strong>*{t("RequiredField")}</strong>
           </p>
         </div>
       </div>
 
       <section className="min-w-full space-y-4 px-0 py-10 md:px-0 lg:px-6">
-        <h4 className="font-semibold ">{t("surveyAnswerAboutYourself")}:</h4>
+        <h4 className="font-semibold ">{t("SurveyAnswerAboutYourself")}:</h4>
 
         <div className={ `question p-4 ${touched.race && errors.race ? "border-2 border-[#FA0000]" : ""}` }>
-          <h4 className="font-semibold">{t("surveySelectYourRace")}*</h4>
-          <p>{t("surveyCheckAll")}</p>
+          <h4 className="font-semibold">{t("SurveySelectYourRace")}*</h4>
+          <p>{t("SurveyCheckAll")}</p>
           {/* needs closing div */}
 
           <div className="grid grid-cols-1 lg:grid lg:grid-cols-2 pt-4">
@@ -74,14 +74,8 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           </div>
         </div>
 
-        <div
-          className={`question p-4 ${
-            touched.isHispanicOrLatino && errors.isHispanicOrLatino
-              ? "border-2 border-[#FA0000]"
-              : ""
-          }`}
-        >
-          <h4 className="font-semibold">{t("surveyHispanicHeader")}</h4>
+        <div className={ `question p-4 ${touched.isHispanicOrLatino && errors.isHispanicOrLatino ? "border-2 border-[#FA0000]" : ""}` }>
+          <h4 className="font-semibold">{t("SurveyHispanicHeader")}</h4>
           <RadioButtonGroup
             value={values.isHispanicOrLatino}
             name="isHispanicOrLatino"
@@ -90,12 +84,12 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           <label htmlFor="name" className="text-sm"></label>
         </div>
         <span className='error-message'>
-            { touched.isHispanicOrLatino && errors.isHispanicOrLatino && <span> {t("surveyErrorRequired")}</span>}
+            { touched.isHispanicOrLatino && errors.isHispanicOrLatino && <span> {t("SurveyErrorRequired")}</span>}
         </span>
 
         <div className={ `question p-4 ${touched.technologyCompetencyLevel && errors.technologyCompetencyLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
-            {t("surveyCompetency")}*
+            {t("SurveyCompetency")}*
           </h4>
           <ol className="list-outside">
             <li>1- Not at all confident</li>
@@ -107,7 +101,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
 
         <div className={ `question p-4 ${touched.computerDifficultyLevel && errors.computerDifficultyLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
-            {t("surveyICanUsuallyHandleDifficulties")}*
+            {t("SurveyICanUsuallyHandleDifficulties")}*
           </h4>
           <RadioButtonGroup
             value={values.technologyCompetencyLevel}
@@ -118,7 +112,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         </div>
         <div className="question p-4">
           <h4 className="font-semibold">
-            {t("surveyICanSolveProblems")}*
+            {t("SurveyICanSolveProblems")}*
           </h4>
           <RadioButtonGroup
             value={values.technologyCompetencyLevel}
@@ -129,7 +123,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         </div>
         <div className="question p-4">
           <h4 className="font-semibold">
-            {t("surveyICanUsuallyHandleProblems")}
+            {t("SurveyICanUsuallyHandleProblems")}
           </h4>
           <RadioButtonGroup
             value={values.technologyCompetencyLevel}
@@ -141,7 +135,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
 
         <div className="question p-4">
           <h4 className="font-semibold">
-            {t("surveyComputerActingUp")}*
+            {t("SurveyComputerActingUp")}*
           </h4>
           <RadioButtonGroup
             value={values.technologyCompetencyLevel}
@@ -153,7 +147,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
        
         <div className="question p-4 ">
           <h4 className="font-semibold">
-            {t("surveyICanComplete")}
+            {t("SurveyICanComplete")}
           </h4>
           <RadioButtonGroup
             value={values.technologyCompetencyLevel}
@@ -163,12 +157,12 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-            { touched.technologyCompetencyLevel && errors.technologyCompetencyLevel && <span>{t("surveyErrorRequired")}</span>}
+            { touched.technologyCompetencyLevel && errors.technologyCompetencyLevel && <span>{t("SurveyErrorRequired")}</span>}
         </span>
 
         <div>
           <h4 className="font-semibold ">
-            {t("surveyAnswerAboutHousehold")}:
+            {t("SurveyAnswerAboutHousehold")}:
           </h4>
         </div>
         <div
@@ -179,7 +173,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           }`}
         >
           <h5 className="font-semibold">
-            {t("surveyHowManyLiveInHousehold")}*
+            {t("SurveyHowManyLiveInHousehold")}*
           </h5>
        
           <DropdownGroup
@@ -203,9 +197,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           }`}
         >
           <h4 className="font-semibold">
-            {t("surveyIntendedUse")}*
+            {t("SurveyIntendedUse")}*
           </h4>
-          <p>{t("surveyCheckAll")}</p>
+          <p>{t("SurveyCheckAll")}</p>
 
           <CheckboxGroup
             value={values.computerUse}
@@ -229,7 +223,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           }`}
         >
           <h4 className="font-semibold">
-            {t("surveyHowManyOtherComputers")}
+            {t("SurveyHowManyOtherComputers")}
           </h4>
 
           <DropdownGroup
@@ -252,9 +246,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           }`}
         >
           <h4 className="font-semibold">
-            {t("surveyHowDoesHouseholdAccess")}*
+            {t("SurveyHowDoesHouseholdAccess")}*
           </h4>
-          <p>{t("surveyCheckAll")}</p>
+          <p>{t("SurveyCheckAll")}</p>
 
 
           <CheckboxGroup
@@ -276,13 +270,13 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             className="left cursor-pointer"
             onClick={handleClearForm}
           >
-            {t("surveyClearForm")}
+            {t("SurveyClearForm")}
           </button>
           <button
             type="submit"
             className="right text-white bg-green-100 rounded-sm px-6 py-2"
           >
-            {t("surveySubmit")}
+            {t("submitText")}
           </button>
         </div>
       </section>
