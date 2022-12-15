@@ -5,7 +5,7 @@ export default function HeroMobile() {
   const { t } = useTranslation()
 
   return (
-      <section className='flex justify-between items-end h-32 mb-9 pb-3 pl-5 pr-2 bg-green-100'>
+      <section className='flex justify-between items-end h-32 mb-9 pb-3 pl-5 pr-2 bg-green-100 font-poppins'>
         <h1 className='text-3xl text-white'>
           build <br/> 
           JUSTLY
