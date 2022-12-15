@@ -44,13 +44,12 @@ function App() {
             <Route exact path="/confirmation" element={<ConfirmationPage />} />
 
             <Route
-              path="/surveys"
-              // path="/surveys/:surveyId"
+             
+              path="/surveys/:surveyId"
               element={
-                // <RequireAuth>
-                 
-                // </RequireAuth>
-                 <SurveyPage />
+                <RequireAuth>
+                  <SurveyPage />
+                </RequireAuth>
               }
             />
 
