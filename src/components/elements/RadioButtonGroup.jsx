@@ -4,12 +4,12 @@ import { Fragment } from 'react'
 function RadioButtonGroup ({ options, name, value, isHorizontal=false }) {
   const horizontalClass =  isHorizontal ? "horizontal" : "";
   return (
-    <div className= {`radio-button-group ${horizontalClass}`}>
+    <div className={`radio-button-group ${horizontalClass}`}>
       { options.map(option => {
         const id = `${name}-${option.value}`
 
         return (
-          <div key={option.value}>
+          <div className="radio-button-container" key={option.value}>
             <Field
               checked={value === option.value}
               type="radio"
@@ -18,7 +18,7 @@ function RadioButtonGroup ({ options, name, value, isHorizontal=false }) {
               name={name}
               value={option.value}
             />
-            <label htmlFor={id}>
+            <label className="mt-4" htmlFor={id}>
               { option.label }
             </label>
             
