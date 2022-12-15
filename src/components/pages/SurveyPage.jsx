@@ -46,7 +46,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         </div>
       </div>
 
-      <section className="min-w-full space-y-4 px-0 py-10 md:px-0 lg:px-6">
+      <section className="min-w-full space-y-4 px-0 py-10  md:px-0 lg:px-6 ">
         <h4 className="font-semibold ">Please answer about YOURSELF:</h4>
 
         <div
@@ -205,12 +205,13 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           <h5 className="font-semibold">
             How many people live/stay in your household?*
           </h5>
-
+       
           <DropdownGroup
-            value={values.householdMembers}
-            name="householdMembers"
-            options={HOUSEHOLD_MEMBERS}
-          />
+              value={values.householdMembers}
+              name="householdMembers"
+              options={HOUSEHOLD_MEMBERS}
+            />
+          
         </div>
         <span className="error-message">
           {touched.householdMembers && errors.householdMembers && (

@@ -13,11 +13,29 @@
   display: block;
   border-radius: 10px;
   text-align: left;
+  @apply shadow-md;
+  @apply p-4;
+ 
 }
+
+
 
 .question > input {
   width: 100%;
 }
+
+.dropdown-group{
+  @apply border-2 ;
+  @apply border-gray-300;
+}
+.checkbox-group{
+  @apply accent-green-100
+}
+
+.radio-button-group{
+   @apply accent-green-100
+}
+
 
 .download {
   background: #E4E4E4;

@@ -50,6 +50,7 @@ function App() {
                   <SurveyPage />
                 </RequireAuth>
               }
+            
             />
 
             <Route
