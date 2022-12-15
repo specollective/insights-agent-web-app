@@ -30,7 +30,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
     setValues(DEFAULT_FORM_VALUES);
   }
 
-
+  console.log(values)
   return (
     <Form className="flex flex-col lg:mx-40 md:mx-20 lg:place-items-center py-20 px-4">
       <div className=" bg-[#AECA9B] rounded">
@@ -86,7 +86,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             { touched.isHispanicOrLatino && errors.isHispanicOrLatino && <span> {t("SurveyErrorRequired")}</span>}
         </span>
 
-        <div className={ `question p-4 ${touched.technologyCompetencyLevel && errors.technologyCompetencyLevel ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className="p-4">
           <h4 className="font-semibold">
             {t("SurveyCompetency")}*
           </h4>
@@ -174,7 +174,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         </span>
 
         <div>
-          <h4 className="font-semibold ">
+          <h4 className="font-semibold p-4">
             {t("SurveyAnswerAboutHousehold")}:
           </h4>
         </div>
