@@ -1,4 +1,6 @@
 {
+  "InsightsAgentHeader": "Insights Agent Research Study",
+  "InsightsAgentStudy": "Insights Agent Study",
   "fullNameLabel": "Enter Full Name (First & Last)",
   "phoneNumberLabel": "Enter Phone Number",
   "submitText": "Submit",
@@ -123,5 +125,9 @@
   "SuccessProcessing": "We are processing your information now and we’ll notify you with next steps.",
   "SuccessTextMessage": "You’ll receive a text message at the number you provided.",
   "SuccessIfYouDoNotReceive": "If you do not receive a message within 7 days, please send an email to tech4all@buildjustly.org and mention the Insights Agent.",
-  "SuccessLink": "Visit buildJUSTLY.org"
+  "SuccessLink": "Visit buildJUSTLY.org",
+
+  "DownloadMac": "Download for Mac",
+  "DownloadSetUp": "Set-Up Instructions",
+  "DownloadUninstall": "Uninstall Instructions"
 }
