@@ -19,7 +19,7 @@ function RadioButtonGroup ({ options, name, value, isHorizontal=false }) {
               value={option.value}
             />
             <label htmlFor={id}>
-              {`${ option.label }`}
+              { option.label }
             </label>
             
             {option.secondaryLabel ? (

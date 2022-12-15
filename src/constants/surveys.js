@@ -1,3 +1,5 @@
+import { Trans } from 'react-i18next'
+
 export const DEFAULT_FORM_VALUES = {
   isHispanicOrLatino: null,
   internetAccess: [],
@@ -14,44 +16,44 @@ export const DEFAULT_FORM_VALUES = {
 
 // TODO: Apply i18n localization
 export const RACE_OPTIONS = [
-  { value: 'white', label: 'White' },
-  { value: 'black', label: 'Black or African American' },
-  { value: 'american-indian', label: 'American Indian or Alaska Native' },
-  { value: 'chinese', label: 'Chinese' },
-  { value: 'filipino', label: 'Filipino' },
-  { value: 'asian-indian', label: 'Asian Indian' },
-  { value: 'vietnamese', label: 'Vietnamese' },
-  { value: 'korean', label: 'Korean' },
+  { value: 'white', label: <Trans i18nKey="RaceOptions.white" />},
+  { value: 'black', label: <Trans i18nKey="RaceOptions.black" /> },
+  { value: 'american-indian', label: <Trans i18nKey="RaceOptions.american-indian" /> },
+  { value: 'chinese', label: <Trans i18nKey="RaceOptions.chinese" /> },
+  { value: 'filipino', label: <Trans i18nKey="RaceOptions.filipino" /> },
+  { value: 'asian-indian', label: <Trans i18nKey="RaceOptions.asian-indian" /> },
+  { value: 'vietnamese', label: <Trans i18nKey="RaceOptions.vietnamese" /> },
+  { value: 'korean', label: <Trans i18nKey="RaceOptions.korean" /> },
 ]
 
 export const RACE_OPTIONS_TWO = [
-  { value: 'japanese', label: 'Japanese' },
-  { value: 'hawaiian', label: 'Native Hawaiian' },
-  { value: 'samoan', label: 'Samoan' },
-  { value: 'chamorro', label: 'Charmorro' },
-  { value: 'other-asian', label: 'Other Asian' },
-  { value: 'other-pacific-islander', label: 'Other Pacific Islander' },
-  { value: 'other', label: 'Other race not listed above' },
-  { value: 'decline', label: 'Decline to identify' },
+  { value: 'japanese', label: <Trans i18nKey="RaceOptions.japanese" /> },
+  { value: 'hawaiian', label: <Trans i18nKey="RaceOptions.hawaiian" /> },
+  { value: 'samoan', label: <Trans i18nKey="RaceOptions.samoan" /> },
+  { value: 'chamorro', label: <Trans i18nKey="RaceOptions.chamorro" /> },
+  { value: 'other-asian', label: <Trans i18nKey="RaceOptions.other-asian" /> },
+  { value: 'other-pacific-islander', label: <Trans i18nKey="RaceOptions.other-pacific-islander" /> },
+  { value: 'other', label: <Trans i18nKey="RaceOptions.other" /> },
+  { value: 'decline', label: <Trans i18nKey="RaceOptions.decline" /> },
 ]
 
 // TODO: Apply i18n localization
 export const IS_HISPANIC_OPTIONS = [
-  { value: 'true', label: 'Yes' },
-  { value: 'false', label: 'No' },
-  { value: 'decline', label: 'Decline to identify' },
+  { value: 'true', label:  <Trans i18nKey="HispanicOptions.true" /> },
+  { value: 'false', label: <Trans i18nKey="HispanicOptions.false" /> },
+  { value: 'decline', label: <Trans i18nKey="HispanicOptions.decline" /> },
 ]
 
 export const INTERNET_ACCESS = [
-  { value: 'cellular-data', label: 'Cellular data plan for smartphone' },
-  { value: 'broadband', label: 'Broadband internet service' },
-  { value: 'satellite', label: 'Satellite internet service' },
-  { value: 'dial-up', label: 'Dial up internet service' },
-  { value: 'other-service', label: 'Some other service' },
+  { value: 'cellular-data', label: <Trans i18nKey="InternetAccessOptions.cellular-data" /> },
+  { value: 'broadband', label: <Trans i18nKey="InternetAccessOptions.broadband" /> },
+  { value: 'satellite', label: <Trans i18nKey="InternetAccessOptions.satellite" /> },
+  { value: 'dial-up', label: <Trans i18nKey="InternetAccessOptions.dial-up" /> },
+  { value: 'other-service', label: <Trans i18nKey="InternetAccessOptions.other-service" /> },
 ]
 
 export const HOUSEHOLD_MEMBERS = [
-  { value: 'Select One', label: 'Select One' },
+  { value: 'Select One', label: <Trans i18nKey="HouseholdSelectOne" /> },
   { value: '1', label: '1' },
   { value: '2', label: '2' },
   { value: '3', label: '3' },
@@ -60,21 +62,21 @@ export const HOUSEHOLD_MEMBERS = [
 ]
 
 export const COMPUTER_USE = [
-  { value: 'entertainment', label: 'Entertainment' },
-  { value: 'gaming', label: 'Gaming' },
-  { value: 'school', label: 'School' },
-  { value: 'creativity', label: 'Creativity' },
-  { value: 'business', label: 'Business' },
-  { value: 'family', label: 'Family' },
-  { value: 'gain-new-skills', label: 'Gain new skills' },
-  { value: 'job-search', label: 'Job search' },
+  { value: 'entertainment', label: <Trans i18nKey="ComputerUseOptions.entertainment" /> },
+  { value: 'gaming', label: <Trans i18nKey="ComputerUseOptions.gaming" /> },
+  { value: 'school', label: <Trans i18nKey="ComputerUseOptions.school" /> },
+  { value: 'creativity', label: <Trans i18nKey="ComputerUseOptions.creativity" /> },
+  { value: 'business', label: <Trans i18nKey="ComputerUseOptions.business" /> },
+  { value: 'family', label: <Trans i18nKey="ComputerUseOptions.family" /> },
+  { value: 'gain-new-skills', label: <Trans i18nKey="ComputerUseOptions.gain-new-skills" /> },
+  { value: 'job-search', label: <Trans i18nKey="ComputerUseOptions.job-search" /> },
 ]
 
 export const TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS = [
-  { value: '1', label: '1', secondaryLabel: 'Not at all' },
-  { value: '2', label: '2', secondaryLabel: 'Slightly' },
-  { value: '3', label: '3', secondaryLabel: 'Fairly' },
-  { value: '4', label: '4', secondaryLabel: 'Highly' },
+  { value: '1', label: '1', secondaryLabel: <Trans i18nKey="CompetencyOptions.1" /> },
+  { value: '2', label: '2', secondaryLabel: <Trans i18nKey="CompetencyOptions.2" /> },
+  { value: '3', label: '3', secondaryLabel: <Trans i18nKey="CompetencyOptions.3" /> },
+  { value: '4', label: '4', secondaryLabel: <Trans i18nKey="CompetencyOptions.4" /> },
 ]
 
 export const HOUSEHOLD_COMPUTERS = [
