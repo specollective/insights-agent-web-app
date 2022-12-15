@@ -88,80 +88,94 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             { touched.isHispanicOrLatino && errors.isHispanicOrLatino && <span> Error: Required Field </span>}
         </span>
 
-        <div className={ `question p-4 ${touched.technologyCompetencyLevel && errors.technologyCompetencyLevel ? "border-2 border-[#FA0000]" : ""}` }>
-          <h4 className="font-semibold">
+        <div className="font-semibold">
+          <h4 className="pb-5">
             Rate your level of competence with computer technology*
           </h4>
-          <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
-            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
-            isHorizontal={true}
-          />
+          <ol className="list-outside">
+            <li>1- Not at all confident</li>
+            <li>2- Slightly confident</li>
+            <li>3- Fairly confident</li>
+            <li>4- Highly confident</li>
+          </ol>
         </div>
 
-        <div className="question p-4">
+        <div className={ `question p-4 ${touched.computerDifficultyLevel && errors.computerDifficultyLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             I can usually handle most difficulties I encounter when using a
             computer
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
-            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
-            isHorizontal={true}
-          />
-        </div>
-        <div className="question p-4">
-          <h4 className="font-semibold">
-            I can solve problems as they arise when I use a computer
-          </h4>
-          <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
-            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
-            isHorizontal={true}
-          />
-        </div>
-        <div className="question p-4">
-          <h4 className="font-semibold">
-            I can usually handle computer problems on my own
-          </h4>
-          <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
-            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
-            isHorizontal={true}
-          />
-        </div>
-
-        <div className="question p-4">
-          <h4 className="font-semibold">
-            If my computer is acting up, I can find a way to get what I want
-            without relying on others
-          </h4>
-          <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
-            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
-            isHorizontal={true}
-          />
-        </div>
-       
-        <div className="question p-4 ">
-          <h4 className="font-semibold">
-            I can complete a complex computer based task (e.g., setting up a
-            printer or wi-fi)
-          </h4>
-          <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.computerDifficultyLevel}
+            name="computerDifficultyLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
         <span className='error-message'>
-            { touched.technologyCompetencyLevel && errors.technologyCompetencyLevel && <span> Error: Required Field </span>}
+            { touched.computerDifficultyLevel && errors.computerDifficultyLevel && <span> Error: Required Field </span>}
+        </span>
+
+        <div className={ `question p-4 ${touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
+          <h4 className="font-semibold">
+            I can solve problems as they arise when I use a computer
+          </h4>
+          <RadioButtonGroup
+            value={values.solveComputerProblemsLevel}
+            name="solveComputerProblemsLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+        <span className='error-message'>
+            { touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel && <span> Error: Required Field </span>}
+        </span>
+
+        <div className={ `question p-4 ${touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
+          <h4 className="font-semibold">
+            I can usually handle computer problems on my own
+          </h4>
+          <RadioButtonGroup
+            value={values.handleComputerProblemsLevel}
+            name="handleComputerProblemsLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+        <span className='error-message'>
+            { touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel && <span> Error: Required Field </span>}
+        </span>
+
+        <div className={ `question p-4 ${touched.computerActingUpLevel && errors.computerActingUpLevel ? "border-2 border-[#FA0000]" : ""}` }>
+          <h4 className="font-semibold">
+            If my computer is acting up, I can find a way to get what I want
+            without relying on others
+          </h4>
+          <RadioButtonGroup
+            value={values.computerActingUpLevel}
+            name="computerActingUpLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+        <span className='error-message'>
+            { touched.computerActingUpLevel && errors.computerActingUpLevel && <span> Error: Required Field </span>}
+        </span>
+        
+        <div className={ `question p-4 ${touched.complexComputerLevel && errors.complexComputerLevel ? "border-2 border-[#FA0000]" : ""}` }>
+          <h4 className="font-semibold">
+            I can complete a complex computer based task (e.g., setting up a
+            printer or wi-fi)
+          </h4>
+          <RadioButtonGroup
+            value={values.complexComputerLevel}
+            name="complexComputerLevel"
+            options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
+            isHorizontal={true}
+          />
+        </div>
+        <span className='error-message'>
+            { touched.complexComputerLevel && errors.complexComputerLevel && <span> Error: Required Field </span>}
         </span>
 
         <div>
@@ -278,18 +292,26 @@ export function mapPropsToValues({
   isHispanicOrLatino,
   computerUse,
   householdMembers,
-  technologyCompetencyLevel,
   internetAccess,
   householdComputers,
+  computerDifficultyLevel, 
+  solveComputerProblemsLevel,
+  handleComputerProblemsLevel,
+  computerActingUpLevel,
+  complexComputerLevel,
 }) {
   return {
     race: race || [],
     isHispanicOrLatino: isHispanicOrLatino,
     computerUse: computerUse || [],
-    technologyCompetencyLevel: technologyCompetencyLevel,
     internetAccess: internetAccess || [],
     householdMembers: householdMembers,
     householdComputers: householdComputers,
+    computerDifficultyLevel: computerDifficultyLevel, 
+    solveComputerProblemsLevel: solveComputerProblemsLevel,
+    handleComputerProblemsLevel: handleComputerProblemsLevel,
+    computerActingUpLevel: computerActingUpLevel,
+    complexComputerLevel: complexComputerLevel,
   };
 }
 
@@ -313,7 +335,11 @@ export const validationSchema = Yup.object().shape({
   race: Yup.array().min(1, "Error: Required Field"),
   isHispanicOrLatino: Yup.string().required(),
   householdMembers: Yup.string().required("Error: Required Field"),
-  technologyCompetencyLevel: Yup.number().min(1).required(),
+  computerDifficultyLevel: Yup.number().min(1).required(),
+  solveComputerProblemsLevel: Yup.number().min(1).required(),
+  handleComputerProblemsLevel: Yup.number().min(1).required(),
+  computerActingUpLevel: Yup.number().min(1).required(),
+  complexComputerLevel: Yup.number().min(1).required(),
   computerUse: Yup.array().min(1, "Error: Required Field"),
   householdComputers: Yup.string().required("Error: Required Field"),
   internetAccess: Yup.array().min(1, "Error: Required Field"),
