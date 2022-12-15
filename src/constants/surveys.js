@@ -1,11 +1,15 @@
 export const DEFAULT_FORM_VALUES = {
   isHispanicOrLatino: null,
   internetAccess: [],
-  technologyCompetencyLevel: null,
   race: [],
   householdMembers: '1',
   computerUse: [],
   householdComputers: '0',
+  computerDifficultyLevel: null,
+  solveComputerProblemsLevel: null,
+  handleComputerProblemsLevel: null,
+  computerActingUpLevel: null,
+  complexComputerLevel: null,
 }
 
 // TODO: Apply i18n localization

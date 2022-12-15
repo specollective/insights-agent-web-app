@@ -61,7 +61,11 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
+      const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
+      const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
+      const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
+      const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
+      const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -84,7 +88,11 @@ describe('Survey Page', () => {
         fireEvent.click(raceCheckboxGroup.getByText('Filipino'));
         fireEvent.click(raceCheckboxGroup.getByText('Black or African American'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
-        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
+        fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
+        fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
+        fireEvent.click(handleProblemsRadioButtonGroup.getByText('4'));
+        fireEvent.click(computerActingRadioButtonGroup.getByText('1'));
+        fireEvent.click(complexRadioButtonGroup.getByText('4'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
@@ -104,7 +112,11 @@ describe('Survey Page', () => {
         householdComputers:'5+',
         race: ['white', 'filipino', 'black'],
         internetAccess: ['dial-up'],
-        technologyCompetencyLevel: '1',
+        computerDifficultyLevel: '3',
+        solveComputerProblemsLevel: '2',
+        handleComputerProblemsLevel: '4',
+        computerActingUpLevel: '1',
+        complexComputerLevel: '4',
       });
     });
 
@@ -113,7 +125,11 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
+      const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
+      const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
+      const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
+      const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
+      const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -124,7 +140,11 @@ describe('Survey Page', () => {
         fireEvent.click(raceCheckboxGroup.getByText('Filipino'));
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
-        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
+        fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
+        fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
+        fireEvent.click(handleProblemsRadioButtonGroup.getByText('4'));
+        fireEvent.click(computerActingRadioButtonGroup.getByText('1'));
+        fireEvent.click(complexRadioButtonGroup.getByText('4'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
@@ -143,7 +163,11 @@ describe('Survey Page', () => {
         householdComputers:'5+',
         race: ['decline'],
         internetAccess: ['dial-up'],
-        technologyCompetencyLevel: '1',
+        computerDifficultyLevel: '3',
+        solveComputerProblemsLevel: '2',
+        handleComputerProblemsLevel: '4',
+        computerActingUpLevel: '1',
+        complexComputerLevel: '4',
       });
     });
 
@@ -152,7 +176,11 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
+      const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
+      const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
+      const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
+      const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
+      const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -162,7 +190,11 @@ describe('Survey Page', () => {
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(raceCheckboxGroup.getByText('Chinese'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Decline to identify'));
-        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
+        fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
+        fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
+        fireEvent.click(handleProblemsRadioButtonGroup.getByText('4'));
+        fireEvent.click(computerActingRadioButtonGroup.getByText('1'));
+        fireEvent.click(complexRadioButtonGroup.getByText('4'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
@@ -181,7 +213,11 @@ describe('Survey Page', () => {
         householdComputers:'5+',
         race: ['chinese'],
         internetAccess: ['dial-up'],
-        technologyCompetencyLevel: '1',
+        computerDifficultyLevel: '3',
+        solveComputerProblemsLevel: '2',
+        handleComputerProblemsLevel: '4',
+        computerActingUpLevel: '1',
+        complexComputerLevel: '4',
       });
     });
   });
@@ -192,7 +228,11 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
+      const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
+      const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
+      const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
+      const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
+      const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -203,7 +243,11 @@ describe('Survey Page', () => {
         // Testing selecting multiple options
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Yes'));
-        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
+        fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
+        fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
+        fireEvent.click(handleProblemsRadioButtonGroup.getByText('4'));
+        fireEvent.click(computerActingRadioButtonGroup.getByText('1'));
+        fireEvent.click(complexRadioButtonGroup.getByText('4'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '1' },
         });
@@ -223,7 +267,11 @@ describe('Survey Page', () => {
         householdComputers:'5+',
         race: ['decline'],
         internetAccess: ['dial-up'],
-        technologyCompetencyLevel: '1',
+        computerDifficultyLevel: '3',
+        solveComputerProblemsLevel: '2',
+        handleComputerProblemsLevel: '4',
+        computerActingUpLevel: '1',
+        complexComputerLevel: '4',
       });
     });
   });
@@ -234,7 +282,11 @@ describe('Survey Page', () => {
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
-      const competencyRadioButtonGroup = findFormSection(screen, 'Rate your level of competence with computer technology*')
+      const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
+      const solveProblemsRadioButtonGroup = findFormSection(screen, 'I can solve problems as they arise when I use a computer')
+      const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
+      const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
+      const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
@@ -244,7 +296,11 @@ describe('Survey Page', () => {
         // Testing selecting value
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
         fireEvent.click(hispanicRadioButtonGroup.getByText('Yes'));
-        fireEvent.click(competencyRadioButtonGroup.getByText('1'));
+        fireEvent.click(difficultyRadioButtonGroup.getByText('3'));
+        fireEvent.click(solveProblemsRadioButtonGroup.getByText('2'));
+        fireEvent.click(handleProblemsRadioButtonGroup.getByText('4'));
+        fireEvent.click(computerActingRadioButtonGroup.getByText('1'));
+        fireEvent.click(complexRadioButtonGroup.getByText('4'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
           target: { value: '3' },
         });
@@ -264,7 +320,11 @@ describe('Survey Page', () => {
         householdComputers:'5+',
         race: ['decline'],
         internetAccess: ['dial-up'],
-        technologyCompetencyLevel: '1',
+        computerDifficultyLevel: '3',
+        solveComputerProblemsLevel: '2',
+        handleComputerProblemsLevel: '4',
+        computerActingUpLevel: '1',
+        complexComputerLevel: '4',
       });
     });
   });

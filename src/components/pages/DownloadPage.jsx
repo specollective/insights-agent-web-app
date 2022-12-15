@@ -1,6 +1,6 @@
 import HeroMobile from 'components/elements/HeroMobile';
 import Instructions from 'components/elements/Instructions'
-import InstructionsUninstall from 'components/elements/InstructionsUninstall'
+// import InstructionsUninstall from 'components/elements/InstructionsUninstall'
 import { DOWNLOAD_URL } from 'constants/urls';
 import downloadButton from "../../images/download-arrow.svg";
 
@@ -29,12 +29,13 @@ function DownloadPage() {
         <Instructions />
       </section>
 
-      <section className="mt-40 mr-6">
+      {/* Todo: Add uninstall instructions */}
+      {/* <section className="mt-40 mr-6">
         <h2 className="center header font-medium text-2xl">
           Uninstall Instructions
         </h2>
         <InstructionsUninstall />
-      </section>
+      </section> */}
     </main>
   );
 }
