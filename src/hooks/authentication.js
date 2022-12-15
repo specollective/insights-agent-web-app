@@ -19,6 +19,7 @@ export function AuthProvider({ children }) {
     const result = await fetchMagicLink(formData)
 
     setUser({ ...user, ...result })
+    return result
   }
 
   async function authenticate(otp, token) {
