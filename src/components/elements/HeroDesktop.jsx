@@ -5,8 +5,8 @@ export default function HeroDesktop() {
   const { t } = useTranslation()
 
   return (
-      <section className='flex justify-between items-end h-48 pb-5 pl-20 pr-32 bg-green-100 font-poppins'>
-        <h1 className='text-5xl text-white'>
+      <section className='flex justify-between items-end h-48 pb-5 pl-20 pr-32 bg-green-100'>
+        <h1 className='text-5xl text-white font-poppins'>
           build <br/> 
 
           JUSTLY
