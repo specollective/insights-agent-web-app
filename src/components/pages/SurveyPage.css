@@ -8,14 +8,16 @@
   text-align: left;
 }
 
+.heading {
+  margin-bottom: 30px;
+}
+
 .question {
- 
   display: block;
   border-radius: 10px;
   text-align: left;
   @apply shadow-md;
   @apply p-4;
- 
 }
 
 
@@ -28,10 +30,8 @@
   @apply border-2 ;
   @apply border-gray-300;
 }
-.checkbox-group{
-  @apply accent-green-100
-}
 
+.checkbox-group, 
 .radio-button-group{
    @apply accent-green-100
 }
@@ -68,7 +68,6 @@ h5 {
 
 .question label {
   display: inline-block;
-  padding-bottom: 1em;
   padding-left: 6px;
 }
 
@@ -93,14 +92,35 @@ h5 {
 }
 
 .question .horizontal div label {
-
   line-height:1.5em;
   width:100%;
+  padding-left: 0;
 }
 
 .question .horizontal {
   overflow: auto;
   text-align:center;
+}
+
+@media only screen and (min-width: 768px) {
+  .radio-button-group {
+    width: 75%;
+  }
+}
+
+.radio-button-group.horizontal {
+  margin: 32px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.horizontal > .radio-button-container{
+  width: 85px
+}
+
+.checkbox-group, 
+.dropdown-group {
+  margin-top: 32px;
 }
 
 /* Large devices (laptops/desktops, 992px and up) */

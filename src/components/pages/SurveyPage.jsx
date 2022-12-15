@@ -15,7 +15,7 @@ import {
 
 import "components/pages/SurveyPage.css";
 import { useTranslation } from "react-i18next";
-import { withFormik, Form, Field } from "formik";
+import { withFormik, Form } from "formik";
 import * as Yup from "yup";
 import CheckboxGroup from "components/elements/CheckboxGroup";
 import RadioButtonGroup from "components/elements/RadioButtonGroup";
@@ -47,14 +47,13 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
       </div>
 
       <section className="min-w-full space-y-4 px-0 py-10 md:px-0 lg:px-6">
-        <h4 className="font-semibold ">{t("SurveyAnswerAboutYourself")}:</h4>
+        <h4 className="font-semibold heading">{t("SurveyAnswerAboutYourself")}:</h4>
 
-        <div className={ `question p-4 ${touched.race && errors.race ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-6 ${touched.race && errors.race ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">{t("SurveySelectYourRace")}*</h4>
           <p>{t("SurveyCheckAll")}</p>
-          {/* needs closing div */}
 
-          <div className="grid grid-cols-1 lg:grid lg:grid-cols-2 pt-4">
+          <div className="grid grid-cols-1 lg:grid lg:grid-cols-2">
             <div>
               <CheckboxGroup
                 value={values.race}
@@ -74,7 +73,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           </div>
         </div>
 
-        <div className={ `question p-4 ${touched.isHispanicOrLatino && errors.isHispanicOrLatino ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-6 ${touched.isHispanicOrLatino && errors.isHispanicOrLatino ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">{t("SurveyHispanicHeader")}</h4>
           <RadioButtonGroup
             value={values.isHispanicOrLatino}
@@ -99,7 +98,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           </ol>
         </div>
 
-        <div className={ `question p-4 ${touched.computerDifficultyLevel && errors.computerDifficultyLevel ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-6 ${touched.computerDifficultyLevel && errors.computerDifficultyLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             {t("SurveyICanUsuallyHandleDifficulties")}*
           </h4>
@@ -110,7 +109,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             isHorizontal={true}
           />
         </div>
-        <div className="question p-4">
+        <span className='error-message'>
+            { touched.computerDifficultyLevel && errors.computerDifficultyLevel && <span> Error: Required Field </span>}
+        </span>
+
+        <div className={ `question p-6 ${touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             {t("SurveyICanSolveProblems")}*
           </h4>
@@ -121,7 +124,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             isHorizontal={true}
           />
         </div>
-        <div className="question p-4">
+        <span className='error-message'>
+            { touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel && <span> Error: Required Field </span>}
+        </span>
+
+        <div className={ `question p-6 ${touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             {t("SurveyICanUsuallyHandleProblems")}*
           </h4>
@@ -133,7 +140,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
 
-        <div className="question p-4">
+        <div className={ `question p-6 ${touched.computerActingUpLevel && errors.computerActingUpLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             {t("SurveyComputerActingUp")}*
           </h4>
@@ -144,8 +151,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             isHorizontal={true}
           />
         </div>
-       
-        <div className="question p-4 ">
+        <span className='error-message'>
+            { touched.computerActingUpLevel && errors.computerActingUpLevel && <span> Error: Required Field </span>}
+        </span>
+        
+        <div className={ `question p-6 ${touched.complexComputerLevel && errors.complexComputerLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             {t("SurveyICanComplete")}*
           </h4>
@@ -165,13 +175,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             {t("SurveyAnswerAboutHousehold")}:
           </h4>
         </div>
-        <div
-          className={`question p-4 ${
-            touched.householdMembers && errors.householdMembers
-              ? "border-2 border-[#FA0000]"
-              : ""
-          }`}
-        >
+        <div className={ `question p-6 ${touched.householdMembers && errors.householdMembers ? "border-2 border-[#FA0000]" : ""}` }>
           <h5 className="font-semibold">
             {t("SurveyHowManyLiveInHousehold")}*
           </h5>
@@ -189,13 +193,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           )}
         </span>
 
-        <div
-          className={`question p-4 ${
-            touched.computerUse && errors.computerUse
-              ? "border-2 border-[#FA0000]"
-              : ""
-          }`}
-        >
+        <div className={ `question p-6 ${touched.computerUse && errors.computerUse ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             {t("SurveyIntendedUse")}*
           </h4>
@@ -215,13 +213,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           )}
         </span>
 
-        <div
-          className={`question p-4 ${
-            touched.householdComputers && errors.householdComputers
-              ? "border-2 border-[#FA0000]"
-              : ""
-          }`}
-        >
+        <div className={ `question p-6 ${touched.householdComputers && errors.householdComputers ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             {t("SurveyHowManyOtherComputers")}
           </h4>
@@ -238,13 +230,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           )}
         </span>
 
-        <div
-          className={`question p-4 ${
-            touched.internetAccess && errors.internetAccess
-              ? "border-2 border-[#FA0000]"
-              : ""
-          }`}
-        >
+        <div className={ `question p-6 ${touched.internetAccess && errors.internetAccess ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             {t("SurveyHowDoesHouseholdAccess")}*
           </h4>
