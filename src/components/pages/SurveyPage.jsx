@@ -30,7 +30,6 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
     setValues(DEFAULT_FORM_VALUES);
   }
 
-  console.log(values)
   return (
     <Form className="flex flex-col lg:mx-40 md:mx-20 lg:place-items-center py-20 px-4">
       <div className=" bg-[#AECA9B] rounded">
