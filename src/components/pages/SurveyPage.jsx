@@ -30,7 +30,6 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
     setValues(DEFAULT_FORM_VALUES);
   }
 
-
   return (
     <Form className="flex flex-col lg:mx-40 md:mx-20 lg:place-items-center py-20 px-4">
       <div className=" bg-[#AECA9B] rounded">
@@ -72,6 +71,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             </div>
           </div>
         </div>
+        <span className='error-message'>
+            { touched.race && errors.race && <span> {t("SurveyErrorRequired")}</span>}
+        </span>
 
         <div className={ `question p-6 ${touched.isHispanicOrLatino && errors.isHispanicOrLatino ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">{t("SurveyHispanicHeader")}</h4>
@@ -83,18 +85,20 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           <label htmlFor="name" className="text-sm"></label>
         </div>
         <span className='error-message'>
-            { touched.isHispanicOrLatino && errors.isHispanicOrLatino && <span> {t("SurveyErrorRequired")}</span>}
+            { touched.isHispanicOrLatino && errors.isHispanicOrLatino && 
+            <span> {t("SurveyErrorRequired")}</span>
+            }
         </span>
 
-        <div className={ `question p-4 ${touched.technologyCompetencyLevel && errors.technologyCompetencyLevel ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className="p-4">
           <h4 className="font-semibold">
             {t("SurveyCompetency")}*
           </h4>
           <ol className="list-outside">
-            <li>1- Not at all confident</li>
-            <li>2- Slightly confident</li>
-            <li>3- Fairly confident</li>
-            <li>4- Highly confident</li>
+            <li> {t("CompetencyScale1")} </li>
+            <li> {t("CompetencyScale2")} </li>
+            <li> {t("CompetencyScale3")} </li>
+            <li> {t("CompetencyScale4")} </li>
           </ol>
         </div>
 
@@ -103,14 +107,16 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             {t("SurveyICanUsuallyHandleDifficulties")}*
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.computerDifficultyLevel}
+            name="computerDifficultyLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
         <span className='error-message'>
-            { touched.computerDifficultyLevel && errors.computerDifficultyLevel && <span> Error: Required Field </span>}
+            { touched.computerDifficultyLevel && errors.computerDifficultyLevel && 
+              <span> {t("SurveyErrorRequired")} </span>
+            }
         </span>
 
         <div className={ `question p-6 ${touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
@@ -118,14 +124,16 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             {t("SurveyICanSolveProblems")}*
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.solveComputerProblemsLevel}
+            name="solveComputerProblemsLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
         <span className='error-message'>
-            { touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel && <span> Error: Required Field </span>}
+            { touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel && 
+              <span> {t("SurveyErrorRequired")} </span>
+            }
         </span>
 
         <div className={ `question p-6 ${touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
@@ -133,26 +141,33 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             {t("SurveyICanUsuallyHandleProblems")}*
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.handleComputerProblemsLevel}
+            name="handleComputerProblemsLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
+        <span className='error-message'>
+            { touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel && 
+              <span> {t("SurveyErrorRequired")} </span>
+            }
+        </span>
 
         <div className={ `question p-6 ${touched.computerActingUpLevel && errors.computerActingUpLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             {t("SurveyComputerActingUp")}*
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.computerActingUpLevel}
+            name="computerActingUpLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
         <span className='error-message'>
-            { touched.computerActingUpLevel && errors.computerActingUpLevel && <span> Error: Required Field </span>}
+            { touched.computerActingUpLevel && errors.computerActingUpLevel && 
+              <span> {t("SurveyErrorRequired")} </span>
+            }
         </span>
         
         <div className={ `question p-6 ${touched.complexComputerLevel && errors.complexComputerLevel ? "border-2 border-[#FA0000]" : ""}` }>
@@ -160,18 +175,20 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             {t("SurveyICanComplete")}*
           </h4>
           <RadioButtonGroup
-            value={values.technologyCompetencyLevel}
-            name="technologyCompetencyLevel"
+            value={values.complexComputerLevel}
+            name="complexComputerLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
           />
         </div>
         <span className='error-message'>
-            { touched.technologyCompetencyLevel && errors.technologyCompetencyLevel && <span>{t("SurveyErrorRequired")}</span>}
+            { touched.complexComputerLevel && errors.complexComputerLevel && 
+              <span>{t("SurveyErrorRequired")}</span>
+            }
         </span>
 
         <div>
-          <h4 className="font-semibold ">
+          <h4 className="font-semibold p-4">
             {t("SurveyAnswerAboutHousehold")}:
           </h4>
         </div>
@@ -189,7 +206,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         </div>
         <span className="error-message">
           {touched.householdMembers && errors.householdMembers && (
-            <span>{errors.householdMembers}</span>
+            <span>{t("SurveyErrorRequired")}</span>
           )}
         </span>
 
@@ -209,7 +226,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
 
         <span className="error-message">
           {touched.computerUse && errors.computerUse && (
-            <span> {errors.computerUse} </span>
+            <span> {t("SurveyErrorRequired")} </span>
           )}
         </span>
 
@@ -226,7 +243,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         </div>
         <span className="error-message">
           {touched.householdComputers && errors.householdComputers && (
-            <span>{errors.householdComputers}</span>
+            <span> {t("SurveyErrorRequired")} </span>
           )}
         </span>
 
@@ -246,7 +263,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         </div>
         <span className="error-message">
           {touched.internetAccess && errors.internetAccess && (
-            <span> {errors.internetAccess} </span>
+            <span> {t("SurveyErrorRequired")} </span>
           )}
         </span>
 
@@ -321,17 +338,17 @@ export function handleSubmit(values, { props }) {
  * @type {object}
  */
 export const validationSchema = Yup.object().shape({
-  race: Yup.array().min(1, "Error: Required Field"),
+  race: Yup.array().min(1),
   isHispanicOrLatino: Yup.string().required(),
-  householdMembers: Yup.string().required("Error: Required Field"),
+  householdMembers: Yup.string().required().matches(/^[0-9]+$/),
   computerDifficultyLevel: Yup.number().min(1).required(),
   solveComputerProblemsLevel: Yup.number().min(1).required(),
   handleComputerProblemsLevel: Yup.number().min(1).required(),
   computerActingUpLevel: Yup.number().min(1).required(),
   complexComputerLevel: Yup.number().min(1).required(),
-  computerUse: Yup.array().min(1, "Error: Required Field"),
-  householdComputers: Yup.string().required("Error: Required Field"),
-  internetAccess: Yup.array().min(1, "Error: Required Field"),
+  computerUse: Yup.array().min(1),
+  householdComputers: Yup.string().required().matches(/^[0-9]+$/),
+  internetAccess: Yup.array().min(1),
 })
 
 /**

@@ -84,6 +84,7 @@
     "decline": "Decline to identify"
   },
   "HouseholdSelectOne": "Select One",
+  "ComputerSelectOne": "Select One",
   "HispanicOptions": {
     "true": "Yes",
     "false": "No",
@@ -106,6 +107,10 @@
     "dial-up": "Dial up internet service",
     "other-service": "Some other service"
   },
+  "CompetencyScale1": "1- Not at all confident",
+  "CompetencyScale2": "2- Slightly confident",
+  "CompetencyScale3": "3- Fairly confident",
+  "CompetencyScale4": "4- Highly confident",
   "CompetencyOptions": {
     "1": "Not at all",
     "2": "Slightly",
@@ -113,7 +118,7 @@
     "4": "Highly"
   },
 
-  "ConfirmationHeading": "Thank you fo helping us empower the building of a better future for all, through equitable technology.",
+  "ConfirmationHeading": "Thank you for helping us empower the building of a better future for all, through equitable technology.",
   "ConfirmationWeHaveReceived": "We have received your information for participation. You should be receiving a text message to the phone number provided with next steps.",
   "ConfirmationGoHome": "Go back to Home",
   "ConfirmationNotReceivedInstructions": "If you have not received a text message please proceed to the following steps:",
