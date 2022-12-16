@@ -107,6 +107,10 @@
     "dial-up": "Dial up internet service",
     "other-service": "Some other service"
   },
+  "CompetencyScale1": "1- Not at all confident",
+  "CompetencyScale2": "2- Slightly confident",
+  "CompetencyScale3": "3- Fairly confident",
+  "CompetencyScale4": "4- Highly confident",
   "CompetencyOptions": {
     "1": "Not at all",
     "2": "Slightly",

@@ -96,10 +96,10 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             {t("SurveyCompetency")}*
           </h4>
           <ol className="list-outside">
-            <li>1- Not at all confident</li>
-            <li>2- Slightly confident</li>
-            <li>3- Fairly confident</li>
-            <li>4- Highly confident</li>
+            <li> {t("CompetencyScale1")} </li>
+            <li> {t("CompetencyScale2")} </li>
+            <li> {t("CompetencyScale3")} </li>
+            <li> {t("CompetencyScale4")} </li>
           </ol>
         </div>
 
