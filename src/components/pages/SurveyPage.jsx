@@ -192,7 +192,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         </div>
         <span className="error-message">
           {touched.householdMembers && errors.householdMembers && (
-            <span>{errors.householdMembers}</span>
+            <span>Error: Required Field</span>
           )}
         </span>
 
@@ -229,7 +229,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         </div>
         <span className="error-message">
           {touched.householdComputers && errors.householdComputers && (
-            <span>{errors.householdComputers}</span>
+            <span> Error: Required Field </span>
           )}
         </span>
 
@@ -326,14 +326,14 @@ export function handleSubmit(values, { props }) {
 export const validationSchema = Yup.object().shape({
   race: Yup.array().min(1, "Error: Required Field"),
   isHispanicOrLatino: Yup.string().required(),
-  householdMembers: Yup.string().required("Error: Required Field"),
+  householdMembers: Yup.string().required().matches(/^[0-9]+$/),
   computerDifficultyLevel: Yup.number().min(1).required(),
   solveComputerProblemsLevel: Yup.number().min(1).required(),
   handleComputerProblemsLevel: Yup.number().min(1).required(),
   computerActingUpLevel: Yup.number().min(1).required(),
   complexComputerLevel: Yup.number().min(1).required(),
   computerUse: Yup.array().min(1, "Error: Required Field"),
-  householdComputers: Yup.string().required("Error: Required Field"),
+  householdComputers: Yup.string().required().matches(/^[0-9]+$/),
   internetAccess: Yup.array().min(1, "Error: Required Field"),
 })
 

@@ -4,9 +4,9 @@ export const DEFAULT_FORM_VALUES = {
   isHispanicOrLatino: null,
   internetAccess: [],
   race: [],
-  householdMembers: '1',
+  householdMembers: 'select one',
   computerUse: [],
-  householdComputers: '0',
+  householdComputers: 'select one',
   computerDifficultyLevel: null,
   solveComputerProblemsLevel: null,
   handleComputerProblemsLevel: null,
@@ -80,6 +80,7 @@ export const TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS = [
 ]
 
 export const HOUSEHOLD_COMPUTERS = [
+  { value: 'Select One', label: <Trans i18nKey="ComputerSelectOne" /> },
   { value: '0', label: '0' },
   { value: '1', label: '1' },
   { value: '2', label: '2' },
