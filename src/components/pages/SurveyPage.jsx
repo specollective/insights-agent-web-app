@@ -72,6 +72,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             </div>
           </div>
         </div>
+        <span className='error-message'>
+            { touched.race && errors.race && <span> {t("SurveyErrorRequired")}</span>}
+        </span>
 
         <div className={ `question p-6 ${touched.isHispanicOrLatino && errors.isHispanicOrLatino ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">{t("SurveyHispanicHeader")}</h4>
@@ -83,7 +86,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           <label htmlFor="name" className="text-sm"></label>
         </div>
         <span className='error-message'>
-            { touched.isHispanicOrLatino && errors.isHispanicOrLatino && <span> {t("SurveyErrorRequired")}</span>}
+            { touched.isHispanicOrLatino && errors.isHispanicOrLatino && 
+            <span> {t("SurveyErrorRequired")}</span>
+            }
         </span>
 
         <div className="p-4">
@@ -110,7 +115,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-            { touched.computerDifficultyLevel && errors.computerDifficultyLevel && <span> Error: Required Field </span>}
+            { touched.computerDifficultyLevel && errors.computerDifficultyLevel && 
+              <span> {t("SurveyErrorRequired")} </span>
+            }
         </span>
 
         <div className={ `question p-6 ${touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
@@ -125,7 +132,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-            { touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel && <span> Error: Required Field </span>}
+            { touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel && 
+              <span> {t("SurveyErrorRequired")} </span>
+            }
         </span>
 
         <div className={ `question p-6 ${touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
@@ -140,7 +149,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-            { touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel && <span> Error: Required Field </span>}
+            { touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel && 
+              <span> {t("SurveyErrorRequired")} </span>
+            }
         </span>
 
         <div className={ `question p-6 ${touched.computerActingUpLevel && errors.computerActingUpLevel ? "border-2 border-[#FA0000]" : ""}` }>
@@ -155,7 +166,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-            { touched.computerActingUpLevel && errors.computerActingUpLevel && <span> Error: Required Field </span>}
+            { touched.computerActingUpLevel && errors.computerActingUpLevel && 
+              <span> {t("SurveyErrorRequired")} </span>
+            }
         </span>
         
         <div className={ `question p-6 ${touched.complexComputerLevel && errors.complexComputerLevel ? "border-2 border-[#FA0000]" : ""}` }>
@@ -170,7 +183,9 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-            { touched.complexComputerLevel && errors.complexComputerLevel && <span>{t("SurveyErrorRequired")}</span>}
+            { touched.complexComputerLevel && errors.complexComputerLevel && 
+              <span>{t("SurveyErrorRequired")}</span>
+            }
         </span>
 
         <div>
@@ -192,7 +207,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         </div>
         <span className="error-message">
           {touched.householdMembers && errors.householdMembers && (
-            <span>Error: Required Field</span>
+            <span>{t("SurveyErrorRequired")}</span>
           )}
         </span>
 
@@ -212,7 +227,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
 
         <span className="error-message">
           {touched.computerUse && errors.computerUse && (
-            <span> {errors.computerUse} </span>
+            <span> {t("SurveyErrorRequired")} </span>
           )}
         </span>
 
@@ -229,7 +244,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         </div>
         <span className="error-message">
           {touched.householdComputers && errors.householdComputers && (
-            <span> Error: Required Field </span>
+            <span> {t("SurveyErrorRequired")} </span>
           )}
         </span>
 
@@ -249,7 +264,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         </div>
         <span className="error-message">
           {touched.internetAccess && errors.internetAccess && (
-            <span> {errors.internetAccess} </span>
+            <span> {t("SurveyErrorRequired")} </span>
           )}
         </span>
 
@@ -324,7 +339,7 @@ export function handleSubmit(values, { props }) {
  * @type {object}
  */
 export const validationSchema = Yup.object().shape({
-  race: Yup.array().min(1, "Error: Required Field"),
+  race: Yup.array().min(1),
   isHispanicOrLatino: Yup.string().required(),
   householdMembers: Yup.string().required().matches(/^[0-9]+$/),
   computerDifficultyLevel: Yup.number().min(1).required(),
@@ -332,9 +347,9 @@ export const validationSchema = Yup.object().shape({
   handleComputerProblemsLevel: Yup.number().min(1).required(),
   computerActingUpLevel: Yup.number().min(1).required(),
   complexComputerLevel: Yup.number().min(1).required(),
-  computerUse: Yup.array().min(1, "Error: Required Field"),
+  computerUse: Yup.array().min(1),
   householdComputers: Yup.string().required().matches(/^[0-9]+$/),
-  internetAccess: Yup.array().min(1, "Error: Required Field"),
+  internetAccess: Yup.array().min(1),
 })
 
 /**
