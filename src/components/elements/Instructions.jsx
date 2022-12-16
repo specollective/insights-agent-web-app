@@ -1,5 +1,4 @@
-import { loremIpsum } from "react-lorem-ipsum";
-import logoPlaceHolder from "../../images/ellipse61.png";
+import logoPlaceHolder from "../../images/insightsAgentIcon.png";
 import { useTranslation } from 'react-i18next'
 
 
@@ -8,7 +7,6 @@ export default function Instructions() {
 
   return (
     <ol className="mt-12 text-lg center">
-      {/*add numbers*/}
       <li className=" before:content-['1'] before:mr-6 before:text-black before:font-semibold before:text-2xl list-none mt-6 mx-2 py-2">
         {t("InstructionsFirst")}
         <img
