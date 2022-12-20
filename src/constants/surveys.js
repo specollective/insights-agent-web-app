@@ -1,5 +1,3 @@
-import { Trans } from 'react-i18next'
-
 export const DEFAULT_FORM_VALUES = {
   isHispanicOrLatino: null,
   internetAccess: [],
@@ -15,45 +13,45 @@ export const DEFAULT_FORM_VALUES = {
 }
 
 // TODO: Apply i18n localization
-export const RACE_OPTIONS = [
-  { value: 'white', label: <Trans i18nKey="RaceOptions.white" />},
-  { value: 'black', label: <Trans i18nKey="RaceOptions.black" /> },
-  { value: 'american-indian', label: <Trans i18nKey="RaceOptions.american-indian" /> },
-  { value: 'chinese', label: <Trans i18nKey="RaceOptions.chinese" /> },
-  { value: 'filipino', label: <Trans i18nKey="RaceOptions.filipino" /> },
-  { value: 'asian-indian', label: <Trans i18nKey="RaceOptions.asian-indian" /> },
-  { value: 'vietnamese', label: <Trans i18nKey="RaceOptions.vietnamese" /> },
-  { value: 'korean', label: <Trans i18nKey="RaceOptions.korean" /> },
+export const RACE_OPTIONS = (t) => [
+  { value: 'white', label: t("RaceOptions.white")},
+  { value: 'black', label: t("RaceOptions.black")},
+  { value: 'american-indian', label: t("RaceOptions.american-indian")},
+  { value: 'chinese', label: t("RaceOptions.chinese")},
+  { value: 'filipino', label: t("RaceOptions.filipino")},
+  { value: 'asian-indian', label: t("RaceOptions.asian-indian")},
+  { value: 'vietnamese', label: t("RaceOptions.vietnamese")},
+  { value: 'korean', label: t("RaceOptions.korean")},
 ]
 
-export const RACE_OPTIONS_TWO = [
-  { value: 'japanese', label: <Trans i18nKey="RaceOptions.japanese" /> },
-  { value: 'hawaiian', label: <Trans i18nKey="RaceOptions.hawaiian" /> },
-  { value: 'samoan', label: <Trans i18nKey="RaceOptions.samoan" /> },
-  { value: 'chamorro', label: <Trans i18nKey="RaceOptions.chamorro" /> },
-  { value: 'other-asian', label: <Trans i18nKey="RaceOptions.other-asian" /> },
-  { value: 'other-pacific-islander', label: <Trans i18nKey="RaceOptions.other-pacific-islander" /> },
-  { value: 'other', label: <Trans i18nKey="RaceOptions.other" /> },
-  { value: 'decline', label: <Trans i18nKey="RaceOptions.decline" /> },
+export const RACE_OPTIONS_TWO = (t) => [
+  { value: 'japanese', label: t("RaceOptions.japanese")},
+  { value: 'hawaiian', label: t("RaceOptions.hawaiian")},
+  { value: 'samoan', label: t("RaceOptions.samoan")},
+  { value: 'chamorro', label: t("RaceOptions.chamorro")},
+  { value: 'other-asian', label: t("RaceOptions.other-asian")},
+  { value: 'other-pacific-islander', label: t("RaceOptions.other-pacific-islander")},
+  { value: 'other', label: t("RaceOptions.other")},
+  { value: 'decline', label: t("RaceOptions.decline")},
 ]
 
 // TODO: Apply i18n localization
-export const IS_HISPANIC_OPTIONS = [
-  { value: 'true', label:  <Trans i18nKey="HispanicOptions.true" /> },
-  { value: 'false', label: <Trans i18nKey="HispanicOptions.false" /> },
-  { value: 'decline', label: <Trans i18nKey="HispanicOptions.decline" /> },
+export const IS_HISPANIC_OPTIONS = (t) => [
+  { value: 'true', label:  t("HispanicOptions.true")},
+  { value: 'false', label: t("HispanicOptions.false")},
+  { value: 'decline', label: t("HispanicOptions.decline")},
 ]
 
-export const INTERNET_ACCESS = [
-  { value: 'cellular-data', label: <Trans i18nKey="InternetAccessOptions.cellular-data" /> },
-  { value: 'broadband', label: <Trans i18nKey="InternetAccessOptions.broadband" /> },
-  { value: 'satellite', label: <Trans i18nKey="InternetAccessOptions.satellite" /> },
-  { value: 'dial-up', label: <Trans i18nKey="InternetAccessOptions.dial-up" /> },
-  { value: 'other-service', label: <Trans i18nKey="InternetAccessOptions.other-service" /> },
+export const INTERNET_ACCESS = (t) => [
+  { value: 'cellular-data', label: t("InternetAccessOptions.cellular-data")},
+  { value: 'broadband', label: t("InternetAccessOptions.broadband")},
+  { value: 'satellite', label: t("InternetAccessOptions.satellite")},
+  { value: 'dial-up', label: t("InternetAccessOptions.dial-up")},
+  { value: 'other-service', label: t("InternetAccessOptions.other-service")},
 ]
 
-export const HOUSEHOLD_MEMBERS = [
-  { value: 'Select One', label: <Trans i18nKey="HouseholdSelectOne" /> },
+export const HOUSEHOLD_MEMBERS = (t) => [
+  { value: 'Select One', label: t("HouseholdSelectOne")},
   { value: '1', label: '1' },
   { value: '2', label: '2' },
   { value: '3', label: '3' },
@@ -61,26 +59,26 @@ export const HOUSEHOLD_MEMBERS = [
   { value: '5+', label: '5+' },
 ]
 
-export const COMPUTER_USE = [
-  { value: 'entertainment', label: <Trans i18nKey="ComputerUseOptions.entertainment" /> },
-  { value: 'gaming', label: <Trans i18nKey="ComputerUseOptions.gaming" /> },
-  { value: 'school', label: <Trans i18nKey="ComputerUseOptions.school" /> },
-  { value: 'creativity', label: <Trans i18nKey="ComputerUseOptions.creativity" /> },
-  { value: 'business', label: <Trans i18nKey="ComputerUseOptions.business" /> },
-  { value: 'family', label: <Trans i18nKey="ComputerUseOptions.family" /> },
-  { value: 'gain-new-skills', label: <Trans i18nKey="ComputerUseOptions.gain-new-skills" /> },
-  { value: 'job-search', label: <Trans i18nKey="ComputerUseOptions.job-search" /> },
+export const COMPUTER_USE = (t) => [
+  { value: 'entertainment', label: t("ComputerUseOptions.entertainment")},
+  { value: 'gaming', label: t("ComputerUseOptions.gaming")},
+  { value: 'school', label: t("ComputerUseOptions.school")},
+  { value: 'creativity', label: t("ComputerUseOptions.creativity")},
+  { value: 'business', label: t("ComputerUseOptions.business")},
+  { value: 'family', label: t("ComputerUseOptions.family")},
+  { value: 'gain-new-skills', label: t("ComputerUseOptions.gain-new-skills")},
+  { value: 'job-search', label: t("ComputerUseOptions.job-search")},
 ]
 
-export const TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS = [
-  { value: '1', label: '1', secondaryLabel: <Trans i18nKey="CompetencyOptions.1" /> },
-  { value: '2', label: '2', secondaryLabel: <Trans i18nKey="CompetencyOptions.2" /> },
-  { value: '3', label: '3', secondaryLabel: <Trans i18nKey="CompetencyOptions.3" /> },
-  { value: '4', label: '4', secondaryLabel: <Trans i18nKey="CompetencyOptions.4" /> },
+export const TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS = (t) => [
+  { value: '1', label: '1', secondaryLabel: t("CompetencyOptions.1")},
+  { value: '2', label: '2', secondaryLabel: t("CompetencyOptions.2")},
+  { value: '3', label: '3', secondaryLabel: t("CompetencyOptions.3")},
+  { value: '4', label: '4', secondaryLabel: t("CompetencyOptions.4")},
 ]
 
-export const HOUSEHOLD_COMPUTERS = [
-  { value: 'Select One', label: <Trans i18nKey="ComputerSelectOne" /> },
+export const HOUSEHOLD_COMPUTERS = (t) => [
+  { value: 'Select One', label: t("ComputerSelectOne")},
   { value: '0', label: '0' },
   { value: '1', label: '1' },
   { value: '2', label: '2' },
@@ -88,3 +86,19 @@ export const HOUSEHOLD_COMPUTERS = [
   { value: '4', label: '4' },
   { value: '5+', label: '5+' },
 ]
+
+
+
+export default function generateTranslatedOptions (t) {
+  return {
+    DEFAULT_FORM_VALUES,
+    RACE_OPTIONS: RACE_OPTIONS(t),
+    RACE_OPTIONS_TWO: RACE_OPTIONS_TWO(t),
+    HOUSEHOLD_MEMBERS: HOUSEHOLD_MEMBERS(t),
+    INTERNET_ACCESS: INTERNET_ACCESS(t),
+    IS_HISPANIC_OPTIONS: IS_HISPANIC_OPTIONS(t),
+    COMPUTER_USE: COMPUTER_USE(t),
+    TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS: TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS(t),
+    HOUSEHOLD_COMPUTERS: HOUSEHOLD_COMPUTERS(t)
+  }
+}

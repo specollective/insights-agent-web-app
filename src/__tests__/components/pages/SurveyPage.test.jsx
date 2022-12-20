@@ -4,7 +4,7 @@ import SurveyPage from 'components/pages/SurveyPage';
 import { createSurveyResult } from 'services/survey_result';
 import i18nTest from 'utils/i18nTest';
 import { I18nextProvider } from 'react-i18next';
-import { INTERNET_ACCESS, RACE_OPTIONS, RACE_OPTIONS_TWO, COMPUTER_USE } from 'constants/surveys';
+import { RACE_OPTIONS, RACE_OPTIONS_TWO } from 'constants/surveys';
 
 // Mock out auth hooks
 jest.mock('hooks/authentication', () => ({
@@ -42,19 +42,20 @@ jest.mock('react-router-dom', () => ({
 // }));
 
 // Helper function to DRY up the test code.
-function renderPage() {
-  render(
-    <I18nextProvider i18n={i18nTest}>
-      <SurveyPage />
-    </I18nextProvider>
-  )
-}
+
 
 function findFormSection(screen, text) {
   return within(screen.getByText(text).closest('div'));
 }
 
 describe('Survey Page', () => {
+  function renderPage() {
+    render(
+      <I18nextProvider i18n={i18nTest}>
+        <SurveyPage />
+      </I18nextProvider>
+    )
+  }
   describe('Info section', () => {
     it('renders success message', () => {
       renderPage();
@@ -71,9 +72,9 @@ describe('Survey Page', () => {
 
   describe('Race checkbox group', () => {
     // Paused tests temporarily for mock global items error
-    xit('updates state correctly', async () => {
+    it('updates state correctly', async () => {
       renderPage();
-
+      
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
       const hispanicRadioButtonGroup = findFormSection(screen, 'Are you of Hispanic origin?*');
       const difficultyRadioButtonGroup = findFormSection(screen, 'I can usually handle most difficulties I encounter when using a computer')
@@ -81,18 +82,18 @@ describe('Survey Page', () => {
       const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
       const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
       const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
-      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
+      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
       const internetAccessCheckbox = findFormSection(screen, 'How does your household access the internet?*');
       
       // asserting all expected options are present
-      RACE_OPTIONS.forEach((raceOption) => {
+      Object.keys(RACE_OPTIONS).forEach((raceOption) => {
         const input = raceCheckboxGroup.getByLabelText(raceOption.label);
         expect(input).toBeInTheDocument();
       });
 
-      RACE_OPTIONS_TWO.forEach((raceOption) => {
+      Object.keys(RACE_OPTIONS_TWO).forEach((raceOption) => {
         const input = raceCheckboxGroup.getByLabelText(raceOption.label);
         expect(input).toBeInTheDocument();
       });
@@ -109,10 +110,10 @@ describe('Survey Page', () => {
         fireEvent.click(computerActingRadioButtonGroup.getByText('1'));
         fireEvent.click(complexRadioButtonGroup.getByText('4'));
         fireEvent.change(householdMembersSelectContainer.getByTestId('dropdown-householdMembers'), {
-          target: { value: '1' },
+          target: { value: '5+' },
         });
         fireEvent.change(householdComputersSelectContainer.getByTestId('dropdown-householdComputers'), {
-          target: { value: '5+' },
+          target: { value: '4' },
         });
         fireEvent.click(computerUsageCheckbox.getByText('Gaming'));
         fireEvent.click(internetAccessCheckbox.getByText('Dial up internet service'));
@@ -123,8 +124,8 @@ describe('Survey Page', () => {
       expect(createSurveyResult).toHaveBeenCalledWith({
         isHispanicOrLatino: 'decline',
         computerUse: ['gaming'],
-        householdMembers: '1',
-        householdComputers:'5+',
+        householdMembers: '5+',
+        householdComputers:'4',
         race: ['white', 'filipino', 'black'],
         internetAccess: ['dial-up'],
         computerDifficultyLevel: '3',
@@ -136,7 +137,7 @@ describe('Survey Page', () => {
     });
 
     // Paused tests temporarily for mock global items error
-    xit('handles decline all option', async () => {
+    it('handles decline all option', async () => {
       renderPage();
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
@@ -146,7 +147,7 @@ describe('Survey Page', () => {
       const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
       const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
       const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
-      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
+      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
       const internetAccessCheckbox = findFormSection(screen, 'How does your household access the internet?*');
@@ -187,7 +188,7 @@ describe('Survey Page', () => {
       });
     });
     // Paused tests temporarily for mock global items error
-    xit('handles switching from decline to selecting an option', async () => {
+    it('handles switching from decline to selecting an option', async () => {
       renderPage();
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
@@ -197,7 +198,7 @@ describe('Survey Page', () => {
       const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
       const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
       const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
-      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
+      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
       const internetAccessCheckbox = findFormSection(screen, 'How does your household access the internet?*');
@@ -240,7 +241,7 @@ describe('Survey Page', () => {
 
   describe('Hispanic origin', () => {
   // Paused tests temporarily for mock global items error
-    xit('updates state correctly', async () => {
+    it('updates state correctly', async () => {
       renderPage();
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
@@ -250,7 +251,7 @@ describe('Survey Page', () => {
       const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
       const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
       const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
-      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
+      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
       const internetAccessCheckbox = findFormSection(screen, 'How does your household access the internet?*');
@@ -295,7 +296,7 @@ describe('Survey Page', () => {
 
   describe('Dropdown Group selections', () => {
     // Paused tests temporarily for mock global items error
-    xit('updates dropdown components state correctly', async () => {
+    it('updates dropdown components state correctly', async () => {
       renderPage();
 
       const raceCheckboxGroup = findFormSection(screen, 'Please select your race.*');
@@ -305,7 +306,7 @@ describe('Survey Page', () => {
       const handleProblemsRadioButtonGroup = findFormSection(screen, 'I can usually handle computer problems on my own')
       const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
       const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
-      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?*');
+      const householdMembersSelectContainer = findFormSection(screen, 'How many people live/stay in your household?');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
       const internetAccessCheckbox = findFormSection(screen, 'How does your household access the internet?*');

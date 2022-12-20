@@ -12,6 +12,7 @@ import { useTranslation } from "react-i18next";
 function ConfirmationPage() {
   const auth = useAuth()
   const { otp, token } = useParams()
+  const { t } = useTranslation()
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -57,9 +58,9 @@ function ConfirmationPage() {
           <ul className='list-decimal px-8'>
             <li>{t("ConfirmationNotReceivedFirst")}</li>
             <li>{t("ConfirmationNotReceivedSecond")}</li>
+            <li>{t("ConfirmationNotReceivedThird")}</li>
           </ul>
         </div>
-
       </div>
       
       <SignUpForm retry/>
