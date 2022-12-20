@@ -1,17 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from 'hooks/authentication';
 import { createSurveyResult } from "services/survey_result";
-import {
-  DEFAULT_FORM_VALUES,
-  RACE_OPTIONS,
-  RACE_OPTIONS_TWO,
-  HOUSEHOLD_MEMBERS,
-  INTERNET_ACCESS,
-  IS_HISPANIC_OPTIONS,
-  COMPUTER_USE,
-  TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS,
-  HOUSEHOLD_COMPUTERS,
-} from "constants/surveys";
+import generateTranslatedOptions from "constants/surveys";
 
 import "components/pages/SurveyPage.css";
 import { useTranslation } from "react-i18next";
@@ -23,6 +13,18 @@ import DropdownGroup from "components/elements/DropdownGroup";
 
 function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetForm }) {
   const { t } = useTranslation()
+
+  const {
+    DEFAULT_FORM_VALUES,
+    RACE_OPTIONS,
+    RACE_OPTIONS_TWO,
+    HOUSEHOLD_MEMBERS,
+    INTERNET_ACCESS,
+    IS_HISPANIC_OPTIONS,
+    COMPUTER_USE,
+    TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS,
+    HOUSEHOLD_COMPUTERS
+  } = generateTranslatedOptions(t)
 
   const handleClearForm = (e) => {
     e.preventDefault()
@@ -104,13 +106,14 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
 
         <div className={ `question p-6 ${touched.computerDifficultyLevel && errors.computerDifficultyLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
-            {t("SurveyICanUsuallyHandleDifficulties")}*
+            {t("SurveyICanUsuallyHandleDifficulties")}
           </h4>
           <RadioButtonGroup
             value={values.computerDifficultyLevel}
             name="computerDifficultyLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
+            data-testid="difficultyRadioButtonGroup"
           />
         </div>
         <span className='error-message'>
@@ -121,13 +124,14 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
 
         <div className={ `question p-6 ${touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
-            {t("SurveyICanSolveProblems")}*
+            {t("SurveyICanSolveProblems")}
           </h4>
           <RadioButtonGroup
             value={values.solveComputerProblemsLevel}
             name="solveComputerProblemsLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
+            data-testid="solveProblemsRadioButtonGroup"
           />
         </div>
         <span className='error-message'>
@@ -138,13 +142,14 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
 
         <div className={ `question p-6 ${touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
-            {t("SurveyICanUsuallyHandleProblems")}*
+            {t("SurveyICanUsuallyHandleProblems")}
           </h4>
           <RadioButtonGroup
             value={values.handleComputerProblemsLevel}
             name="handleComputerProblemsLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
+            data-testid="handleProblemsRadioButtonGroup"
           />
         </div>
         <span className='error-message'>
@@ -155,13 +160,14 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
 
         <div className={ `question p-6 ${touched.computerActingUpLevel && errors.computerActingUpLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
-            {t("SurveyComputerActingUp")}*
+            {t("SurveyComputerActingUp")}
           </h4>
           <RadioButtonGroup
             value={values.computerActingUpLevel}
             name="computerActingUpLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
+            data-testid="computerActingUpRadioButtonGroup"
           />
         </div>
         <span className='error-message'>
@@ -172,13 +178,14 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         
         <div className={ `question p-6 ${touched.complexComputerLevel && errors.complexComputerLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
-            {t("SurveyICanComplete")}*
+            {t("SurveyICanComplete")}
           </h4>
           <RadioButtonGroup
             value={values.complexComputerLevel}
             name="complexComputerLevel"
             options={TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS}
             isHorizontal={true}
+            data-testid="complexComputerRadioButtonGroup"
           />
         </div>
         <span className='error-message'>
@@ -194,7 +201,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
         </div>
         <div className={ `question p-6 ${touched.householdMembers && errors.householdMembers ? "border-2 border-[#FA0000]" : ""}` }>
           <h5 className="font-semibold">
-            {t("SurveyHowManyLiveInHousehold")}*
+            {t("SurveyHowManyLiveInHousehold")}
           </h5>
        
           <DropdownGroup
@@ -212,7 +219,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
 
         <div className={ `question p-6 ${touched.computerUse && errors.computerUse ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
-            {t("SurveyIntendedUse")}*
+            {t("SurveyIntendedUse")}
           </h4>
           <p>{t("SurveyCheckAll")}</p>
 
@@ -249,7 +256,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
 
         <div className={ `question p-6 ${touched.internetAccess && errors.internetAccess ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
-            {t("SurveyHowDoesHouseholdAccess")}*
+            {t("SurveyHowDoesHouseholdAccess")}
           </h4>
           <p>{t("SurveyCheckAll")}</p>
 
@@ -340,14 +347,14 @@ export function handleSubmit(values, { props }) {
 export const validationSchema = Yup.object().shape({
   race: Yup.array().min(1),
   isHispanicOrLatino: Yup.string().required(),
-  householdMembers: Yup.string().required().matches(/^[0-9]+$/),
+  householdMembers: Yup.string().required().matches(/^[0-9]+[+]?$/),
   computerDifficultyLevel: Yup.number().min(1).required(),
   solveComputerProblemsLevel: Yup.number().min(1).required(),
   handleComputerProblemsLevel: Yup.number().min(1).required(),
   computerActingUpLevel: Yup.number().min(1).required(),
   complexComputerLevel: Yup.number().min(1).required(),
   computerUse: Yup.array().min(1),
-  householdComputers: Yup.string().required().matches(/^[0-9]+$/),
+  householdComputers: Yup.string().required().matches(/^[0-9]+[+]?$/),
   internetAccess: Yup.array().min(1),
 })
 

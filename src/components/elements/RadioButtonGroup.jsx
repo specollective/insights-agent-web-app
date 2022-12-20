@@ -1,7 +1,7 @@
 import { Formik, Form, Field } from 'formik';
 import { Fragment } from 'react'
 
-function RadioButtonGroup ({ options, name, value, isHorizontal=false }) {
+function RadioButtonGroup ({ options, name, value, isHorizontal=false, ...rest }) {
   const horizontalClass =  isHorizontal ? "horizontal" : "";
   return (
     <div className={`radio-button-group ${horizontalClass}`}>
