@@ -373,10 +373,7 @@ function SurveyPage() {
 
   const handleSubmit = async (formData) => {
     try {
-      await createSurveyResult({ 
-        surveyId, 
-        ...formData
-      })
+      await createSurveyResult({ surveyId, ...formData })
       navigate('/success', { replace: true })
     } catch (e) {
       console.log(e);
