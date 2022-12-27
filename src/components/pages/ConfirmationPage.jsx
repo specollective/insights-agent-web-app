@@ -5,9 +5,7 @@ import { useAuth } from 'hooks/authentication'
 import './ConfirmationPage.css'
 import ProgressBar1 from '../../images/ProgressBar1.svg'
 import SignUpForm from 'components/elements/SignUp'
-import { useTranslation } from "react-i18next";
-
-
+import { useTranslation } from "react-i18next"
 
 function ConfirmationPage() {
   const auth = useAuth()
@@ -15,18 +13,18 @@ function ConfirmationPage() {
   const { t } = useTranslation()
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0)
   }, []);
 
   useEffect(() => {
     if (otp && token) {
-      auth.authenticate(otp, token);
+      auth.authenticate(otp, token)
     }
   }, [auth, otp, token])
 
   if (auth?.user?.isAuthenticated) {
-    // Hardcode survey id for now because we only have one.
-    return <Navigate to="/surveys/1" />
+    // TODO: Add dynamic routes for multiple surveys.
+    return <Navigate to="/surveys/demo" />
   }
 
   return (
@@ -68,4 +66,4 @@ function ConfirmationPage() {
   )
 }
 
-export default ConfirmationPage;
+export default ConfirmationPage
