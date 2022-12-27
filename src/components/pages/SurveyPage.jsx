@@ -260,7 +260,6 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           </h4>
           <p>{t("SurveyCheckAll")}</p>
 
-
           <CheckboxGroup
             value={values.internetAccess}
             name="internetAccess"
@@ -373,10 +372,8 @@ function SurveyPage() {
   const { surveyId } = useParams()
 
   const handleSubmit = async (formData) => {
-    const { survey_token } = auth.user
     try {
       await createSurveyResult({ 
-        token: survey_token, 
         surveyId, 
         ...formData
       })
