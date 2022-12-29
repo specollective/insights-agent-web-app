@@ -258,7 +258,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             {t("SurveyHowReliableInternetAccess")}
           </h4>
 
-          <RadioButtonGroup          
+          <RadioButtonGroup
             value={values.internetAccess}
             name="internetAccess"
             options={INTERNET_ACCESS}
