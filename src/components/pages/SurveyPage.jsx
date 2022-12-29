@@ -211,7 +211,10 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           <h5 className="font-semibold">
             {t("SurveyHowManyLiveInHousehold")}
           </h5>
-
+          <p>
+            {t("SurveyHouseholdQuestionDetails")}
+          </p>
+       
           <DropdownGroup
               value={values.householdMembers}
               name="householdMembers"
