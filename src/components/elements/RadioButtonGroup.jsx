@@ -1,5 +1,6 @@
 import { Formik, Form, Field } from 'formik';
 import { Fragment } from 'react'
+import TextInput from './TextInput';
 
 function RadioButtonGroup ({ options, name, value, isHorizontal=false, ...rest }) {
   const horizontalClass =  isHorizontal ? "horizontal" : "";
@@ -25,6 +26,7 @@ function RadioButtonGroup ({ options, name, value, isHorizontal=false, ...rest }
             {option.secondaryLabel ? (
               <label htmlFor={id}>{ option.secondaryLabel }</label>
             ) : ""}
+            {value && option.value === "other" ? <TextInput/>: ""}
           </div>
         )
       })}
