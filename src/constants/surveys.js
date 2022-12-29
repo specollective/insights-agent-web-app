@@ -36,9 +36,15 @@ export const RACE_OPTIONS_TWO = (t) => [
 ]
 
 // TODO: Apply i18n localization
-export const IS_HISPANIC_OPTIONS = (t) => [
-  { value: 'true', label:  t("HispanicOptions.true")},
+export const IS_HISPANIC_OPTIONS1 = (t) => [
   { value: 'false', label: t("HispanicOptions.false")},
+  { value: 'true', label:  t("HispanicOptions.true1")},
+  { value: 'true', label:  t("HispanicOptions.true2")},
+]
+
+export const IS_HISPANIC_OPTIONS2 = (t) => [
+  { value: 'true', label:  t("HispanicOptions.true3")},
+  { value: 'true', label:  t("HispanicOptions.true4")},
   { value: 'decline', label: t("HispanicOptions.decline")},
 ]
 
@@ -96,7 +102,8 @@ export default function generateTranslatedOptions (t) {
     RACE_OPTIONS_TWO: RACE_OPTIONS_TWO(t),
     HOUSEHOLD_MEMBERS: HOUSEHOLD_MEMBERS(t),
     INTERNET_ACCESS: INTERNET_ACCESS(t),
-    IS_HISPANIC_OPTIONS: IS_HISPANIC_OPTIONS(t),
+    IS_HISPANIC_OPTIONS1: IS_HISPANIC_OPTIONS1(t),
+    IS_HISPANIC_OPTIONS2: IS_HISPANIC_OPTIONS2(t),
     COMPUTER_USE: COMPUTER_USE(t),
     TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS: TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS(t),
     HOUSEHOLD_COMPUTERS: HOUSEHOLD_COMPUTERS(t)

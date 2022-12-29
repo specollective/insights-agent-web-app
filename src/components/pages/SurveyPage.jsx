@@ -20,7 +20,8 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
     RACE_OPTIONS_TWO,
     HOUSEHOLD_MEMBERS,
     INTERNET_ACCESS,
-    IS_HISPANIC_OPTIONS,
+    IS_HISPANIC_OPTIONS1,
+    IS_HISPANIC_OPTIONS2,
     COMPUTER_USE,
     TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS,
     HOUSEHOLD_COMPUTERS
@@ -79,11 +80,18 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
 
         <div className={ `question p-6 ${touched.isHispanicOrLatino && errors.isHispanicOrLatino ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">{t("SurveyHispanicHeader")}</h4>
+            <div className="grid grid-cols-1 lg:grid lg:grid-cols-2">
           <RadioButtonGroup
             value={values.isHispanicOrLatino}
             name="isHispanicOrLatino"
-            options={IS_HISPANIC_OPTIONS}
+            options={IS_HISPANIC_OPTIONS1}
           />
+           <RadioButtonGroup
+            value={values.isHispanicOrLatino}
+            name="isHispanicOrLatino"
+            options={IS_HISPANIC_OPTIONS2}
+          />
+            </div>
           <label htmlFor="name" className="text-sm"></label>
         </div>
         <span className='error-message'>
