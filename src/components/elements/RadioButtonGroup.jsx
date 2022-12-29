@@ -26,7 +26,10 @@ function RadioButtonGroup ({ options, name, value, isHorizontal=false, ...rest }
             {option.secondaryLabel ? (
               <label htmlFor={id}>{ option.secondaryLabel }</label>
             ) : ""}
-            {value && option.value === "other" ? <TextInput/>: ""}
+            <span>
+              {value && option.value === "other" ? <TextInput/>: ""}
+            </span>
+
           </div>
         )
       })}

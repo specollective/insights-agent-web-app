@@ -12,8 +12,8 @@ interface TextInputProps {
 export default function TextInput({ value, onChange, placeholder, label }: TextInputProps) {
   return (
     <>
-      <div>
-        <input
+      <div >
+        <input className="border-b-2 border-black" size="40"
           value={value}
           onChange={({ target: { value } }) => onChange(value)}
           placeholder={placeholder}
