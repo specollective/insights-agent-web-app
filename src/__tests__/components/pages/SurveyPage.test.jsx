@@ -5,6 +5,7 @@ import { createSurveyResult } from 'services/survey_result';
 import i18nTest from 'utils/i18nTest';
 import { I18nextProvider } from 'react-i18next';
 import { RACE_OPTIONS, RACE_OPTIONS_TWO } from 'constants/surveys';
+import { IS_HISPANIC_OPTIONS1, IS_HISPANIC_OPTIONS2 } from 'constants/surveys';
 
 // Mock out auth hooks
 jest.mock('hooks/authentication', () => ({
@@ -279,7 +280,7 @@ describe('Survey Page', () => {
 
       // Asserting that the bend service is called with the right values.
       expect(createSurveyResult).toHaveBeenCalledWith({
-        isHispanicOrLatino: 'true',
+        isHispanicOrLatino: 'cuban',
         computerUse: ['gaming'],
         householdMembers: '1',
         householdComputers:'5+',
@@ -333,7 +334,7 @@ describe('Survey Page', () => {
 
       // Asserting that the bend service is called with the right values.
       expect(createSurveyResult).toHaveBeenCalledWith({
-        isHispanicOrLatino: 'true',
+        isHispanicOrLatino: 'cuban',
         computerUse: ['gaming'],
         householdMembers: '3',
         householdComputers:'5+',

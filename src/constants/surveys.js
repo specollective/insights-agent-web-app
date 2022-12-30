@@ -38,13 +38,13 @@ export const RACE_OPTIONS_TWO = (t) => [
 // TODO: Apply i18n localization
 export const IS_HISPANIC_OPTIONS1 = (t) => [
   { value: 'false', label: t("HispanicOptions.false")},
-  { value: 'true', label:  t("HispanicOptions.true1")},
-  { value: 'true', label:  t("HispanicOptions.true2")},
+  { value: 'chicano', label:  t("HispanicOptions.true1")},
+  { value: 'puertorican', label:  t("HispanicOptions.true2")},
 ]
 
 export const IS_HISPANIC_OPTIONS2 = (t) => [
-  { value: 'true', label:  t("HispanicOptions.true3")},
-  { value: 'true', label:  t("HispanicOptions.true4")},
+  { value: 'cuban', label:  t("HispanicOptions.true3")},
+  { value: 'other', label:  t("HispanicOptions.true4")},
   { value: 'decline', label: t("HispanicOptions.decline")},
 ]
 
