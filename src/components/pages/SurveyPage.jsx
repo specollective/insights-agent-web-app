@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from 'hooks/authentication';
 import { createSurveyResult } from "services/survey_result";
@@ -14,12 +13,6 @@ import DropdownGroup from "components/elements/DropdownGroup";
 
 function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetForm }) {
   const { t } = useTranslation()
-
-  const [otherOption, setOtherOption] = useState('');
-
-  const handleOtherOptionChange = (event) => {
-    setOtherOption(event.target.value);
-  };
 
   const {
     DEFAULT_FORM_VALUES,
