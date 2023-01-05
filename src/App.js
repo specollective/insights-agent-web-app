@@ -20,7 +20,7 @@ import './App.css'
 
 function App() {
   const [locale, setLocale] = useState(localStorage.getItem('locale') || 'en')
- 
+
   useEffect(() => {
     localStorage.setItem('locale', locale)
     i18n.changeLanguage(locale)
@@ -31,7 +31,7 @@ function App() {
       <AuthProvider>
         <Layout>
           <Routes>
-            <Route path="/" element={<LandingPage />} />            
+            <Route path="/" element={<LandingPage />} />
 
             <Route
               exact
@@ -50,7 +50,7 @@ function App() {
                   <SurveyPage />
                 </RequireAuth>
               }
-            
+
             />
 
             <Route

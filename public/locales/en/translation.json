@@ -86,8 +86,11 @@
   "HouseholdSelectOne": "Select One",
   "ComputerSelectOne": "Select One",
   "HispanicOptions": {
-    "true": "Yes",
-    "false": "No",
+    "true1": "Yes, Mexican, Mexican-American or Chicano",
+    "true2": "Yes, Puerto Rican",
+    "true3": "Yes, Cuban",
+    "true4": "Yes, other Hispanic or Latino origin",
+    "false": "No, I am not of Hispanic or Latino origin",
     "decline": "Decline to identify"
   },
   "ComputerUseOptions": {

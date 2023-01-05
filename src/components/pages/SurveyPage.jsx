@@ -20,7 +20,8 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
     RACE_OPTIONS_TWO,
     HOUSEHOLD_MEMBERS,
     INTERNET_ACCESS,
-    IS_HISPANIC_OPTIONS,
+    IS_HISPANIC_OPTIONS1,
+    IS_HISPANIC_OPTIONS2,
     COMPUTER_USE,
     TECHNOLOGY_COMPETENCY_LEVEL_OPTIONS,
     HOUSEHOLD_COMPUTERS
@@ -79,15 +80,22 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
 
         <div className={ `question p-6 ${touched.isHispanicOrLatino && errors.isHispanicOrLatino ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">{t("SurveyHispanicHeader")}</h4>
+            <div className="grid grid-cols-1 lg:grid lg:grid-cols-2">
           <RadioButtonGroup
             value={values.isHispanicOrLatino}
             name="isHispanicOrLatino"
-            options={IS_HISPANIC_OPTIONS}
+            options={IS_HISPANIC_OPTIONS1}
           />
+           <RadioButtonGroup
+            value={values.isHispanicOrLatino}
+            name="isHispanicOrLatino"
+            options={IS_HISPANIC_OPTIONS2}
+          />
+            </div>
           <label htmlFor="name" className="text-sm"></label>
         </div>
         <span className='error-message'>
-            { touched.isHispanicOrLatino && errors.isHispanicOrLatino && 
+            { touched.isHispanicOrLatino && errors.isHispanicOrLatino &&
             <span> {t("SurveyErrorRequired")}</span>
             }
         </span>
@@ -117,7 +125,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-            { touched.computerDifficultyLevel && errors.computerDifficultyLevel && 
+            { touched.computerDifficultyLevel && errors.computerDifficultyLevel &&
               <span> {t("SurveyErrorRequired")} </span>
             }
         </span>
@@ -135,7 +143,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-            { touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel && 
+            { touched.solveComputerProblemsLevel && errors.solveComputerProblemsLevel &&
               <span> {t("SurveyErrorRequired")} </span>
             }
         </span>
@@ -153,7 +161,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-            { touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel && 
+            { touched.handleComputerProblemsLevel && errors.handleComputerProblemsLevel &&
               <span> {t("SurveyErrorRequired")} </span>
             }
         </span>
@@ -171,11 +179,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-            { touched.computerActingUpLevel && errors.computerActingUpLevel && 
+            { touched.computerActingUpLevel && errors.computerActingUpLevel &&
               <span> {t("SurveyErrorRequired")} </span>
             }
         </span>
-        
+
         <div className={ `question p-6 ${touched.complexComputerLevel && errors.complexComputerLevel ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
             {t("SurveyICanComplete")}
@@ -189,7 +197,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           />
         </div>
         <span className='error-message'>
-            { touched.complexComputerLevel && errors.complexComputerLevel && 
+            { touched.complexComputerLevel && errors.complexComputerLevel &&
               <span>{t("SurveyErrorRequired")}</span>
             }
         </span>
@@ -203,13 +211,13 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           <h5 className="font-semibold">
             {t("SurveyHowManyLiveInHousehold")}
           </h5>
-       
+
           <DropdownGroup
               value={values.householdMembers}
               name="householdMembers"
               options={HOUSEHOLD_MEMBERS}
             />
-          
+
         </div>
         <span className="error-message">
           {touched.householdMembers && errors.householdMembers && (
@@ -306,7 +314,7 @@ export function mapPropsToValues({
   householdMembers,
   internetAccess,
   householdComputers,
-  computerDifficultyLevel, 
+  computerDifficultyLevel,
   solveComputerProblemsLevel,
   handleComputerProblemsLevel,
   computerActingUpLevel,
@@ -319,7 +327,7 @@ export function mapPropsToValues({
     internetAccess: internetAccess || [],
     householdMembers: householdMembers,
     householdComputers: householdComputers,
-    computerDifficultyLevel: computerDifficultyLevel, 
+    computerDifficultyLevel: computerDifficultyLevel,
     solveComputerProblemsLevel: solveComputerProblemsLevel,
     handleComputerProblemsLevel: handleComputerProblemsLevel,
     computerActingUpLevel: computerActingUpLevel,
