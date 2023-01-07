@@ -101,7 +101,7 @@ export function SignUpForm({ touched, errors }) {
         </div>
       </div>
       <button id='sign-up-button' type='submit' className='border rounded-lg'>
-        Submit
+        {t("submitText")}
       </button>
     </Form>
   )
