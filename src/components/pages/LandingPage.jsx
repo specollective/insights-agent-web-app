@@ -85,14 +85,6 @@ function LandingPage() {
                 </li>
               ))}
             </ul>
-            <div className='pt-10'>
-              <p>
-                {t("LandingYouAreTheExpert")}
-              </p>
-              <p>
-                {t("LandingWellAsk")}
-              </p>
-            </div>
           </section>
 
           <section>
