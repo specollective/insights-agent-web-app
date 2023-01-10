@@ -49,14 +49,13 @@ function ConfirmationPage() {
         <hr />
 
         <div className="px-8">
-          <p className='text-base pb-16'>
+          <p className='text-base pb-5'>
             {t("ConfirmationNotReceivedInstructions")}
           </p>
 
           <ul className='list-decimal px-8'>
             <li>{t("ConfirmationNotReceivedFirst")}</li>
             <li>{t("ConfirmationNotReceivedSecond")}</li>
-            <li>{t("ConfirmationNotReceivedThird")}</li>
           </ul>
         </div>
       </div>
