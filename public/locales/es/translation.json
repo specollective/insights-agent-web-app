@@ -61,12 +61,12 @@
   "SurveyICanUsuallyHandleProblems": "Por lo general, puedo manejar los problemas del computador por mi cuenta",
   "SurveyComputerActingUp": "Si mi computadora está fallando, puedo encontrar una manera de obtener lo que quiero sin depender de otros",
   "SurveyICanComplete": "Puedo completar una tarea compleja, relacionada con computadores (por ejemplo, configurar una impresora o wifi)",
-  "SurveyAnswerAboutHousehold": "Please answer about your HOUSEHOLD",
+  "SurveyAnswerAboutHousehold": "Por favor responda acerca de su HOGAR",
   "SurveyHowManyLiveInHousehold": "How many people live/stay in your household?",
-  "SurveyIntendedUse": "What is the intended use of this computer?*",
-  "SurveyHowManyOtherComputers": "How many other computers (including tablets) do you have in your household?*",
+  "SurveyIntendedUse": "¿Con qué intención utilizará este computador? *",
+  "SurveyHowManyOtherComputers": "¿Cuántas otras computadoras (incluyendo tablets) tiene en su hogar?*",
   "SurveyHowDoesHouseholdAccess": "How does your household access the internet?*",
-  "SurveyClearForm": "Clear Form",
+  "SurveyClearForm": "Limpiar formulario",
   "RaceOptions": {
     "white": "Blanco",
     "black": "Negro o Afroamericano",
@@ -85,8 +85,8 @@
     "other": "Otra raza no listada",
     "decline": "Negarse a identificar"
   },
-  "HouseholdSelectOne": "Select One",
-  "ComputerSelectOne": "Select One",
+  "HouseholdSelectOne": "Seleccione uno",
+  "ComputerSelectOne": "Seleccione uno",
   "HispanicOptions": {
     "true1": "Sí, mexicano, México-americano o chicano",
     "true2": "Sí, puertorriqueño",
@@ -96,14 +96,14 @@
     "decline": "Negarse a identificar"
   },
   "ComputerUseOptions": {
-    "entertainment": "Entertainment",
-    "gaming": "Gaming",
-    "school": "School",
-    "creativity": "Creativity",
-    "business": "Business",
-    "family": "Family",
-    "gain-new-skills": "Gain new skills",
-    "job-search": "Job search"
+    "entertainment": "Entretenimiento",
+    "gaming": "Juegos",
+    "school": "Escolar",
+    "creativity": "Creatividad",
+    "business": "Negocios",
+    "family": "Familia",
+    "gain-new-skills": "Adquirir nuevas habilidades",
+    "job-search": "Búsqueda de empleo"
   },
   "InternetAccessOptions": {
     "cellular-data": "Cellular data plan for smartphone",
