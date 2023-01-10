@@ -130,11 +130,11 @@
   "ConfirmationNotReceivedFirst": "Por favor vuelva a poner su nombre y teléfono aquí.",
   "ConfirmationNotReceivedSecond": "Si ya a colocado su nombre y teléfono y todavía no a recibido un texto porfavor contáctenos a tech4all@builjustly.org",
 
-  "SuccessHeader": "Thank you for providing your data and helping us build the future of technology - for everyone.",
-  "SuccessProcessing": "We are processing your information now and we’ll notify you with next steps.",
-  "SuccessTextMessage": "You’ll receive a text message at the number you provided.",
-  "SuccessIfYouDoNotReceive": "If you do not receive a message within 7 days, please send an email to tech4all@buildjustly.org and mention the Insights Agent.",
-  "SuccessLink": "Visit buildJUSTLY.org",
+  "SuccessHeader": "Gracias por proporcionarnos sus datos y ayudarnos a contribuir al futuro de una tecnología que funcione para todos.",
+  "SuccessProcessing": "Estamos procesando tu información, te notificaremos con los próximos pasos.",
+  "SuccessTextMessage": " Recibirás un mensaje de texto en el número que proporcionaste.",
+  "SuccessIfYouDoNotReceive": "Si usted no recibe un mensaje dentro de 7 días, por favor mande un correo electrónico a tech4all@buildjustly.org y mencione el agente de perspectivas.",
+  "SuccessLink": "Visite buildJUSTLY.org",
 
   "DownloadMac": "Download for Mac",
   "DownloadSetUp": "Set-Up Instructions",
