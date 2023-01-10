@@ -69,7 +69,8 @@ export function SignUpForm({ touched, errors }) {
             role='name'
             name='name'
             data-test-id='name'
-            placeholder='Full Name'
+            // placeholder='Full Name'
+            placeholder={t('FullNamePlaceholder')}
             className='border border-black p-2 rounded'
           />
           <label htmlFor='name' className='text-sm'>
@@ -87,7 +88,7 @@ export function SignUpForm({ touched, errors }) {
             role='phoneNumber'
             name='phoneNumber'
             data-test-id='phone-number'
-            placeholder='Phone Number'
+            placeholder={t('PhoneNumberPlaceholder')}
             className='border border-black p-2 rounded'
           />
           <label htmlFor='phone-number' className='text-sm'>
