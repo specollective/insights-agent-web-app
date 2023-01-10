@@ -136,15 +136,15 @@
   "SuccessIfYouDoNotReceive": "Si usted no recibe un mensaje dentro de 7 días, por favor mande un correo electrónico a tech4all@buildjustly.org y mencione el agente de perspectivas.",
   "SuccessLink": "Visite buildJUSTLY.org",
 
-  "DownloadMac": "Download for Mac",
-  "DownloadSetUp": "Set-Up Instructions",
+  "DownloadMac": "Descargar para Mac",
+  "DownloadSetUp": "Instrucciones de configuración",
   "DownloadUninstall": "Uninstall Instructions",
 
-  "InstructionsFirst": "Click Insights Agent icon on your desktop",
-  "InstructionsSecond": "Enter your phone number that you used to sign up for this study",
-  "InstructionsThird": "You will receive a 6 digit verification code via text to that phone number provided. Enter that code on the prompt",
-  "InstructionsFourth": "Please read the study reminder before pushing the Start button to start running the Insights Agent",
-  "InstructionsFifth": "If you have received an error message or if you are having trouble, please contact us at tech4all@buildjustly.org",
+  "InstructionsFirst": "Haga clic en el icono de Insights Agent en su escritorio",
+  "InstructionsSecond": "Ingrese su número de teléfono que usó para inscribirse en este estudio",
+  "InstructionsThird": "Recibirá un código de verificación de 6 dígitos por mensaje de texto al número de teléfono proporcionado. Ingrese ese código en el campo que aparecerá",
+  "InstructionsFourth": "Lea el recordatorio del estudio antes de presionar el botón Iniciar para comenzar a ejecutar Insights Agent",
+  "InstructionsFifth": "Si ha recibido un mensaje de error o si tiene problemas, envíenos un correo electrónico a tech4all@buildjustly.org",
 
   "UninstallSecond": "Enter your phone number that you used to sign up for this study",
   "UninstallThird": "You will receive a 6 digit verification code via text to that phone number provided. Enter that code on the prompt",
