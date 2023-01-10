@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom"
 import { useAuth } from 'hooks/authentication'
 import './ConfirmationPage.css'
 import ProgressBar1 from '../../images/ProgressBar1.svg'
+import ProgressBar1ES from '../../images/ProgressBar1ES.svg'
 import SignUpForm from 'components/elements/SignUp'
 import { useTranslation } from "react-i18next"
 
@@ -11,6 +12,7 @@ function ConfirmationPage() {
   const auth = useAuth()
   const { otp, token } = useParams()
   const { t } = useTranslation()
+  const lang = localStorage.getItem('locale')
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -31,7 +33,7 @@ function ConfirmationPage() {
     <main id="ConfirmationPage">
       <div className="center">
         <div className='grid place-content-center pb-8 md:pt-8 md:pb-16'>
-          <img src={ProgressBar1} alt='progress' />
+         {lang == 'en' ? <img src={ProgressBar1} alt='progress' /> : <img src={ProgressBar1ES} alt='progressES' />}
         </div>
         <div>
           <h1 className='pb-12 px-8 text-base md:text-3xl font-semibold'>
