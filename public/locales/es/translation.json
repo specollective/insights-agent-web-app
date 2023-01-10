@@ -123,13 +123,13 @@
     "4": "Highly"
   },
 
-  "ConfirmationHeading": "Thank you for helping us empower the building of a better future for all, through equitable technology.",
-  "ConfirmationWeHaveReceived": "We have received your information for participation. You should be receiving a text message to the phone number provided with next steps.",
-  "ConfirmationGoHome": "Go back to Home",
-  "ConfirmationNotReceivedInstructions": "If you have not received a text message please proceed to the following steps:",
-  "ConfirmationNotReceivedFirst": "If you have not received a text message, please resubmit your Name and Phone number below.",
+  "ConfirmationHeading": "Gracias por ayudarnos a potenciar la construcción de un futuro mejor para todos a través de una tecnología equitativa.",
+  "ConfirmationWeHaveReceived": "Hemos recibido su información para participar. Debería recibir un mensaje de texto al número de teléfono proporcionado con los próximos pasos.",
+  "ConfirmationGoHome": "Volver a la página principal",
+  "ConfirmationNotReceivedInstructions": "Si no a recibido un texto porfavor siga las próximas instrucciones:",
+  "ConfirmationNotReceivedFirst": "Por favor vuelva a poner su nombre y teléfono aquí.",
   "ConfirmationNotReceivedThird": "If you have tried previous steps and are still not receiving a text message, please contact us at 800-555-1234.",
-  "ConfirmationNotReceivedSecond": "If you have already resubmitted your phone number and are still not receiving a text message, please contact us at tech4all@buildjustly.org",
+  "ConfirmationNotReceivedSecond": "Si ya a colocado su nombre y teléfono y todavía no a recibido un texto porfavor contáctenos a tech4all@builjustly.org",
 
   "SuccessHeader": "Thank you for providing your data and helping us build the future of technology - for everyone.",
   "SuccessProcessing": "We are processing your information now and we’ll notify you with next steps.",
