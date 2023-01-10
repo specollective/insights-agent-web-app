@@ -48,7 +48,7 @@ function App() {
               element={
                 <RequireAuth>
                   <SurveyPage />
-                </RequireAuth>
+                </RequireAuth> 
               }
 
             />
@@ -56,9 +56,9 @@ function App() {
             <Route
               path="/success"
               element={
-                <RequireAuth>
+                // <RequireAuth>
                   <SuccessPage />
-                </RequireAuth>
+                // </RequireAuth>
               }
             />
 
