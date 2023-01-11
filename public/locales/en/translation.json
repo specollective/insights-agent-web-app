@@ -65,9 +65,9 @@
   "VoluntaryQuestions": "All of these questions are voluntary, however the more questions you answer, the more useful they will be in helping to ensure that the technology works fairly.",
   "SurveyHowManyLiveInHousehold": "How many people do you financially support or share finances with? This may include people who do not live with you.",
   "SurveyHouseholdQuestionDetails": "(Enter zero if you are not supporting others or receiving financial support from others.)",
-  "SurveyIntendedUse": "What is the intended use of this computer?*",
-  "SurveyHowManyOtherComputers": "How many other computers (including tablets) do you have in your household?*",
-  "SurveyHowReliableInternetAccess": "How reliable is your Internet connection at home?*",
+  "SurveyIntendedUse": "What is the intended use of this computer?",
+  "SurveyHowManyOtherComputers": "How many other computers (including tablets) do you have in your household?",
+  "SurveyHowReliableInternetAccess": "How reliable is your Internet connection at home?",
   "SurveyClearForm": "Clear Form",
   "RaceOptions": {
     "white": "White",
