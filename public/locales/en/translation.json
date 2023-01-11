@@ -2,7 +2,9 @@
   "InsightsAgentHeader": "Insights Agent Research Study",
   "InsightsAgentStudy": "Insights Agent Study",
   "fullNameLabel": "Enter Full Name (First & Last)",
+  "FullNamePlaceholder": "Full Name",
   "phoneNumberLabel": "Enter Phone Number",
+  "PhoneNumberPlaceholder": "Phone Number",
   "submitText": "Submit",
   "LandingPageHeading": "Sign up to participate in our study!",
   "landingPageFooterHeading": "$100 for participating in our research study which can go towards your computer purchase.",
@@ -127,7 +129,6 @@
   "ConfirmationGoHome": "Go back to Home",
   "ConfirmationNotReceivedInstructions": "If you have not received a text message please proceed to the following steps:",
   "ConfirmationNotReceivedFirst": "If you have not received a text message, please resubmit your Name and Phone number below.",
-  "ConfirmationNotReceivedThird": "If you have tried previous steps and are still not receiving a text message, please contact us at 800-555-1234.",
   "ConfirmationNotReceivedSecond": "If you have already resubmitted your phone number and are still not receiving a text message, please contact us at tech4all@buildjustly.org",
 
   "SuccessHeader": "Thank you for providing your data and helping us build the future of technology - for everyone.",

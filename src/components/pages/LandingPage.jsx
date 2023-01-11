@@ -85,14 +85,6 @@ function LandingPage() {
                 </li>
               ))}
             </ul>
-            <div className='pt-10'>
-              <p>
-                {t("LandingYouAreTheExpert")}
-              </p>
-              <p>
-                {t("LandingWellAsk")}
-              </p>
-            </div>
           </section>
 
           <section>
@@ -127,7 +119,7 @@ function LandingPage() {
                 {t("LandingToBuildJUSTLY")}
               </p>
 
-              <h4 className='font-bold'>{t("LandingRisks")}</h4>
+              <h4 className='font-bold pt-4'>{t("LandingRisks")}</h4>
               <p className='pl-8 pt-4'>
                 {t("LandingNoComputerPerformance")}
               </p>

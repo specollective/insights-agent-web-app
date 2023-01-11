@@ -69,14 +69,14 @@ export function SignUpForm({ touched, errors }) {
             role='name'
             name='name'
             data-test-id='name'
-            placeholder='Full Name'
+            placeholder={t('FullNamePlaceholder')}
             className='border border-black p-2 rounded'
           />
           <label htmlFor='name' className='text-sm'>
             {t('fullNameLabel')}
-            <span className='error-message'>
+            <div className='error-message'>
               {touched.name && errors.name && <span>{errors.name}</span>}
-            </span>
+            </div>
           </label>
         </div>
 
@@ -87,21 +87,21 @@ export function SignUpForm({ touched, errors }) {
             role='phoneNumber'
             name='phoneNumber'
             data-test-id='phone-number'
-            placeholder='Phone Number'
+            placeholder={t('PhoneNumberPlaceholder')}
             className='border border-black p-2 rounded'
           />
           <label htmlFor='phone-number' className='text-sm'>
             {t('phoneNumberLabel')} (XXX-XXX-XXXX)
-            <span className='error-message'>
+            <div className='error-message'>
               {touched.phoneNumber && errors.phoneNumber && (
                 <span>{errors.phoneNumber}</span>
               )}
-            </span>
+            </div>
           </label>
         </div>
       </div>
       <button id='sign-up-button' type='submit' className='border rounded-lg'>
-        Submit
+        {t("submitText")}
       </button>
     </Form>
   )

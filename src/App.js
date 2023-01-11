@@ -48,7 +48,7 @@ function App() {
               element={
                 <RequireAuth>
                   <SurveyPage />
-                </RequireAuth>
+                </RequireAuth> 
               }
 
             />

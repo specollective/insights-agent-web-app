@@ -42,7 +42,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           </h4>
           <p>{t("SurveyDescription")}</p>
 
-          <p>
+          <p className="py-2">
             <strong>*{t("RequiredField")}</strong>
           </p>
         </div>
