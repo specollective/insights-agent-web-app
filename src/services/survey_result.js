@@ -1,6 +1,14 @@
 import { API_URL } from 'constants/urls'
 import { DEFAULT_FETCH_OPTIONS } from 'constants/fetch'
 
+export function coerceOptionToNumeric(value) {
+  if (value === '' || value === undefined) {
+    return null
+  } else {
+    return value.replace(/\D/g,'');
+  }
+}
+
 export async function createSurveyResult(surveyData) {
   const headers = {  ...DEFAULT_FETCH_OPTIONS.headers }
 
@@ -21,14 +29,14 @@ export async function createSurveyResult(surveyData) {
       hispanic_origin: surveyData.isHispanicOrLatino,
       computer_use: surveyData.computerUse.join(','),
       internet_access: surveyData.internetAccess.join(','),
-      household_members: surveyData.householdMembers,
-      household_computers: surveyData.householdComputers,
+      household_members: coerceOptionToNumeric(surveyData.householdMembers),
+      household_computers: coerceOptionToNumeric(surveyData.householdComputers),
       computer_difficulty_level: surveyData.computerDifficultyLevel,
       solve_computer_problems_level: surveyData.solveComputerProblemsLevel,
       handle_computer_problems_level: surveyData.handleComputerProblemsLevel,
       computer_acting_up_level: surveyData.computerActingUpLevel,
       complex_computer_level: surveyData.complexComputerLevel,
-      race: surveyData.race.join(',')
+      race: surveyData.race.join(','),
     }),
   });
 
