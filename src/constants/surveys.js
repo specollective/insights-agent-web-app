@@ -1,6 +1,6 @@
 export const DEFAULT_FORM_VALUES = {
   isHispanicOrLatino: null,
-  internetAccess: [],
+  internetAccess: null,
   race: [],
   householdMembers: 'select one',
   computerUse: [],
@@ -49,11 +49,11 @@ export const IS_HISPANIC_OPTIONS2 = (t) => [
 ]
 
 export const INTERNET_ACCESS = (t) => [
-  { value: 'cellular-data', label: t("InternetAccessOptions.cellular-data")},
-  { value: 'broadband', label: t("InternetAccessOptions.broadband")},
-  { value: 'satellite', label: t("InternetAccessOptions.satellite")},
-  { value: 'dial-up', label: t("InternetAccessOptions.dial-up")},
-  { value: 'other-service', label: t("InternetAccessOptions.other-service")},
+  { value: 'not-reliable', label: t("InternetAccessOptions.not-reliable")},
+  { value: 'somewhat-reliable', label: t("InternetAccessOptions.somewhat-reliable")},
+  { value: 'reliable', label: t("InternetAccessOptions.reliable")},
+  { value: 'no-access', label: t("InternetAccessOptions.no-access")},
+  { value: 'other', label: t("InternetAccessOptions.other")},
 ]
 
 export const HOUSEHOLD_MEMBERS = (t) => [

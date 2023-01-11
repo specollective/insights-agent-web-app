@@ -66,7 +66,7 @@
   "SurveyHouseholdQuestionDetails": "(Enter zero if you are not supporting others or receiving financial support from others.)",
   "SurveyIntendedUse": "What is the intended use of this computer?*",
   "SurveyHowManyOtherComputers": "How many other computers (including tablets) do you have in your household?*",
-  "SurveyHowDoesHouseholdAccess": "How does your household access the internet?*",
+  "SurveyHowReliableInternetAccess": "How reliable is your Internet connection at home?*",
   "SurveyClearForm": "Clear Form",
   "RaceOptions": {
     "white": "White",
@@ -107,11 +107,11 @@
     "job-search": "Job search"
   },
   "InternetAccessOptions": {
-    "cellular-data": "Cellular data plan for smartphone",
-    "broadband": "Broadband internet service",
-    "satellite": "Satellite internet service",
-    "dial-up": "Dial up internet service",
-    "other-service": "Some other service"
+    "not-reliable": "Not reliable at all - I often have problems connecting to the internet.",
+    "somewhat-reliable": "Somewhat Reliable: Sometimes I have trouble connecting to the Internet.",
+    "reliable": "Reliable: I rarely have trouble connecting to the Internet if I have a problem.",
+    "no-access": "I don't have internet at home.",
+    "other": "Other"
   },
   "CompetencyScale1": "1- Not at all confident",
   "CompetencyScale2": "2- Slightly confident",

@@ -267,15 +267,15 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
 
         <div className={ `question p-6 ${touched.internetAccess && errors.internetAccess ? "border-2 border-[#FA0000]" : ""}` }>
           <h4 className="font-semibold">
-            {t("SurveyHowDoesHouseholdAccess")}
+            {t("SurveyHowReliableInternetAccess")}
           </h4>
-          <p>{t("SurveyCheckAll")}</p>
 
-          <CheckboxGroup
+          <RadioButtonGroup          
             value={values.internetAccess}
             name="internetAccess"
             options={INTERNET_ACCESS}
-            onChange={setFieldValue}
+            isHorizontal={false}
+            data-testid="reliableInternetRadioButtonGroup"
           />
         </div>
         <span className="error-message">
@@ -327,7 +327,7 @@ export function mapPropsToValues({
     race: race || [],
     isHispanicOrLatino: isHispanicOrLatino,
     computerUse: computerUse || [],
-    internetAccess: internetAccess || [],
+    internetAccess: internetAccess,
     householdMembers: householdMembers,
     householdComputers: householdComputers,
     computerDifficultyLevel: computerDifficultyLevel,
@@ -365,7 +365,7 @@ export const validationSchema = Yup.object().shape({
   complexComputerLevel: Yup.number().min(1).required(),
   computerUse: Yup.array().min(1),
   householdComputers: Yup.string().required().matches(/^[0-9]+[+]?$/),
-  internetAccess: Yup.array().min(1),
+  internetAccess: Yup.string().required(),
 })
 
 /**

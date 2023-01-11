@@ -86,7 +86,7 @@ describe('Survey Page', () => {
       const householdMembersSelectContainer = findFormSection(screen, 'How many people do you financially support or share finances with? This may include people who do not live with you.');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
-      const internetAccessCheckbox = findFormSection(screen, 'How does your household access the internet?*');
+      const internetAccessRadioButtonGroup = findFormSection(screen, 'How reliable is your Internet connection at home?*')
 
       // asserting all expected options are present
       Object.keys(RACE_OPTIONS).forEach((raceOption) => {
@@ -117,7 +117,7 @@ describe('Survey Page', () => {
           target: { value: '4' },
         });
         fireEvent.click(computerUsageCheckbox.getByText('Gaming'));
-        fireEvent.click(internetAccessCheckbox.getByText('Dial up internet service'));
+        fireEvent.click(internetAccessRadioButtonGroup.getByText('Reliable: I rarely have trouble connecting to the Internet if I have a problem.'));
         fireEvent.click(screen.getByText('Submit'));
       });
 
@@ -128,7 +128,7 @@ describe('Survey Page', () => {
         householdMembers: '5+',
         householdComputers:'4',
         race: ['white', 'filipino', 'black'],
-        internetAccess: ['dial-up'],
+        internetAccess: 'reliable',
         computerDifficultyLevel: '3',
         solveComputerProblemsLevel: '2',
         handleComputerProblemsLevel: '4',
@@ -151,7 +151,7 @@ describe('Survey Page', () => {
       const householdMembersSelectContainer = findFormSection(screen, 'How many people do you financially support or share finances with? This may include people who do not live with you.');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
-      const internetAccessCheckbox = findFormSection(screen, 'How does your household access the internet?*');
+      const internetAccessRadioButtonGroup = findFormSection(screen, 'How reliable is your Internet connection at home?*')
 
       await act(() => {
         fireEvent.click(raceCheckboxGroup.getByText('White'));
@@ -170,7 +170,7 @@ describe('Survey Page', () => {
           target: { value: '5+' },
         });
         fireEvent.click(computerUsageCheckbox.getByText('Gaming'));
-        fireEvent.click(internetAccessCheckbox.getByText('Dial up internet service'));
+        fireEvent.click(internetAccessRadioButtonGroup.getByText('Reliable: I rarely have trouble connecting to the Internet if I have a problem.'));
         fireEvent.click(screen.getByText('Submit'));
       });
 
@@ -180,7 +180,7 @@ describe('Survey Page', () => {
         householdMembers: '1',
         householdComputers:'5+',
         race: ['decline'],
-        internetAccess: ['dial-up'],
+        internetAccess: 'reliable',
         computerDifficultyLevel: '3',
         solveComputerProblemsLevel: '2',
         handleComputerProblemsLevel: '4',
@@ -202,7 +202,7 @@ describe('Survey Page', () => {
       const householdMembersSelectContainer = findFormSection(screen, 'How many people do you financially support or share finances with? This may include people who do not live with you.');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
-      const internetAccessCheckbox = findFormSection(screen, 'How does your household access the internet?*');
+      const internetAccessRadioButtonGroup = findFormSection(screen, 'How reliable is your Internet connection at home?*')
 
       await act(() => {
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
@@ -220,7 +220,7 @@ describe('Survey Page', () => {
           target: { value: '5+' },
         });
         fireEvent.click(computerUsageCheckbox.getByText('Gaming'));
-        fireEvent.click(internetAccessCheckbox.getByText('Dial up internet service'));
+        fireEvent.click(internetAccessRadioButtonGroup.getByText('Reliable: I rarely have trouble connecting to the Internet if I have a problem.'));
         fireEvent.click(screen.getByText('Submit'));
       });
 
@@ -230,7 +230,7 @@ describe('Survey Page', () => {
         householdMembers: '1',
         householdComputers:'5+',
         race: ['chinese'],
-        internetAccess: ['dial-up'],
+        internetAccess: 'reliable',
         computerDifficultyLevel: '3',
         solveComputerProblemsLevel: '2',
         handleComputerProblemsLevel: '4',
@@ -255,7 +255,7 @@ describe('Survey Page', () => {
       const householdMembersSelectContainer = findFormSection(screen, 'How many people do you financially support or share finances with? This may include people who do not live with you.');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
-      const internetAccessCheckbox = findFormSection(screen, 'How does your household access the internet?*');
+      const internetAccessRadioButtonGroup = findFormSection(screen, 'How reliable is your Internet connection at home?*')
 
 
       await act(() => {
@@ -274,7 +274,7 @@ describe('Survey Page', () => {
           target: { value: '5+' },
         });
         fireEvent.click(computerUsageCheckbox.getByText('Gaming'));
-        fireEvent.click(internetAccessCheckbox.getByText('Dial up internet service'));
+        fireEvent.click(internetAccessRadioButtonGroup.getByText('Reliable: I rarely have trouble connecting to the Internet if I have a problem.'));
         fireEvent.click(screen.getByText('Submit'));
       });
 
@@ -285,7 +285,7 @@ describe('Survey Page', () => {
         householdMembers: '1',
         householdComputers:'5+',
         race: ['decline'],
-        internetAccess: ['dial-up'],
+        internetAccess: 'reliable',
         computerDifficultyLevel: '3',
         solveComputerProblemsLevel: '2',
         handleComputerProblemsLevel: '4',
@@ -310,7 +310,7 @@ describe('Survey Page', () => {
       const householdMembersSelectContainer = findFormSection(screen, 'How many people do you financially support or share finances with? This may include people who do not live with you.');
       const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
       const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
-      const internetAccessCheckbox = findFormSection(screen, 'How does your household access the internet?*');
+      const internetAccessRadioButtonGroup = findFormSection(screen, 'How reliable is your Internet connection at home?*')
 
       await act(() => {
         // Testing selecting value
@@ -328,7 +328,7 @@ describe('Survey Page', () => {
           target: { value: '5+' },
         });
         fireEvent.click(computerUsageCheckbox.getByText('Gaming'));
-        fireEvent.click(internetAccessCheckbox.getByText('Dial up internet service'));
+        fireEvent.click(internetAccessRadioButtonGroup.getByText('Reliable: I rarely have trouble connecting to the Internet if I have a problem.'));
         fireEvent.click(screen.getByText('Submit'));
       });
 
@@ -339,7 +339,7 @@ describe('Survey Page', () => {
         householdMembers: '3',
         householdComputers:'5+',
         race: ['decline'],
-        internetAccess: ['dial-up'],
+        internetAccess: 'reliable',
         computerDifficultyLevel: '3',
         solveComputerProblemsLevel: '2',
         handleComputerProblemsLevel: '4',
