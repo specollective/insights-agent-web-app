@@ -26,7 +26,7 @@ function CheckboxGroup ({ options, name, value, onChange }) {
   }
 
   return (
-    <div className="checkbox-group">
+    <div>
       {options.map((option) => {
         const id = `${name}-${option.value}`;
         return (

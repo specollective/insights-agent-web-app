@@ -55,7 +55,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           <h4 className="font-semibold">{t("SurveySelectYourRace")}*</h4>
           <p>{t("SurveyCheckAll")}</p>
 
-          <div className="grid grid-cols-1 lg:grid lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-0 lg:grid lg:grid-cols-2 pt-12">
             <div>
               <CheckboxGroup
                 value={values.race}
@@ -206,8 +206,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           <h4 className="font-semibold p-4">
             {t("SurveyAnswerAboutHousehold")}:
           </h4>
+          <p className="px-4">
+            {t("VoluntaryQuestions")}
+          </p>
         </div>
-        <div className={ `question p-6 ${touched.householdMembers && errors.householdMembers ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-6` }>
           <h5 className="font-semibold">
             {t("SurveyHowManyLiveInHousehold")}
           </h5>
@@ -222,33 +225,23 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             />
 
         </div>
-        <span className="error-message">
-          {touched.householdMembers && errors.householdMembers && (
-            <span>{t("SurveyErrorRequired")}</span>
-          )}
-        </span>
 
-        <div className={ `question p-6 ${touched.computerUse && errors.computerUse ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-6` }>
           <h4 className="font-semibold">
             {t("SurveyIntendedUse")}
           </h4>
           <p>{t("SurveyCheckAll")}</p>
-
-          <CheckboxGroup
-            value={values.computerUse}
-            name="computerUse"
-            options={COMPUTER_USE}
-            onChange={setFieldValue}
-          />
+          <div className="pt-4">
+            <CheckboxGroup
+              value={values.computerUse}
+              name="computerUse"
+              options={COMPUTER_USE}
+              onChange={setFieldValue}
+            />
+          </div>
         </div>
 
-        <span className="error-message">
-          {touched.computerUse && errors.computerUse && (
-            <span> {t("SurveyErrorRequired")} </span>
-          )}
-        </span>
-
-        <div className={ `question p-6 ${touched.householdComputers && errors.householdComputers ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-6` }>
           <h4 className="font-semibold">
             {t("SurveyHowManyOtherComputers")}
           </h4>
@@ -259,30 +252,20 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             options={HOUSEHOLD_COMPUTERS}
           />
         </div>
-        <span className="error-message">
-          {touched.householdComputers && errors.householdComputers && (
-            <span> {t("SurveyErrorRequired")} </span>
-          )}
-        </span>
 
-        <div className={ `question p-6 ${touched.internetAccess && errors.internetAccess ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-6` }>
           <h4 className="font-semibold">
-            {t("SurveyHowDoesHouseholdAccess")}
+            {t("SurveyHowReliableInternetAccess")}
           </h4>
-          <p>{t("SurveyCheckAll")}</p>
 
-          <CheckboxGroup
+          <RadioButtonGroup          
             value={values.internetAccess}
             name="internetAccess"
             options={INTERNET_ACCESS}
-            onChange={setFieldValue}
+            isHorizontal={false}
+            data-testid="reliableInternetRadioButtonGroup"
           />
         </div>
-        <span className="error-message">
-          {touched.internetAccess && errors.internetAccess && (
-            <span> {t("SurveyErrorRequired")} </span>
-          )}
-        </span>
 
         <div className="actions">
           <button
@@ -327,7 +310,7 @@ export function mapPropsToValues({
     race: race || [],
     isHispanicOrLatino: isHispanicOrLatino,
     computerUse: computerUse || [],
-    internetAccess: internetAccess || [],
+    internetAccess: internetAccess,
     householdMembers: householdMembers,
     householdComputers: householdComputers,
     computerDifficultyLevel: computerDifficultyLevel,
@@ -357,15 +340,15 @@ export function handleSubmit(values, { props }) {
 export const validationSchema = Yup.object().shape({
   race: Yup.array().min(1),
   isHispanicOrLatino: Yup.string().required(),
-  householdMembers: Yup.string().required().matches(/^[0-9]+[+]?$/),
+  householdMembers: Yup.string(),
   computerDifficultyLevel: Yup.number().min(1).required(),
   solveComputerProblemsLevel: Yup.number().min(1).required(),
   handleComputerProblemsLevel: Yup.number().min(1).required(),
   computerActingUpLevel: Yup.number().min(1).required(),
   complexComputerLevel: Yup.number().min(1).required(),
-  computerUse: Yup.array().min(1),
-  householdComputers: Yup.string().required().matches(/^[0-9]+[+]?$/),
-  internetAccess: Yup.array().min(1),
+  computerUse: Yup.array(),
+  householdComputers: Yup.string(),
+  internetAccess: Yup.string()
 })
 
 /**
