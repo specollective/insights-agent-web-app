@@ -84,9 +84,9 @@ describe('Survey Page', () => {
       const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
       const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people do you financially support or share finances with? This may include people who do not live with you.');
-      const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
-      const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
-      const internetAccessRadioButtonGroup = findFormSection(screen, 'How reliable is your Internet connection at home?*')
+      const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?');
+      const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?');
+      const internetAccessRadioButtonGroup = findFormSection(screen, 'How reliable is your Internet connection at home?')
 
       // asserting all expected options are present
       Object.keys(RACE_OPTIONS).forEach((raceOption) => {
@@ -149,9 +149,9 @@ describe('Survey Page', () => {
       const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
       const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people do you financially support or share finances with? This may include people who do not live with you.');
-      const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
-      const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
-      const internetAccessRadioButtonGroup = findFormSection(screen, 'How reliable is your Internet connection at home?*')
+      const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?');
+      const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?');
+      const internetAccessRadioButtonGroup = findFormSection(screen, 'How reliable is your Internet connection at home?')
 
       await act(() => {
         fireEvent.click(raceCheckboxGroup.getByText('White'));
@@ -200,9 +200,9 @@ describe('Survey Page', () => {
       const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
       const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people do you financially support or share finances with? This may include people who do not live with you.');
-      const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
-      const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
-      const internetAccessRadioButtonGroup = findFormSection(screen, 'How reliable is your Internet connection at home?*')
+      const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?');
+      const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?');
+      const internetAccessRadioButtonGroup = findFormSection(screen, 'How reliable is your Internet connection at home?')
 
       await act(() => {
         fireEvent.click(raceCheckboxGroup.getByText('Decline to identify'));
@@ -253,9 +253,9 @@ describe('Survey Page', () => {
       const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
       const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people do you financially support or share finances with? This may include people who do not live with you.');
-      const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
-      const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
-      const internetAccessRadioButtonGroup = findFormSection(screen, 'How reliable is your Internet connection at home?*')
+      const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?');
+      const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?');
+      const internetAccessRadioButtonGroup = findFormSection(screen, 'How reliable is your Internet connection at home?')
 
 
       await act(() => {
@@ -308,9 +308,9 @@ describe('Survey Page', () => {
       const computerActingRadioButtonGroup = findFormSection(screen, 'If my computer is acting up, I can find a way to get what I want without relying on others')
       const complexRadioButtonGroup = findFormSection(screen, 'I can complete a complex computer based task (e.g., setting up a printer or wi-fi)')
       const householdMembersSelectContainer = findFormSection(screen, 'How many people do you financially support or share finances with? This may include people who do not live with you.');
-      const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?*');
-      const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?*');
-      const internetAccessRadioButtonGroup = findFormSection(screen, 'How reliable is your Internet connection at home?*')
+      const computerUsageCheckbox = findFormSection(screen, 'What is the intended use of this computer?');
+      const householdComputersSelectContainer = findFormSection(screen, 'How many other computers (including tablets) do you have in your household?');
+      const internetAccessRadioButtonGroup = findFormSection(screen, 'How reliable is your Internet connection at home?')
 
       await act(() => {
         // Testing selecting value
