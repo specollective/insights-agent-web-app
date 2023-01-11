@@ -206,8 +206,11 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           <h4 className="font-semibold p-4">
             {t("SurveyAnswerAboutHousehold")}:
           </h4>
+          <p className="px-4">
+            {t("VoluntaryQuestions")}
+          </p>
         </div>
-        <div className={ `question p-6 ${touched.householdMembers && errors.householdMembers ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-6` }>
           <h5 className="font-semibold">
             {t("SurveyHowManyLiveInHousehold")}
           </h5>
@@ -222,13 +225,8 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             />
 
         </div>
-        <span className="error-message">
-          {touched.householdMembers && errors.householdMembers && (
-            <span>{t("SurveyErrorRequired")}</span>
-          )}
-        </span>
 
-        <div className={ `question p-6 ${touched.computerUse && errors.computerUse ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-6` }>
           <h4 className="font-semibold">
             {t("SurveyIntendedUse")}
           </h4>
@@ -243,13 +241,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           </div>
         </div>
 
-        <span className="error-message">
-          {touched.computerUse && errors.computerUse && (
-            <span> {t("SurveyErrorRequired")} </span>
-          )}
-        </span>
-
-        <div className={ `question p-6 ${touched.householdComputers && errors.householdComputers ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-6` }>
           <h4 className="font-semibold">
             {t("SurveyHowManyOtherComputers")}
           </h4>
@@ -260,13 +252,8 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             options={HOUSEHOLD_COMPUTERS}
           />
         </div>
-        <span className="error-message">
-          {touched.householdComputers && errors.householdComputers && (
-            <span> {t("SurveyErrorRequired")} </span>
-          )}
-        </span>
 
-        <div className={ `question p-6 ${touched.internetAccess && errors.internetAccess ? "border-2 border-[#FA0000]" : ""}` }>
+        <div className={ `question p-6` }>
           <h4 className="font-semibold">
             {t("SurveyHowReliableInternetAccess")}
           </h4>
@@ -279,11 +266,6 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             data-testid="reliableInternetRadioButtonGroup"
           />
         </div>
-        <span className="error-message">
-          {touched.internetAccess && errors.internetAccess && (
-            <span> {t("SurveyErrorRequired")} </span>
-          )}
-        </span>
 
         <div className="actions">
           <button
@@ -358,15 +340,15 @@ export function handleSubmit(values, { props }) {
 export const validationSchema = Yup.object().shape({
   race: Yup.array().min(1),
   isHispanicOrLatino: Yup.string().required(),
-  householdMembers: Yup.string().required().matches(/^[0-9]+[+]?$/),
+  householdMembers: Yup.string(),
   computerDifficultyLevel: Yup.number().min(1).required(),
   solveComputerProblemsLevel: Yup.number().min(1).required(),
   handleComputerProblemsLevel: Yup.number().min(1).required(),
   computerActingUpLevel: Yup.number().min(1).required(),
   complexComputerLevel: Yup.number().min(1).required(),
-  computerUse: Yup.array().min(1),
-  householdComputers: Yup.string().required().matches(/^[0-9]+[+]?$/),
-  internetAccess: Yup.string().required(),
+  computerUse: Yup.array(),
+  householdComputers: Yup.string(),
+  internetAccess: Yup.string()
 })
 
 /**
