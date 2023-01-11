@@ -21,7 +21,7 @@ function DownloadPage() {
         <button className="hidden lg:flex p-4 rounded border-black border-2 bg-[#37770D] w-350">
           <img src={downloadButton} className="pr-4" alt="download image arrow pointing down" />
           <a className="text-white text-extrabold" href={DOWNLOAD_URL}>
-            {t("DownloadMac")}
+            {t("DownloadWindows")}
           </a>
         </button>
       </section>
