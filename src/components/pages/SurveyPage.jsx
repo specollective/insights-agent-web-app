@@ -55,7 +55,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           <h4 className="font-semibold">{t("SurveySelectYourRace")}*</h4>
           <p>{t("SurveyCheckAll")}</p>
 
-          <div className="grid grid-cols-1 lg:grid lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-0 lg:grid lg:grid-cols-2 pt-12">
             <div>
               <CheckboxGroup
                 value={values.race}
@@ -233,13 +233,14 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             {t("SurveyIntendedUse")}
           </h4>
           <p>{t("SurveyCheckAll")}</p>
-
-          <CheckboxGroup
-            value={values.computerUse}
-            name="computerUse"
-            options={COMPUTER_USE}
-            onChange={setFieldValue}
-          />
+          <div className="pt-12">
+            <CheckboxGroup
+              value={values.computerUse}
+              name="computerUse"
+              options={COMPUTER_USE}
+              onChange={setFieldValue}
+            />
+          </div>
         </div>
 
         <span className="error-message">

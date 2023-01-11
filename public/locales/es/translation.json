@@ -66,7 +66,7 @@
   "SurveyHouseholdQuestionDetails":"(Ingrese cero si no está apoyando a otros ni recibiendo apoyo financiero de otros)",
   "SurveyIntendedUse": "¿Con qué intención utilizará este computador? *",
   "SurveyHowManyOtherComputers": "¿Cuántas otras computadoras (incluyendo tablets) tiene en su hogar?*",
-  "SurveyHowDoesHouseholdAccess": "How does your household access the internet?*",
+  "SurveyHowReliableInternetAccess": "¿Qué tan confiable es su conexión al Internet en casa?",
   "SurveyClearForm": "Limpiar formulario",
   "RaceOptions": {
     "white": "Blanco",
@@ -107,11 +107,11 @@
     "job-search": "Búsqueda de empleo"
   },
   "InternetAccessOptions": {
-    "cellular-data": "Cellular data plan for smartphone",
-    "broadband": "Broadband internet service",
-    "satellite": "Satellite internet service",
-    "dial-up": "Dial up internet service",
-    "other-service": "Some other service"
+    "not-reliable": "No es confiable en absoluto: a menudo tengo problemas para conectarme al Internet.",
+    "somewhat-reliable": "Algo confiable: a veces tengo problemas para conectarme al Internet.",
+    "reliable": "Confiable: rara vez tengo problemas para conectarme al Internet si tengo algún problema.",
+    "no-access": "No tengo internet en casa.",
+    "other": "Otro"
   },
   "CompetencyScale1": "1- Nada confiado",
   "CompetencyScale2": "2- Ligeramente confiado",
