@@ -231,7 +231,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             {t("SurveyIntendedUse")}
           </h4>
           <p>{t("SurveyCheckAll")}</p>
-          <div className="pt-12">
+          <div className="pt-4">
             <CheckboxGroup
               value={values.computerUse}
               name="computerUse"
