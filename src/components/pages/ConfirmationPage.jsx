@@ -56,7 +56,7 @@ function ConfirmationPage() {
           </p>
 
           <ul className='list-decimal px-8'>
-            <li>{t("ConfirmationNotReceivedFirst")}</li>
+          <li>{t("ConfirmationNotReceivedFirst")}</li>
             <li>{t("ConfirmationNotReceivedSecond")}</li>
           </ul>
         </div>

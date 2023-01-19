@@ -126,6 +126,7 @@ function LandingPage() {
             </div>
           </section>
         </div>
+
       </div>
       <SignUpForm />
     </main>

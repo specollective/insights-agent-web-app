@@ -6,6 +6,7 @@ import 'components/elements/SignUp.css'
 import * as Yup from 'yup'
 import { withFormik, Form, Field } from 'formik'
 import 'yup-phone'
+import { useLocation } from 'react-router-dom'
 
 /**
  * Defines a function to map Formik props to form values
@@ -52,12 +53,16 @@ export const validationSchema = Yup.object().shape({
  */
 export function SignUpForm({ touched, errors }) {
   const { t } = useTranslation()
+  const loc=useLocation()
 
   return (
     <Form>
+      {loc.pathname !=="/confirmation" &&
       <h1 className='text-center xl:text-xl'>
-        {t("LandingPageHeading")}
+         {t("LandingPageHeading")}
       </h1>
+}
+      
       <div
         className='grid md:grid md:grid-cols-2 py-8 md:px-24 lg:px-32 xl:px-72 justify-center xl:text-xl'
         id=''
