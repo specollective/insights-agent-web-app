@@ -10,7 +10,10 @@ module.exports = {
         "green" : {
           100: "#70B443",
         }
-      }
+      },
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif']
+      },
     },
   },
   plugins: [],

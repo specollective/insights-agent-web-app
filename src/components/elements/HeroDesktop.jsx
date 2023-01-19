@@ -6,12 +6,12 @@ export default function HeroDesktop() {
 
   return (
       <section className='flex justify-between items-end h-48 pb-5 pl-20 pr-32 bg-green-100'>
-        <h1 className='text-5xl text-white'>
+        <h1 className='text-5xl text-white font-poppins'>
           build <br/> 
 
           JUSTLY
         </h1>
-        <h2 className='text-4xl font-medium'>{t("InsightsAgentStudy")}</h2>
+        <h2 className='text-4xl font-semibold'>{t("InsightsAgentStudy")}</h2>
       </section>
 
   )
