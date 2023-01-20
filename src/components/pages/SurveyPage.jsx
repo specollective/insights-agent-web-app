@@ -31,7 +31,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
     e.preventDefault()
     resetForm()
     setValues(DEFAULT_FORM_VALUES);
-  }
+  } 
 
   return (
     <Form className="flex flex-col lg:mx-40 md:mx-20 lg:place-items-center py-20 px-4">
@@ -265,6 +265,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             isHorizontal={false}
             data-testid="reliableInternetRadioButtonGroup"
           />
+
         </div>
 
         <div className="actions">
@@ -366,9 +367,10 @@ function SurveyPage() {
   const { surveyId } = useParams()
 
   const handleSubmit = async (formData) => {
+    console.log('SUBMITING', formData)
     try {
-      await createSurveyResult({ surveyId, ...formData })
-      navigate('/success', { replace: true })
+      // await createSurveyResult({ surveyId, ...formData })
+      // navigate('/success', { replace: true })
     } catch (e) {
       console.log(e);
     }
