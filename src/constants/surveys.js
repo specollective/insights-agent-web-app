@@ -10,6 +10,7 @@ export const DEFAULT_FORM_VALUES = {
   handleComputerProblemsLevel: null,
   computerActingUpLevel: null,
   complexComputerLevel: null,
+  internetAccessOtherOptionText: '',
 }
 
 // TODO: Apply i18n localization
@@ -44,7 +45,7 @@ export const IS_HISPANIC_OPTIONS1 = (t) => [
 
 export const IS_HISPANIC_OPTIONS2 = (t) => [
   { value: 'cuban', label:  t("HispanicOptions.true3")},
-  { value: 'other', label:  t("HispanicOptions.true4")},
+  { value: 'other-hispanic', label:  t("HispanicOptions.true4")},
   { value: 'decline', label: t("HispanicOptions.decline")},
 ]
 

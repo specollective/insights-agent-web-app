@@ -306,6 +306,7 @@ export function mapPropsToValues({
   handleComputerProblemsLevel,
   computerActingUpLevel,
   complexComputerLevel,
+  internetAccessOtherOptionText
 }) {
   return {
     race: race || [],
@@ -319,6 +320,7 @@ export function mapPropsToValues({
     handleComputerProblemsLevel: handleComputerProblemsLevel,
     computerActingUpLevel: computerActingUpLevel,
     complexComputerLevel: complexComputerLevel,
+    internetAccessOtherOptionText: internetAccessOtherOptionText || ""
   };
 }
 
@@ -361,16 +363,27 @@ export const SurveyPageForm = withFormik({
   validationSchema,
 })(SurveyForm);
 
+function cleanupFormData(data) {
+  const cleanedData = { ...data }
+  if (cleanedData.internetAccess == 'other') {
+    cleanedData.internetAccess = cleanedData.internetAccessOtherOptionText
+  }
+
+  delete cleanedData.internetAccessOtherOptionText
+
+  return cleanedData
+}
+
 function SurveyPage() {
   // const auth = useAuth();
   const navigate = useNavigate()
   const { surveyId } = useParams()
 
   const handleSubmit = async (formData) => {
-    console.log('SUBMITING', formData)
+    const cleanFormData = cleanupFormData(formData) 
     try {
-      // await createSurveyResult({ surveyId, ...formData })
-      // navigate('/success', { replace: true })
+      await createSurveyResult({ surveyId, ...cleanFormData }) 
+      navigate('/success', { replace: true })
     } catch (e) {
       console.log(e);
     }

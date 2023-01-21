@@ -1,24 +1,7 @@
-import { Fragment, useState, useEffect } from 'react'
-import { Formik, Form, Field, useFormikContext } from 'formik';
+import { Field } from 'formik';
 
 function RadioButtonGroup ({ options, name, value, isHorizontal=false, ...rest }) {
   const horizontalClass =  isHorizontal ? "horizontal" : "";
-  const [selectedOption, setSelectedOption] = useState('');
-  const [otherOptionText, setOtherOptionText] = useState('');
-
-  const {
-    values,
-    touched,
-    setFieldValue,
-  } = useFormikContext();
-
-  console.log(values)
-
-  // useEffect(() => {
-  //   if (selectedOption == 'other') {
-  //     setFieldValue(name, otherOptionText)
-  //   }
-  // }, [selectedOption, otherOptionText])
 
   return (
     <div className={`radio-button-group ${horizontalClass}`}>
@@ -34,7 +17,6 @@ function RadioButtonGroup ({ options, name, value, isHorizontal=false, ...rest }
               data-testid={`radio-button-${name}-${option.value}`}
               name={name}
               value={option.value}
-              onClick={() => setSelectedOption(value)(option.value)}
             />
             <label className="mt-4" htmlFor={id}>
               { option.label }
@@ -47,9 +29,7 @@ function RadioButtonGroup ({ options, name, value, isHorizontal=false, ...rest }
             {option.value === "other" &&
               <Field className="border-b-2 border-black" size="40"
                 type="text"
-                name={`${name}-other-text`}
-                value={otherOptionText}
-                onChange={({ target: { value } }) => setOtherOptionText(value)}
+                name={`${name}OtherOptionText`}
               />
             }
 
