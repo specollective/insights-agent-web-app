@@ -26,12 +26,16 @@ function RadioButtonGroup ({ options, name, value, isHorizontal=false, ...rest }
               <label htmlFor={id}>{ option.secondaryLabel }</label>
             ) : ""}
 
-            {option.value === "other" &&
-              <Field className="border-b-2 border-black" size="40"
+            {/* {option.value === "other" &&
+              <Field 
+                className="border-b-2 border-black" 
+                size="40"
                 type="text"
+                maxLength={50}
+                placeholder="50 character limit"
                 name={`${name}OtherOptionText`}
               />
-            }
+            } */}
 
           </div>
         )

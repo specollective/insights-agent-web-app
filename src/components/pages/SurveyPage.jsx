@@ -10,6 +10,7 @@ import * as Yup from "yup";
 import CheckboxGroup from "components/elements/CheckboxGroup";
 import RadioButtonGroup from "components/elements/RadioButtonGroup";
 import DropdownGroup from "components/elements/DropdownGroup";
+import TextInputGroup from "components/elements/TextInputGroup"
 
 function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetForm }) {
   const { t } = useTranslation()
@@ -33,6 +34,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
     setValues(DEFAULT_FORM_VALUES);
   } 
 
+  console.log(values)
   return (
     <Form className="flex flex-col lg:mx-40 md:mx-20 lg:place-items-center py-20 px-4">
       <div className=" bg-[#AECA9B] rounded">
@@ -266,6 +268,14 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             data-testid="reliableInternetRadioButtonGroup"
           />
 
+          {/* {values.internetAccess === "other" &&
+            <TextInputGroup 
+              name="internetAccessOtherOptionText"
+              maxLength={50}
+              placeholder="50 character limit"
+            />
+          } */}
+          
         </div>
 
         <div className="actions">
@@ -363,16 +373,6 @@ export const SurveyPageForm = withFormik({
   validationSchema,
 })(SurveyForm);
 
-function cleanupFormData(data) {
-  const cleanedData = { ...data }
-  if (cleanedData.internetAccess == 'other') {
-    cleanedData.internetAccess = cleanedData.internetAccessOtherOptionText
-  }
-
-  delete cleanedData.internetAccessOtherOptionText
-
-  return cleanedData
-}
 
 function SurveyPage() {
   // const auth = useAuth();
@@ -380,9 +380,10 @@ function SurveyPage() {
   const { surveyId } = useParams()
 
   const handleSubmit = async (formData) => {
-    const cleanFormData = cleanupFormData(formData) 
+    // const cleanFormData = cleanupFormData(formData) 
     try {
-      await createSurveyResult({ surveyId, ...cleanFormData }) 
+      await createSurveyResult({ surveyId, ...formData }) 
+      // await createSurveyResult({ surveyId, ...cleanFormData }) 
       navigate('/success', { replace: true })
     } catch (e) {
       console.log(e);

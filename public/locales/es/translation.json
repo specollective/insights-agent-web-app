@@ -69,6 +69,7 @@
   "SurveyHowManyOtherComputers": "¿Cuántas otras computadoras (incluyendo tablets) tiene en su hogar?",
   "SurveyHowReliableInternetAccess": "¿Qué tan confiable es su conexión al Internet en casa?",
   "SurveyClearForm": "Limpiar formulario",
+  "SurveyCharacterLimit":"límite de 50 caracteres",
   "RaceOptions": {
     "white": "Blanco",
     "black": "Negro o Afroamericano",
