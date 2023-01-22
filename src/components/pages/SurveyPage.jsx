@@ -268,13 +268,13 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             data-testid="reliableInternetRadioButtonGroup"
           />
 
-          {/* {values.internetAccess === "other" &&
+          {values.internetAccess === "other" &&
             <TextInputGroup 
               name="internetAccessOtherOptionText"
               maxLength={50}
-              placeholder="50 character limit"
+              placeholder={t("SurveyCharacterLimit")}
             />
-          } */}
+          }
           
         </div>
 
