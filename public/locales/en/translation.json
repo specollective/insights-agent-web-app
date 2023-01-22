@@ -69,7 +69,7 @@
   "SurveyHowManyOtherComputers": "How many other computers (including tablets) do you have in your household?",
   "SurveyHowReliableInternetAccess": "How reliable is your Internet connection at home?",
   "SurveyClearForm": "Clear Form",
-  "SurveyCharacterLimit":"50 character limit",
+  "SurveyCharacterLimit":"100 character limit",
   "RaceOptions": {
     "white": "White",
     "black": "Black or African American",

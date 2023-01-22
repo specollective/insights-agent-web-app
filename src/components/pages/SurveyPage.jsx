@@ -271,7 +271,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
           {values.internetAccess === "other" &&
             <TextInputGroup 
               name="internetAccessOtherOptionText"
-              maxLength={50}
+              maxLength={100}
               placeholder={t("SurveyCharacterLimit")}
             />
           }
