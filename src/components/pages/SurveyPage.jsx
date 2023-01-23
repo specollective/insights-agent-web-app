@@ -34,7 +34,6 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
     setValues(DEFAULT_FORM_VALUES);
   } 
 
-  console.log(values)
   return (
     <Form className="flex flex-col lg:mx-40 md:mx-20 lg:place-items-center py-20 px-4">
       <div className=" bg-[#AECA9B] rounded">
@@ -375,15 +374,13 @@ export const SurveyPageForm = withFormik({
 
 
 function SurveyPage() {
-  // const auth = useAuth();
+  const auth = useAuth();
   const navigate = useNavigate()
   const { surveyId } = useParams()
 
   const handleSubmit = async (formData) => {
-    // const cleanFormData = cleanupFormData(formData) 
     try {
       await createSurveyResult({ surveyId, ...formData }) 
-      // await createSurveyResult({ surveyId, ...cleanFormData }) 
       navigate('/success', { replace: true })
     } catch (e) {
       console.log(e);
@@ -391,8 +388,8 @@ function SurveyPage() {
   };
 
   // TODO: Move into useAuth
-  // if (!auth.user) return <div>Loading</div>
-  // if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
+  if (!auth.user) return <div>Loading</div>
+  if (!auth.user.isAuthenticated) return <div>Unauthenticated</div>
 
   return (
     <div className="page">
