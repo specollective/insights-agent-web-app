@@ -134,6 +134,7 @@ describe('Survey Page', () => {
         handleComputerProblemsLevel: '4',
         computerActingUpLevel: '1',
         complexComputerLevel: '4',
+        internetAccessOtherOptionText: "",
       });
     });
 
@@ -186,6 +187,7 @@ describe('Survey Page', () => {
         handleComputerProblemsLevel: '4',
         computerActingUpLevel: '1',
         complexComputerLevel: '4',
+        internetAccessOtherOptionText: "",
       });
     });
     // Paused tests temporarily for mock global items error
@@ -236,6 +238,7 @@ describe('Survey Page', () => {
         handleComputerProblemsLevel: '4',
         computerActingUpLevel: '1',
         complexComputerLevel: '4',
+        internetAccessOtherOptionText: "",
       });
     });
   });
@@ -291,6 +294,7 @@ describe('Survey Page', () => {
         handleComputerProblemsLevel: '4',
         computerActingUpLevel: '1',
         complexComputerLevel: '4',
+        internetAccessOtherOptionText: "",
       });
     });
   });
@@ -345,6 +349,7 @@ describe('Survey Page', () => {
         handleComputerProblemsLevel: '4',
         computerActingUpLevel: '1',
         complexComputerLevel: '4',
+        internetAccessOtherOptionText: "",
       });
     });
   });

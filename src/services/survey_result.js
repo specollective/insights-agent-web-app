@@ -9,6 +9,10 @@ export function coerceOptionToNumeric(value) {
   }
 }
 
+export function  coerceOptionFromOther(mainQuestionData, otherInput ) {
+  return mainQuestionData === 'other' ? otherInput : mainQuestionData;
+}
+
 export async function createSurveyResult(surveyData) {
   const headers = {  ...DEFAULT_FETCH_OPTIONS.headers }
 
@@ -28,7 +32,7 @@ export async function createSurveyResult(surveyData) {
       survey_id: surveyData.surveyId,
       hispanic_origin: surveyData.isHispanicOrLatino,
       computer_use: surveyData.computerUse.join(','),
-      internet_access: surveyData.internetAccess,
+      internet_access: coerceOptionFromOther(surveyData.internetAccess, surveyData.internetAccessOtherOptionText),
       household_members: coerceOptionToNumeric(surveyData.householdMembers),
       household_computers: coerceOptionToNumeric(surveyData.householdComputers),
       computer_difficulty_level: surveyData.computerDifficultyLevel,

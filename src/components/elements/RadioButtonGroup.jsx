@@ -1,8 +1,8 @@
-import { Formik, Form, Field } from 'formik';
-import { Fragment } from 'react'
+import { Field } from 'formik';
 
 function RadioButtonGroup ({ options, name, value, isHorizontal=false, ...rest }) {
   const horizontalClass =  isHorizontal ? "horizontal" : "";
+
   return (
     <div className={`radio-button-group ${horizontalClass}`}>
       { options.map(option => {
@@ -25,6 +25,7 @@ function RadioButtonGroup ({ options, name, value, isHorizontal=false, ...rest }
             {option.secondaryLabel ? (
               <label htmlFor={id}>{ option.secondaryLabel }</label>
             ) : ""}
+
           </div>
         )
       })}

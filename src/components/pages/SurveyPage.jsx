@@ -10,6 +10,7 @@ import * as Yup from "yup";
 import CheckboxGroup from "components/elements/CheckboxGroup";
 import RadioButtonGroup from "components/elements/RadioButtonGroup";
 import DropdownGroup from "components/elements/DropdownGroup";
+import TextInputGroup from "components/elements/TextInputGroup"
 
 function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetForm }) {
   const { t } = useTranslation()
@@ -31,7 +32,7 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
     e.preventDefault()
     resetForm()
     setValues(DEFAULT_FORM_VALUES);
-  }
+  } 
 
   return (
     <Form className="flex flex-col lg:mx-40 md:mx-20 lg:place-items-center py-20 px-4">
@@ -258,13 +259,22 @@ function SurveyForm({ touched, errors, values, setFieldValue, setValues, resetFo
             {t("SurveyHowReliableInternetAccess")}
           </h4>
 
-          <RadioButtonGroup          
+          <RadioButtonGroup
             value={values.internetAccess}
             name="internetAccess"
             options={INTERNET_ACCESS}
             isHorizontal={false}
             data-testid="reliableInternetRadioButtonGroup"
           />
+
+          {values.internetAccess === "other" &&
+            <TextInputGroup 
+              name="internetAccessOtherOptionText"
+              maxLength={100}
+              placeholder={t("SurveyCharacterLimit")}
+            />
+          }
+          
         </div>
 
         <div className="actions">
@@ -305,6 +315,7 @@ export function mapPropsToValues({
   handleComputerProblemsLevel,
   computerActingUpLevel,
   complexComputerLevel,
+  internetAccessOtherOptionText
 }) {
   return {
     race: race || [],
@@ -318,6 +329,7 @@ export function mapPropsToValues({
     handleComputerProblemsLevel: handleComputerProblemsLevel,
     computerActingUpLevel: computerActingUpLevel,
     complexComputerLevel: complexComputerLevel,
+    internetAccessOtherOptionText: internetAccessOtherOptionText || ""
   };
 }
 
@@ -360,6 +372,7 @@ export const SurveyPageForm = withFormik({
   validationSchema,
 })(SurveyForm);
 
+
 function SurveyPage() {
   const auth = useAuth();
   const navigate = useNavigate()
@@ -367,7 +380,7 @@ function SurveyPage() {
 
   const handleSubmit = async (formData) => {
     try {
-      await createSurveyResult({ surveyId, ...formData })
+      await createSurveyResult({ surveyId, ...formData }) 
       navigate('/success', { replace: true })
     } catch (e) {
       console.log(e);
